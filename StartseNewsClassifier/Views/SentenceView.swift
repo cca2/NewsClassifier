@@ -37,9 +37,10 @@ struct SentenceView: View {
 //                }.padding(.top)
             }
             .overlay(RoundedRectangle(cornerRadius: 20.0).stroke(Color.blue, lineWidth: 1))
+            .padding(.horizontal)
         }
         .fixedSize(horizontal: false, vertical: true)
-        .frame(height: 400, alignment: .leading)
+        .frame(height: 350, alignment: .leading)
     }
     
     init(sentenceViewModel:SentenceViewModel) {

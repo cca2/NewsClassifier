@@ -39,22 +39,50 @@ struct ContentView: View {
         
         return VStack {
             HStack {
-                Button(action: classifyAsCustomerSegment, label: {Text("#Segmento")})
-                Button(action: classifyAsProblem, label: {Text("#Problema")})
-            }
+                VStack {
+                    Text("#Seg")
+                    Text("mento")
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                    .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                
+                VStack {
+                    Text("#Problema")
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                
+                VStack {
+                    Text("#Solução")
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+            }.padding(.top)
 
             SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.sentenceList.sentenceList[self.currentSentenceIndex]))
             .offset(x: offset.width, y: offset.height)
             .gesture(drag)
-            .animation(.spring())
+                .animation(.spring()).padding()
                         
             HStack {
-                Button(action: classifyAsSolution, label: {Text("#Solução")})
-                Button(action: classifyAsUVP, label: {Text("#UVP")})
-            }.padding(.top)
-
-        }.frame(width: 250, height: 400, alignment: .center)
-//        .overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.red, lineWidth: 1))
+                VStack {
+                    Text("#UVP")
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                
+                VStack {
+                    Text("#In")
+                    Text("vestimento")
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                
+                VStack {
+                    Text("#Parceria").padding()
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+            }.padding(.bottom)
+            
+            HStack {
+                Text("\(currentSentenceIndex)/\(sentenceList.sentenceList.count)")
+            }.padding(.bottom)
+        }.frame(width: 400, height: 400, alignment: .center)
     }
     
     func nextNews() {
