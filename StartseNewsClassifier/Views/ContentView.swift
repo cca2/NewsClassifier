@@ -26,6 +26,12 @@ struct ContentView: View {
                 } else if $0.translation.width > 50 {
                     self.offset = .init(width: 0, height: 0)
                     self.previousNews()
+                } else if $0.translation.height < 0 {
+                    self.offset = .init(width: 0, height: 0)
+                    self.previousNews()
+                } else if $0.translation.height > 50 {
+                    self.offset = .init(width: 0, height: 0)
+                    self.nextNews()
                 } else {
                     self.offset = .zero
                 }
@@ -47,7 +53,7 @@ struct ContentView: View {
                 Button(action: classifyAsUVP, label: {Text("#UVP")})
             }.padding(.top)
 
-        }.frame(width: 200, height: 400, alignment: .center)
+        }.frame(width: 250, height: 400, alignment: .center)
 //        .overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.red, lineWidth: 1))
     }
     
