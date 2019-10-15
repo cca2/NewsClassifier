@@ -18,7 +18,6 @@ struct SentenceView: View {
         VStack {
             
             VStack () {
-//                Text(sentenceViewModel.classification).bold()
                 Text(sentenceViewModel.text).padding()
                 HStack {
                     Button(action: editSentence, label: {Text("editar")}).padding([.trailing, .bottom])
