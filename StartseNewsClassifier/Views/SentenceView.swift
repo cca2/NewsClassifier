@@ -20,21 +20,9 @@ struct SentenceView: View {
             VStack () {
 //                Text(sentenceViewModel.classification).bold()
                 Text(sentenceViewModel.text).padding()
-//                HStack {
-//                    Button(action: classifyAsCustomerSegment, label: {Text("#Segmento")})
-//                    Button(action: classifyAsProblem, label: {Text("#Problema")})
-//                }.padding(.top)
-//
-//                HStack {
-//                    Button(action: classifyAsSolution, label: {Text("#Solução")})
-//                    Button(action: classifyAsUVP, label: {Text("#UVP")})
-//                }.padding(.top)
-//
-//                HStack {
-//                    Button(action: classifyAsUnfairAdvantage, label: {Text("#Vantagem")})
-//                    Button(action: classifyAsInvestiment, label: {Text("#Investimento")})
-//                    Button(action: classifyAsPartnership, label: {Text("#Parceria")})
-//                }.padding(.top)
+                HStack {
+                    Button(action: editSentence, label: {Text("editar")}).padding([.trailing, .bottom])
+                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
             .overlay(RoundedRectangle(cornerRadius: 20.0).stroke(Color.blue, lineWidth: 1))
             .padding(.horizontal)
@@ -46,6 +34,8 @@ struct SentenceView: View {
     init(sentenceViewModel:SentenceViewModel) {
         self.sentenceViewModel = sentenceViewModel
     }
+    
+    func editSentence() {}
     
     func classifyAsCustomerSegment() {
         self.sentenceViewModel.classifySentenceAs(tag: "#CustomerSegment")
@@ -78,6 +68,6 @@ struct SentenceView: View {
 
 struct SentenceView_Previews: PreviewProvider {
     static var previews: some View {
-        SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: SentenceModel(news: NewsModel(title: "teste", link: "http://www.cin.ufpe.br", text: "tesstando"), text: "texto")))
+        SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: SentenceModel(news: NewsModel(title: "teste", link: "http://www.cin.ufpe.br", text: "tesstando"), text: "Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.")))
     }
 }
