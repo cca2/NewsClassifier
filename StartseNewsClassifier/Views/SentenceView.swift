@@ -20,20 +20,20 @@ struct SentenceView: View {
             VStack () {
                 Group {
                     if !isEditing {
-                        Text(sentenceViewModel.sentence.text).padding()
+                        Text(sentenceViewModel.sentence.text).foregroundColor(.pink).padding()
                     }else {
                         TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
                     }
                 }
                 HStack {
                     if !isEditing {
-                        Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing])
+                        Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing]).foregroundColor(.pink)
                     }else {
                         Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
-            .overlay(RoundedRectangle(cornerRadius: 20.0).stroke(Color.blue, lineWidth: 1))
+            .overlay(RoundedRectangle(cornerRadius: 20.0).stroke(Color.pink, lineWidth: 1))
             .padding(.horizontal)
         }
         .fixedSize(horizontal: false, vertical: true)

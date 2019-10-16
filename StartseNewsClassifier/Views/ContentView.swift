@@ -18,40 +18,42 @@ struct ContentView: View {
 
     var body: some View {
         let drag = DragGesture()
-            .onChanged { self.offset = $0.translation }
+            .onChanged {
+                self.offset = $0.translation
+            }
+            
             .onEnded {
-                if $0.translation.width < -50 {
+                if ($0.translation.height < 50 && $0.translation.height > -50) {
+                    if $0.translation.width < -50 {
+                        self.nextNews()
+                        self.offset = .init(width: 0, height: 0)
+                    }else if $0.translation.width > 50 {
+                        self.previousNews()
+                        self.offset = .init(width: 0, height: 0)
+                    }
+                }else if ($0.translation.height > 50 || $0.translation.height < -50) || ($0.translation.width < -50 || $0.translation.height > 50) {
+                    self.classifySentence(offset: $0.translation)
                     self.offset = .init(width: 0, height: 0)
-                    self.nextNews()
-                } else if $0.translation.width > 50 {
-                    self.offset = .init(width: 0, height: 0)
-                    self.previousNews()
-                } else if $0.translation.height < 0 {
-                    self.offset = .init(width: 0, height: 0)
-                    self.previousNews()
-                } else if $0.translation.height > 50 {
-                    self.offset = .init(width: 0, height: 0)
-                    self.nextNews()
-                } else {
+                }else {
                     self.offset = .zero
-                }
+                }                
         }
         
         return VStack {
             HStack {
                 VStack {
-                    Text("#Seg")
-                    Text("mento")
+                    Text("#Seg").bold()
+                    Text("mento").bold()
                 }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.red).foregroundColor(.white)
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
                 
                 VStack {
-                    Text("#Problema")
+                    Text("#Problema").bold()
                 }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.green).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.green, lineWidth: 1))
                 
                 VStack {
-                    Text("#Solução")
+                    Text("#Solução").bold()
                 }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.orange).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
             }.padding(.top)
@@ -63,18 +65,18 @@ struct ContentView: View {
                         
             HStack {
                 VStack {
-                    Text("#UVP")
+                    Text("#UVP").bold()
                 }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.gray).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.gray, lineWidth: 1))
                 
                 VStack {
-                    Text("#In")
+                    Text("#In").bold()
                     Text("vestimento")
                 }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.purple).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.purple, lineWidth: 1))
                 
                 VStack {
-                    Text("#Parceria").padding()
+                    Text("#Parceria").bold()
                 }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.black).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
             }.padding(.bottom)
@@ -83,6 +85,23 @@ struct ContentView: View {
                 Text("\(currentSentenceIndex)/\(sentenceList.sentenceList.count)")
             }.padding(.bottom)
         }.frame(width: 400, height: 400, alignment: .center)
+    }
+    
+    func classifySentence(offset:CGSize) {
+        if offset.height < -50  && offset.width < -50 {
+            classifyAsCustomerSegment()
+        }else if offset.height > 50  && offset.width < -50 {
+            classifyAsUVP()
+        }else if offset.height < -50  && offset.width > 50 {
+            classifyAsSolution()
+        }else if offset.height > 50  && offset.width > 50 {
+            classifyAsPartnership()
+        }else if offset.height > 50 {
+            classifyAsInvestment()
+        }else {
+            classifyAsProblem()
+        }
+        currentSentenceIndex = currentSentenceIndex + 1
     }
     
     func nextNews() {
@@ -96,10 +115,29 @@ struct ContentView: View {
         currentSentenceIndex = currentSentenceIndex - 1
     }
     
-    func classifyAsCustomerSegment() {}
-    func classifyAsProblem() {}
-    func classifyAsSolution() {}
-    func classifyAsUVP() {}
+    func classifyAsCustomerSegment() {
+        print (">>> SEGMENT <<<")
+    }
+    
+    func classifyAsProblem() {
+        print (">>> PROBLEM <<<")
+    }
+    
+    func classifyAsSolution() {
+        print (">>> SOLUTION <<<")
+    }
+    
+    func classifyAsUVP() {
+        print(">>> UVP <<<")
+    }
+    
+    func classifyAsPartnership () {
+        print(">>> PARTNERSHIP <<<")
+    }
+    
+    func classifyAsInvestment() {
+        print(">>> INVESTMENT <<<")
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
