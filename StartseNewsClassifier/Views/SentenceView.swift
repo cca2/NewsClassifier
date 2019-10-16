@@ -21,11 +21,13 @@ struct SentenceView: View {
                     if !isEditing {
                         Text(sentenceViewModel.text).padding()
                     }else {
-                        TextField("", text: $text).padding().multilineTextAlignment(.leading)
+                        TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
                     }
                 }
                 HStack {
-                    Button(action: editSentence, label: {Text("editar")}).padding([.trailing, .bottom])
+                    Toggle(isOn: $isEditing) {
+                        Text("Editar")
+                    }.padding([.trailing, .bottom, .leading])
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
             .overlay(RoundedRectangle(cornerRadius: 20.0).stroke(Color.blue, lineWidth: 1))
