@@ -113,29 +113,36 @@ struct ContentView: View {
             return
         }
         currentSentenceIndex = currentSentenceIndex - 1
+        print (self.sentenceList.sentenceList[currentSentenceIndex].classification)
     }
     
     func classifyAsCustomerSegment() {
+        self.sentenceList.sentenceList[currentSentenceIndex].classification = "#Segment"
         print (">>> SEGMENT <<<")
     }
     
     func classifyAsProblem() {
+        self.sentenceList.sentenceList[currentSentenceIndex].classification = "#Problem"
         print (">>> PROBLEM <<<")
     }
     
     func classifyAsSolution() {
+        self.sentenceList.sentenceList[currentSentenceIndex].classification = "#Solution"
         print (">>> SOLUTION <<<")
     }
     
     func classifyAsUVP() {
+        self.sentenceList.sentenceList[currentSentenceIndex].classification = "#UVP"
         print(">>> UVP <<<")
     }
     
     func classifyAsPartnership () {
+        self.sentenceList.sentenceList[currentSentenceIndex].classification = "#Partnership"
         print(">>> PARTNERSHIP <<<")
     }
     
     func classifyAsInvestment() {
+        self.sentenceList.sentenceList[currentSentenceIndex].classification = "#Investment"
         print(">>> INVESTMENT <<<")
     }
 }
