@@ -20,7 +20,7 @@ struct SentenceView: View {
             VStack () {
                 Group {
                     if !isEditing {
-                        Text(sentenceViewModel.text).padding()
+                        Text(sentenceViewModel.sentence.text).padding()
                     }else {
                         TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
                     }
@@ -29,7 +29,7 @@ struct SentenceView: View {
                     if !isEditing {
                         Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing])
                     }else {
-                        Button(action: editSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
+                        Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
@@ -53,7 +53,12 @@ struct SentenceView: View {
     
     func editSentence() {
         isEditing.toggle()
-        text = sentenceViewModel.text
+        text = sentenceViewModel.sentence.text
+    }
+    
+    func saveEditedSentence() {
+        isEditing.toggle()
+        sentenceViewModel.sentence.text = text
     }
     
     func classifyAsCustomerSegment() {

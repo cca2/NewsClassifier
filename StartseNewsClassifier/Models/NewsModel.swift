@@ -24,7 +24,7 @@ class NewsModel {
 
 class SentenceModel {
     let news:NewsModel
-    let text:String
+    var text:String
     var classification:String = ">>> NONE <<<"
     
     init(news:NewsModel, text:String) {

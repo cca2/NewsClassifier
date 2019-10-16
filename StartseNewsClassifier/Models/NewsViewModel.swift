@@ -32,20 +32,15 @@ class NewsViewModel: Identifiable {
 }
 
 class SentenceViewModel: ObservableObject {
-    let sentence:SentenceModel
-    
-    @Published var classification:String = ""
-    @Published var text:String = "Testando"
+    @Published var sentence:SentenceModel
     
     
     init(sentenceModel:SentenceModel) {
         self.sentence = sentenceModel
-        self.text = sentence.text
     }
     
     func classifySentenceAs(tag:String) {
-        self.classification = tag
-        self.sentence.classification = tag
+        sentence.classification = tag
     }
 }
 
