@@ -35,7 +35,7 @@ class SentenceViewModel: ObservableObject {
     let sentence:SentenceModel
     
     @Published var classification:String = ""
-    var text:String = "Testando"
+    @Published var text:String = "Testando"
     
     
     init(sentenceModel:SentenceModel) {

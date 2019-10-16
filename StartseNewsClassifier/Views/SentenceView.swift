@@ -9,16 +9,21 @@
 import SwiftUI
 
 struct SentenceView: View {
-//    @State var classification:String = ">>> NENHUMA <<<"
-//    @State var text:String = "Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000."
-    
     @ObservedObject private var sentenceViewModel:SentenceViewModel
-    
+    @State var isEditing = false
+    @State private var text:String = "Não consigo inicializar o TextField. Ainda não sou um expert em swiftui."
+
     var body: some View {
         VStack {
             
             VStack () {
-                Text(sentenceViewModel.text).padding()
+                Group {
+                    if !isEditing {
+                        Text(sentenceViewModel.text).padding()
+                    }else {
+                        TextField("", text: $text).padding().multilineTextAlignment(.leading)
+                    }
+                }
                 HStack {
                     Button(action: editSentence, label: {Text("editar")}).padding([.trailing, .bottom])
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
@@ -34,7 +39,17 @@ struct SentenceView: View {
         self.sentenceViewModel = sentenceViewModel
     }
     
-    func editSentence() {}
+    func sentenceCommit() {
+        print("sentenceCommited")
+    }
+    func changedSentence(hasFinished:Bool) {
+        print ("finalizou edição")
+    }
+    
+    func editSentence() {
+        isEditing = true
+        text = sentenceViewModel.text
+    }
     
     func classifyAsCustomerSegment() {
         self.sentenceViewModel.classifySentenceAs(tag: "#CustomerSegment")
