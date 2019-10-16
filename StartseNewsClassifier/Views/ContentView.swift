@@ -42,18 +42,18 @@ struct ContentView: View {
                 VStack {
                     Text("#Seg")
                     Text("mento")
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.red).foregroundColor(.white)
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
                 
                 VStack {
                     Text("#Problema")
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.green).foregroundColor(.white)
+                .overlay(Rectangle().stroke(Color.green, lineWidth: 1))
                 
                 VStack {
                     Text("#Solução")
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.orange).foregroundColor(.white)
+                .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
             }.padding(.top)
 
             SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.sentenceList.sentenceList[self.currentSentenceIndex]))
@@ -64,19 +64,19 @@ struct ContentView: View {
             HStack {
                 VStack {
                     Text("#UVP")
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.gray).foregroundColor(.white)
+                .overlay(Rectangle().stroke(Color.gray, lineWidth: 1))
                 
                 VStack {
                     Text("#In")
                     Text("vestimento")
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.purple).foregroundColor(.white)
+                .overlay(Rectangle().stroke(Color.purple, lineWidth: 1))
                 
                 VStack {
                     Text("#Parceria").padding()
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
+                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.black).foregroundColor(.white)
+                .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
             }.padding(.bottom)
             
             HStack {
