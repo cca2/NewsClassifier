@@ -10,31 +10,30 @@ import SwiftUI
 
 struct SentenceView: View {
     @ObservedObject private var sentenceViewModel:SentenceViewModel
-    @State var isEditing:Bool = false
-    
-    @State private var text:String = "Não consigo inicializar o TextField."
 
+    @State var isEditing:Bool = false
+    @State private var text:String = "Não consigo inicializar o TextField."
+    private var sentenceColor:Color = .pink
+        
     var body: some View {
         VStack {
             
             VStack () {
                 Group {
                     if !isEditing {
-                        Text(sentenceViewModel.sentence.text).foregroundColor(.pink).padding()
+                        Text(sentenceViewModel.sentence.text).foregroundColor(sentenceColor).padding()
                     }else {
                         TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
                     }
                 }
                 HStack {
                     if !isEditing {
-                        Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing]).foregroundColor(.pink)
+                        Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing]).foregroundColor(sentenceColor)
                     }else {
                         Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
-            .overlay(RoundedRectangle(cornerRadius: 20.0).stroke(Color.pink, lineWidth: 1))
-            .padding(.horizontal)
         }
         .fixedSize(horizontal: false, vertical: true)
         .frame(height: 350, alignment: .leading)
@@ -42,6 +41,20 @@ struct SentenceView: View {
     
     init(sentenceViewModel:SentenceViewModel) {
         self.sentenceViewModel = sentenceViewModel
+        let classification = self.sentenceViewModel.sentence.classification
+        if classification == "#Segment" {
+            self.sentenceColor = .red
+        }else if classification == "#Problem" {
+            self.sentenceColor = .green
+        }else if classification == "#Solution" {
+            self.sentenceColor = .orange
+        }else if classification == "#UVP" {
+            self.sentenceColor = .gray
+        }else if classification == "#Investment" {
+            self.sentenceColor = .purple
+        }else if classification == "#Partnership" {
+            self.sentenceColor = .black
+        }
     }
     
     func sentenceCommit() {
