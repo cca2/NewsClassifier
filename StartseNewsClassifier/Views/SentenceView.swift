@@ -10,8 +10,9 @@ import SwiftUI
 
 struct SentenceView: View {
     @ObservedObject private var sentenceViewModel:SentenceViewModel
-    @State var isEditing = false
-    @State private var text:String = "Não consigo inicializar o TextField. Ainda não sou um expert em swiftui."
+    @State var isEditing:Bool = false
+    
+    @State private var text:String = "Não consigo inicializar o TextField."
 
     var body: some View {
         VStack {
@@ -25,9 +26,11 @@ struct SentenceView: View {
                     }
                 }
                 HStack {
-                    Toggle(isOn: $isEditing) {
-                        Text("Editar")
-                    }.padding([.trailing, .bottom, .leading])
+                    if !isEditing {
+                        Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing])
+                    }else {
+                        Button(action: editSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
+                    }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
             .overlay(RoundedRectangle(cornerRadius: 20.0).stroke(Color.blue, lineWidth: 1))
@@ -49,7 +52,7 @@ struct SentenceView: View {
     }
     
     func editSentence() {
-        isEditing = true
+        isEditing.toggle()
         text = sentenceViewModel.text
     }
     
