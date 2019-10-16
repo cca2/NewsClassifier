@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var currentSentenceIndex = 0
 
     private let sentenceList = SentenceListViewModel()
+    private let classificationHeight:CGFloat = 70
 
     var body: some View {
         let drag = DragGesture()
@@ -30,6 +31,8 @@ struct ContentView: View {
                     }else if $0.translation.width > 50 {
                         self.previousNews()
                         self.offset = .init(width: 0, height: 0)
+                    }else {
+                        self.offset = .zero
                     }
                 }else if ($0.translation.height > 50 || $0.translation.height < -50) || ($0.translation.width < -50 || $0.translation.height > 50) {
                     self.classifySentence(offset: $0.translation)
@@ -44,17 +47,17 @@ struct ContentView: View {
                 VStack {
                     Text("#Seg").bold()
                     Text("mento").bold()
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.red).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.red).foregroundColor(.white)
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
                 
                 VStack {
                     Text("#Problema").bold()
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.green).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.green).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.green, lineWidth: 1))
                 
                 VStack {
                     Text("#Solução").bold()
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.orange).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.orange).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
             }.padding(.top)
 
@@ -66,18 +69,18 @@ struct ContentView: View {
             HStack {
                 VStack {
                     Text("#UVP").bold()
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.gray).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.gray).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.gray, lineWidth: 1))
                 
                 VStack {
                     Text("#In").bold()
                     Text("vestimento")
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.purple).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.purple).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.purple, lineWidth: 1))
                 
                 VStack {
                     Text("#Parceria").bold()
-                }.frame(width: 120, height:100, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.black).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.black).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
             }.padding(.bottom)
             
