@@ -21,25 +21,32 @@ struct SentenceView: View {
             VStack () {
                 Group {
                     if !isEditing {
-                        Text(sentenceViewModel.sentence.text).foregroundColor(sentenceColor).padding()
+                        Text(sentenceViewModel.sentence.text).foregroundColor(sentenceColor).padding().contextMenu() {
+                            Button(action: editSentence) {
+                                HStack {
+                                    Text("editar")
+                                    Image(systemName: "pencil")
+                                }
+                            }
+
+                            Button(action: editSentence) {
+                                HStack {
+                                    Text("invalidar")
+                                    Image(systemName: "search")
+                                }
+                            }
+
+                            Button(action: {}) {
+                                HStack {
+                                    Text("apagar")
+                                    Image(systemName: "trash")
+                                }
+                            }                            
+                        }
                     }else {
                         VStack {
                             TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
                             Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
-                        }
-                    }
-                }.contextMenu() {
-                    Button(action: {}) {
-                        HStack {
-                            Text("apagar")
-                            Image(systemName: "trash")
-                        }
-                    }
-                    
-                    Button(action: editSentence) {
-                        HStack {
-                            Text("editar")
-                            Image(systemName: "pencil")
                         }
                     }
                 }
