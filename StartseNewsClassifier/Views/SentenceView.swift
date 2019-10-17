@@ -25,14 +25,28 @@ struct SentenceView: View {
                     }else {
                         TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
                     }
-                }
-                HStack {
-                    if !isEditing {
-                        Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing]).foregroundColor(sentenceColor)
-                    }else {
-                        Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
+                }.contextMenu() {
+                    Button(action: {}) {
+                        HStack {
+                            Text("apagar")
+                            Image(systemName: "trash")
+                        }
                     }
-                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                    
+                    Button(action:{}) {
+                        HStack {
+                            Text("editar")
+                            Image(systemName: "pencil")
+                        }
+                    }
+                }
+//                HStack {
+//                    if !isEditing {
+//                        Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing]).foregroundColor(sentenceColor)
+//                    }else {
+//                        Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
+//                    }
+//                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
         }
         .fixedSize(horizontal: false, vertical: true)
