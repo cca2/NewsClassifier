@@ -69,8 +69,8 @@ struct ContentView: View {
             HStack {
                 VStack {
                     Text("#UVP").bold()
-                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.gray).foregroundColor(.white)
-                .overlay(Rectangle().stroke(Color.gray, lineWidth: 1))
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.pink).foregroundColor(.white)
+                    .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                 
                 VStack {
                     Text("#In").bold()

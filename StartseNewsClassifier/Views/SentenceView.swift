@@ -13,7 +13,7 @@ struct SentenceView: View {
 
     @State var isEditing:Bool = false
     @State private var text:String = "Não consigo inicializar o TextField."
-    private var sentenceColor:Color = .pink
+    private var sentenceColor:Color = .gray
         
     var body: some View {
         VStack {
@@ -32,7 +32,7 @@ struct SentenceView: View {
                             Button(action: editSentence) {
                                 HStack {
                                     Text("invalidar")
-                                    Image(systemName: "search")
+                                    Image(systemName: "bolt")
                                 }
                             }
 
@@ -41,7 +41,7 @@ struct SentenceView: View {
                                     Text("apagar")
                                     Image(systemName: "trash")
                                 }
-                            }                            
+                            }
                         }
                     }else {
                         VStack {
@@ -50,13 +50,6 @@ struct SentenceView: View {
                         }
                     }
                 }
-//                HStack {
-//                    if !isEditing {
-//                        Button(action: editSentence, label: {Text("editar")}).padding([.bottom, .trailing]).foregroundColor(sentenceColor)
-//                    }else {
-//                        Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
-//                    }
-//                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
         }
         .fixedSize(horizontal: false, vertical: true)
