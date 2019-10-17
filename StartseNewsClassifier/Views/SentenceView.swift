@@ -23,7 +23,10 @@ struct SentenceView: View {
                     if !isEditing {
                         Text(sentenceViewModel.sentence.text).foregroundColor(sentenceColor).padding()
                     }else {
-                        TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
+                        VStack {
+                            TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
+                            Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
+                        }
                     }
                 }.contextMenu() {
                     Button(action: {}) {
@@ -33,7 +36,7 @@ struct SentenceView: View {
                         }
                     }
                     
-                    Button(action:{}) {
+                    Button(action: editSentence) {
                         HStack {
                             Text("editar")
                             Image(systemName: "pencil")
