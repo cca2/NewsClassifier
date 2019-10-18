@@ -18,7 +18,7 @@ class SentenceModel: Identifiable {
         case none = "#None"
         case segment = "#Segment"
         case problem = "#Problem"
-        case solution = "#Solution"
+        case solution = "#Features"
         case uvp = "#UVP"
         case investment = "#Investment"
         case partnership = "#Partnership"
@@ -27,7 +27,5 @@ class SentenceModel: Identifiable {
     init(news:NewsModel, text:String) {
         self.news = news
         self.text = text
-        
-        print (Classification.problem.rawValue)
     }
 }

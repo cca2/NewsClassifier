@@ -62,7 +62,7 @@ struct ClassificationView: View {
                 .overlay(Rectangle().stroke(Color.green, lineWidth: 1))
                 
                 VStack {
-                    Text("#Solução").bold().font(self.classificationFont)
+                    Text("#Features").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.orange).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
             }.padding(.top)
