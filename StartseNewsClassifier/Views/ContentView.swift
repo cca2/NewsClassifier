@@ -105,6 +105,9 @@ struct ContentView: View {
         }else {
             classifyAsProblem()
         }
+        if (currentSentenceIndex == sentenceList.sentenceList.count - 1)  {
+            return
+        }
         currentSentenceIndex = currentSentenceIndex + 1
     }
     
