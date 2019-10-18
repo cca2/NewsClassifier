@@ -31,31 +31,41 @@ struct ClassifiedNews: View {
                 
                 if (sentenceListViewModel.classifiedSentencesDictionary[.problem]!.count > 0) {
                     Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
-                        Text("Enquanto seu sócio Sean Parker foi mentor do Facebook e chegou a ser interpretado por Justin Timberlake no cinema, o programador Fanning se manteve distante dos holofotes, com alguns projetos de startups de relativo sucesso.")
+                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.problem]!.count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.problem]![$0].text)")
+                        }
                     }
                 }
                 
                 if (sentenceListViewModel.classifiedSentencesDictionary[.solution]!.count > 0) {
                     Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-                        Text("Enquanto seu sócio Sean Parker foi mentor do Facebook e chegou a ser interpretado por Justin Timberlake no cinema, o programador Fanning se manteve distante dos holofotes, com alguns projetos de startups de relativo sucesso.")
+                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.solution]!.count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.solution]![$0].text)")
+                        }
                     }
                 }
                 
                 if (sentenceListViewModel.classifiedSentencesDictionary[.uvp]!.count > 0) {
                     Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
-                        Text("Enquanto seu sócio Sean Parker foi mentor do Facebook e chegou a ser interpretado por Justin Timberlake no cinema, o programador Fanning se manteve distante dos holofotes, com alguns projetos de startups de relativo sucesso.")
+                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.uvp]!.count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.uvp]![$0].text)")
+                        }
                     }
                 }
                 
                 if (sentenceListViewModel.classifiedSentencesDictionary[.investment]!.count > 0) {
                     Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
-                        Text("Enquanto seu sócio Sean Parker foi mentor do Facebook e chegou a ser interpretado por Justin Timberlake no cinema, o programador Fanning se manteve distante dos holofotes, com alguns projetos de startups de relativo sucesso.")
+                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.investment]!.count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.investment]![$0].text)")
+                        }
                     }
                 }
                 
                 if (sentenceListViewModel.classifiedSentencesDictionary[.partnership]!.count > 0) {
                     Section(header: Text(SentenceModel.Classification.partnership.rawValue)) {
-                        Text("Enquanto seu sócio Sean Parker foi mentor do Facebook e chegou a ser interpretado por Justin Timberlake no cinema, o programador Fanning se manteve distante dos holofotes, com alguns projetos de startups de relativo sucesso.")
+                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.partnership]!.count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.partnership]![$0].text)")
+                        }
                     }
                 }
             }
