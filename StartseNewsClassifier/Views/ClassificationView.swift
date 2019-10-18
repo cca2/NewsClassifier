@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ClassificationView.swift
 //  StartseNewsClassifier
 //
 //  Created by Cristiano Araújo on 13/10/19.
@@ -10,14 +10,18 @@ import SwiftUI
 import CoreML
 import NaturalLanguage
 
-struct ContentView: View {
+struct ClassificationView: View {
     @State private var offset: CGSize = .zero
     @State var currentSentenceIndex = 0
 
-    private let sentenceList = SentenceListViewModel()
+    private let sentenceList:SentenceListViewModel
     private let classificationHeight:CGFloat = 30
     private let classificationFont:Font = .footnote
-
+    
+    init(sentenceList: SentenceListViewModel) {
+        self.sentenceList = sentenceList
+    }
+    
     var body: some View {
         let drag = DragGesture()
             .onChanged {
@@ -85,9 +89,9 @@ struct ContentView: View {
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
             }.padding(.bottom)
             
-            HStack {
-                Text("\(currentSentenceIndex)/\(sentenceList.sentenceList.count)")
-            }.padding(.bottom)
+//            HStack {
+//                Text("\(currentSentenceIndex)/\(sentenceList.sentenceList.count)")
+//            }.padding(.bottom)
         }.frame(width: 400, height: 400, alignment: .center)
     }
     
@@ -157,8 +161,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ClassificationView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ClassificationView(sentenceList: SentenceListViewModel())
     }
 }

@@ -1,0 +1,33 @@
+//
+//  TabbarView.swift
+//  StartseNewsClassifier
+//
+//  Created by Cristiano Araújo on 18/10/19.
+//  Copyright © 2019 Cristiano Araújo. All rights reserved.
+//
+
+import SwiftUI
+
+struct TabbarView: View {
+    private let sentenceListViewModel = SentenceListViewModel()
+    var body: some View {
+        TabView {
+            ClassificationView(sentenceList: sentenceListViewModel)
+                .tabItem {
+                    Image(systemName: "1.circle")
+                    Text("Classificação")
+                }.tag(0)
+            ClassifiedNews(sentenceListViewModel: sentenceListViewModel)
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("Notícia")
+                }.tag(1)
+        }
+    }
+}
+
+struct TabbarView_Previews: PreviewProvider {
+    static var previews: some View {
+        TabbarView()
+    }
+}
