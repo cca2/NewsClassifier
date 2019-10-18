@@ -21,15 +21,17 @@ struct SentenceView: View {
             VStack () {
                 Group {
                     if !isEditing {
-                        Text(sentenceViewModel.sentence.text).foregroundColor(sentenceColor).padding().contextMenu() {
-                            Button(action: editSentence) {
-                                HStack {
-                                    Text("editar")
-                                    Image(systemName: "pencil")
-                                }
-                            }
-
-                            Button(action: editSentence) {
+                        Text(sentenceViewModel.sentence.text)
+                        .foregroundColor(sentenceColor)
+                        .padding().contextMenu() {
+//                            Button(action: editSentence) {
+//                                HStack {
+//                                    Text("editar")
+//                                    Image(systemName: "pencil")
+//                                }
+//                            }
+//
+                            Button(action: classifyAsNone) {
                                 HStack {
                                     Text("invalidar")
                                     Image(systemName: "bolt")
@@ -53,7 +55,7 @@ struct SentenceView: View {
             }
         }
         .fixedSize(horizontal: false, vertical: true)
-        .frame(height: 350, alignment: .leading)
+        .frame(width:280, height: 450, alignment: .leading)
     }
     
     init(sentenceViewModel:SentenceViewModel) {
@@ -66,11 +68,13 @@ struct SentenceView: View {
         }else if classification == "#Solution" {
             self.sentenceColor = .orange
         }else if classification == "#UVP" {
-            self.sentenceColor = .gray
+            self.sentenceColor = .pink
         }else if classification == "#Investment" {
             self.sentenceColor = .purple
         }else if classification == "#Partnership" {
             self.sentenceColor = .black
+        }else {
+            self.sentenceColor = .gray
         }
     }
     
@@ -117,6 +121,10 @@ struct SentenceView: View {
     
     func classifyAsPartnership() {
         self.sentenceViewModel.classifySentenceAs(tag: "#Partnership")
+    }
+    
+    func classifyAsNone() {
+        self.sentenceViewModel.classifySentenceAs(tag: "#None")
     }
 }
 

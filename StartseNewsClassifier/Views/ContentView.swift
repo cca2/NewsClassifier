@@ -15,7 +15,8 @@ struct ContentView: View {
     @State var currentSentenceIndex = 0
 
     private let sentenceList = SentenceListViewModel()
-    private let classificationHeight:CGFloat = 70
+    private let classificationHeight:CGFloat = 30
+    private let classificationFont:Font = .footnote
 
     var body: some View {
         let drag = DragGesture()
@@ -44,19 +45,20 @@ struct ContentView: View {
         
         return VStack {
             HStack {
-                VStack {
-                    Text("#Seg").bold()
-                    Text("mento").bold()
+                ZStack {
+                    Group {
+                        Text("#Segmento").bold().font(self.classificationFont)
+                    }
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.red).foregroundColor(.white)
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
                 
                 VStack {
-                    Text("#Problema").bold()
+                    Text("#Problema").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.green).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.green, lineWidth: 1))
                 
                 VStack {
-                    Text("#Solução").bold()
+                    Text("#Solução").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.orange).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
             }.padding(.top)
@@ -68,18 +70,17 @@ struct ContentView: View {
                         
             HStack {
                 VStack {
-                    Text("#UVP").bold()
+                    Text("#UVP").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.pink).foregroundColor(.white)
                     .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                 
                 VStack {
-                    Text("#In").bold()
-                    Text("vestimento")
+                    Text("#Investimento").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.purple).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.purple, lineWidth: 1))
                 
                 VStack {
-                    Text("#Parceria").bold()
+                    Text("#Parceria").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.black).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
             }.padding(.bottom)
@@ -108,6 +109,9 @@ struct ContentView: View {
     }
     
     func nextNews() {
+        if (currentSentenceIndex == sentenceList.sentenceList.count - 1) {
+            return
+        }
         currentSentenceIndex = currentSentenceIndex + 1
     }
     
