@@ -11,9 +11,17 @@ import Foundation
 class SentenceListViewModel: ObservableObject {
     var startseNewsList:[NewsModel] = []
     var sentenceList:[SentenceModel] = []
-    
+    @Published var classifiedSentencesDictionary:[SentenceModel.Classification:[SentenceModel]] = [:]
+        
     init() {
         fetchListOfNews()
+        classifiedSentencesDictionary[.none] = []
+        classifiedSentencesDictionary[.segment] = []
+        classifiedSentencesDictionary[.problem] = []
+        classifiedSentencesDictionary[.solution] = []
+        classifiedSentencesDictionary[.uvp] = []
+        classifiedSentencesDictionary[.investment] = []
+        classifiedSentencesDictionary[.partnership] = []
     }
     
     private func fetchListOfNews() {

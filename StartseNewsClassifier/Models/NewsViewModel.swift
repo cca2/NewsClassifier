@@ -39,7 +39,7 @@ class SentenceViewModel: ObservableObject {
         self.sentence = sentenceModel
     }
     
-    func classifySentenceAs(tag:String) {
+    func classifySentenceAs(tag:SentenceModel.Classification) {
         sentence.classification = tag
     }
 }

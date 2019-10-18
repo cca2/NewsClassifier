@@ -22,14 +22,3 @@ class NewsModel {
     }
 }
 
-class SentenceModel {
-    let news:NewsModel
-    var text:String
-    var classification:String = "#None"
-    
-    init(news:NewsModel, text:String) {
-        self.news = news
-        self.text = text
-    }
-}
-

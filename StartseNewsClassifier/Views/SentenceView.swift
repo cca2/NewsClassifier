@@ -61,17 +61,17 @@ struct SentenceView: View {
     init(sentenceViewModel:SentenceViewModel) {
         self.sentenceViewModel = sentenceViewModel
         let classification = self.sentenceViewModel.sentence.classification
-        if classification == "#Segment" {
+        if classification == .segment {
             self.sentenceColor = .red
-        }else if classification == "#Problem" {
+        }else if classification == .problem {
             self.sentenceColor = .green
-        }else if classification == "#Solution" {
+        }else if classification == .solution {
             self.sentenceColor = .orange
-        }else if classification == "#UVP" {
+        }else if classification == .uvp {
             self.sentenceColor = .pink
-        }else if classification == "#Investment" {
+        }else if classification == .investment {
             self.sentenceColor = .purple
-        }else if classification == "#Partnership" {
+        }else if classification == .partnership {
             self.sentenceColor = .black
         }else {
             self.sentenceColor = .gray
@@ -95,36 +95,36 @@ struct SentenceView: View {
         sentenceViewModel.sentence.text = text
     }
     
-    func classifyAsCustomerSegment() {
-        self.sentenceViewModel.classifySentenceAs(tag: "#CustomerSegment")
-    }
+//    func classifyAsCustomerSegment() {
+//        self.sentenceViewModel.classifySentenceAs(tag: "#CustomerSegment")
+//    }
     
-    func classifyAsProblem() {
-        self.sentenceViewModel.classifySentenceAs(tag: "#Problem")
-    }
+//    func classifyAsProblem() {
+//        self.sentenceViewModel.classifySentenceAs(tag: "#Problem")
+//    }
+//
+//    func classifyAsSolution() {
+//        self.sentenceViewModel.classifySentenceAs(tag: "#Solution")
+//    }
+//
+//    func classifyAsUVP() {
+//        self.sentenceViewModel.classifySentenceAs(tag: "#UVP")
+//    }
+//
+//    func classifyAsUnfairAdvantage() {
+//        self.sentenceViewModel.classifySentenceAs(tag: "#UnfairAdvantage")
+//    }
+//
+//    func classifyAsInvestiment() {
+//        self.sentenceViewModel.classifySentenceAs(tag: "#Investiment")
+//    }
     
-    func classifyAsSolution() {
-        self.sentenceViewModel.classifySentenceAs(tag: "#Solution")
-    }
-    
-    func classifyAsUVP() {
-        self.sentenceViewModel.classifySentenceAs(tag: "#UVP")
-    }
-    
-    func classifyAsUnfairAdvantage() {
-        self.sentenceViewModel.classifySentenceAs(tag: "#UnfairAdvantage")
-    }
-    
-    func classifyAsInvestiment() {
-        self.sentenceViewModel.classifySentenceAs(tag: "#Investiment")
-    }
-    
-    func classifyAsPartnership() {
-        self.sentenceViewModel.classifySentenceAs(tag: "#Partnership")
-    }
-    
+//    func classifyAsPartnership() {
+//        self.sentenceViewModel.classifySentenceAs(tag: "#Partnership")
+//    }
+//    
     func classifyAsNone() {
-        self.sentenceViewModel.classifySentenceAs(tag: "#None")
+        self.sentenceViewModel.classifySentenceAs(tag: .none)
     }
 }
 

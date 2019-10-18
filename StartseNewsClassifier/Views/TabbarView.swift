@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct TabbarView: View {
+    @State var selectedView = 0
     private let sentenceListViewModel = SentenceListViewModel()
     var body: some View {
-        TabView {
+        TabView(selection: $selectedView) {
             ClassificationView(sentenceList: sentenceListViewModel)
                 .tabItem {
                     Image(systemName: "1.circle")
