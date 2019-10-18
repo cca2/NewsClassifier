@@ -10,18 +10,22 @@ import SwiftUI
 
 struct ClassifiedNews: View {
     @ObservedObject private var sentenceListViewModel:SentenceListViewModel
-
+    
     var body: some View {
         VStack {
             Text("Notícia").font(.title)
             List {
-                Section(header: Text(SentenceModel.Classification.none.rawValue)) {
-                    Text("Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.")
+                if (sentenceListViewModel.classifiedSentencesDictionary[.none]!.count > 0) {
+                    Section(header: Text(SentenceModel.Classification.none.rawValue)) {
+                        Text("Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.")
+                    }
                 }
                 
                 if (sentenceListViewModel.classifiedSentencesDictionary[.segment]!.count > 0) {
                     Section(header: Text(SentenceModel.Classification.segment.rawValue)) {
-                        Text("Enquanto seu sócio Sean Parker foi mentor do Facebook e chegou a ser interpretado por Justin Timberlake no cinema, o programador Fanning se manteve distante dos holofotes, com alguns projetos de startups de relativo sucesso.")
+                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.segment]!.count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.segment]![$0].text)")
+                        }
                     }
                 }
                 
