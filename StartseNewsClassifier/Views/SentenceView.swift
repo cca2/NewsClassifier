@@ -11,44 +11,26 @@ import SwiftUI
 struct SentenceView: View {
     @ObservedObject private var sentenceViewModel:SentenceViewModel
 
-    @State var isEditing:Bool = false
     @State private var text:String = "Não consigo inicializar o TextField."
     private var sentenceColor:Color = .gray
         
     var body: some View {
-        VStack {
-            
             VStack () {
-                Group {
-                    Text(sentenceViewModel.sentence.text)
-                    .foregroundColor(sentenceColor)
-                    .padding().contextMenu() {
-                        Button(action: copyToClipboard) {
-                            HStack {
-                                Text("copiar")
-                                Image(systemName: "pencil")
-                            }
-                        }
-
-                        Button(action: classifyAsNone) {
-                            HStack {
-                                Text("invalidar")
-                                Image(systemName: "bolt")
-                            }
-                        }
-
-                        Button(action: {}) {
-                            HStack {
-                                Text("apagar")
-                                Image(systemName: "trash")
-                            }
-                        }
+                Text(sentenceViewModel.sentence.text)
+                .foregroundColor(sentenceColor)
+                .padding()
+                .contextMenu() {
+                    Button(action: copyToClipboard) {
+                        Text("copiar")
                     }
-                }
+
+                    Button(action: classifyAsNone) {
+                        Text("invalidar")
+                    }
+                }                
             }
-        }
-        .fixedSize(horizontal: false, vertical: true)
-        .frame(width:280, height: 450, alignment: .leading)
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(width:280, height: 450, alignment: .leading)
     }
     
     init(sentenceViewModel:SentenceViewModel) {
@@ -83,39 +65,6 @@ struct SentenceView: View {
         pasteboard.string = sentenceViewModel.sentence.text
     }
     
-    func saveEditedSentence() {
-        isEditing.toggle()
-        sentenceViewModel.sentence.text = text
-    }
-    
-//    func classifyAsCustomerSegment() {
-//        self.sentenceViewModel.classifySentenceAs(tag: "#CustomerSegment")
-//    }
-    
-//    func classifyAsProblem() {
-//        self.sentenceViewModel.classifySentenceAs(tag: "#Problem")
-//    }
-//
-//    func classifyAsSolution() {
-//        self.sentenceViewModel.classifySentenceAs(tag: "#Solution")
-//    }
-//
-//    func classifyAsUVP() {
-//        self.sentenceViewModel.classifySentenceAs(tag: "#UVP")
-//    }
-//
-//    func classifyAsUnfairAdvantage() {
-//        self.sentenceViewModel.classifySentenceAs(tag: "#UnfairAdvantage")
-//    }
-//
-//    func classifyAsInvestiment() {
-//        self.sentenceViewModel.classifySentenceAs(tag: "#Investiment")
-//    }
-    
-//    func classifyAsPartnership() {
-//        self.sentenceViewModel.classifySentenceAs(tag: "#Partnership")
-//    }
-//    
     func classifyAsNone() {
         self.sentenceViewModel.classifySentenceAs(tag: .none)
     }

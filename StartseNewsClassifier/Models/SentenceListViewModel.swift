@@ -11,17 +11,38 @@ import Foundation
 class SentenceListViewModel: ObservableObject {
     var startseNewsList:[NewsModel] = []
     var sentenceList:[SentenceModel] = []
-    @Published var classifiedSentencesDictionary:[SentenceModel.Classification:[SentenceModel]] = [:]
+    @Published var classifiedSentencesDictionary:[SentenceModel.Classification:[UUID:SentenceModel]] = [:]
         
     init() {
         fetchListOfNews()
-        classifiedSentencesDictionary[.none] = []
-        classifiedSentencesDictionary[.segment] = []
-        classifiedSentencesDictionary[.problem] = []
-        classifiedSentencesDictionary[.solution] = []
-        classifiedSentencesDictionary[.uvp] = []
-        classifiedSentencesDictionary[.investment] = []
-        classifiedSentencesDictionary[.partnership] = []
+        classifiedSentencesDictionary[.none] = [:]
+        classifiedSentencesDictionary[.segment] = [:]
+        classifiedSentencesDictionary[.problem] = [:]
+        classifiedSentencesDictionary[.solution] = [:]
+        classifiedSentencesDictionary[.uvp] = [:]
+        classifiedSentencesDictionary[.investment] = [:]
+        classifiedSentencesDictionary[.partnership] = [:]
+    }
+    
+    func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {
+        
+        let currentClassification = sentence.classification
+        sentence.classification = newClassification
+
+        if currentClassification != newClassification {
+            classifiedSentencesDictionary[newClassification]![sentence.id] = sentence
+//            classifiedSentencesDictionary[newClassification]?.contains{
+//                element in
+//                if element.key == sentence.id {
+//                    return true
+//                }
+//                return false
+//            }
+        }
+    }
+    
+    func sentenceListOfType(classification: SentenceModel.Classification) -> [SentenceModel] {
+        return classifiedSentencesDictionary[classification]!.values.sorted(by: {$0.id < $1.id})
     }
     
     private func fetchListOfNews() {

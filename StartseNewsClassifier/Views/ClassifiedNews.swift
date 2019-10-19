@@ -21,50 +21,53 @@ struct ClassifiedNews: View {
                     }
                 }
                 
-                if (sentenceListViewModel.classifiedSentencesDictionary[.segment]!.count > 0) {
+
+                if (sentenceListViewModel.sentenceListOfType(classification: .segment).count > 0) {
                     Section(header: Text(SentenceModel.Classification.segment.rawValue)) {
-                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.segment]!.count - 1)), id: \.self) {
-                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.segment]![$0].text)")
+                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .segment).count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .segment)[$0].text)")
                         }
                     }
                 }
                 
-                if (sentenceListViewModel.classifiedSentencesDictionary[.problem]!.count > 0) {
+                if (sentenceListViewModel.sentenceListOfType(classification: .problem).count > 0) {
                     Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
-                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.problem]!.count - 1)), id: \.self) {
-                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.problem]![$0].text)")
+                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .problem).count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .problem)[$0].text)")
                         }
                     }
                 }
                 
-                if (sentenceListViewModel.classifiedSentencesDictionary[.solution]!.count > 0) {
+                if (sentenceListViewModel.sentenceListOfType(classification: .solution).count > 0) {
                     Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.solution]!.count - 1)), id: \.self) {
-                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.solution]![$0].text)")
+                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .solution).count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .solution)[$0].text)")
                         }
                     }
                 }
                 
-                if (sentenceListViewModel.classifiedSentencesDictionary[.uvp]!.count > 0) {
+
+                if (sentenceListViewModel.sentenceListOfType(classification: .uvp).count > 0) {
                     Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
-                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.uvp]!.count - 1)), id: \.self) {
-                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.uvp]![$0].text)")
+                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .uvp).count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .uvp)[$0].text)")
                         }
                     }
                 }
                 
-                if (sentenceListViewModel.classifiedSentencesDictionary[.investment]!.count > 0) {
+
+                if (sentenceListViewModel.sentenceListOfType(classification: .investment).count > 0) {
                     Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
-                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.investment]!.count - 1)), id: \.self) {
-                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.investment]![$0].text)")
+                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .investment).count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .investment)[$0].text)")
                         }
                     }
                 }
                 
-                if (sentenceListViewModel.classifiedSentencesDictionary[.partnership]!.count > 0) {
+                if (sentenceListViewModel.sentenceListOfType(classification: .partnership).count > 0) {
                     Section(header: Text(SentenceModel.Classification.partnership.rawValue)) {
-                        ForEach((0...(sentenceListViewModel.classifiedSentencesDictionary[.partnership]!.count - 1)), id: \.self) {
-                            Text("\(self.sentenceListViewModel.classifiedSentencesDictionary[.partnership]![$0].text)")
+                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .partnership).count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .partnership)[$0].text)")
                         }
                     }
                 }

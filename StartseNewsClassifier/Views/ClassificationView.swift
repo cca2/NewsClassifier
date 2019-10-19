@@ -131,38 +131,27 @@ struct ClassificationView: View {
     }
     
     func classifyAsCustomerSegment() {
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .segment
-        self.sentenceList.classifiedSentencesDictionary[.segment]?.append(self.sentenceList.sentenceList[currentSentenceIndex])
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .segment)
     }
     
     func classifyAsProblem() {
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .problem
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .problem
-        self.sentenceList.classifiedSentencesDictionary[.problem]?.append(self.sentenceList.sentenceList[currentSentenceIndex])
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .problem)
     }
     
     func classifyAsSolution() {
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .solution
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .solution
-        self.sentenceList.classifiedSentencesDictionary[.solution]?.append(self.sentenceList.sentenceList[currentSentenceIndex])
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .solution)
     }
     
     func classifyAsUVP() {
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .uvp
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .uvp
-        self.sentenceList.classifiedSentencesDictionary[.uvp]?.append(self.sentenceList.sentenceList[currentSentenceIndex])
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .uvp)
     }
     
     func classifyAsPartnership () {
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .partnership
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .partnership
-        self.sentenceList.classifiedSentencesDictionary[.partnership]?.append(self.sentenceList.sentenceList[currentSentenceIndex])
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .partnership)
     }
     
     func classifyAsInvestment() {
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .investment
-        self.sentenceList.sentenceList[currentSentenceIndex].classification = .investment
-        self.sentenceList.classifiedSentencesDictionary[.investment]?.append(self.sentenceList.sentenceList[currentSentenceIndex])
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .investment)
     }
 }
 
