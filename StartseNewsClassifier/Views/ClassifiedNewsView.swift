@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ClassifiedNews: View {
+struct ClassifiedNewsView: View {
     @ObservedObject private var sentenceListViewModel:SentenceListViewModel
     
     var body: some View {
@@ -80,8 +80,8 @@ struct ClassifiedNews: View {
     }
 }
 
-struct ClassifiedNews_Previews: PreviewProvider {
+struct ClassifiedNewsView_Previews: PreviewProvider {
     static var previews: some View {
-        ClassifiedNews(sentenceListViewModel: SentenceListViewModel())
+        ClassifiedNewsView(sentenceListViewModel: SentenceListViewModel())
     }
 }

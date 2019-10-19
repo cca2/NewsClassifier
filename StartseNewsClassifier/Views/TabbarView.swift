@@ -18,7 +18,7 @@ struct TabbarView: View {
                     Image(systemName: "1.circle")
                     Text("Classificação")
                 }.tag(0)
-            ClassifiedNews(sentenceListViewModel: sentenceListViewModel)
+            ClassifiedNewsView(sentenceListViewModel: sentenceListViewModel)
                 .tabItem {
                     Image(systemName: "2.circle")
                     Text("Notícia")
