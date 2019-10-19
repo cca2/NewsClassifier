@@ -31,13 +31,7 @@ class SentenceListViewModel: ObservableObject {
 
         if currentClassification != newClassification {
             classifiedSentencesDictionary[newClassification]![sentence.id] = sentence
-//            classifiedSentencesDictionary[newClassification]?.contains{
-//                element in
-//                if element.key == sentence.id {
-//                    return true
-//                }
-//                return false
-//            }
+            classifiedSentencesDictionary[currentClassification]!.removeValue(forKey: sentence.id)
         }
     }
     
