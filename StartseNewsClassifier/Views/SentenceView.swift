@@ -20,35 +20,28 @@ struct SentenceView: View {
             
             VStack () {
                 Group {
-                    if !isEditing {
-                        Text(sentenceViewModel.sentence.text)
-                        .foregroundColor(sentenceColor)
-                        .padding().contextMenu() {
-                            Button(action: copyToClipboard) {
-                                HStack {
-                                    Text("copiar")
-                                    Image(systemName: "pencil")
-                                }
-                            }
-
-                            Button(action: classifyAsNone) {
-                                HStack {
-                                    Text("invalidar")
-                                    Image(systemName: "bolt")
-                                }
-                            }
-
-                            Button(action: {}) {
-                                HStack {
-                                    Text("apagar")
-                                    Image(systemName: "trash")
-                                }
+                    Text(sentenceViewModel.sentence.text)
+                    .foregroundColor(sentenceColor)
+                    .padding().contextMenu() {
+                        Button(action: copyToClipboard) {
+                            HStack {
+                                Text("copiar")
+                                Image(systemName: "pencil")
                             }
                         }
-                    }else {
-                        VStack {
-                            TextField("", text: $text).padding().multilineTextAlignment(.leading).lineLimit(20)
-                            Button(action: saveEditedSentence, label: {Text("salvar edição")}).padding([.bottom, .trailing])
+
+                        Button(action: classifyAsNone) {
+                            HStack {
+                                Text("invalidar")
+                                Image(systemName: "bolt")
+                            }
+                        }
+
+                        Button(action: {}) {
+                            HStack {
+                                Text("apagar")
+                                Image(systemName: "trash")
+                            }
                         }
                     }
                 }
