@@ -40,34 +40,51 @@ class SentenceListViewModel: ObservableObject {
     }
     
     private func fetchListOfNews() {
-        var json: Any?
-        if let path = Bundle.main.path(forResource: "StartseNews", ofType: "json") {
-            do {
-                let fileUrl = URL(fileURLWithPath: path)
-                // Getting data from JSON file using the file URL
-                let data = try Data(contentsOf: fileUrl, options: .mappedIfSafe)
-                json = try? JSONSerialization.jsonObject(with: data)
-                
-                if let dictionary = json as? [String:Any] {
-                    if let items = dictionary["articles"] as? [[String:Any]] {
-                        for i in 0..<items.count {
-                            let item = items[i]
-                            let title = ">>> NO TITLE <<<"
-                            let link = item["link"] as! String
-                            let newsModel = NewsModel(title: title, link:link, text:"")
-                            
-                            let sentences = item["sentences"] as! [[String:Any?]]
-                            for j in 0..<sentences.count {
-                                let sentence = sentences[j] as! [String:String]
-                                let sentenceModel = SentenceModel(news:newsModel, text:sentence["text"]!)
-                                self.sentenceList.append(sentenceModel)
-                            }
+        
+        //Verify is a jsonFile e local exists
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        print (documentsURL)
+        
+        let documentPath = documentsURL.path
+        print(documentPath)
+        
+        let classifiedNewsPath = documentsURL.appendingPathComponent("classifiedNews.json")
+        
+        do {
+            let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
+            if files.count == 0 {
+                guard let path = Bundle.main.path(forResource: "StartseNews", ofType: "json") else { return }
+                let originalFileURL = URL(fileURLWithPath: path)
+                try fileManager.copyItem(at: originalFileURL, to: classifiedNewsPath)
+            }else {
+                print (">>> File \(classifiedNewsPath) already exists <<<")
+            }
+            
+            var json: Any?
+            // Getting data from JSON file using the file URL
+            let data = try Data(contentsOf: classifiedNewsPath, options: .mappedIfSafe)
+            json = try? JSONSerialization.jsonObject(with: data)
+            
+            if let dictionary = json as? [String:Any] {
+                if let items = dictionary["articles"] as? [[String:Any]] {
+                    for i in 0..<items.count {
+                        let item = items[i]
+                        let title = ">>> NO TITLE <<<"
+                        let link = item["link"] as! String
+                        let newsModel = NewsModel(title: title, link:link, text:"")
+                        
+                        let sentences = item["sentences"] as! [[String:Any?]]
+                        for j in 0..<sentences.count {
+                            let sentence = sentences[j] as! [String:String]
+                            let sentenceModel = SentenceModel(news:newsModel, text:sentence["text"]!)
+                            self.sentenceList.append(sentenceModel)
                         }
                     }
                 }
-            } catch {
-                // Handle error here
             }
-        }
+        } catch {
+            print("error: \(error)")
+        }        
     }
 }
