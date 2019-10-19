@@ -24,13 +24,13 @@ struct SentenceView: View {
                         Text(sentenceViewModel.sentence.text)
                         .foregroundColor(sentenceColor)
                         .padding().contextMenu() {
-//                            Button(action: editSentence) {
-//                                HStack {
-//                                    Text("editar")
-//                                    Image(systemName: "pencil")
-//                                }
-//                            }
-//
+                            Button(action: copyToClipboard) {
+                                HStack {
+                                    Text("copiar")
+                                    Image(systemName: "pencil")
+                                }
+                            }
+
                             Button(action: classifyAsNone) {
                                 HStack {
                                     Text("invalidar")
@@ -85,9 +85,9 @@ struct SentenceView: View {
         print ("finalizou edição")
     }
     
-    func editSentence() {
-        isEditing.toggle()
-        text = sentenceViewModel.sentence.text
+    func copyToClipboard() {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = sentenceViewModel.sentence.text
     }
     
     func saveEditedSentence() {
