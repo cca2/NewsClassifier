@@ -14,12 +14,15 @@ struct ClassificationView: View {
     @State private var offset: CGSize = .zero
     @State var currentSentenceIndex = 0
 
+    private let actOnClassification:ActOnClassification
+    
     private let sentenceList:SentenceListViewModel
     private let classificationHeight:CGFloat = 30
     private let classificationFont:Font = .footnote
     
-    init(sentenceList: SentenceListViewModel) {
-        self.sentenceList = sentenceList
+    init(actOnClassification: ActOnClassification, sentences: SentenceListViewModel) {
+        self.actOnClassification = actOnClassification
+        self.sentenceList = sentences
     }
     
     var body: some View {
@@ -88,10 +91,6 @@ struct ClassificationView: View {
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.black).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
             }.padding(.bottom)
-            
-//            HStack {
-//                Text("\(currentSentenceIndex)/\(sentenceList.sentenceList.count)")
-//            }.padding(.bottom)
         }.frame(width: 400, height: 400, alignment: .center)
     }
     
@@ -110,6 +109,7 @@ struct ClassificationView: View {
             classifyAsProblem()
         }
         if (currentSentenceIndex == sentenceList.sentenceList.count - 1)  {
+            actOnClassification.finishedClassification()
             return
         }
         currentSentenceIndex = currentSentenceIndex + 1
@@ -117,6 +117,7 @@ struct ClassificationView: View {
     
     func nextNews() {
         if (currentSentenceIndex == sentenceList.sentenceList.count - 1) {
+            actOnClassification.finishedClassification()
             return
         }
         currentSentenceIndex = currentSentenceIndex + 1
@@ -157,6 +158,6 @@ struct ClassificationView: View {
 
 struct ClassificationView_Previews: PreviewProvider {
     static var previews: some View {
-        ClassificationView(sentenceList: SentenceListViewModel())
+        ClassificationView(actOnClassification: ContentView(sentences: SentenceListViewModel()), sentences: SentenceListViewModel())
     }
 }

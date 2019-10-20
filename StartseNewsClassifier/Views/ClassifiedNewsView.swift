@@ -38,19 +38,19 @@ struct ClassifiedNewsView: View {
                     }
                 }
                 
-                if (sentenceListViewModel.sentenceListOfType(classification: .solution).count > 0) {
-                    Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .solution).count - 1)), id: \.self) {
-                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .solution)[$0].text)")
+                if (sentenceListViewModel.sentenceListOfType(classification: .uvp).count > 0) {
+                    Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
+                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .uvp).count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .uvp)[$0].text)")
                         }
                     }
                 }
                 
 
-                if (sentenceListViewModel.sentenceListOfType(classification: .uvp).count > 0) {
-                    Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
-                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .uvp).count - 1)), id: \.self) {
-                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .uvp)[$0].text)")
+                if (sentenceListViewModel.sentenceListOfType(classification: .solution).count > 0) {
+                    Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
+                        ForEach((0...(sentenceListViewModel.sentenceListOfType(classification: .solution).count - 1)), id: \.self) {
+                            Text("\(self.sentenceListViewModel.sentenceListOfType(classification: .solution)[$0].text)")
                         }
                     }
                 }

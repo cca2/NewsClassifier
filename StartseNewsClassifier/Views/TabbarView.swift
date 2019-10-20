@@ -13,7 +13,7 @@ struct TabbarView: View {
     private let sentenceListViewModel = SentenceListViewModel()
     var body: some View {
         TabView(selection: $selectedView) {
-            ClassificationView(sentenceList: sentenceListViewModel)
+            ContentView(sentences: sentenceListViewModel)
                 .tabItem {
                     Image(systemName: "1.circle")
                     Text("Classificação")
