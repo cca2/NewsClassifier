@@ -90,7 +90,7 @@ struct ClassificationView: View {
             }
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             .padding(.bottom)
-        .offset(CGSize(width: 0, height: -40))
+        .offset(CGSize(width: 0, height: -20))
     }
     
     func classifySentence(offset:CGSize) {

@@ -17,7 +17,6 @@ class SentenceListViewModel: ObservableObject {
     @Published var classifiedSentencesDictionary:[SentenceModel.Classification:[UUID:SentenceModel]] = [:]
         
     init() {
-        fetchListOfNews()
         classifiedSentencesDictionary[.none] = [:]
         classifiedSentencesDictionary[.segment] = [:]
         classifiedSentencesDictionary[.problem] = [:]
@@ -25,6 +24,8 @@ class SentenceListViewModel: ObservableObject {
         classifiedSentencesDictionary[.uvp] = [:]
         classifiedSentencesDictionary[.investment] = [:]
         classifiedSentencesDictionary[.partnership] = [:]
+
+        fetchListOfNews()
     }
     
     func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {
@@ -100,8 +101,13 @@ class SentenceListViewModel: ObservableObject {
                         let sentences = item["sentences"] as! [[String:Any?]]
                         for j in 0..<sentences.count {
                             let sentence = sentences[j] as! [String:String]
-                            let sentenceModel = SentenceModel(news:newsModel, text:sentence["text"]!, classification: SentenceModel.Classification(rawValue: sentence["classification"]!)!)
+                            
+                            let classification = SentenceModel.Classification(rawValue: sentence["classification"]!)!
+                            let sentenceModel = SentenceModel(news:newsModel, text:sentence["text"]!, classification: classification)
                             newsModel.sentences.append(sentenceModel)
+                            
+                            classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
+
                             self.sentenceList.append(sentenceModel)
                         }
                     }
