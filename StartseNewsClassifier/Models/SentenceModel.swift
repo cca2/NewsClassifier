@@ -10,8 +10,9 @@ import Foundation
 
 class SentenceModel: Identifiable {
     let id = UUID()
-    let news:NewsModel
+//    let news:NewsModel
     var text:String
+    
     var classification:Classification = .none
     
     enum Classification:String {
@@ -24,8 +25,23 @@ class SentenceModel: Identifiable {
         case partnership = "#Partnership"
     }
     
-    init(news:NewsModel, text:String) {
-        self.news = news
+    
+    enum CodingKeys: String, CodingKey {
+        case text
+        case classification
+    }
+    
+    init(news:NewsModel, text:String, classification:SentenceModel.Classification) {
+//        self.news = news
         self.text = text
+        self.classification = classification
+    }
+}
+
+extension SentenceModel: Encodable {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(text, forKey: .text)
+        try container.encode(classification.rawValue, forKey: .classification)
     }
 }

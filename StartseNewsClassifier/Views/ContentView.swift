@@ -21,7 +21,7 @@ struct ContentView: View, ActOnClassification {
     var body: some View {
         Group {
             if (hasFinishedClassification) {
-                FinishedClassificationView(actOnFinishedClassification: self)
+                FinishedClassificationView(actOnFinishedClassification: self, sentences: self.sentences)
             }else {
                 ClassificationView(actOnClassification: self, sentences: self.sentences)
             }

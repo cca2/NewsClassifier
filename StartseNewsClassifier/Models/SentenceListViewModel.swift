@@ -11,6 +11,9 @@ import Foundation
 class SentenceListViewModel: ObservableObject {
     var startseNewsList:[NewsModel] = []
     var sentenceList:[SentenceModel] = []
+    
+    var articles = Articles()
+    
     @Published var classifiedSentencesDictionary:[SentenceModel.Classification:[UUID:SentenceModel]] = [:]
         
     init() {
@@ -37,6 +40,25 @@ class SentenceListViewModel: ObservableObject {
     
     func sentenceListOfType(classification: SentenceModel.Classification) -> [SentenceModel] {
         return classifiedSentencesDictionary[classification]!.values.sorted(by: {$0.id < $1.id})
+    }
+    
+    func saveClassifiedSentences() {
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        print (documentsURL)
+        
+        let documentPath = documentsURL.path
+        print(documentPath)
+        
+        let classifiedNewsPath = documentsURL.appendingPathComponent("classifiedNews.json")
+        
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(articles)
+            try data.write(to: classifiedNewsPath)
+        }catch {
+            print("Error:\(error)")
+        }
     }
     
     private func fetchListOfNews() {
@@ -72,12 +94,14 @@ class SentenceListViewModel: ObservableObject {
                         let item = items[i]
                         let title = ">>> NO TITLE <<<"
                         let link = item["link"] as! String
-                        let newsModel = NewsModel(title: title, link:link, text:"")
+                        let newsModel = NewsModel(title: title, link:link, text:"", sentences: [])
+                        self.articles.articles.append(newsModel)
                         
                         let sentences = item["sentences"] as! [[String:Any?]]
                         for j in 0..<sentences.count {
                             let sentence = sentences[j] as! [String:String]
-                            let sentenceModel = SentenceModel(news:newsModel, text:sentence["text"]!)
+                            let sentenceModel = SentenceModel(news:newsModel, text:sentence["text"]!, classification: SentenceModel.Classification(rawValue: sentence["classification"]!)!)
+                            newsModel.sentences.append(sentenceModel)
                             self.sentenceList.append(sentenceModel)
                         }
                     }
