@@ -68,30 +68,29 @@ struct ClassificationView: View {
                     Text("#Features").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.orange).foregroundColor(.white)
                 .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
-            }.padding(.top)
+            }
 
             SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.sentenceList.sentenceList[self.currentSentenceIndex]))
             .offset(x: offset.width, y: offset.height)
             .gesture(drag)
                 .animation(.spring()).padding()
-                        
+
             HStack {
                 VStack {
                     Text("#UVP").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.pink).foregroundColor(.white)
-                    .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                 
                 VStack {
                     Text("#Investimento").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.purple).foregroundColor(.white)
-                .overlay(Rectangle().stroke(Color.purple, lineWidth: 1))
                 
                 VStack {
                     Text("#Parceria").bold().font(self.classificationFont)
                 }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.black).foregroundColor(.white)
-                .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
-            }.padding(.bottom)
-        }.frame(width: 400, height: 400, alignment: .center)
+            }
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+            .padding(.bottom)
+        .offset(CGSize(width: 0, height: -40))
     }
     
     func classifySentence(offset:CGSize) {
