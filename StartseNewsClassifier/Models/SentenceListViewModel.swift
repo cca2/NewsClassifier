@@ -103,7 +103,8 @@ class SentenceListViewModel: ObservableObject {
                             let sentence = sentences[j] as! [String:String]
                             
                             let classification = SentenceModel.Classification(rawValue: sentence["classification"]!)!
-                            let sentenceModel = SentenceModel(news:newsModel, text:sentence["text"]!, classification: classification)
+                            let uuid = UUID(uuidString: sentence["id"]!)!
+                            let sentenceModel = SentenceModel(id:uuid, text:sentence["text"]!, classification: classification)
                             newsModel.sentences.append(sentenceModel)
                             
                             classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel

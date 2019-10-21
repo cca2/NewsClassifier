@@ -72,6 +72,6 @@ struct SentenceView: View {
 
 struct SentenceView_Previews: PreviewProvider {
     static var previews: some View {
-        SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: SentenceModel(news: NewsModel(title: "teste", link: "http://www.cin.ufpe.br", text: "tesstando", sentences: []), text: "Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.", classification: SentenceModel.Classification(rawValue: "#None")!)))
+        SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: SentenceModel(text: "Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.", classification: SentenceModel.Classification(rawValue: "#None")!)))
     }
 }
