@@ -18,9 +18,9 @@ struct NewsView: View {
             NavigationView {
                 NavigationLink(destination: ContentView(sentences: sentences)) {
                     VStack (alignment: .leading) {
-                        Text("E-commerce chinês JD.com inicia entrega de produtos direto no carro do cliente").font(.headline).bold()
-                        Text("Usuários podem definir veículo como destino de entrega e autorizar funcionário da empresa a abrir o porta-malas").font(.body).padding([.top], 5)
-                    }.padding()
+                        Text(sentences.articles.articles[0].title).font(.headline).bold()
+                        Text(sentences.articles.articles[0].subtitle).font(.body).padding([.top], 5)
+                    }.padding(50)
                 }
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
             }.background(Color.yellow)

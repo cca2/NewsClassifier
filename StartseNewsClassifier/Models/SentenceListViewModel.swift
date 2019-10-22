@@ -93,9 +93,10 @@ class SentenceListViewModel: ObservableObject {
                 if let items = dictionary["articles"] as? [[String:Any]] {
                     for i in 0..<items.count {
                         let item = items[i]
-                        let title = ">>> NO TITLE <<<"
+                        let title = item["title"] as! String
+                        let subtitle = item["subtitle"] as! String
                         let link = item["link"] as! String
-                        let newsModel = NewsModel(title: title, link:link, text:"", sentences: [])
+                        let newsModel = NewsModel(title: title, subtitle: subtitle, link:link, text:"", sentences: [])
                         self.articles.articles.append(newsModel)
                         
                         let sentences = item["sentences"] as! [[String:Any?]]
