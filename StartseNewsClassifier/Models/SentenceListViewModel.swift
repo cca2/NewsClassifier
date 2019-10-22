@@ -11,6 +11,7 @@ import Foundation
 class SentenceListViewModel: ObservableObject {
     var startseNewsList:[NewsModel] = []
     var sentenceList:[SentenceModel] = []
+    var currentNewsIndex = 0
     
     var articles = Articles()
     

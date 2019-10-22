@@ -11,17 +11,49 @@ import SwiftUI
 struct NewsView: View {
     @State var selectedView = 0
     
+    @State private var offset:CGSize = .zero
+    
     private let sentences = SentenceListViewModel()
+    @State private var currentNewsIndex = 0
     
     var body: some View {
-        TabView(selection: $selectedView) {
-            NavigationView {
-                NavigationLink(destination: ContentView(sentences: sentences)) {
-                    VStack (alignment: .leading) {
-                        Text(sentences.articles.articles[0].title).font(.headline).bold()
-                        Text(sentences.articles.articles[0].subtitle).font(.body).padding([.top], 5)
-                    }.padding(50)
+        let drag = DragGesture()
+            .onChanged {
+                self.offset = $0.translation
+            }
+            
+            .onEnded {
+                if ($0.translation.height < 50 && $0.translation.height > -50) {
+                    if $0.translation.width < -50 {
+                        self.nextNews()
+                        self.offset = .init(width: 0, height: 0)
+                    }else if $0.translation.width > 50 {
+                        self.previousNews()
+                        self.offset = .init(width: 0, height: 0)
+                    }else {
+                        self.offset = .zero
+                    }
                 }
+        }
+
+        return TabView(selection: $selectedView) {
+            NavigationView {
+                    VStack (alignment: .leading) {
+                        Group {
+                            Text(sentences.articles.articles[currentNewsIndex].title).font(.headline).bold()
+                            Text(sentences.articles.articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5)
+                        }
+                        .offset(x: offset.width, y: 0)
+                        .gesture(drag)
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: ContentView(sentences: sentences)) {
+                            VStack(alignment: .trailing) {
+                                Text("classificar")
+                            }
+                        }
+                    }.padding(50)
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
             }.background(Color.yellow)
                 .tabItem {
@@ -35,6 +67,25 @@ struct NewsView: View {
                     Image(systemName: "2.circle")
                     Text("classificação")
                 }.tag(1)
+        }
+    }
+    
+    func nextNews() {
+        let articles = sentences.articles.articles
+        if currentNewsIndex == articles.count - 1 {
+            return
+        }
+        
+        currentNewsIndex = currentNewsIndex + 1
+        sentences.currentNewsIndex = currentNewsIndex
+    }
+    
+    func previousNews() {
+        if currentNewsIndex == 0 {
+            return
+        }else {
+            currentNewsIndex = currentNewsIndex - 1
+            sentences.currentNewsIndex = currentNewsIndex
         }
     }
 }

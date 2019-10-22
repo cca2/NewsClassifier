@@ -12,8 +12,8 @@ import NaturalLanguage
 
 struct ClassificationView: View {
     @State private var offset: CGSize = .zero
-    @State var currentSentenceIndex = 0
-
+    @State var currentSentenceIndex:Int = 0
+    private let sentencesOffset:Int
     private let actOnClassification:ActOnClassification
     
     private let sentenceList:SentenceListViewModel
@@ -23,6 +23,12 @@ struct ClassificationView: View {
     init(actOnClassification: ActOnClassification, sentences: SentenceListViewModel) {
         self.actOnClassification = actOnClassification
         self.sentenceList = sentences
+        let index = sentences.currentNewsIndex
+        var numSentences = 0
+        for i in 0..<index {
+            numSentences = numSentences + sentences.articles.articles[i].sentences.count
+        }
+        self.sentencesOffset = numSentences
     }
     
     var body: some View {
@@ -34,10 +40,10 @@ struct ClassificationView: View {
             .onEnded {
                 if ($0.translation.height < 50 && $0.translation.height > -50) {
                     if $0.translation.width < -50 {
-                        self.nextNews()
+                        self.nextSentence()
                         self.offset = .init(width: 0, height: 0)
                     }else if $0.translation.width > 50 {
-                        self.previousNews()
+                        self.previousSentence()
                         self.offset = .init(width: 0, height: 0)
                     }else {
                         self.offset = .zero
@@ -70,7 +76,7 @@ struct ClassificationView: View {
                 .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
             }
 
-            SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.sentenceList.sentenceList[self.currentSentenceIndex]))
+            SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.sentenceList.sentenceList[self.currentSentenceIndex + self.sentencesOffset]))
             .offset(x: offset.width, y: offset.height)
             .gesture(drag)
                 .animation(.spring()).padding()
@@ -114,44 +120,44 @@ struct ClassificationView: View {
         currentSentenceIndex = currentSentenceIndex + 1
     }
     
-    func nextNews() {
-        if (currentSentenceIndex == sentenceList.sentenceList.count - 1) {
+    func nextSentence() {
+        let numSentencesInNews = sentenceList.articles.articles[sentenceList.currentNewsIndex].sentences.count
+        if (currentSentenceIndex == (numSentencesInNews - 1)) {
             actOnClassification.finishedClassification()
             return
         }
         currentSentenceIndex = currentSentenceIndex + 1
     }
     
-    func previousNews() {
+    func previousSentence() {
         if currentSentenceIndex == 0 {
             return
         }
         currentSentenceIndex = currentSentenceIndex - 1
-        print (self.sentenceList.sentenceList[currentSentenceIndex].classification)
     }
     
     func classifyAsCustomerSegment() {
-        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .segment)
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .segment)
     }
     
     func classifyAsProblem() {
-        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .problem)
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .problem)
     }
     
     func classifyAsSolution() {
-        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .solution)
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .solution)
     }
     
     func classifyAsUVP() {
-        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .uvp)
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .uvp)
     }
     
     func classifyAsPartnership () {
-        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .partnership)
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .partnership)
     }
     
     func classifyAsInvestment() {
-        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex], newClassification: .investment)
+        self.sentenceList.classifySentenceAs(sentence: sentenceList.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .investment)
     }
 }
 
