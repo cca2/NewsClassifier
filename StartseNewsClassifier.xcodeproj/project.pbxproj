@@ -16,6 +16,118 @@
 		DA61AE77235BF344000F1E46 /* StartseNews.json in Resources */ = {isa = PBXBuildFile; fileRef = DA61AE76235BF344000F1E46 /* StartseNews.json */; };
 		DA61AE79235C075D000F1E46 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA61AE78235C075D000F1E46 /* NewsView.swift */; };
 		DA61AE7B235EAC21000F1E46 /* RelevantTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA61AE7A235EAC21000F1E46 /* RelevantTerms.swift */; };
+		DA891272235F89FF007C8D1D /* StartseNews-B570D702-1165-4BBE-AF57-11DA0FB68F11.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891202235F89F6007C8D1D /* StartseNews-B570D702-1165-4BBE-AF57-11DA0FB68F11.json */; };
+		DA891273235F89FF007C8D1D /* StartseNews-B36553AF-5E33-4459-A467-59A0CD1A4245.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891203235F89F6007C8D1D /* StartseNews-B36553AF-5E33-4459-A467-59A0CD1A4245.json */; };
+		DA891274235F89FF007C8D1D /* StartseNews-E7BB42AB-CF7B-4C11-82F3-FF9302E14DDD.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891204235F89F6007C8D1D /* StartseNews-E7BB42AB-CF7B-4C11-82F3-FF9302E14DDD.json */; };
+		DA891275235F89FF007C8D1D /* StartseNews-5FA6297E-B990-4C1C-B6BC-42CCCA43F823.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891205235F89F6007C8D1D /* StartseNews-5FA6297E-B990-4C1C-B6BC-42CCCA43F823.json */; };
+		DA891276235F89FF007C8D1D /* StartseNews-01B07DEB-8D45-4BF2-AB60-E07304EFDE33.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891206235F89F6007C8D1D /* StartseNews-01B07DEB-8D45-4BF2-AB60-E07304EFDE33.json */; };
+		DA891277235F89FF007C8D1D /* StartseNews-45567B41-B4AD-43A8-B1A0-584809431733.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891207235F89F6007C8D1D /* StartseNews-45567B41-B4AD-43A8-B1A0-584809431733.json */; };
+		DA891278235F89FF007C8D1D /* StartseNews-5DB9C6C7-720A-4119-A27E-516607AB2D2F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891208235F89F6007C8D1D /* StartseNews-5DB9C6C7-720A-4119-A27E-516607AB2D2F.json */; };
+		DA891279235F89FF007C8D1D /* StartseNews-CDBC0D47-A4A6-42EA-A36B-9324E93370AA.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891209235F89F6007C8D1D /* StartseNews-CDBC0D47-A4A6-42EA-A36B-9324E93370AA.json */; };
+		DA89127A235F89FF007C8D1D /* StartseNews-5791A67B-FD5F-4D38-A1A4-ECD409465917.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89120A235F89F6007C8D1D /* StartseNews-5791A67B-FD5F-4D38-A1A4-ECD409465917.json */; };
+		DA89127B235F89FF007C8D1D /* StartseNews-CB252AAF-7B5E-4E42-820C-93E4B3D158F8.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89120B235F89F6007C8D1D /* StartseNews-CB252AAF-7B5E-4E42-820C-93E4B3D158F8.json */; };
+		DA89127C235F89FF007C8D1D /* StartseNews-946135D7-26A4-4F86-8F23-7EF959C80E1C.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89120C235F89F6007C8D1D /* StartseNews-946135D7-26A4-4F86-8F23-7EF959C80E1C.json */; };
+		DA89127D235F89FF007C8D1D /* StartseNews-52456303-514D-49D4-A335-CC0A08B7E20F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89120D235F89F7007C8D1D /* StartseNews-52456303-514D-49D4-A335-CC0A08B7E20F.json */; };
+		DA89127E235F89FF007C8D1D /* StartseNews-E96D8464-08F4-4B71-9A94-474421A56DFB.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89120E235F89F7007C8D1D /* StartseNews-E96D8464-08F4-4B71-9A94-474421A56DFB.json */; };
+		DA89127F235F89FF007C8D1D /* StartseNews-F1EFA047-55B7-4518-8673-04048802BC69.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89120F235F89F7007C8D1D /* StartseNews-F1EFA047-55B7-4518-8673-04048802BC69.json */; };
+		DA891280235F89FF007C8D1D /* StartseNews-AAD76441-9D4B-4ECC-A74F-F8365A7A1E04.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891210235F89F7007C8D1D /* StartseNews-AAD76441-9D4B-4ECC-A74F-F8365A7A1E04.json */; };
+		DA891281235F89FF007C8D1D /* StartseNews-C1FE6539-9553-4C00-B07B-BDE7CB6B4FC6.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891211235F89F7007C8D1D /* StartseNews-C1FE6539-9553-4C00-B07B-BDE7CB6B4FC6.json */; };
+		DA891282235F89FF007C8D1D /* StartseNews-1018F53B-EE41-41A9-82A2-21C77346D15E.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891212235F89F7007C8D1D /* StartseNews-1018F53B-EE41-41A9-82A2-21C77346D15E.json */; };
+		DA891283235F89FF007C8D1D /* StartseNews-51D45743-BB33-4D6C-A592-C2A3DE5B3AD8.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891213235F89F7007C8D1D /* StartseNews-51D45743-BB33-4D6C-A592-C2A3DE5B3AD8.json */; };
+		DA891284235F89FF007C8D1D /* StartseNews-23B82BE0-59B2-46AF-A38F-D134A3DED451.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891214235F89F7007C8D1D /* StartseNews-23B82BE0-59B2-46AF-A38F-D134A3DED451.json */; };
+		DA891285235F89FF007C8D1D /* StartseNews-68F44015-E717-4963-9C46-0B8ADC1CE059.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891215235F89F7007C8D1D /* StartseNews-68F44015-E717-4963-9C46-0B8ADC1CE059.json */; };
+		DA891286235F89FF007C8D1D /* StartseNews-FEC775B0-9AB6-4E1D-9960-CC23F5C593E6.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891216235F89F7007C8D1D /* StartseNews-FEC775B0-9AB6-4E1D-9960-CC23F5C593E6.json */; };
+		DA891287235F89FF007C8D1D /* StartseNews-8665867F-7C9D-4124-807E-6E9BC45E3F51.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891217235F89F7007C8D1D /* StartseNews-8665867F-7C9D-4124-807E-6E9BC45E3F51.json */; };
+		DA891288235F89FF007C8D1D /* StartseNews-9020840A-B1AE-4C57-8220-E60BF7D03331.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891218235F89F7007C8D1D /* StartseNews-9020840A-B1AE-4C57-8220-E60BF7D03331.json */; };
+		DA891289235F89FF007C8D1D /* StartseNews-0A4D6F53-37D5-42DE-BB4D-36011B2EC9CF.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891219235F89F7007C8D1D /* StartseNews-0A4D6F53-37D5-42DE-BB4D-36011B2EC9CF.json */; };
+		DA89128A235F89FF007C8D1D /* StartseNews-C9D0A025-0E62-4777-BBE6-23EBC3108A6A.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89121A235F89F7007C8D1D /* StartseNews-C9D0A025-0E62-4777-BBE6-23EBC3108A6A.json */; };
+		DA89128B235F89FF007C8D1D /* StartseNews-DFAE4D24-8C52-459C-9B36-E1BC2C1F4AB3.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89121B235F89F8007C8D1D /* StartseNews-DFAE4D24-8C52-459C-9B36-E1BC2C1F4AB3.json */; };
+		DA89128C235F89FF007C8D1D /* StartseNews-22ACB335-1795-4A6A-8A6C-8155703F8CB2.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89121C235F89F8007C8D1D /* StartseNews-22ACB335-1795-4A6A-8A6C-8155703F8CB2.json */; };
+		DA89128D235F89FF007C8D1D /* StartseNews-B43B74E9-DFB0-4F42-9F44-69D10910A9D0.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89121D235F89F8007C8D1D /* StartseNews-B43B74E9-DFB0-4F42-9F44-69D10910A9D0.json */; };
+		DA89128E235F89FF007C8D1D /* StartseNews-A940B056-8E7C-408E-BA44-FBCF7799E079.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89121E235F89F8007C8D1D /* StartseNews-A940B056-8E7C-408E-BA44-FBCF7799E079.json */; };
+		DA89128F235F89FF007C8D1D /* StartseNews-CA6F0333-C447-4DEF-AF24-6546D4460B61.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89121F235F89F8007C8D1D /* StartseNews-CA6F0333-C447-4DEF-AF24-6546D4460B61.json */; };
+		DA891290235F89FF007C8D1D /* StartseNews-E1E4F58C-740C-4FCB-93CB-37FCADCC62F4.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891220235F89F8007C8D1D /* StartseNews-E1E4F58C-740C-4FCB-93CB-37FCADCC62F4.json */; };
+		DA891291235F89FF007C8D1D /* StartseNews-92C06F76-2B49-47CE-B228-C45A41542690.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891221235F89F8007C8D1D /* StartseNews-92C06F76-2B49-47CE-B228-C45A41542690.json */; };
+		DA891292235F89FF007C8D1D /* StartseNews-603103C7-A9C7-47F0-928D-EB43043B9530.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891222235F89F8007C8D1D /* StartseNews-603103C7-A9C7-47F0-928D-EB43043B9530.json */; };
+		DA891293235F89FF007C8D1D /* StartseNews-34547792-3B05-49EE-91CE-AF84BE53929E.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891223235F89F8007C8D1D /* StartseNews-34547792-3B05-49EE-91CE-AF84BE53929E.json */; };
+		DA891294235F89FF007C8D1D /* StartseNews-2995724C-E36C-463D-AC1D-1769F389E398.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891224235F89F8007C8D1D /* StartseNews-2995724C-E36C-463D-AC1D-1769F389E398.json */; };
+		DA891295235F89FF007C8D1D /* StartseNews-3600B5A9-AD15-49C6-B117-75A5D7FD30D9.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891225235F89F8007C8D1D /* StartseNews-3600B5A9-AD15-49C6-B117-75A5D7FD30D9.json */; };
+		DA891296235F89FF007C8D1D /* StartseNews-4BC8223F-69AE-4B25-89F7-814C981C4E9E.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891226235F89F8007C8D1D /* StartseNews-4BC8223F-69AE-4B25-89F7-814C981C4E9E.json */; };
+		DA891297235F89FF007C8D1D /* StartseNews-9EE14E0C-47B5-4D2E-B3DB-2817F1106FD9.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891227235F89F9007C8D1D /* StartseNews-9EE14E0C-47B5-4D2E-B3DB-2817F1106FD9.json */; };
+		DA891298235F89FF007C8D1D /* StartseNews-0A028549-420C-44EF-9468-0228EB991BB7.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891228235F89F9007C8D1D /* StartseNews-0A028549-420C-44EF-9468-0228EB991BB7.json */; };
+		DA891299235F89FF007C8D1D /* StartseNews-6E948C1B-3C20-4136-87F9-273BCDADDA44.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891229235F89F9007C8D1D /* StartseNews-6E948C1B-3C20-4136-87F9-273BCDADDA44.json */; };
+		DA89129A235F89FF007C8D1D /* StartseNews-E4E75E28-967B-4799-8B7B-CD7D3764702C.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89122A235F89F9007C8D1D /* StartseNews-E4E75E28-967B-4799-8B7B-CD7D3764702C.json */; };
+		DA89129B235F89FF007C8D1D /* StartseNews-4F48C3B5-3CF0-4E0F-80A9-37DBC35E847E.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89122B235F89F9007C8D1D /* StartseNews-4F48C3B5-3CF0-4E0F-80A9-37DBC35E847E.json */; };
+		DA89129C235F89FF007C8D1D /* StartseNews-FFD61BCF-A0B8-477C-9DE9-616F648644D9.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89122C235F89F9007C8D1D /* StartseNews-FFD61BCF-A0B8-477C-9DE9-616F648644D9.json */; };
+		DA89129D235F89FF007C8D1D /* StartseNews-04A95E71-947B-459E-B505-775C28487931.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89122D235F89F9007C8D1D /* StartseNews-04A95E71-947B-459E-B505-775C28487931.json */; };
+		DA89129E235F89FF007C8D1D /* StartseNews-E5BFB052-83FD-4B17-B89E-5067C0D8C73A.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89122E235F89F9007C8D1D /* StartseNews-E5BFB052-83FD-4B17-B89E-5067C0D8C73A.json */; };
+		DA89129F235F89FF007C8D1D /* StartseNews-C1012CBC-AED6-496E-8CA0-E0CB61472A3F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89122F235F89F9007C8D1D /* StartseNews-C1012CBC-AED6-496E-8CA0-E0CB61472A3F.json */; };
+		DA8912A0235F89FF007C8D1D /* StartseNews-3975BAEC-4CF7-4AF8-A39D-E1B7505375A9.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891230235F89F9007C8D1D /* StartseNews-3975BAEC-4CF7-4AF8-A39D-E1B7505375A9.json */; };
+		DA8912A1235F89FF007C8D1D /* StartseNews-DFA15D13-2154-4EED-B334-342789EF0D8E.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891231235F89F9007C8D1D /* StartseNews-DFA15D13-2154-4EED-B334-342789EF0D8E.json */; };
+		DA8912A2235F89FF007C8D1D /* StartseNews-68414093-6858-4A06-B1E9-685170A36919.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891232235F89FA007C8D1D /* StartseNews-68414093-6858-4A06-B1E9-685170A36919.json */; };
+		DA8912A3235F89FF007C8D1D /* StartseNews-C654784E-3322-4ECB-B9C2-2D1F84B3B3C2.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891233235F89FA007C8D1D /* StartseNews-C654784E-3322-4ECB-B9C2-2D1F84B3B3C2.json */; };
+		DA8912A4235F89FF007C8D1D /* StartseNews-94045B2C-9FE4-47DF-9B4F-6D9F2F6C3A55.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891234235F89FA007C8D1D /* StartseNews-94045B2C-9FE4-47DF-9B4F-6D9F2F6C3A55.json */; };
+		DA8912A5235F89FF007C8D1D /* StartseNews-07227107-305A-4B27-9275-26CD4F861362.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891235235F89FA007C8D1D /* StartseNews-07227107-305A-4B27-9275-26CD4F861362.json */; };
+		DA8912A6235F89FF007C8D1D /* StartseNews-73F24E81-C44B-4187-A910-34F5B0162982.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891236235F89FA007C8D1D /* StartseNews-73F24E81-C44B-4187-A910-34F5B0162982.json */; };
+		DA8912A7235F89FF007C8D1D /* StartseNews-86982E7F-3734-4788-BC08-6982CB447B51.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891237235F89FA007C8D1D /* StartseNews-86982E7F-3734-4788-BC08-6982CB447B51.json */; };
+		DA8912A8235F89FF007C8D1D /* StartseNews-6965BD72-3697-440A-844C-6418B0624019.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891238235F89FA007C8D1D /* StartseNews-6965BD72-3697-440A-844C-6418B0624019.json */; };
+		DA8912A9235F89FF007C8D1D /* StartseNews-0C339389-4E5D-4FBB-818D-93B87F7B8EB7.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891239235F89FA007C8D1D /* StartseNews-0C339389-4E5D-4FBB-818D-93B87F7B8EB7.json */; };
+		DA8912AA235F89FF007C8D1D /* StartseNews-C52120A9-152E-4E2B-9A85-8A917E233A29.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89123A235F89FA007C8D1D /* StartseNews-C52120A9-152E-4E2B-9A85-8A917E233A29.json */; };
+		DA8912AB235F89FF007C8D1D /* StartseNews-EDB0883C-3601-40E7-BCDC-AF1C0EDC025E.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89123B235F89FA007C8D1D /* StartseNews-EDB0883C-3601-40E7-BCDC-AF1C0EDC025E.json */; };
+		DA8912AC235F89FF007C8D1D /* StartseNews-42905D51-233E-4480-B847-92C198675662.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89123C235F89FA007C8D1D /* StartseNews-42905D51-233E-4480-B847-92C198675662.json */; };
+		DA8912AD235F89FF007C8D1D /* StartseNews-FC1BDA1D-7202-4737-9F96-9F86C13BF0B8.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89123D235F89FA007C8D1D /* StartseNews-FC1BDA1D-7202-4737-9F96-9F86C13BF0B8.json */; };
+		DA8912AE235F89FF007C8D1D /* StartseNews-4128FFFB-2267-4AAE-90A6-F1EE41BA7A88.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89123E235F89FA007C8D1D /* StartseNews-4128FFFB-2267-4AAE-90A6-F1EE41BA7A88.json */; };
+		DA8912AF235F89FF007C8D1D /* StartseNews-C5DAA262-449E-4681-BD05-95D09F9D228F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89123F235F89FA007C8D1D /* StartseNews-C5DAA262-449E-4681-BD05-95D09F9D228F.json */; };
+		DA8912B0235F89FF007C8D1D /* StartseNews-3B000C76-EDC3-486C-BC28-0AF63B17188C.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891240235F89FB007C8D1D /* StartseNews-3B000C76-EDC3-486C-BC28-0AF63B17188C.json */; };
+		DA8912B1235F89FF007C8D1D /* StartseNews-1316BE10-4F52-4406-9F3F-C852FCEAD40F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891241235F89FB007C8D1D /* StartseNews-1316BE10-4F52-4406-9F3F-C852FCEAD40F.json */; };
+		DA8912B2235F89FF007C8D1D /* StartseNews-A5B947A9-8833-44A6-B70F-762F7FC073B4.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891242235F89FB007C8D1D /* StartseNews-A5B947A9-8833-44A6-B70F-762F7FC073B4.json */; };
+		DA8912B3235F89FF007C8D1D /* StartseNews-A3FD07E4-A663-45EB-9321-9DC1863FF0A0.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891243235F89FB007C8D1D /* StartseNews-A3FD07E4-A663-45EB-9321-9DC1863FF0A0.json */; };
+		DA8912B4235F89FF007C8D1D /* StartseNews-AC6A90E5-2D23-4A33-AEF1-D05625B11BE2.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891244235F89FB007C8D1D /* StartseNews-AC6A90E5-2D23-4A33-AEF1-D05625B11BE2.json */; };
+		DA8912B5235F89FF007C8D1D /* StartseNews-87569056-8BDE-4D32-A4EB-7CF7E5CB5E51.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891245235F89FB007C8D1D /* StartseNews-87569056-8BDE-4D32-A4EB-7CF7E5CB5E51.json */; };
+		DA8912B6235F89FF007C8D1D /* StartseNews-D837EA98-26B0-4C8E-B9DC-CF1B9915E3C5.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891246235F89FB007C8D1D /* StartseNews-D837EA98-26B0-4C8E-B9DC-CF1B9915E3C5.json */; };
+		DA8912B7235F89FF007C8D1D /* StartseNews-1E0579C7-28E2-48A1-8EBB-F047A4ADC7F3.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891247235F89FB007C8D1D /* StartseNews-1E0579C7-28E2-48A1-8EBB-F047A4ADC7F3.json */; };
+		DA8912B8235F89FF007C8D1D /* StartseNews-0177A9C3-AB7E-40CE-9DC7-29BE3413CB2A.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891248235F89FB007C8D1D /* StartseNews-0177A9C3-AB7E-40CE-9DC7-29BE3413CB2A.json */; };
+		DA8912B9235F89FF007C8D1D /* StartseNews-74BC9AA7-3F94-4EC0-942A-1D98A6F1362F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891249235F89FB007C8D1D /* StartseNews-74BC9AA7-3F94-4EC0-942A-1D98A6F1362F.json */; };
+		DA8912BA235F89FF007C8D1D /* StartseNews-20D9873F-C89A-4184-B322-CC14A51B9B2D.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89124A235F89FB007C8D1D /* StartseNews-20D9873F-C89A-4184-B322-CC14A51B9B2D.json */; };
+		DA8912BB235F89FF007C8D1D /* StartseNews-E6CF1487-28B4-431B-9BBC-0D37EAD3F091.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89124B235F89FB007C8D1D /* StartseNews-E6CF1487-28B4-431B-9BBC-0D37EAD3F091.json */; };
+		DA8912BC235F89FF007C8D1D /* StartseNews-6A96DE8F-6369-4A50-8C45-C4649C83E335.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89124C235F89FB007C8D1D /* StartseNews-6A96DE8F-6369-4A50-8C45-C4649C83E335.json */; };
+		DA8912BD235F89FF007C8D1D /* StartseNews-951A4FA7-BE43-4FAB-92C7-9D3E90E9FC5F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89124D235F89FC007C8D1D /* StartseNews-951A4FA7-BE43-4FAB-92C7-9D3E90E9FC5F.json */; };
+		DA8912BE235F89FF007C8D1D /* StartseNews-B34AA766-7468-4757-9070-DEAED1879B28.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89124E235F89FC007C8D1D /* StartseNews-B34AA766-7468-4757-9070-DEAED1879B28.json */; };
+		DA8912BF235F89FF007C8D1D /* StartseNews-8C921F05-FB05-4FE9-9220-E60ACF6B070E.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89124F235F89FC007C8D1D /* StartseNews-8C921F05-FB05-4FE9-9220-E60ACF6B070E.json */; };
+		DA8912C0235F89FF007C8D1D /* StartseNews-77124BF5-C531-4E0B-80AF-BC3E070747E3.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891250235F89FC007C8D1D /* StartseNews-77124BF5-C531-4E0B-80AF-BC3E070747E3.json */; };
+		DA8912C1235F89FF007C8D1D /* StartseNews-F9B84E82-E73C-4B96-97F0-206BFA724AFA.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891251235F89FC007C8D1D /* StartseNews-F9B84E82-E73C-4B96-97F0-206BFA724AFA.json */; };
+		DA8912C2235F89FF007C8D1D /* StartseNews-52175283-49A9-4AEF-B642-B360F151C5A3.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891252235F89FC007C8D1D /* StartseNews-52175283-49A9-4AEF-B642-B360F151C5A3.json */; };
+		DA8912C3235F89FF007C8D1D /* StartseNews-E5265625-3C7F-41EE-B60F-8557492FAA4F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891253235F89FC007C8D1D /* StartseNews-E5265625-3C7F-41EE-B60F-8557492FAA4F.json */; };
+		DA8912C4235F89FF007C8D1D /* StartseNews-76D81C7E-0AFD-4525-AB9E-85C5D8473466.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891254235F89FC007C8D1D /* StartseNews-76D81C7E-0AFD-4525-AB9E-85C5D8473466.json */; };
+		DA8912C5235F89FF007C8D1D /* StartseNews-C1557756-8073-4356-8F79-BD7F8D123588.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891255235F89FC007C8D1D /* StartseNews-C1557756-8073-4356-8F79-BD7F8D123588.json */; };
+		DA8912C6235F89FF007C8D1D /* StartseNews-8061E17A-E86B-4538-9B23-2C0A74C75550.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891256235F89FC007C8D1D /* StartseNews-8061E17A-E86B-4538-9B23-2C0A74C75550.json */; };
+		DA8912C7235F89FF007C8D1D /* StartseNews-647DA963-CCC5-48F5-8E5E-38F902242079.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891257235F89FC007C8D1D /* StartseNews-647DA963-CCC5-48F5-8E5E-38F902242079.json */; };
+		DA8912C8235F89FF007C8D1D /* StartseNews-47FB2A8A-78A1-484D-8250-E1021BE8F15B.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891258235F89FD007C8D1D /* StartseNews-47FB2A8A-78A1-484D-8250-E1021BE8F15B.json */; };
+		DA8912C9235F89FF007C8D1D /* StartseNews-56B29525-7536-4665-8FE7-3D058E82EE21.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891259235F89FD007C8D1D /* StartseNews-56B29525-7536-4665-8FE7-3D058E82EE21.json */; };
+		DA8912CA235F89FF007C8D1D /* StartseNews-DFAA2722-BC60-4A81-9B00-10AC808D51AA.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89125A235F89FD007C8D1D /* StartseNews-DFAA2722-BC60-4A81-9B00-10AC808D51AA.json */; };
+		DA8912CB235F89FF007C8D1D /* StartseNews-A827C9FB-AB53-499D-A556-8CF1FCBD079B.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89125B235F89FD007C8D1D /* StartseNews-A827C9FB-AB53-499D-A556-8CF1FCBD079B.json */; };
+		DA8912CC235F89FF007C8D1D /* StartseNews-63A5CB8F-8F8F-4731-9EEB-D0A1A64230CE.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89125C235F89FD007C8D1D /* StartseNews-63A5CB8F-8F8F-4731-9EEB-D0A1A64230CE.json */; };
+		DA8912CD235F89FF007C8D1D /* StartseNews-54473D8D-A3E4-4465-A3DC-900C4C5AAEF0.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89125D235F89FD007C8D1D /* StartseNews-54473D8D-A3E4-4465-A3DC-900C4C5AAEF0.json */; };
+		DA8912CE235F89FF007C8D1D /* StartseNews-323B2E7B-9FF0-4B51-A4C1-F188E21FDF0F.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89125E235F89FD007C8D1D /* StartseNews-323B2E7B-9FF0-4B51-A4C1-F188E21FDF0F.json */; };
+		DA8912CF235F89FF007C8D1D /* StartseNews-D002594A-670A-4631-ADC0-D106547F39EA.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89125F235F89FD007C8D1D /* StartseNews-D002594A-670A-4631-ADC0-D106547F39EA.json */; };
+		DA8912D0235F89FF007C8D1D /* StartseNews-CC7BB4A0-047D-46E2-B4E8-EC9066EF3BE7.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891260235F89FD007C8D1D /* StartseNews-CC7BB4A0-047D-46E2-B4E8-EC9066EF3BE7.json */; };
+		DA8912D1235F89FF007C8D1D /* StartseNews-A388B1B9-9CD3-41B1-9364-CD879543C3A1.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891261235F89FD007C8D1D /* StartseNews-A388B1B9-9CD3-41B1-9364-CD879543C3A1.json */; };
+		DA8912D2235F89FF007C8D1D /* StartseNews-F90157DA-F639-4574-A8BC-5E9CFFF5A57C.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891262235F89FD007C8D1D /* StartseNews-F90157DA-F639-4574-A8BC-5E9CFFF5A57C.json */; };
+		DA8912D3235F89FF007C8D1D /* StartseNews-8D348413-21AA-4651-9F1D-334F04E47568.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891263235F89FE007C8D1D /* StartseNews-8D348413-21AA-4651-9F1D-334F04E47568.json */; };
+		DA8912D4235F89FF007C8D1D /* StartseNews-1EB29B3F-3D71-4F01-9B7D-1B2FC6598288.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891264235F89FE007C8D1D /* StartseNews-1EB29B3F-3D71-4F01-9B7D-1B2FC6598288.json */; };
+		DA8912D5235F89FF007C8D1D /* StartseNews-676166EB-750B-49A8-8B1E-130622996F97.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891265235F89FE007C8D1D /* StartseNews-676166EB-750B-49A8-8B1E-130622996F97.json */; };
+		DA8912D6235F89FF007C8D1D /* StartseNews-C6EFAB49-06A9-4DB6-9558-FED85AE8A6B5.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891266235F89FE007C8D1D /* StartseNews-C6EFAB49-06A9-4DB6-9558-FED85AE8A6B5.json */; };
+		DA8912D7235F89FF007C8D1D /* StartseNews-5E9EDB72-3DCB-4E56-B248-52B0F15986BE.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891267235F89FE007C8D1D /* StartseNews-5E9EDB72-3DCB-4E56-B248-52B0F15986BE.json */; };
+		DA8912D8235F89FF007C8D1D /* StartseNews-1E5D84C0-96A9-47E2-9A78-A9FFD8FB4387.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891268235F89FE007C8D1D /* StartseNews-1E5D84C0-96A9-47E2-9A78-A9FFD8FB4387.json */; };
+		DA8912D9235F89FF007C8D1D /* StartseNews-4AB99945-C467-4A68-A4C4-29D64BD6238C.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891269235F89FE007C8D1D /* StartseNews-4AB99945-C467-4A68-A4C4-29D64BD6238C.json */; };
+		DA8912DA235F89FF007C8D1D /* StartseNews-4D6D8319-9ECD-4006-AB6D-7A8CDBDC8FA9.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89126A235F89FE007C8D1D /* StartseNews-4D6D8319-9ECD-4006-AB6D-7A8CDBDC8FA9.json */; };
+		DA8912DB235F89FF007C8D1D /* StartseNews-F82890B5-A881-4655-A4C8-324A07BDD656.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89126B235F89FE007C8D1D /* StartseNews-F82890B5-A881-4655-A4C8-324A07BDD656.json */; };
+		DA8912DC235F89FF007C8D1D /* StartseNews-05040116-E1BE-4BB7-B2A8-86EF84E8BF22.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89126C235F89FE007C8D1D /* StartseNews-05040116-E1BE-4BB7-B2A8-86EF84E8BF22.json */; };
+		DA8912DD235F89FF007C8D1D /* StartseNews-8A8A74CB-B3F5-4C49-B2EC-87723211BAE6.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89126D235F89FE007C8D1D /* StartseNews-8A8A74CB-B3F5-4C49-B2EC-87723211BAE6.json */; };
+		DA8912DE235F89FF007C8D1D /* StartseNews-4514982F-A4ED-4595-ACB4-27D81A603F0A.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89126E235F89FF007C8D1D /* StartseNews-4514982F-A4ED-4595-ACB4-27D81A603F0A.json */; };
+		DA8912DF235F89FF007C8D1D /* StartseNews-A6CA5FBB-1A79-4DD4-8920-1CA1C0F7CB6A.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89126F235F89FF007C8D1D /* StartseNews-A6CA5FBB-1A79-4DD4-8920-1CA1C0F7CB6A.json */; };
+		DA8912E0235F89FF007C8D1D /* StartseNews-DA1D1BCB-1F7A-48BD-B2AC-59E5EACFC31A.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891270235F89FF007C8D1D /* StartseNews-DA1D1BCB-1F7A-48BD-B2AC-59E5EACFC31A.json */; };
+		DA8912E1235F89FF007C8D1D /* StartseNews-A71719AA-8509-45F2-8D9A-C31BAF32BC4C.json in Resources */ = {isa = PBXBuildFile; fileRef = DA891271235F89FF007C8D1D /* StartseNews-A71719AA-8509-45F2-8D9A-C31BAF32BC4C.json */; };
 		DACA7792235384D8000EE9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACA7791235384D8000EE9A7 /* AppDelegate.swift */; };
 		DACA7794235384D8000EE9A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACA7793235384D8000EE9A7 /* SceneDelegate.swift */; };
 		DACA7797235384D8000EE9A7 /* StartseNewsClassifier.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DACA7795235384D8000EE9A7 /* StartseNewsClassifier.xcdatamodeld */; };
@@ -57,6 +169,118 @@
 		DA61AE76235BF344000F1E46 /* StartseNews.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StartseNews.json; sourceTree = "<group>"; };
 		DA61AE78235C075D000F1E46 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		DA61AE7A235EAC21000F1E46 /* RelevantTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantTerms.swift; sourceTree = "<group>"; };
+		DA891202235F89F6007C8D1D /* StartseNews-B570D702-1165-4BBE-AF57-11DA0FB68F11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-B570D702-1165-4BBE-AF57-11DA0FB68F11.json"; sourceTree = "<group>"; };
+		DA891203235F89F6007C8D1D /* StartseNews-B36553AF-5E33-4459-A467-59A0CD1A4245.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-B36553AF-5E33-4459-A467-59A0CD1A4245.json"; sourceTree = "<group>"; };
+		DA891204235F89F6007C8D1D /* StartseNews-E7BB42AB-CF7B-4C11-82F3-FF9302E14DDD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-E7BB42AB-CF7B-4C11-82F3-FF9302E14DDD.json"; sourceTree = "<group>"; };
+		DA891205235F89F6007C8D1D /* StartseNews-5FA6297E-B990-4C1C-B6BC-42CCCA43F823.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-5FA6297E-B990-4C1C-B6BC-42CCCA43F823.json"; sourceTree = "<group>"; };
+		DA891206235F89F6007C8D1D /* StartseNews-01B07DEB-8D45-4BF2-AB60-E07304EFDE33.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-01B07DEB-8D45-4BF2-AB60-E07304EFDE33.json"; sourceTree = "<group>"; };
+		DA891207235F89F6007C8D1D /* StartseNews-45567B41-B4AD-43A8-B1A0-584809431733.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-45567B41-B4AD-43A8-B1A0-584809431733.json"; sourceTree = "<group>"; };
+		DA891208235F89F6007C8D1D /* StartseNews-5DB9C6C7-720A-4119-A27E-516607AB2D2F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-5DB9C6C7-720A-4119-A27E-516607AB2D2F.json"; sourceTree = "<group>"; };
+		DA891209235F89F6007C8D1D /* StartseNews-CDBC0D47-A4A6-42EA-A36B-9324E93370AA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-CDBC0D47-A4A6-42EA-A36B-9324E93370AA.json"; sourceTree = "<group>"; };
+		DA89120A235F89F6007C8D1D /* StartseNews-5791A67B-FD5F-4D38-A1A4-ECD409465917.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-5791A67B-FD5F-4D38-A1A4-ECD409465917.json"; sourceTree = "<group>"; };
+		DA89120B235F89F6007C8D1D /* StartseNews-CB252AAF-7B5E-4E42-820C-93E4B3D158F8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-CB252AAF-7B5E-4E42-820C-93E4B3D158F8.json"; sourceTree = "<group>"; };
+		DA89120C235F89F6007C8D1D /* StartseNews-946135D7-26A4-4F86-8F23-7EF959C80E1C.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-946135D7-26A4-4F86-8F23-7EF959C80E1C.json"; sourceTree = "<group>"; };
+		DA89120D235F89F7007C8D1D /* StartseNews-52456303-514D-49D4-A335-CC0A08B7E20F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-52456303-514D-49D4-A335-CC0A08B7E20F.json"; sourceTree = "<group>"; };
+		DA89120E235F89F7007C8D1D /* StartseNews-E96D8464-08F4-4B71-9A94-474421A56DFB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-E96D8464-08F4-4B71-9A94-474421A56DFB.json"; sourceTree = "<group>"; };
+		DA89120F235F89F7007C8D1D /* StartseNews-F1EFA047-55B7-4518-8673-04048802BC69.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-F1EFA047-55B7-4518-8673-04048802BC69.json"; sourceTree = "<group>"; };
+		DA891210235F89F7007C8D1D /* StartseNews-AAD76441-9D4B-4ECC-A74F-F8365A7A1E04.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-AAD76441-9D4B-4ECC-A74F-F8365A7A1E04.json"; sourceTree = "<group>"; };
+		DA891211235F89F7007C8D1D /* StartseNews-C1FE6539-9553-4C00-B07B-BDE7CB6B4FC6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-C1FE6539-9553-4C00-B07B-BDE7CB6B4FC6.json"; sourceTree = "<group>"; };
+		DA891212235F89F7007C8D1D /* StartseNews-1018F53B-EE41-41A9-82A2-21C77346D15E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-1018F53B-EE41-41A9-82A2-21C77346D15E.json"; sourceTree = "<group>"; };
+		DA891213235F89F7007C8D1D /* StartseNews-51D45743-BB33-4D6C-A592-C2A3DE5B3AD8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-51D45743-BB33-4D6C-A592-C2A3DE5B3AD8.json"; sourceTree = "<group>"; };
+		DA891214235F89F7007C8D1D /* StartseNews-23B82BE0-59B2-46AF-A38F-D134A3DED451.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-23B82BE0-59B2-46AF-A38F-D134A3DED451.json"; sourceTree = "<group>"; };
+		DA891215235F89F7007C8D1D /* StartseNews-68F44015-E717-4963-9C46-0B8ADC1CE059.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-68F44015-E717-4963-9C46-0B8ADC1CE059.json"; sourceTree = "<group>"; };
+		DA891216235F89F7007C8D1D /* StartseNews-FEC775B0-9AB6-4E1D-9960-CC23F5C593E6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-FEC775B0-9AB6-4E1D-9960-CC23F5C593E6.json"; sourceTree = "<group>"; };
+		DA891217235F89F7007C8D1D /* StartseNews-8665867F-7C9D-4124-807E-6E9BC45E3F51.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-8665867F-7C9D-4124-807E-6E9BC45E3F51.json"; sourceTree = "<group>"; };
+		DA891218235F89F7007C8D1D /* StartseNews-9020840A-B1AE-4C57-8220-E60BF7D03331.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-9020840A-B1AE-4C57-8220-E60BF7D03331.json"; sourceTree = "<group>"; };
+		DA891219235F89F7007C8D1D /* StartseNews-0A4D6F53-37D5-42DE-BB4D-36011B2EC9CF.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-0A4D6F53-37D5-42DE-BB4D-36011B2EC9CF.json"; sourceTree = "<group>"; };
+		DA89121A235F89F7007C8D1D /* StartseNews-C9D0A025-0E62-4777-BBE6-23EBC3108A6A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-C9D0A025-0E62-4777-BBE6-23EBC3108A6A.json"; sourceTree = "<group>"; };
+		DA89121B235F89F8007C8D1D /* StartseNews-DFAE4D24-8C52-459C-9B36-E1BC2C1F4AB3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-DFAE4D24-8C52-459C-9B36-E1BC2C1F4AB3.json"; sourceTree = "<group>"; };
+		DA89121C235F89F8007C8D1D /* StartseNews-22ACB335-1795-4A6A-8A6C-8155703F8CB2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-22ACB335-1795-4A6A-8A6C-8155703F8CB2.json"; sourceTree = "<group>"; };
+		DA89121D235F89F8007C8D1D /* StartseNews-B43B74E9-DFB0-4F42-9F44-69D10910A9D0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-B43B74E9-DFB0-4F42-9F44-69D10910A9D0.json"; sourceTree = "<group>"; };
+		DA89121E235F89F8007C8D1D /* StartseNews-A940B056-8E7C-408E-BA44-FBCF7799E079.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-A940B056-8E7C-408E-BA44-FBCF7799E079.json"; sourceTree = "<group>"; };
+		DA89121F235F89F8007C8D1D /* StartseNews-CA6F0333-C447-4DEF-AF24-6546D4460B61.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-CA6F0333-C447-4DEF-AF24-6546D4460B61.json"; sourceTree = "<group>"; };
+		DA891220235F89F8007C8D1D /* StartseNews-E1E4F58C-740C-4FCB-93CB-37FCADCC62F4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-E1E4F58C-740C-4FCB-93CB-37FCADCC62F4.json"; sourceTree = "<group>"; };
+		DA891221235F89F8007C8D1D /* StartseNews-92C06F76-2B49-47CE-B228-C45A41542690.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-92C06F76-2B49-47CE-B228-C45A41542690.json"; sourceTree = "<group>"; };
+		DA891222235F89F8007C8D1D /* StartseNews-603103C7-A9C7-47F0-928D-EB43043B9530.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-603103C7-A9C7-47F0-928D-EB43043B9530.json"; sourceTree = "<group>"; };
+		DA891223235F89F8007C8D1D /* StartseNews-34547792-3B05-49EE-91CE-AF84BE53929E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-34547792-3B05-49EE-91CE-AF84BE53929E.json"; sourceTree = "<group>"; };
+		DA891224235F89F8007C8D1D /* StartseNews-2995724C-E36C-463D-AC1D-1769F389E398.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-2995724C-E36C-463D-AC1D-1769F389E398.json"; sourceTree = "<group>"; };
+		DA891225235F89F8007C8D1D /* StartseNews-3600B5A9-AD15-49C6-B117-75A5D7FD30D9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-3600B5A9-AD15-49C6-B117-75A5D7FD30D9.json"; sourceTree = "<group>"; };
+		DA891226235F89F8007C8D1D /* StartseNews-4BC8223F-69AE-4B25-89F7-814C981C4E9E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-4BC8223F-69AE-4B25-89F7-814C981C4E9E.json"; sourceTree = "<group>"; };
+		DA891227235F89F9007C8D1D /* StartseNews-9EE14E0C-47B5-4D2E-B3DB-2817F1106FD9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-9EE14E0C-47B5-4D2E-B3DB-2817F1106FD9.json"; sourceTree = "<group>"; };
+		DA891228235F89F9007C8D1D /* StartseNews-0A028549-420C-44EF-9468-0228EB991BB7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-0A028549-420C-44EF-9468-0228EB991BB7.json"; sourceTree = "<group>"; };
+		DA891229235F89F9007C8D1D /* StartseNews-6E948C1B-3C20-4136-87F9-273BCDADDA44.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-6E948C1B-3C20-4136-87F9-273BCDADDA44.json"; sourceTree = "<group>"; };
+		DA89122A235F89F9007C8D1D /* StartseNews-E4E75E28-967B-4799-8B7B-CD7D3764702C.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-E4E75E28-967B-4799-8B7B-CD7D3764702C.json"; sourceTree = "<group>"; };
+		DA89122B235F89F9007C8D1D /* StartseNews-4F48C3B5-3CF0-4E0F-80A9-37DBC35E847E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-4F48C3B5-3CF0-4E0F-80A9-37DBC35E847E.json"; sourceTree = "<group>"; };
+		DA89122C235F89F9007C8D1D /* StartseNews-FFD61BCF-A0B8-477C-9DE9-616F648644D9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-FFD61BCF-A0B8-477C-9DE9-616F648644D9.json"; sourceTree = "<group>"; };
+		DA89122D235F89F9007C8D1D /* StartseNews-04A95E71-947B-459E-B505-775C28487931.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-04A95E71-947B-459E-B505-775C28487931.json"; sourceTree = "<group>"; };
+		DA89122E235F89F9007C8D1D /* StartseNews-E5BFB052-83FD-4B17-B89E-5067C0D8C73A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-E5BFB052-83FD-4B17-B89E-5067C0D8C73A.json"; sourceTree = "<group>"; };
+		DA89122F235F89F9007C8D1D /* StartseNews-C1012CBC-AED6-496E-8CA0-E0CB61472A3F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-C1012CBC-AED6-496E-8CA0-E0CB61472A3F.json"; sourceTree = "<group>"; };
+		DA891230235F89F9007C8D1D /* StartseNews-3975BAEC-4CF7-4AF8-A39D-E1B7505375A9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-3975BAEC-4CF7-4AF8-A39D-E1B7505375A9.json"; sourceTree = "<group>"; };
+		DA891231235F89F9007C8D1D /* StartseNews-DFA15D13-2154-4EED-B334-342789EF0D8E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-DFA15D13-2154-4EED-B334-342789EF0D8E.json"; sourceTree = "<group>"; };
+		DA891232235F89FA007C8D1D /* StartseNews-68414093-6858-4A06-B1E9-685170A36919.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-68414093-6858-4A06-B1E9-685170A36919.json"; sourceTree = "<group>"; };
+		DA891233235F89FA007C8D1D /* StartseNews-C654784E-3322-4ECB-B9C2-2D1F84B3B3C2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-C654784E-3322-4ECB-B9C2-2D1F84B3B3C2.json"; sourceTree = "<group>"; };
+		DA891234235F89FA007C8D1D /* StartseNews-94045B2C-9FE4-47DF-9B4F-6D9F2F6C3A55.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-94045B2C-9FE4-47DF-9B4F-6D9F2F6C3A55.json"; sourceTree = "<group>"; };
+		DA891235235F89FA007C8D1D /* StartseNews-07227107-305A-4B27-9275-26CD4F861362.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-07227107-305A-4B27-9275-26CD4F861362.json"; sourceTree = "<group>"; };
+		DA891236235F89FA007C8D1D /* StartseNews-73F24E81-C44B-4187-A910-34F5B0162982.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-73F24E81-C44B-4187-A910-34F5B0162982.json"; sourceTree = "<group>"; };
+		DA891237235F89FA007C8D1D /* StartseNews-86982E7F-3734-4788-BC08-6982CB447B51.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-86982E7F-3734-4788-BC08-6982CB447B51.json"; sourceTree = "<group>"; };
+		DA891238235F89FA007C8D1D /* StartseNews-6965BD72-3697-440A-844C-6418B0624019.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-6965BD72-3697-440A-844C-6418B0624019.json"; sourceTree = "<group>"; };
+		DA891239235F89FA007C8D1D /* StartseNews-0C339389-4E5D-4FBB-818D-93B87F7B8EB7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-0C339389-4E5D-4FBB-818D-93B87F7B8EB7.json"; sourceTree = "<group>"; };
+		DA89123A235F89FA007C8D1D /* StartseNews-C52120A9-152E-4E2B-9A85-8A917E233A29.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-C52120A9-152E-4E2B-9A85-8A917E233A29.json"; sourceTree = "<group>"; };
+		DA89123B235F89FA007C8D1D /* StartseNews-EDB0883C-3601-40E7-BCDC-AF1C0EDC025E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-EDB0883C-3601-40E7-BCDC-AF1C0EDC025E.json"; sourceTree = "<group>"; };
+		DA89123C235F89FA007C8D1D /* StartseNews-42905D51-233E-4480-B847-92C198675662.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-42905D51-233E-4480-B847-92C198675662.json"; sourceTree = "<group>"; };
+		DA89123D235F89FA007C8D1D /* StartseNews-FC1BDA1D-7202-4737-9F96-9F86C13BF0B8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-FC1BDA1D-7202-4737-9F96-9F86C13BF0B8.json"; sourceTree = "<group>"; };
+		DA89123E235F89FA007C8D1D /* StartseNews-4128FFFB-2267-4AAE-90A6-F1EE41BA7A88.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-4128FFFB-2267-4AAE-90A6-F1EE41BA7A88.json"; sourceTree = "<group>"; };
+		DA89123F235F89FA007C8D1D /* StartseNews-C5DAA262-449E-4681-BD05-95D09F9D228F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-C5DAA262-449E-4681-BD05-95D09F9D228F.json"; sourceTree = "<group>"; };
+		DA891240235F89FB007C8D1D /* StartseNews-3B000C76-EDC3-486C-BC28-0AF63B17188C.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-3B000C76-EDC3-486C-BC28-0AF63B17188C.json"; sourceTree = "<group>"; };
+		DA891241235F89FB007C8D1D /* StartseNews-1316BE10-4F52-4406-9F3F-C852FCEAD40F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-1316BE10-4F52-4406-9F3F-C852FCEAD40F.json"; sourceTree = "<group>"; };
+		DA891242235F89FB007C8D1D /* StartseNews-A5B947A9-8833-44A6-B70F-762F7FC073B4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-A5B947A9-8833-44A6-B70F-762F7FC073B4.json"; sourceTree = "<group>"; };
+		DA891243235F89FB007C8D1D /* StartseNews-A3FD07E4-A663-45EB-9321-9DC1863FF0A0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-A3FD07E4-A663-45EB-9321-9DC1863FF0A0.json"; sourceTree = "<group>"; };
+		DA891244235F89FB007C8D1D /* StartseNews-AC6A90E5-2D23-4A33-AEF1-D05625B11BE2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-AC6A90E5-2D23-4A33-AEF1-D05625B11BE2.json"; sourceTree = "<group>"; };
+		DA891245235F89FB007C8D1D /* StartseNews-87569056-8BDE-4D32-A4EB-7CF7E5CB5E51.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-87569056-8BDE-4D32-A4EB-7CF7E5CB5E51.json"; sourceTree = "<group>"; };
+		DA891246235F89FB007C8D1D /* StartseNews-D837EA98-26B0-4C8E-B9DC-CF1B9915E3C5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-D837EA98-26B0-4C8E-B9DC-CF1B9915E3C5.json"; sourceTree = "<group>"; };
+		DA891247235F89FB007C8D1D /* StartseNews-1E0579C7-28E2-48A1-8EBB-F047A4ADC7F3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-1E0579C7-28E2-48A1-8EBB-F047A4ADC7F3.json"; sourceTree = "<group>"; };
+		DA891248235F89FB007C8D1D /* StartseNews-0177A9C3-AB7E-40CE-9DC7-29BE3413CB2A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-0177A9C3-AB7E-40CE-9DC7-29BE3413CB2A.json"; sourceTree = "<group>"; };
+		DA891249235F89FB007C8D1D /* StartseNews-74BC9AA7-3F94-4EC0-942A-1D98A6F1362F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-74BC9AA7-3F94-4EC0-942A-1D98A6F1362F.json"; sourceTree = "<group>"; };
+		DA89124A235F89FB007C8D1D /* StartseNews-20D9873F-C89A-4184-B322-CC14A51B9B2D.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-20D9873F-C89A-4184-B322-CC14A51B9B2D.json"; sourceTree = "<group>"; };
+		DA89124B235F89FB007C8D1D /* StartseNews-E6CF1487-28B4-431B-9BBC-0D37EAD3F091.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-E6CF1487-28B4-431B-9BBC-0D37EAD3F091.json"; sourceTree = "<group>"; };
+		DA89124C235F89FB007C8D1D /* StartseNews-6A96DE8F-6369-4A50-8C45-C4649C83E335.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-6A96DE8F-6369-4A50-8C45-C4649C83E335.json"; sourceTree = "<group>"; };
+		DA89124D235F89FC007C8D1D /* StartseNews-951A4FA7-BE43-4FAB-92C7-9D3E90E9FC5F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-951A4FA7-BE43-4FAB-92C7-9D3E90E9FC5F.json"; sourceTree = "<group>"; };
+		DA89124E235F89FC007C8D1D /* StartseNews-B34AA766-7468-4757-9070-DEAED1879B28.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-B34AA766-7468-4757-9070-DEAED1879B28.json"; sourceTree = "<group>"; };
+		DA89124F235F89FC007C8D1D /* StartseNews-8C921F05-FB05-4FE9-9220-E60ACF6B070E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-8C921F05-FB05-4FE9-9220-E60ACF6B070E.json"; sourceTree = "<group>"; };
+		DA891250235F89FC007C8D1D /* StartseNews-77124BF5-C531-4E0B-80AF-BC3E070747E3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-77124BF5-C531-4E0B-80AF-BC3E070747E3.json"; sourceTree = "<group>"; };
+		DA891251235F89FC007C8D1D /* StartseNews-F9B84E82-E73C-4B96-97F0-206BFA724AFA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-F9B84E82-E73C-4B96-97F0-206BFA724AFA.json"; sourceTree = "<group>"; };
+		DA891252235F89FC007C8D1D /* StartseNews-52175283-49A9-4AEF-B642-B360F151C5A3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-52175283-49A9-4AEF-B642-B360F151C5A3.json"; sourceTree = "<group>"; };
+		DA891253235F89FC007C8D1D /* StartseNews-E5265625-3C7F-41EE-B60F-8557492FAA4F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-E5265625-3C7F-41EE-B60F-8557492FAA4F.json"; sourceTree = "<group>"; };
+		DA891254235F89FC007C8D1D /* StartseNews-76D81C7E-0AFD-4525-AB9E-85C5D8473466.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-76D81C7E-0AFD-4525-AB9E-85C5D8473466.json"; sourceTree = "<group>"; };
+		DA891255235F89FC007C8D1D /* StartseNews-C1557756-8073-4356-8F79-BD7F8D123588.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-C1557756-8073-4356-8F79-BD7F8D123588.json"; sourceTree = "<group>"; };
+		DA891256235F89FC007C8D1D /* StartseNews-8061E17A-E86B-4538-9B23-2C0A74C75550.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-8061E17A-E86B-4538-9B23-2C0A74C75550.json"; sourceTree = "<group>"; };
+		DA891257235F89FC007C8D1D /* StartseNews-647DA963-CCC5-48F5-8E5E-38F902242079.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-647DA963-CCC5-48F5-8E5E-38F902242079.json"; sourceTree = "<group>"; };
+		DA891258235F89FD007C8D1D /* StartseNews-47FB2A8A-78A1-484D-8250-E1021BE8F15B.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-47FB2A8A-78A1-484D-8250-E1021BE8F15B.json"; sourceTree = "<group>"; };
+		DA891259235F89FD007C8D1D /* StartseNews-56B29525-7536-4665-8FE7-3D058E82EE21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-56B29525-7536-4665-8FE7-3D058E82EE21.json"; sourceTree = "<group>"; };
+		DA89125A235F89FD007C8D1D /* StartseNews-DFAA2722-BC60-4A81-9B00-10AC808D51AA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-DFAA2722-BC60-4A81-9B00-10AC808D51AA.json"; sourceTree = "<group>"; };
+		DA89125B235F89FD007C8D1D /* StartseNews-A827C9FB-AB53-499D-A556-8CF1FCBD079B.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-A827C9FB-AB53-499D-A556-8CF1FCBD079B.json"; sourceTree = "<group>"; };
+		DA89125C235F89FD007C8D1D /* StartseNews-63A5CB8F-8F8F-4731-9EEB-D0A1A64230CE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-63A5CB8F-8F8F-4731-9EEB-D0A1A64230CE.json"; sourceTree = "<group>"; };
+		DA89125D235F89FD007C8D1D /* StartseNews-54473D8D-A3E4-4465-A3DC-900C4C5AAEF0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-54473D8D-A3E4-4465-A3DC-900C4C5AAEF0.json"; sourceTree = "<group>"; };
+		DA89125E235F89FD007C8D1D /* StartseNews-323B2E7B-9FF0-4B51-A4C1-F188E21FDF0F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-323B2E7B-9FF0-4B51-A4C1-F188E21FDF0F.json"; sourceTree = "<group>"; };
+		DA89125F235F89FD007C8D1D /* StartseNews-D002594A-670A-4631-ADC0-D106547F39EA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-D002594A-670A-4631-ADC0-D106547F39EA.json"; sourceTree = "<group>"; };
+		DA891260235F89FD007C8D1D /* StartseNews-CC7BB4A0-047D-46E2-B4E8-EC9066EF3BE7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-CC7BB4A0-047D-46E2-B4E8-EC9066EF3BE7.json"; sourceTree = "<group>"; };
+		DA891261235F89FD007C8D1D /* StartseNews-A388B1B9-9CD3-41B1-9364-CD879543C3A1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-A388B1B9-9CD3-41B1-9364-CD879543C3A1.json"; sourceTree = "<group>"; };
+		DA891262235F89FD007C8D1D /* StartseNews-F90157DA-F639-4574-A8BC-5E9CFFF5A57C.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-F90157DA-F639-4574-A8BC-5E9CFFF5A57C.json"; sourceTree = "<group>"; };
+		DA891263235F89FE007C8D1D /* StartseNews-8D348413-21AA-4651-9F1D-334F04E47568.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-8D348413-21AA-4651-9F1D-334F04E47568.json"; sourceTree = "<group>"; };
+		DA891264235F89FE007C8D1D /* StartseNews-1EB29B3F-3D71-4F01-9B7D-1B2FC6598288.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-1EB29B3F-3D71-4F01-9B7D-1B2FC6598288.json"; sourceTree = "<group>"; };
+		DA891265235F89FE007C8D1D /* StartseNews-676166EB-750B-49A8-8B1E-130622996F97.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-676166EB-750B-49A8-8B1E-130622996F97.json"; sourceTree = "<group>"; };
+		DA891266235F89FE007C8D1D /* StartseNews-C6EFAB49-06A9-4DB6-9558-FED85AE8A6B5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-C6EFAB49-06A9-4DB6-9558-FED85AE8A6B5.json"; sourceTree = "<group>"; };
+		DA891267235F89FE007C8D1D /* StartseNews-5E9EDB72-3DCB-4E56-B248-52B0F15986BE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-5E9EDB72-3DCB-4E56-B248-52B0F15986BE.json"; sourceTree = "<group>"; };
+		DA891268235F89FE007C8D1D /* StartseNews-1E5D84C0-96A9-47E2-9A78-A9FFD8FB4387.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-1E5D84C0-96A9-47E2-9A78-A9FFD8FB4387.json"; sourceTree = "<group>"; };
+		DA891269235F89FE007C8D1D /* StartseNews-4AB99945-C467-4A68-A4C4-29D64BD6238C.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-4AB99945-C467-4A68-A4C4-29D64BD6238C.json"; sourceTree = "<group>"; };
+		DA89126A235F89FE007C8D1D /* StartseNews-4D6D8319-9ECD-4006-AB6D-7A8CDBDC8FA9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-4D6D8319-9ECD-4006-AB6D-7A8CDBDC8FA9.json"; sourceTree = "<group>"; };
+		DA89126B235F89FE007C8D1D /* StartseNews-F82890B5-A881-4655-A4C8-324A07BDD656.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-F82890B5-A881-4655-A4C8-324A07BDD656.json"; sourceTree = "<group>"; };
+		DA89126C235F89FE007C8D1D /* StartseNews-05040116-E1BE-4BB7-B2A8-86EF84E8BF22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-05040116-E1BE-4BB7-B2A8-86EF84E8BF22.json"; sourceTree = "<group>"; };
+		DA89126D235F89FE007C8D1D /* StartseNews-8A8A74CB-B3F5-4C49-B2EC-87723211BAE6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-8A8A74CB-B3F5-4C49-B2EC-87723211BAE6.json"; sourceTree = "<group>"; };
+		DA89126E235F89FF007C8D1D /* StartseNews-4514982F-A4ED-4595-ACB4-27D81A603F0A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-4514982F-A4ED-4595-ACB4-27D81A603F0A.json"; sourceTree = "<group>"; };
+		DA89126F235F89FF007C8D1D /* StartseNews-A6CA5FBB-1A79-4DD4-8920-1CA1C0F7CB6A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-A6CA5FBB-1A79-4DD4-8920-1CA1C0F7CB6A.json"; sourceTree = "<group>"; };
+		DA891270235F89FF007C8D1D /* StartseNews-DA1D1BCB-1F7A-48BD-B2AC-59E5EACFC31A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-DA1D1BCB-1F7A-48BD-B2AC-59E5EACFC31A.json"; sourceTree = "<group>"; };
+		DA891271235F89FF007C8D1D /* StartseNews-A71719AA-8509-45F2-8D9A-C31BAF32BC4C.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "StartseNews-A71719AA-8509-45F2-8D9A-C31BAF32BC4C.json"; sourceTree = "<group>"; };
 		DACA778E235384D8000EE9A7 /* StartseNewsClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StartseNewsClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACA7791235384D8000EE9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DACA7793235384D8000EE9A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +326,125 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA891121235F7335007C8D1D /* JSONFiles */ = {
+			isa = PBXGroup;
+			children = (
+				DA891219235F89F7007C8D1D /* StartseNews-0A4D6F53-37D5-42DE-BB4D-36011B2EC9CF.json */,
+				DA891228235F89F9007C8D1D /* StartseNews-0A028549-420C-44EF-9468-0228EB991BB7.json */,
+				DA891239235F89FA007C8D1D /* StartseNews-0C339389-4E5D-4FBB-818D-93B87F7B8EB7.json */,
+				DA891206235F89F6007C8D1D /* StartseNews-01B07DEB-8D45-4BF2-AB60-E07304EFDE33.json */,
+				DA891268235F89FE007C8D1D /* StartseNews-1E5D84C0-96A9-47E2-9A78-A9FFD8FB4387.json */,
+				DA891247235F89FB007C8D1D /* StartseNews-1E0579C7-28E2-48A1-8EBB-F047A4ADC7F3.json */,
+				DA891264235F89FE007C8D1D /* StartseNews-1EB29B3F-3D71-4F01-9B7D-1B2FC6598288.json */,
+				DA891240235F89FB007C8D1D /* StartseNews-3B000C76-EDC3-486C-BC28-0AF63B17188C.json */,
+				DA89122D235F89F9007C8D1D /* StartseNews-04A95E71-947B-459E-B505-775C28487931.json */,
+				DA891269235F89FE007C8D1D /* StartseNews-4AB99945-C467-4A68-A4C4-29D64BD6238C.json */,
+				DA891226235F89F8007C8D1D /* StartseNews-4BC8223F-69AE-4B25-89F7-814C981C4E9E.json */,
+				DA89126A235F89FE007C8D1D /* StartseNews-4D6D8319-9ECD-4006-AB6D-7A8CDBDC8FA9.json */,
+				DA89122B235F89F9007C8D1D /* StartseNews-4F48C3B5-3CF0-4E0F-80A9-37DBC35E847E.json */,
+				DA891208235F89F6007C8D1D /* StartseNews-5DB9C6C7-720A-4119-A27E-516607AB2D2F.json */,
+				DA891267235F89FE007C8D1D /* StartseNews-5E9EDB72-3DCB-4E56-B248-52B0F15986BE.json */,
+				DA891205235F89F6007C8D1D /* StartseNews-5FA6297E-B990-4C1C-B6BC-42CCCA43F823.json */,
+				DA89124C235F89FB007C8D1D /* StartseNews-6A96DE8F-6369-4A50-8C45-C4649C83E335.json */,
+				DA891229235F89F9007C8D1D /* StartseNews-6E948C1B-3C20-4136-87F9-273BCDADDA44.json */,
+				DA89126D235F89FE007C8D1D /* StartseNews-8A8A74CB-B3F5-4C49-B2EC-87723211BAE6.json */,
+				DA89124F235F89FC007C8D1D /* StartseNews-8C921F05-FB05-4FE9-9220-E60ACF6B070E.json */,
+				DA891263235F89FE007C8D1D /* StartseNews-8D348413-21AA-4651-9F1D-334F04E47568.json */,
+				DA891227235F89F9007C8D1D /* StartseNews-9EE14E0C-47B5-4D2E-B3DB-2817F1106FD9.json */,
+				DA89124A235F89FB007C8D1D /* StartseNews-20D9873F-C89A-4184-B322-CC14A51B9B2D.json */,
+				DA89121C235F89F8007C8D1D /* StartseNews-22ACB335-1795-4A6A-8A6C-8155703F8CB2.json */,
+				DA891214235F89F7007C8D1D /* StartseNews-23B82BE0-59B2-46AF-A38F-D134A3DED451.json */,
+				DA891258235F89FD007C8D1D /* StartseNews-47FB2A8A-78A1-484D-8250-E1021BE8F15B.json */,
+				DA891213235F89F7007C8D1D /* StartseNews-51D45743-BB33-4D6C-A592-C2A3DE5B3AD8.json */,
+				DA891259235F89FD007C8D1D /* StartseNews-56B29525-7536-4665-8FE7-3D058E82EE21.json */,
+				DA89125C235F89FD007C8D1D /* StartseNews-63A5CB8F-8F8F-4731-9EEB-D0A1A64230CE.json */,
+				DA891215235F89F7007C8D1D /* StartseNews-68F44015-E717-4963-9C46-0B8ADC1CE059.json */,
+				DA891236235F89FA007C8D1D /* StartseNews-73F24E81-C44B-4187-A910-34F5B0162982.json */,
+				DA891249235F89FB007C8D1D /* StartseNews-74BC9AA7-3F94-4EC0-942A-1D98A6F1362F.json */,
+				DA891254235F89FC007C8D1D /* StartseNews-76D81C7E-0AFD-4525-AB9E-85C5D8473466.json */,
+				DA891221235F89F8007C8D1D /* StartseNews-92C06F76-2B49-47CE-B228-C45A41542690.json */,
+				DA891248235F89FB007C8D1D /* StartseNews-0177A9C3-AB7E-40CE-9DC7-29BE3413CB2A.json */,
+				DA89125E235F89FD007C8D1D /* StartseNews-323B2E7B-9FF0-4B51-A4C1-F188E21FDF0F.json */,
+				DA891257235F89FC007C8D1D /* StartseNews-647DA963-CCC5-48F5-8E5E-38F902242079.json */,
+				DA89124D235F89FC007C8D1D /* StartseNews-951A4FA7-BE43-4FAB-92C7-9D3E90E9FC5F.json */,
+				DA891212235F89F7007C8D1D /* StartseNews-1018F53B-EE41-41A9-82A2-21C77346D15E.json */,
+				DA891241235F89FB007C8D1D /* StartseNews-1316BE10-4F52-4406-9F3F-C852FCEAD40F.json */,
+				DA891225235F89F8007C8D1D /* StartseNews-3600B5A9-AD15-49C6-B117-75A5D7FD30D9.json */,
+				DA891230235F89F9007C8D1D /* StartseNews-3975BAEC-4CF7-4AF8-A39D-E1B7505375A9.json */,
+				DA89123E235F89FA007C8D1D /* StartseNews-4128FFFB-2267-4AAE-90A6-F1EE41BA7A88.json */,
+				DA89120A235F89F6007C8D1D /* StartseNews-5791A67B-FD5F-4D38-A1A4-ECD409465917.json */,
+				DA891238235F89FA007C8D1D /* StartseNews-6965BD72-3697-440A-844C-6418B0624019.json */,
+				DA891256235F89FC007C8D1D /* StartseNews-8061E17A-E86B-4538-9B23-2C0A74C75550.json */,
+				DA89123C235F89FA007C8D1D /* StartseNews-42905D51-233E-4480-B847-92C198675662.json */,
+				DA891207235F89F6007C8D1D /* StartseNews-45567B41-B4AD-43A8-B1A0-584809431733.json */,
+				DA89125D235F89FD007C8D1D /* StartseNews-54473D8D-A3E4-4465-A3DC-900C4C5AAEF0.json */,
+				DA891250235F89FC007C8D1D /* StartseNews-77124BF5-C531-4E0B-80AF-BC3E070747E3.json */,
+				DA891237235F89FA007C8D1D /* StartseNews-86982E7F-3734-4788-BC08-6982CB447B51.json */,
+				DA891234235F89FA007C8D1D /* StartseNews-94045B2C-9FE4-47DF-9B4F-6D9F2F6C3A55.json */,
+				DA891222235F89F8007C8D1D /* StartseNews-603103C7-A9C7-47F0-928D-EB43043B9530.json */,
+				DA891265235F89FE007C8D1D /* StartseNews-676166EB-750B-49A8-8B1E-130622996F97.json */,
+				DA89120C235F89F6007C8D1D /* StartseNews-946135D7-26A4-4F86-8F23-7EF959C80E1C.json */,
+				DA891224235F89F8007C8D1D /* StartseNews-2995724C-E36C-463D-AC1D-1769F389E398.json */,
+				DA89126E235F89FF007C8D1D /* StartseNews-4514982F-A4ED-4595-ACB4-27D81A603F0A.json */,
+				DA89126C235F89FE007C8D1D /* StartseNews-05040116-E1BE-4BB7-B2A8-86EF84E8BF22.json */,
+				DA891235235F89FA007C8D1D /* StartseNews-07227107-305A-4B27-9275-26CD4F861362.json */,
+				DA891217235F89F7007C8D1D /* StartseNews-8665867F-7C9D-4124-807E-6E9BC45E3F51.json */,
+				DA891218235F89F7007C8D1D /* StartseNews-9020840A-B1AE-4C57-8220-E60BF7D03331.json */,
+				DA891223235F89F8007C8D1D /* StartseNews-34547792-3B05-49EE-91CE-AF84BE53929E.json */,
+				DA891252235F89FC007C8D1D /* StartseNews-52175283-49A9-4AEF-B642-B360F151C5A3.json */,
+				DA89120D235F89F7007C8D1D /* StartseNews-52456303-514D-49D4-A335-CC0A08B7E20F.json */,
+				DA891232235F89FA007C8D1D /* StartseNews-68414093-6858-4A06-B1E9-685170A36919.json */,
+				DA891245235F89FB007C8D1D /* StartseNews-87569056-8BDE-4D32-A4EB-7CF7E5CB5E51.json */,
+				DA891243235F89FB007C8D1D /* StartseNews-A3FD07E4-A663-45EB-9321-9DC1863FF0A0.json */,
+				DA891242235F89FB007C8D1D /* StartseNews-A5B947A9-8833-44A6-B70F-762F7FC073B4.json */,
+				DA89126F235F89FF007C8D1D /* StartseNews-A6CA5FBB-1A79-4DD4-8920-1CA1C0F7CB6A.json */,
+				DA891261235F89FD007C8D1D /* StartseNews-A388B1B9-9CD3-41B1-9364-CD879543C3A1.json */,
+				DA89125B235F89FD007C8D1D /* StartseNews-A827C9FB-AB53-499D-A556-8CF1FCBD079B.json */,
+				DA89121E235F89F8007C8D1D /* StartseNews-A940B056-8E7C-408E-BA44-FBCF7799E079.json */,
+				DA891271235F89FF007C8D1D /* StartseNews-A71719AA-8509-45F2-8D9A-C31BAF32BC4C.json */,
+				DA891210235F89F7007C8D1D /* StartseNews-AAD76441-9D4B-4ECC-A74F-F8365A7A1E04.json */,
+				DA891244235F89FB007C8D1D /* StartseNews-AC6A90E5-2D23-4A33-AEF1-D05625B11BE2.json */,
+				DA89124E235F89FC007C8D1D /* StartseNews-B34AA766-7468-4757-9070-DEAED1879B28.json */,
+				DA89121D235F89F8007C8D1D /* StartseNews-B43B74E9-DFB0-4F42-9F44-69D10910A9D0.json */,
+				DA891202235F89F6007C8D1D /* StartseNews-B570D702-1165-4BBE-AF57-11DA0FB68F11.json */,
+				DA891203235F89F6007C8D1D /* StartseNews-B36553AF-5E33-4459-A467-59A0CD1A4245.json */,
+				DA891211235F89F7007C8D1D /* StartseNews-C1FE6539-9553-4C00-B07B-BDE7CB6B4FC6.json */,
+				DA89123F235F89FA007C8D1D /* StartseNews-C5DAA262-449E-4681-BD05-95D09F9D228F.json */,
+				DA891266235F89FE007C8D1D /* StartseNews-C6EFAB49-06A9-4DB6-9558-FED85AE8A6B5.json */,
+				DA89121A235F89F7007C8D1D /* StartseNews-C9D0A025-0E62-4777-BBE6-23EBC3108A6A.json */,
+				DA89122F235F89F9007C8D1D /* StartseNews-C1012CBC-AED6-496E-8CA0-E0CB61472A3F.json */,
+				DA89123A235F89FA007C8D1D /* StartseNews-C52120A9-152E-4E2B-9A85-8A917E233A29.json */,
+				DA891233235F89FA007C8D1D /* StartseNews-C654784E-3322-4ECB-B9C2-2D1F84B3B3C2.json */,
+				DA891255235F89FC007C8D1D /* StartseNews-C1557756-8073-4356-8F79-BD7F8D123588.json */,
+				DA89121F235F89F8007C8D1D /* StartseNews-CA6F0333-C447-4DEF-AF24-6546D4460B61.json */,
+				DA89120B235F89F6007C8D1D /* StartseNews-CB252AAF-7B5E-4E42-820C-93E4B3D158F8.json */,
+				DA891260235F89FD007C8D1D /* StartseNews-CC7BB4A0-047D-46E2-B4E8-EC9066EF3BE7.json */,
+				DA891209235F89F6007C8D1D /* StartseNews-CDBC0D47-A4A6-42EA-A36B-9324E93370AA.json */,
+				DA891246235F89FB007C8D1D /* StartseNews-D837EA98-26B0-4C8E-B9DC-CF1B9915E3C5.json */,
+				DA89125F235F89FD007C8D1D /* StartseNews-D002594A-670A-4631-ADC0-D106547F39EA.json */,
+				DA891270235F89FF007C8D1D /* StartseNews-DA1D1BCB-1F7A-48BD-B2AC-59E5EACFC31A.json */,
+				DA891231235F89F9007C8D1D /* StartseNews-DFA15D13-2154-4EED-B334-342789EF0D8E.json */,
+				DA89125A235F89FD007C8D1D /* StartseNews-DFAA2722-BC60-4A81-9B00-10AC808D51AA.json */,
+				DA89121B235F89F8007C8D1D /* StartseNews-DFAE4D24-8C52-459C-9B36-E1BC2C1F4AB3.json */,
+				DA891220235F89F8007C8D1D /* StartseNews-E1E4F58C-740C-4FCB-93CB-37FCADCC62F4.json */,
+				DA89122A235F89F9007C8D1D /* StartseNews-E4E75E28-967B-4799-8B7B-CD7D3764702C.json */,
+				DA89122E235F89F9007C8D1D /* StartseNews-E5BFB052-83FD-4B17-B89E-5067C0D8C73A.json */,
+				DA89124B235F89FB007C8D1D /* StartseNews-E6CF1487-28B4-431B-9BBC-0D37EAD3F091.json */,
+				DA891204235F89F6007C8D1D /* StartseNews-E7BB42AB-CF7B-4C11-82F3-FF9302E14DDD.json */,
+				DA89120E235F89F7007C8D1D /* StartseNews-E96D8464-08F4-4B71-9A94-474421A56DFB.json */,
+				DA891253235F89FC007C8D1D /* StartseNews-E5265625-3C7F-41EE-B60F-8557492FAA4F.json */,
+				DA89123B235F89FA007C8D1D /* StartseNews-EDB0883C-3601-40E7-BCDC-AF1C0EDC025E.json */,
+				DA89120F235F89F7007C8D1D /* StartseNews-F1EFA047-55B7-4518-8673-04048802BC69.json */,
+				DA891251235F89FC007C8D1D /* StartseNews-F9B84E82-E73C-4B96-97F0-206BFA724AFA.json */,
+				DA89126B235F89FE007C8D1D /* StartseNews-F82890B5-A881-4655-A4C8-324A07BDD656.json */,
+				DA891262235F89FD007C8D1D /* StartseNews-F90157DA-F639-4574-A8BC-5E9CFFF5A57C.json */,
+				DA89123D235F89FA007C8D1D /* StartseNews-FC1BDA1D-7202-4737-9F96-9F86C13BF0B8.json */,
+				DA891216235F89F7007C8D1D /* StartseNews-FEC775B0-9AB6-4E1D-9960-CC23F5C593E6.json */,
+				DA89122C235F89F9007C8D1D /* StartseNews-FFD61BCF-A0B8-477C-9DE9-616F648644D9.json */,
+			);
+			path = JSONFiles;
+			sourceTree = "<group>";
+		};
 		DACA7785235384D8000EE9A7 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +468,7 @@
 		DACA7790235384D8000EE9A7 /* StartseNewsClassifier */ = {
 			isa = PBXGroup;
 			children = (
+				DA891121235F7335007C8D1D /* JSONFiles */,
 				DACA7791235384D8000EE9A7 /* AppDelegate.swift */,
 				DACA7793235384D8000EE9A7 /* SceneDelegate.swift */,
 				DACA77C92353CB6B000EE9A7 /* Models */,
@@ -295,11 +639,123 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8912C5235F89FF007C8D1D /* StartseNews-C1557756-8073-4356-8F79-BD7F8D123588.json in Resources */,
+				DA8912CC235F89FF007C8D1D /* StartseNews-63A5CB8F-8F8F-4731-9EEB-D0A1A64230CE.json in Resources */,
+				DA891299235F89FF007C8D1D /* StartseNews-6E948C1B-3C20-4136-87F9-273BCDADDA44.json in Resources */,
+				DA8912CD235F89FF007C8D1D /* StartseNews-54473D8D-A3E4-4465-A3DC-900C4C5AAEF0.json in Resources */,
+				DA89128B235F89FF007C8D1D /* StartseNews-DFAE4D24-8C52-459C-9B36-E1BC2C1F4AB3.json in Resources */,
+				DA891282235F89FF007C8D1D /* StartseNews-1018F53B-EE41-41A9-82A2-21C77346D15E.json in Resources */,
+				DA8912DE235F89FF007C8D1D /* StartseNews-4514982F-A4ED-4595-ACB4-27D81A603F0A.json in Resources */,
+				DA8912A7235F89FF007C8D1D /* StartseNews-86982E7F-3734-4788-BC08-6982CB447B51.json in Resources */,
+				DA8912D8235F89FF007C8D1D /* StartseNews-1E5D84C0-96A9-47E2-9A78-A9FFD8FB4387.json in Resources */,
+				DA8912D2235F89FF007C8D1D /* StartseNews-F90157DA-F639-4574-A8BC-5E9CFFF5A57C.json in Resources */,
+				DA891286235F89FF007C8D1D /* StartseNews-FEC775B0-9AB6-4E1D-9960-CC23F5C593E6.json in Resources */,
+				DA8912DA235F89FF007C8D1D /* StartseNews-4D6D8319-9ECD-4006-AB6D-7A8CDBDC8FA9.json in Resources */,
+				DA89128E235F89FF007C8D1D /* StartseNews-A940B056-8E7C-408E-BA44-FBCF7799E079.json in Resources */,
+				DA8912A6235F89FF007C8D1D /* StartseNews-73F24E81-C44B-4187-A910-34F5B0162982.json in Resources */,
+				DA891274235F89FF007C8D1D /* StartseNews-E7BB42AB-CF7B-4C11-82F3-FF9302E14DDD.json in Resources */,
 				DACA77A1235384D9000EE9A7 /* LaunchScreen.storyboard in Resources */,
+				DA8912CF235F89FF007C8D1D /* StartseNews-D002594A-670A-4631-ADC0-D106547F39EA.json in Resources */,
+				DA89129B235F89FF007C8D1D /* StartseNews-4F48C3B5-3CF0-4E0F-80A9-37DBC35E847E.json in Resources */,
+				DA8912A4235F89FF007C8D1D /* StartseNews-94045B2C-9FE4-47DF-9B4F-6D9F2F6C3A55.json in Resources */,
+				DA8912CE235F89FF007C8D1D /* StartseNews-323B2E7B-9FF0-4B51-A4C1-F188E21FDF0F.json in Resources */,
+				DA8912BD235F89FF007C8D1D /* StartseNews-951A4FA7-BE43-4FAB-92C7-9D3E90E9FC5F.json in Resources */,
+				DA891278235F89FF007C8D1D /* StartseNews-5DB9C6C7-720A-4119-A27E-516607AB2D2F.json in Resources */,
+				DA8912C4235F89FF007C8D1D /* StartseNews-76D81C7E-0AFD-4525-AB9E-85C5D8473466.json in Resources */,
+				DA8912BC235F89FF007C8D1D /* StartseNews-6A96DE8F-6369-4A50-8C45-C4649C83E335.json in Resources */,
+				DA8912D1235F89FF007C8D1D /* StartseNews-A388B1B9-9CD3-41B1-9364-CD879543C3A1.json in Resources */,
 				DACA779E235384D9000EE9A7 /* Preview Assets.xcassets in Resources */,
+				DA8912DB235F89FF007C8D1D /* StartseNews-F82890B5-A881-4655-A4C8-324A07BDD656.json in Resources */,
+				DA8912C0235F89FF007C8D1D /* StartseNews-77124BF5-C531-4E0B-80AF-BC3E070747E3.json in Resources */,
+				DA8912DD235F89FF007C8D1D /* StartseNews-8A8A74CB-B3F5-4C49-B2EC-87723211BAE6.json in Resources */,
+				DA891281235F89FF007C8D1D /* StartseNews-C1FE6539-9553-4C00-B07B-BDE7CB6B4FC6.json in Resources */,
+				DA89129A235F89FF007C8D1D /* StartseNews-E4E75E28-967B-4799-8B7B-CD7D3764702C.json in Resources */,
+				DA891297235F89FF007C8D1D /* StartseNews-9EE14E0C-47B5-4D2E-B3DB-2817F1106FD9.json in Resources */,
+				DA89128A235F89FF007C8D1D /* StartseNews-C9D0A025-0E62-4777-BBE6-23EBC3108A6A.json in Resources */,
+				DA8912AC235F89FF007C8D1D /* StartseNews-42905D51-233E-4480-B847-92C198675662.json in Resources */,
+				DA8912C3235F89FF007C8D1D /* StartseNews-E5265625-3C7F-41EE-B60F-8557492FAA4F.json in Resources */,
+				DA8912B3235F89FF007C8D1D /* StartseNews-A3FD07E4-A663-45EB-9321-9DC1863FF0A0.json in Resources */,
+				DA8912B2235F89FF007C8D1D /* StartseNews-A5B947A9-8833-44A6-B70F-762F7FC073B4.json in Resources */,
+				DA8912BA235F89FF007C8D1D /* StartseNews-20D9873F-C89A-4184-B322-CC14A51B9B2D.json in Resources */,
+				DA89129D235F89FF007C8D1D /* StartseNews-04A95E71-947B-459E-B505-775C28487931.json in Resources */,
+				DA8912B0235F89FF007C8D1D /* StartseNews-3B000C76-EDC3-486C-BC28-0AF63B17188C.json in Resources */,
+				DA8912C6235F89FF007C8D1D /* StartseNews-8061E17A-E86B-4538-9B23-2C0A74C75550.json in Resources */,
+				DA891276235F89FF007C8D1D /* StartseNews-01B07DEB-8D45-4BF2-AB60-E07304EFDE33.json in Resources */,
+				DA891285235F89FF007C8D1D /* StartseNews-68F44015-E717-4963-9C46-0B8ADC1CE059.json in Resources */,
+				DA891290235F89FF007C8D1D /* StartseNews-E1E4F58C-740C-4FCB-93CB-37FCADCC62F4.json in Resources */,
+				DA891298235F89FF007C8D1D /* StartseNews-0A028549-420C-44EF-9468-0228EB991BB7.json in Resources */,
+				DA891277235F89FF007C8D1D /* StartseNews-45567B41-B4AD-43A8-B1A0-584809431733.json in Resources */,
+				DA8912B8235F89FF007C8D1D /* StartseNews-0177A9C3-AB7E-40CE-9DC7-29BE3413CB2A.json in Resources */,
+				DA89127B235F89FF007C8D1D /* StartseNews-CB252AAF-7B5E-4E42-820C-93E4B3D158F8.json in Resources */,
+				DA8912AA235F89FF007C8D1D /* StartseNews-C52120A9-152E-4E2B-9A85-8A917E233A29.json in Resources */,
+				DA8912A9235F89FF007C8D1D /* StartseNews-0C339389-4E5D-4FBB-818D-93B87F7B8EB7.json in Resources */,
+				DA891294235F89FF007C8D1D /* StartseNews-2995724C-E36C-463D-AC1D-1769F389E398.json in Resources */,
+				DA891275235F89FF007C8D1D /* StartseNews-5FA6297E-B990-4C1C-B6BC-42CCCA43F823.json in Resources */,
+				DA8912A8235F89FF007C8D1D /* StartseNews-6965BD72-3697-440A-844C-6418B0624019.json in Resources */,
+				DA8912E1235F89FF007C8D1D /* StartseNews-A71719AA-8509-45F2-8D9A-C31BAF32BC4C.json in Resources */,
+				DA8912AB235F89FF007C8D1D /* StartseNews-EDB0883C-3601-40E7-BCDC-AF1C0EDC025E.json in Resources */,
+				DA8912AD235F89FF007C8D1D /* StartseNews-FC1BDA1D-7202-4737-9F96-9F86C13BF0B8.json in Resources */,
+				DA8912D5235F89FF007C8D1D /* StartseNews-676166EB-750B-49A8-8B1E-130622996F97.json in Resources */,
+				DA891272235F89FF007C8D1D /* StartseNews-B570D702-1165-4BBE-AF57-11DA0FB68F11.json in Resources */,
+				DA891288235F89FF007C8D1D /* StartseNews-9020840A-B1AE-4C57-8220-E60BF7D03331.json in Resources */,
+				DA8912C8235F89FF007C8D1D /* StartseNews-47FB2A8A-78A1-484D-8250-E1021BE8F15B.json in Resources */,
 				DA61AE71235A21A1000F1E46 /* PortuguesStopWords.txt in Resources */,
+				DA8912AE235F89FF007C8D1D /* StartseNews-4128FFFB-2267-4AAE-90A6-F1EE41BA7A88.json in Resources */,
+				DA891291235F89FF007C8D1D /* StartseNews-92C06F76-2B49-47CE-B228-C45A41542690.json in Resources */,
+				DA8912B6235F89FF007C8D1D /* StartseNews-D837EA98-26B0-4C8E-B9DC-CF1B9915E3C5.json in Resources */,
+				DA891273235F89FF007C8D1D /* StartseNews-B36553AF-5E33-4459-A467-59A0CD1A4245.json in Resources */,
 				DA61AE77235BF344000F1E46 /* StartseNews.json in Resources */,
+				DA891280235F89FF007C8D1D /* StartseNews-AAD76441-9D4B-4ECC-A74F-F8365A7A1E04.json in Resources */,
+				DA8912A0235F89FF007C8D1D /* StartseNews-3975BAEC-4CF7-4AF8-A39D-E1B7505375A9.json in Resources */,
+				DA89127A235F89FF007C8D1D /* StartseNews-5791A67B-FD5F-4D38-A1A4-ECD409465917.json in Resources */,
+				DA89129C235F89FF007C8D1D /* StartseNews-FFD61BCF-A0B8-477C-9DE9-616F648644D9.json in Resources */,
+				DA8912D7235F89FF007C8D1D /* StartseNews-5E9EDB72-3DCB-4E56-B248-52B0F15986BE.json in Resources */,
+				DA89129F235F89FF007C8D1D /* StartseNews-C1012CBC-AED6-496E-8CA0-E0CB61472A3F.json in Resources */,
+				DA89129E235F89FF007C8D1D /* StartseNews-E5BFB052-83FD-4B17-B89E-5067C0D8C73A.json in Resources */,
+				DA8912A2235F89FF007C8D1D /* StartseNews-68414093-6858-4A06-B1E9-685170A36919.json in Resources */,
+				DA89127C235F89FF007C8D1D /* StartseNews-946135D7-26A4-4F86-8F23-7EF959C80E1C.json in Resources */,
+				DA89127E235F89FF007C8D1D /* StartseNews-E96D8464-08F4-4B71-9A94-474421A56DFB.json in Resources */,
+				DA891289235F89FF007C8D1D /* StartseNews-0A4D6F53-37D5-42DE-BB4D-36011B2EC9CF.json in Resources */,
+				DA8912DF235F89FF007C8D1D /* StartseNews-A6CA5FBB-1A79-4DD4-8920-1CA1C0F7CB6A.json in Resources */,
+				DA891295235F89FF007C8D1D /* StartseNews-3600B5A9-AD15-49C6-B117-75A5D7FD30D9.json in Resources */,
+				DA8912BF235F89FF007C8D1D /* StartseNews-8C921F05-FB05-4FE9-9220-E60ACF6B070E.json in Resources */,
+				DA891296235F89FF007C8D1D /* StartseNews-4BC8223F-69AE-4B25-89F7-814C981C4E9E.json in Resources */,
+				DA8912B9235F89FF007C8D1D /* StartseNews-74BC9AA7-3F94-4EC0-942A-1D98A6F1362F.json in Resources */,
+				DA8912B5235F89FF007C8D1D /* StartseNews-87569056-8BDE-4D32-A4EB-7CF7E5CB5E51.json in Resources */,
+				DA8912A3235F89FF007C8D1D /* StartseNews-C654784E-3322-4ECB-B9C2-2D1F84B3B3C2.json in Resources */,
+				DA8912D4235F89FF007C8D1D /* StartseNews-1EB29B3F-3D71-4F01-9B7D-1B2FC6598288.json in Resources */,
+				DA89127D235F89FF007C8D1D /* StartseNews-52456303-514D-49D4-A335-CC0A08B7E20F.json in Resources */,
+				DA89128D235F89FF007C8D1D /* StartseNews-B43B74E9-DFB0-4F42-9F44-69D10910A9D0.json in Resources */,
+				DA8912AF235F89FF007C8D1D /* StartseNews-C5DAA262-449E-4681-BD05-95D09F9D228F.json in Resources */,
+				DA8912C9235F89FF007C8D1D /* StartseNews-56B29525-7536-4665-8FE7-3D058E82EE21.json in Resources */,
+				DA891283235F89FF007C8D1D /* StartseNews-51D45743-BB33-4D6C-A592-C2A3DE5B3AD8.json in Resources */,
+				DA891279235F89FF007C8D1D /* StartseNews-CDBC0D47-A4A6-42EA-A36B-9324E93370AA.json in Resources */,
+				DA8912B7235F89FF007C8D1D /* StartseNews-1E0579C7-28E2-48A1-8EBB-F047A4ADC7F3.json in Resources */,
+				DA8912D6235F89FF007C8D1D /* StartseNews-C6EFAB49-06A9-4DB6-9558-FED85AE8A6B5.json in Resources */,
+				DA8912C7235F89FF007C8D1D /* StartseNews-647DA963-CCC5-48F5-8E5E-38F902242079.json in Resources */,
+				DA89128F235F89FF007C8D1D /* StartseNews-CA6F0333-C447-4DEF-AF24-6546D4460B61.json in Resources */,
+				DA8912BE235F89FF007C8D1D /* StartseNews-B34AA766-7468-4757-9070-DEAED1879B28.json in Resources */,
+				DA8912B4235F89FF007C8D1D /* StartseNews-AC6A90E5-2D23-4A33-AEF1-D05625B11BE2.json in Resources */,
+				DA891292235F89FF007C8D1D /* StartseNews-603103C7-A9C7-47F0-928D-EB43043B9530.json in Resources */,
+				DA891284235F89FF007C8D1D /* StartseNews-23B82BE0-59B2-46AF-A38F-D134A3DED451.json in Resources */,
+				DA8912A5235F89FF007C8D1D /* StartseNews-07227107-305A-4B27-9275-26CD4F861362.json in Resources */,
+				DA89128C235F89FF007C8D1D /* StartseNews-22ACB335-1795-4A6A-8A6C-8155703F8CB2.json in Resources */,
+				DA8912D9235F89FF007C8D1D /* StartseNews-4AB99945-C467-4A68-A4C4-29D64BD6238C.json in Resources */,
+				DA8912CB235F89FF007C8D1D /* StartseNews-A827C9FB-AB53-499D-A556-8CF1FCBD079B.json in Resources */,
 				DACA779B235384D9000EE9A7 /* Assets.xcassets in Resources */,
+				DA8912A1235F89FF007C8D1D /* StartseNews-DFA15D13-2154-4EED-B334-342789EF0D8E.json in Resources */,
+				DA8912D3235F89FF007C8D1D /* StartseNews-8D348413-21AA-4651-9F1D-334F04E47568.json in Resources */,
+				DA8912D0235F89FF007C8D1D /* StartseNews-CC7BB4A0-047D-46E2-B4E8-EC9066EF3BE7.json in Resources */,
+				DA89127F235F89FF007C8D1D /* StartseNews-F1EFA047-55B7-4518-8673-04048802BC69.json in Resources */,
+				DA8912BB235F89FF007C8D1D /* StartseNews-E6CF1487-28B4-431B-9BBC-0D37EAD3F091.json in Resources */,
+				DA8912DC235F89FF007C8D1D /* StartseNews-05040116-E1BE-4BB7-B2A8-86EF84E8BF22.json in Resources */,
+				DA891287235F89FF007C8D1D /* StartseNews-8665867F-7C9D-4124-807E-6E9BC45E3F51.json in Resources */,
+				DA8912CA235F89FF007C8D1D /* StartseNews-DFAA2722-BC60-4A81-9B00-10AC808D51AA.json in Resources */,
+				DA8912C1235F89FF007C8D1D /* StartseNews-F9B84E82-E73C-4B96-97F0-206BFA724AFA.json in Resources */,
+				DA8912B1235F89FF007C8D1D /* StartseNews-1316BE10-4F52-4406-9F3F-C852FCEAD40F.json in Resources */,
+				DA891293235F89FF007C8D1D /* StartseNews-34547792-3B05-49EE-91CE-AF84BE53929E.json in Resources */,
+				DA8912C2235F89FF007C8D1D /* StartseNews-52175283-49A9-4AEF-B642-B360F151C5A3.json in Resources */,
+				DA8912E0235F89FF007C8D1D /* StartseNews-DA1D1BCB-1F7A-48BD-B2AC-59E5EACFC31A.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
