@@ -26,7 +26,7 @@ struct ClassificationView: View {
         let index = sentences.currentNewsIndex
         var numSentences = 0
         for i in 0..<index {
-            numSentences = numSentences + sentences.articles.articles[i].sentences.count
+//            numSentences = numSentences + sentences.articles.articles[i].sentences.count
         }
         self.sentencesOffset = numSentences
     }
@@ -121,12 +121,12 @@ struct ClassificationView: View {
     }
     
     func nextSentence() {
-        let numSentencesInNews = sentenceList.articles.articles[sentenceList.currentNewsIndex].sentences.count
-        if (currentSentenceIndex == (numSentencesInNews - 1)) {
-            actOnClassification.finishedClassification()
-            return
-        }
-        currentSentenceIndex = currentSentenceIndex + 1
+//        let numSentencesInNews = sentenceList.articles.articles[sentenceList.currentNewsIndex].sentences.count
+//        if (currentSentenceIndex == (numSentencesInNews - 1)) {
+//            actOnClassification.finishedClassification()
+//            return
+//        }
+//        currentSentenceIndex = currentSentenceIndex + 1
     }
     
     func previousSentence() {

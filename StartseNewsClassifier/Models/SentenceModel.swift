@@ -8,13 +8,13 @@
 
 import Foundation
 
-class SentenceModel: Identifiable {
+class SentenceModel: Identifiable, Decodable {
     let id:UUID
     var text:String
     
     var classification:Classification = .none
     
-    enum Classification:String {
+    enum Classification:String, Decodable {
         case none = "#None"
         case segment = "#Segment"
         case problem = "#Problem"

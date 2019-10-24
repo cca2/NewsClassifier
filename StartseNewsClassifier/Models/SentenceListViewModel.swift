@@ -113,22 +113,22 @@ class SentenceListViewModel: ObservableObject {
                     let title = item["title"] as! String
                     let subtitle = item["subtitle"] as! String
                     let link = item["link"] as! String
-                    let newsModel = NewsModel(title: title, subtitle: subtitle, link:link, text:"", sentences: [])
-                    self.articles.articles.append(newsModel)
-
-                    let sentences = item["sentences"] as! [[String:Any?]]
-                    for j in 0..<sentences.count {
-                        let sentence = sentences[j] as! [String:String]
-
-                        let classification = SentenceModel.Classification(rawValue: sentence["classification"]!)!
-                        let uuid = UUID(uuidString: sentence["id"]!)!
-                        let sentenceModel = SentenceModel(id:uuid, text:sentence["text"]!, classification: classification)
-                        newsModel.sentences.append(sentenceModel)
-
-                        classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
-
-                        self.sentenceList.append(sentenceModel)
-                    }
+//                    let newsModel = NewsModel(id:UUID(), title: title, subtitle: subtitle, link:link, text:"", sentences: [])
+//                    self.articles.articles.append(newsModel)
+//
+//                    let sentences = item["sentences"] as! [[String:Any?]]
+//                    for j in 0..<sentences.count {
+//                        let sentence = sentences[j] as! [String:String]
+//
+//                        let classification = SentenceModel.Classification(rawValue: sentence["classification"]!)!
+//                        let uuid = UUID(uuidString: sentence["id"]!)!
+//                        let sentenceModel = SentenceModel(id:uuid, text:sentence["text"]!, classification: classification)
+//                        newsModel.sentences.append(sentenceModel)
+//
+//                        classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
+//
+//                        self.sentenceList.append(sentenceModel)
+//                    }
                 }
             }
         } catch {
