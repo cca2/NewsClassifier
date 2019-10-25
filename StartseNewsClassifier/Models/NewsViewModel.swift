@@ -9,11 +9,12 @@
 import Foundation
 import SwiftUI
 import Combine
+import CloudKit
 
 import NaturalLanguage
 
 class NewsViewModel: Identifiable {
-    let news:NewsModel
+    var news:NewsModel?
     
     init(news:NewsModel) {
         self.news = news
@@ -30,22 +31,22 @@ class NewsViewModel: Identifiable {
     }
     
     var id: UUID {
-        return UUID(uuidString: news.news_id)!
+        return UUID(uuidString: news!.news_id)!
     }
     
     var title: String {
-        return news.title
+        return news!.title
     }
     
     var subtitle: String {
-        return news.subtitle
+        return news!.subtitle
     }
     
     var link: String {
-        return news.link
+        return news!.link
     }
     
     var text:String {
-        return news.text
+        return news!.text
     }
 }

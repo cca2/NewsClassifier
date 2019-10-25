@@ -8,7 +8,6 @@
 
 import Foundation
 import NaturalLanguage
-import CloudKit
 
 class NewsClassifierViewModel: ObservableObject {
     var sentenceList:[SentenceModel] {
@@ -19,7 +18,7 @@ class NewsClassifierViewModel: ObservableObject {
     var classifiedNews:ClassifiedNewsModel
     
     @Published var classifiedSentencesDictionary:[SentenceModel.Classification:[UUID:SentenceModel]] = [:]
-        
+    
     init(news:NewsModel) {
         self.news = news
         self.classifiedNews = ClassifiedNewsModel(newsModel: news, classifiedSentences: [])
@@ -32,7 +31,7 @@ class NewsClassifierViewModel: ObservableObject {
         classifiedSentencesDictionary[.partnership] = [:]
         
         fetchListOfNews()
-        queryNews()
+//        queryNews()
     }
     
     func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {
@@ -82,38 +81,7 @@ class NewsClassifierViewModel: ObservableObject {
             return true
         }
     }
-    
-    private func queryNews() {
-        let database = CKContainer.init(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier").privateCloudDatabase
-        let predicate = NSPredicate(value: true)
         
-        let query = CKQuery(recordType: "News", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        
-        let operation = CKQueryOperation(query: query)
-        
-        operation.recordFetchedBlock = {
-            record in
-            let id = record["uuid"]!
-            
-            print (">>> ID: \(String(describing: id))")
-        }
-        
-        operation.queryCompletionBlock = {
-            cursor, error in
-            
-            DispatchQueue.main.async {
-                if (error == nil) {
-                    print(">>> Finalizou com Sucesso <<<")
-                }else {
-                    print (">>> FINALIZOU QUERY <<<")
-                }
-            }
-        }
-        
-        database.add(operation)
-    }
-    
     private func fetchListOfNews() {
         //Verify is a jsonFile e local exists
         let fileManager = FileManager.default
