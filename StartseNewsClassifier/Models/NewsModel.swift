@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewsModel: Encodable, Decodable{
+struct NewsModel: Encodable, Decodable{
     let news_id: String
     let title:String
     let subtitle:String
@@ -16,19 +16,12 @@ class NewsModel: Encodable, Decodable{
     let text:String
     
     let links:[String]
-    let links_text:[String]
-    
-//    var sentences:[SentenceModel]
-//    var classification:String = ">>> NONE <<<"
-//    
-//    init(id:UUID, title:String, subtitle:String, link:String, text:String, sentences:[SentenceModel]) {
-//        self.id = id
-//        self.title = title
-//        self.subtitle = subtitle
-//        self.link = link
-//        self.text = text
-//        self.sentences = sentences
-//    }
+    let links_text:[String]    
+}
+
+struct ClassifiedNewsModel: Encodable, Decodable {
+    let newsModel:NewsModel
+    var classifiedSentences:[SentenceModel]
 }
 
 class Articles: Encodable {

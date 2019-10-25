@@ -13,7 +13,7 @@ struct NewsView: View {
     
     @State private var offset:CGSize = .zero
     
-//    private let sentences = SentenceListViewModel()
+    private let classifier:NewsClassifierViewModel
     private let news:NewsViewModel
     
     @State private var currentNewsIndex = 0
@@ -42,8 +42,6 @@ struct NewsView: View {
             NavigationView {
                     VStack (alignment: .leading) {
                         Group {
-//                            Text(sentences.articles.articles[currentNewsIndex].title).font(.headline).bold()
-//                            Text(sentences.articles.articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5)
                             Text(news.title).font(.headline).bold()
                             Text(news.subtitle).font(.body).padding([.top], 5)
                         }
@@ -52,11 +50,11 @@ struct NewsView: View {
                         
                         Spacer()
                         
-//                        NavigationLink(destination: ContentView(sentences: sentences)) {
-//                            VStack(alignment: .trailing) {
-//                                Text("classificar")
-//                            }
-//                        }
+                        NavigationLink(destination: ClassifyOrFinishView(classifier: self.classifier)) {
+                            VStack(alignment: .trailing) {
+                                Text("classificar")
+                            }
+                        }
                     }.padding(50)
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
             }.background(Color.yellow)
@@ -66,7 +64,7 @@ struct NewsView: View {
             }
             .tag(0)
             
-//            ClassifiedNewsView(sentenceListViewModel: sentences)
+//            ClassifiedNewsView(NewsClassifierViewModel: sentences)
 //                .tabItem {
 //                    Image(systemName: "2.circle")
 //                    Text("classificação")
@@ -80,6 +78,7 @@ struct NewsView: View {
             let newsFileURL = URL(fileURLWithPath: path)
             
             news = try NewsViewModel(newsFile: newsFileURL)
+            self.classifier = NewsClassifierViewModel(news: news.news)
             
             print (news.title)
         }catch {

@@ -13,23 +13,23 @@ protocol ActOnClassification {
     func restartClassification()
 }
 
-struct ContentView: View, ActOnClassification {
+struct ClassifyOrFinishView: View, ActOnClassification {
     @State var hasFinishedClassification = false
 
-    private let sentences:SentenceListViewModel
+    private let classifier:NewsClassifierViewModel
     
     var body: some View {
         Group {
             if (hasFinishedClassification) {
-                FinishedClassificationView(actOnFinishedClassification: self, sentences: self.sentences)
+                FinishedClassificationView(actOnFinishedClassification: self, classifier: self.classifier)
             }else {
-                ClassificationView(actOnClassification: self, sentences: self.sentences)
+                ClassificationView(actOnClassification: self, classifier: self.classifier)
             }
         }
     }
     
-    init(sentences:SentenceListViewModel) {
-        self.sentences = sentences
+    init(classifier:NewsClassifierViewModel) {
+        self.classifier = classifier
     }
     
     func finishedClassification() {
@@ -41,8 +41,8 @@ struct ContentView: View, ActOnClassification {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(sentences: SentenceListViewModel())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ClassifyOrFinishView(sentences: NewsClassifierViewModel(news: NewsModel())
+//    }
+//}

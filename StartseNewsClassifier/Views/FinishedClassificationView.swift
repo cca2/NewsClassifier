@@ -10,19 +10,19 @@ import SwiftUI
 
 struct FinishedClassificationView: View {
     private let actOnClassification:ActOnClassification
-    private let sentences:SentenceListViewModel
+    private let classifier:NewsClassifierViewModel
     
     var body: some View {
         VStack {
-            Button(action: restartClassification, label: {Text("Reiniciar")})
+            Button(action: restartClassification, label: {Text("Reclassificar")})
             Spacer()
             Button(action: saveClassification, label: {Text("Salvar")})
         }.frame(width: 100, height: 100, alignment: .center)
     }
     
-    init (actOnFinishedClassification:ActOnClassification, sentences:SentenceListViewModel) {
+    init (actOnFinishedClassification:ActOnClassification, classifier:NewsClassifierViewModel) {
         self.actOnClassification = actOnFinishedClassification
-        self.sentences = sentences
+        self.classifier = classifier
     }
     
     func restartClassification() {
@@ -30,12 +30,12 @@ struct FinishedClassificationView: View {
     }
     
     func saveClassification() {
-        sentences.saveClassifiedSentences()
+        classifier.saveClassifiedSentences()
     }
 }
 
-struct FinishedClassificationView_Previews: PreviewProvider {
-    static var previews: some View {
-        FinishedClassificationView(actOnFinishedClassification: ContentView(sentences: SentenceListViewModel()), sentences: SentenceListViewModel())
-    }
-}
+//struct FinishedClassificationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FinishedClassificationView(actOnFinishedClassification: ClassifyOrFinishView(sentences: NewsClassifierViewModel()), sentences: NewsClassifierViewModel())
+//    }
+//}
