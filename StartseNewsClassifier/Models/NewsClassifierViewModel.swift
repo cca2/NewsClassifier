@@ -8,6 +8,7 @@
 
 import Foundation
 import NaturalLanguage
+import CloudKit
 
 class NewsClassifierViewModel: ObservableObject {
     var sentenceList:[SentenceModel] {
@@ -31,6 +32,7 @@ class NewsClassifierViewModel: ObservableObject {
         classifiedSentencesDictionary[.partnership] = [:]
         
         fetchListOfNews()
+        queryNews()
     }
     
     func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {
@@ -79,6 +81,37 @@ class NewsClassifierViewModel: ObservableObject {
             self.classifiedNews.classifiedSentences.append(sentenceJSON)
             return true
         }
+    }
+    
+    private func queryNews() {
+        let database = CKContainer.init(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier").privateCloudDatabase
+        let predicate = NSPredicate(value: true)
+        
+        let query = CKQuery(recordType: "News", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = {
+            record in
+            let id = record["uuid"]!
+            
+            print (">>> ID: \(String(describing: id))")
+        }
+        
+        operation.queryCompletionBlock = {
+            cursor, error in
+            
+            DispatchQueue.main.async {
+                if (error == nil) {
+                    print(">>> Finalizou com Sucesso <<<")
+                }else {
+                    print (">>> FINALIZOU QUERY <<<")
+                }
+            }
+        }
+        
+        database.add(operation)
     }
     
     private func fetchListOfNews() {
