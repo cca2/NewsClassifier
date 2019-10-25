@@ -15,7 +15,6 @@ struct NewsView: View {
     @State private var offset:CGSize = .zero
     
     @State private var classifier:NewsClassifierViewModel?
-//    @State private var news:NewsViewModel?
     
     @State private var currentNewsIndex = 0
     
@@ -67,44 +66,47 @@ struct NewsView: View {
                 }.padding(50)
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
                 .onAppear() {
-                    //Verifica se há novas notícias a serem baixadas do cloudkit
-                    let database = CKContainer.init(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier").privateCloudDatabase
-                    let predicate = NSPredicate(value: true)
-                    
-                    let query = CKQuery(recordType: "News", predicate: predicate)
-                    query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-                    
-                    let operation = CKQueryOperation(query: query)
-                    
-                    operation.recordFetchedBlock = {
-                        record in
+                    if self.isLoading {
+                        //Verifica se há novas notícias a serem baixadas do cloudkit
+                        let database = CKContainer.init(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier").privateCloudDatabase
+                        let predicate = NSPredicate(value: true)
                         
-                        do {
-                            let newsFile = record["newsFile"] as! CKAsset
-                            let decoder = JSONDecoder()
-                            let json = try Data(contentsOf: newsFile.fileURL!)
-                            let newsModel = try decoder.decode(NewsModel.self, from: json)
-                            let news = NewsViewModel(news: newsModel)
-                            self.articles.append(news)
-                            self.classifier = NewsClassifierViewModel(news: newsModel)
-                            self.isLoading = false
-                        }catch {
-                            print (error)
-                        }
-                    }
-                    
-                    operation.queryCompletionBlock = {
-                        cursor, error in
+                        let query = CKQuery(recordType: "News", predicate: predicate)
+                        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
                         
-                        DispatchQueue.main.async {
-                            if (error == nil) {
-                                print(">>> Finalizou com Sucesso <<<")
-                            }else {
-                                print (">>> FINALIZOU QUERY <<<")
+                        let operation = CKQueryOperation(query: query)
+                        
+                        operation.recordFetchedBlock = {
+                            record in
+                            
+                            do {
+                                let newsFile = record["newsFile"] as! CKAsset
+                                let decoder = JSONDecoder()
+                                let json = try Data(contentsOf: newsFile.fileURL!)
+                                let newsModel = try decoder.decode(NewsModel.self, from: json)
+                                let news = NewsViewModel(news: newsModel)
+                                self.articles.append(news)
+                            }catch {
+                                print (error)
                             }
                         }
+                        
+                        operation.queryCompletionBlock = {
+                            cursor, error in
+                            
+                            DispatchQueue.main.async {
+                                if (error == nil) {
+                                    print(">>> Finalizou com Sucesso <<<")
+                                    self.classifier = NewsClassifierViewModel(news: self.articles[self.currentNewsIndex].news!)
+                                    self.isLoading = false
+                                }else {
+                                    print (">>> FINALIZOU QUERY <<<")
+                                }
+                            }
+                        }
+                        database.add(operation)
                     }
-                    database.add(operation)
+
                 }
             }.background(Color.yellow)
                 .tabItem {
@@ -123,29 +125,13 @@ struct NewsView: View {
         }
     }
     
-//    init?() {
-//        do {
-//            guard let path = Bundle.main.path(forResource: "StartseNews-03c25ec5-3373-47ad-ba82-9500dacfe6ed", ofType: "json") else { return nil}
-//            let newsFileURL = URL(fileURLWithPath: path)
-//
-//            news = try NewsViewModel(newsFile: newsFileURL)
-//            self.classifier = NewsClassifierViewModel(news: news.news)
-//
-//            print (news.title)
-//        }catch {
-//            print (error)
-//            return nil
-//        }
-//    }
-    
     func nextNews() {
-//        let articles = sentences.articles.articles
         if currentNewsIndex == articles.count - 1 {
             return
         }
 
         currentNewsIndex = currentNewsIndex + 1
-//        sentences.currentNewsIndex = currentNewsIndex
+        self.classifier = NewsClassifierViewModel(news: articles[currentNewsIndex].news!)
     }
     
     func previousNews() {
@@ -153,7 +139,7 @@ struct NewsView: View {
             return
         }else {
             currentNewsIndex = currentNewsIndex - 1
-//            sentences.currentNewsIndex = currentNewsIndex
+            self.classifier = NewsClassifierViewModel(news: articles[currentNewsIndex].news!)
         }
     }
 }
