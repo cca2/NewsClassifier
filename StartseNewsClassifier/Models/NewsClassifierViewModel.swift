@@ -30,9 +30,7 @@ class NewsClassifierViewModel: ObservableObject {
         classifiedSentencesDictionary[.investment] = [:]
         classifiedSentencesDictionary[.partnership] = [:]
         
-        breakIntoSentences()
-
-//        fetchListOfNews()
+        fetchListOfNews()
     }
     
     func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {
@@ -81,88 +79,39 @@ class NewsClassifierViewModel: ObservableObject {
             self.classifiedNews.classifiedSentences.append(sentenceJSON)
             return true
         }
-//        do {
-//
-//            let encoder = JSONEncoder()
-//            let data = try encoder.encode(self.classifiedNews)
-//            let jsonFileURL = playgroundSharedDataDirectory.appendingPathComponent("classifiedStartseNews-\(self.news.id).json", isDirectory: false)
-//
-//            try data.write(to: jsonFileURL)
-//        }catch {
-//            print("Error: \(error)")
-//        }
     }
     
-//    private func fetchListOfNews() {
-//        
-//        //Verify is a jsonFile e local exists
-//        let fileManager = FileManager.default
-//        let path = Bundle.main.resourcePath!
-//        
-//        var newsIDs:[String] = []
-//        
-//        do {
-//            let items = try fileManager.contentsOfDirectory(atPath: path)
-//            for item in items {
-//                if item.description.contains("StartseNews-") && item.description.contains(".json") {
-//                    let name = item.description
-//                    let start = name.index(name.startIndex, offsetBy: 12)
-//                    let end = name.index(name.endIndex, offsetBy: -5)
-//                    let range = start..<end
-//                    print(name[range])
-//                    newsIDs.append(String(name[range]))
-//                }
-//            }
-//        }catch {
-//            print ("Error:\(error)")
-//        }
-//        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-//        print (documentsURL)
-//        
-//        let documentPath = documentsURL.path
-//        print(documentPath)
-//        
-//        
-//        do {
-//            for id in newsIDs {
-//                let classifiedNewsPath = documentsURL.appendingPathComponent("classifiedNews-\(id).json")
-//                guard let path = Bundle.main.path(forResource: "StartseNews-\(id)", ofType: "json") else { return }
-//                let originalFileURL = URL(fileURLWithPath: path)
-//                
-//                if !fileManager.fileExists(atPath: classifiedNewsPath.path) {
-//                    try fileManager.copyItem(at: originalFileURL, to: classifiedNewsPath)
-//                }
-//                        
-//                var json: Any?
-//                // Getting data from JSON file using the file URL
-//                let data = try Data(contentsOf: classifiedNewsPath, options: .mappedIfSafe)
-//                json = try? JSONSerialization.jsonObject(with: data)
-//
-//                if let dictionary = json as? [String:Any] {
-//                    let item = dictionary
-//                    let title = item["title"] as! String
-//                    let subtitle = item["subtitle"] as! String
-//                    let link = item["link"] as! String
-////                    let newsModel = NewsModel(id:UUID(), title: title, subtitle: subtitle, link:link, text:"", sentences: [])
-////                    self.articles.articles.append(newsModel)
-////
-////                    let sentences = item["sentences"] as! [[String:Any?]]
-////                    for j in 0..<sentences.count {
-////                        let sentence = sentences[j] as! [String:String]
-////
-////                        let classification = SentenceModel.Classification(rawValue: sentence["classification"]!)!
-////                        let uuid = UUID(uuidString: sentence["id"]!)!
-////                        let sentenceModel = SentenceModel(id:uuid, text:sentence["text"]!, classification: classification)
-////                        newsModel.sentences.append(sentenceModel)
-////
-////                        classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
-////
-////                        self.sentenceList.append(sentenceModel)
-////                    }
-//                }
-//            }
-//        } catch {
-//            print("error: \(error)")
-//        }        
-//    }
+    private func fetchListOfNews() {
+        //Verify is a jsonFile e local exists
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+
+        do {
+            let classifiedNewsPath = documentsURL.appendingPathComponent("classifiedNews-\(self.news.news_id).json")
+            if !fileManager.fileExists(atPath: classifiedNewsPath.path) {
+                self.breakIntoSentences()
+            }else {
+                var json: Any?
+                // Getting data from JSON file using the file URL
+                let data = try Data(contentsOf: classifiedNewsPath, options: .mappedIfSafe)
+                json = try? JSONSerialization.jsonObject(with: data)
+                
+                if let dictionary = json as? [String:Any] {
+                    let item = dictionary
+                    let classifiedSentences = item["classifiedSentences"] as! [[String:Any]]
+                    
+                    for sentence in classifiedSentences {
+                        let id = sentence["id"] as! String
+                        let text = sentence["text"] as! String
+                        let classification = SentenceModel.Classification(rawValue: sentence["classification"] as! String)!
+                        
+                        let sentenceModel = SentenceModel(id: UUID(uuidString: id)!, text: text, classification: classification)
+                        self.classifiedNews.classifiedSentences.append(sentenceModel)
+                    }
+                }
+            }                
+        } catch {
+            print("error: \(error)")
+        }
+    }
 }
