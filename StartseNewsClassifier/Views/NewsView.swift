@@ -15,9 +15,13 @@ struct NewsView: View {
     @State private var offset:CGSize = .zero
     
     @State private var classifier:NewsClassifierViewModel?
-    @State private var news:NewsViewModel?
+//    @State private var news:NewsViewModel?
     
     @State private var currentNewsIndex = 0
+    
+    @State private var isLoading = true
+    
+    @State private var articles:[NewsViewModel] = []
     
     var body: some View {
         let drag = DragGesture()
@@ -42,23 +46,23 @@ struct NewsView: View {
         return TabView(selection: $selectedView) {
             NavigationView {
                 VStack (alignment: .leading) {
-                    if news != nil {
+                    if !self.isLoading {
                         Group {
-                            Text(news!.title).font(.headline).bold()
-                            Text(news!.subtitle).font(.body).padding([.top], 5)
+                            Text(articles[currentNewsIndex].title).font(.headline).bold()
+                            Text(articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5)
                         }
                         .offset(x: offset.width, y: 0)
                         .gesture(drag)
                         
                         Spacer()
                         
-                        if classifier != nil {
-                            NavigationLink(destination: ClassifyOrFinishView(classifier: self.classifier!)) {
-                                VStack(alignment: .trailing) {
-                                    Text("classificar")
-                                }
+                        NavigationLink(destination: ClassifyOrFinishView(classifier: self.classifier!)) {
+                            VStack(alignment: .trailing) {
+                                Text("classificar")
                             }
                         }
+                    }else {
+                        Text("Carregando as notícias")
                     }
                 }.padding(50)
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
@@ -80,8 +84,10 @@ struct NewsView: View {
                             let decoder = JSONDecoder()
                             let json = try Data(contentsOf: newsFile.fileURL!)
                             let newsModel = try decoder.decode(NewsModel.self, from: json)
-                            self.news = NewsViewModel(news: newsModel)
+                            let news = NewsViewModel(news: newsModel)
+                            self.articles.append(news)
                             self.classifier = NewsClassifierViewModel(news: newsModel)
+                            self.isLoading = false
                         }catch {
                             print (error)
                         }
@@ -134,21 +140,21 @@ struct NewsView: View {
     
     func nextNews() {
 //        let articles = sentences.articles.articles
-//        if currentNewsIndex == articles.count - 1 {
-//            return
-//        }
-//
-//        currentNewsIndex = currentNewsIndex + 1
+        if currentNewsIndex == articles.count - 1 {
+            return
+        }
+
+        currentNewsIndex = currentNewsIndex + 1
 //        sentences.currentNewsIndex = currentNewsIndex
     }
     
     func previousNews() {
-//        if currentNewsIndex == 0 {
-//            return
-//        }else {
-//            currentNewsIndex = currentNewsIndex - 1
+        if currentNewsIndex == 0 {
+            return
+        }else {
+            currentNewsIndex = currentNewsIndex - 1
 //            sentences.currentNewsIndex = currentNewsIndex
-//        }
+        }
     }
 }
 
