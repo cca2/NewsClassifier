@@ -13,6 +13,7 @@ struct SentenceView: View {
 
     @State private var text:String = "Não consigo inicializar o TextField."
     private var sentenceColor:Color = .gray
+    private var classifier:NewsClassifierViewModel
         
     var body: some View {
             VStack () {
@@ -33,8 +34,10 @@ struct SentenceView: View {
             .frame(width:280, height: 450, alignment: .leading)
     }
     
-    init(sentenceViewModel:SentenceViewModel) {
+    init(sentenceViewModel:SentenceViewModel, classifier:NewsClassifierViewModel) {
         self.sentenceViewModel = sentenceViewModel
+        self.classifier = classifier
+        
         let classification = self.sentenceViewModel.sentence.classification
         if classification == .segment {
             self.sentenceColor = .red
@@ -66,12 +69,13 @@ struct SentenceView: View {
     }
     
     func classifyAsNone() {
-        self.sentenceViewModel.classifySentenceAs(tag: .none)
+//        self.sentenceViewModel.classifySentenceAs(tag: .none)
+        self.classifier.classifySentenceAs(sentence: self.sentenceViewModel.sentence, newClassification: .none)
     }
 }
 
-struct SentenceView_Previews: PreviewProvider {
-    static var previews: some View {
-        SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: SentenceModel(text: "Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.", classification: SentenceModel.Classification(rawValue: "#None")!)))
-    }
-}
+//struct SentenceView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: SentenceModel(text: "Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.", classification: SentenceModel.Classification(rawValue: "#None")!)))
+//    }
+//}

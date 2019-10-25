@@ -64,11 +64,11 @@ struct NewsView: View {
             }
             .tag(0)
             
-//            ClassifiedNewsView(NewsClassifierViewModel: sentences)
-//                .tabItem {
-//                    Image(systemName: "2.circle")
-//                    Text("classificação")
-//                }.tag(1)
+            ClassifiedNewsView(newsClassifierViewModel: classifier)
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("classificação")
+                }.tag(1)
         }
     }
     

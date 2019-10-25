@@ -107,6 +107,8 @@ class NewsClassifierViewModel: ObservableObject {
                         
                         let sentenceModel = SentenceModel(id: UUID(uuidString: id)!, text: text, classification: classification)
                         self.classifiedNews.classifiedSentences.append(sentenceModel)
+                        
+                        self.classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
                     }
                 }
             }                

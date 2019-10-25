@@ -70,7 +70,7 @@ struct ClassificationView: View {
                 .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
             }
 
-            SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.classifier.sentenceList[self.currentSentenceIndex + self.sentencesOffset]))
+            SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.classifier.sentenceList[self.currentSentenceIndex + self.sentencesOffset]), classifier: self.classifier)
             .offset(x: offset.width, y: offset.height)
             .gesture(drag)
                 .animation(.spring()).padding()
