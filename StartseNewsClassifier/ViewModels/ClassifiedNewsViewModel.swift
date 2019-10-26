@@ -1,5 +1,5 @@
 //
-//  NewsClassifierViewModel.swift
+//  ClassifiedNewsViewModel.swift
 //  StartseNewsClassifier
 //
 //  Created by Cristiano Araújo on 18/10/19.
@@ -9,7 +9,7 @@
 import Foundation
 import NaturalLanguage
 
-class NewsClassifierViewModel: ObservableObject {
+class ClassifiedNewsViewModel: ObservableObject {
         
     var sentenceList:[SentenceModel] {
         return classifiedNews.classifiedSentences

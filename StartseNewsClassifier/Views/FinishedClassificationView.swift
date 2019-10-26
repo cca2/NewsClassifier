@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FinishedClassificationView: View {
     private let actOnClassification:ActOnClassification
-    private let classifier:NewsClassifierViewModel
+    private let classifier:ClassifiedNewsViewModel
     
     var body: some View {
         VStack {
@@ -20,7 +20,7 @@ struct FinishedClassificationView: View {
         }.frame(width: 100, height: 100, alignment: .center)
     }
     
-    init (actOnFinishedClassification:ActOnClassification, classifier:NewsClassifierViewModel) {
+    init (actOnFinishedClassification:ActOnClassification, classifier:ClassifiedNewsViewModel) {
         self.actOnClassification = actOnFinishedClassification
         self.classifier = classifier
     }
@@ -36,6 +36,6 @@ struct FinishedClassificationView: View {
 
 //struct FinishedClassificationView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        FinishedClassificationView(actOnFinishedClassification: ClassifyOrFinishView(sentences: NewsClassifierViewModel()), sentences: NewsClassifierViewModel())
+//        FinishedClassificationView(actOnFinishedClassification: ClassifyOrFinishView(sentences: ClassifiedNewsViewModel()), sentences: ClassifiedNewsViewModel())
 //    }
 //}

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ClassifiedNewsView: View {
-    @ObservedObject private var classifier:NewsClassifierViewModel
+    @ObservedObject private var classifier:ClassifiedNewsViewModel
     
     var body: some View {
         VStack {
@@ -71,10 +71,10 @@ struct ClassifiedNewsView: View {
     }
     
     init (news:NewsModel) {
-        self.classifier = NewsClassifierViewModel(news: news)
+        self.classifier = ClassifiedNewsViewModel(news: news)
     }
     
-    init(newsClassifierViewModel:NewsClassifierViewModel) {
+    init(newsClassifierViewModel:ClassifiedNewsViewModel) {
         self.classifier = newsClassifierViewModel
     }
     

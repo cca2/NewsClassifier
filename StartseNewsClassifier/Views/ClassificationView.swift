@@ -16,11 +16,11 @@ struct ClassificationView: View {
     private let sentencesOffset:Int = 0
     private let actOnClassification:ActOnClassification
     
-    private let classifier:NewsClassifierViewModel
+    private let classifier:ClassifiedNewsViewModel
     private let classificationHeight:CGFloat = 30
     private let classificationFont:Font = .footnote
     
-    init(actOnClassification: ActOnClassification, classifier: NewsClassifierViewModel) {
+    init(actOnClassification: ActOnClassification, classifier: ClassifiedNewsViewModel) {
         self.actOnClassification = actOnClassification
         self.classifier = classifier
     }
@@ -160,6 +160,6 @@ struct ClassificationView: View {
 
 //struct ClassificationView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ClassificationView(actOnClassification: ClassifyOrFinishView(sentences: NewsClassifierViewModel()), sentences: NewsClassifierViewModel())
+//        ClassificationView(actOnClassification: ClassifyOrFinishView(sentences: ClassifiedNewsViewModel()), sentences: ClassifiedNewsViewModel())
 //    }
 //}

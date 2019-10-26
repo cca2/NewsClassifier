@@ -16,7 +16,7 @@ protocol ActOnClassification {
 struct ClassifyOrFinishView: View, ActOnClassification {
     @State var hasFinishedClassification = false
 
-    private let classifier:NewsClassifierViewModel
+    private let classifier:ClassifiedNewsViewModel
     
     var body: some View {
         Group {
@@ -28,7 +28,7 @@ struct ClassifyOrFinishView: View, ActOnClassification {
         }
     }
     
-    init(classifier:NewsClassifierViewModel) {
+    init(classifier:ClassifiedNewsViewModel) {
         self.classifier = classifier
     }
     
@@ -43,6 +43,6 @@ struct ClassifyOrFinishView: View, ActOnClassification {
 
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ClassifyOrFinishView(sentences: NewsClassifierViewModel(news: NewsModel())
+//        ClassifyOrFinishView(sentences: ClassifiedNewsViewModel(news: NewsModel())
 //    }
 //}
