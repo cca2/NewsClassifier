@@ -181,8 +181,8 @@ struct ClassificationView: View {
     }
 }
 
-//struct ClassificationView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ClassificationView(actOnClassification: ClassifyOrFinishView(sentences: ClassifiedNewsViewModel()), sentences: ClassifiedNewsViewModel())
-//    }
-//}
+struct ClassificationView_Previews: PreviewProvider {
+    static var previews: some View {
+        ClassificationView(news: NewsModel(news_id: "001", title: "Isto é um título", subtitle: "Agora vai mesmo porque é assim", link: "http://cin.ufpe.br", text: "Isto é um texto muito grande", links: [], links_text: []))
+    }
+}
