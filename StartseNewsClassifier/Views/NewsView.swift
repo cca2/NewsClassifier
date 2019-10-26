@@ -87,12 +87,12 @@ struct NewsView: View {
     }
     
     func nextNews() {
-        if currentNewsIndex == articles.count - 1 {
+        if currentNewsIndex == self.newsList.articles.count - 1 {
             return
         }
 
         currentNewsIndex = currentNewsIndex + 1
-        self.classifier = NewsClassifierViewModel(news: articles[currentNewsIndex].news!)
+        self.classifier = NewsClassifierViewModel(news: newsList.articles[currentNewsIndex].news!)
     }
     
     func previousNews() {
@@ -100,7 +100,7 @@ struct NewsView: View {
             return
         }else {
             currentNewsIndex = currentNewsIndex - 1
-            self.classifier = NewsClassifierViewModel(news: articles[currentNewsIndex].news!)
+            self.classifier = NewsClassifierViewModel(news: newsList.articles[currentNewsIndex].news!)
         }
     }
 }

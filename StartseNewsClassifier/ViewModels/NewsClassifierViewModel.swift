@@ -32,7 +32,6 @@ class NewsClassifierViewModel: ObservableObject {
         classifiedSentencesDictionary[.partnership] = [:]
         
         fetchListOfNews()
-//        queryNews()
     }
     
     func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {
