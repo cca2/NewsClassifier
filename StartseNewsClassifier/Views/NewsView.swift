@@ -51,7 +51,7 @@ struct NewsView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: ClassifyOrFinishView(news: newsList.articles[currentNewsIndex].news!)) {
+                        NavigationLink(destination: ClassificationView(news: newsList.articles[currentNewsIndex].news!)) {
                                 VStack(alignment: .trailing) {
                                     Text("classificar")
                                 }

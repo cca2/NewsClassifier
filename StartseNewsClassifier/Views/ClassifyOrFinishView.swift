@@ -23,7 +23,7 @@ struct ClassifyOrFinishView: View, ActOnClassification {
             if (hasFinishedClassification) {
                 FinishedClassificationView(actOnFinishedClassification: self, news: self.news)
             }else {
-                ClassificationView(actOnClassification: self, news: self.news)
+                ClassificationView(news: self.news)
             }
         }
     }
@@ -39,6 +39,11 @@ struct ClassifyOrFinishView: View, ActOnClassification {
     func restartClassification() {
         hasFinishedClassification = false
     }
+    
+    func saveClassification() {
+//        classifier.saveClassifiedSentences()
+    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
