@@ -10,6 +10,7 @@ import Foundation
 import NaturalLanguage
 
 class NewsClassifierViewModel: ObservableObject {
+        
     var sentenceList:[SentenceModel] {
         return classifiedNews.classifiedSentences
     }
@@ -70,7 +71,9 @@ class NewsClassifierViewModel: ObservableObject {
     
     private func breakIntoSentences() {
         let tagger = NLTagger(tagSchemes: [.lexicalClass])
-        let text = self.news.text
+        var text = self.news.text
+        text = text.replacingOccurrences(of: ".", with: ". ").trimmingCharacters(in: .whitespacesAndNewlines)
+        
         tagger.string = text
         
         let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace]

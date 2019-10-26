@@ -14,7 +14,9 @@ struct SentenceView: View {
     @State private var text:String = "Não consigo inicializar o TextField."
     private var sentenceColor:Color = .gray
     private var classifier:NewsClassifierViewModel
-        
+
+    private let circleRadius:CGFloat = 20
+    
     var body: some View {
             VStack () {
                 Text(sentenceViewModel.sentence.text)
@@ -28,7 +30,7 @@ struct SentenceView: View {
                     Button(action: classifyAsNone) {
                         Text("invalidar")
                     }
-                }                
+                }
             }
             .fixedSize(horizontal: false, vertical: true)
             .frame(width:280, height: 450, alignment: .leading)
@@ -69,13 +71,12 @@ struct SentenceView: View {
     }
     
     func classifyAsNone() {
-//        self.sentenceViewModel.classifySentenceAs(tag: .none)
         self.classifier.classifySentenceAs(sentence: self.sentenceViewModel.sentence, newClassification: .none)
     }
 }
 
-//struct SentenceView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: SentenceModel(text: "Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.", classification: SentenceModel.Classification(rawValue: "#None")!)))
-//    }
-//}
+struct SentenceView_Previews: PreviewProvider {
+    static var previews: some View {
+        SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: SentenceModel(text: "Shawn Fanning é o menos conhecido da dupla que fundou o Napster, o primeiro software de download de músicas que fez sucesso mundial no início dos anos 2000.", classification: SentenceModel.Classification(rawValue: "#None")!)), classifier: NewsClassifierViewModel(news: NewsModel(news_id: "id", title: "teste", subtitle: "subtitle", link: "http://cin.ufpe.br", text: "teste", links: [], links_text: [])))
+    }
+}

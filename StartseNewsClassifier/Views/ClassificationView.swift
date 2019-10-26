@@ -56,37 +56,40 @@ struct ClassificationView: View {
                     Group {
                         Text("#Segmento").bold().font(self.classificationFont)
                     }
-                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.red).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.red)
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
                 
                 VStack {
                     Text("#Problema").bold().font(self.classificationFont)
-                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.green).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.green)
                 .overlay(Rectangle().stroke(Color.green, lineWidth: 1))
                 
                 VStack {
                     Text("#Features").bold().font(self.classificationFont)
-                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.orange).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.orange)
                 .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
             }
 
             SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.classifier.sentenceList[self.currentSentenceIndex + self.sentencesOffset]), classifier: self.classifier)
             .offset(x: offset.width, y: offset.height)
             .gesture(drag)
-                .animation(.spring()).padding()
+            .animation(.spring()).padding()
 
             HStack {
                 VStack {
                     Text("#UVP").bold().font(self.classificationFont)
-                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.pink).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.pink)
+                .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                 
                 VStack {
                     Text("#Investimento").bold().font(self.classificationFont)
-                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.purple).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.purple)
+                .overlay(Rectangle().stroke(Color.purple, lineWidth: 1))
                 
                 VStack {
                     Text("#Parceria").bold().font(self.classificationFont)
-                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.black).foregroundColor(.white)
+                }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.black)
+                    .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
             }
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             .padding(.bottom)

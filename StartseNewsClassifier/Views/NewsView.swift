@@ -67,46 +67,16 @@ struct NewsView: View {
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
                 .onAppear() {
                     if self.isLoading {
-                        //Verifica se há novas notícias a serem baixadas do cloudkit
-                        let database = CKContainer.init(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier").privateCloudDatabase
-                        let predicate = NSPredicate(value: true)
-                        
-                        let query = CKQuery(recordType: "News", predicate: predicate)
-                        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-                        
-                        let operation = CKQueryOperation(query: query)
-                        
-                        operation.recordFetchedBlock = {
-                            record in
-                            
-                            do {
-                                let newsFile = record["newsFile"] as! CKAsset
-                                let decoder = JSONDecoder()
-                                let json = try Data(contentsOf: newsFile.fileURL!)
-                                let newsModel = try decoder.decode(NewsModel.self, from: json)
-                                let news = NewsViewModel(news: newsModel)
-                                self.articles.append(news)
-                            }catch {
-                                print (error)
+                        StartseNewsService().loadLatestNews() {
+                            articles in
+                            for news in articles {
+                                let newsViewModel = NewsViewModel(news: news)
+                                self.articles.append(newsViewModel)
                             }
+                            self.classifier = NewsClassifierViewModel(news: self.articles[self.currentNewsIndex].news!)
+                            self.isLoading = false
                         }
-                        
-                        operation.queryCompletionBlock = {
-                            cursor, error in
-                            
-                            DispatchQueue.main.async {
-                                if (error == nil) {
-                                    print(">>> Finalizou com Sucesso <<<")
-                                    self.classifier = NewsClassifierViewModel(news: self.articles[self.currentNewsIndex].news!)
-                                    self.isLoading = false
-                                }else {
-                                    print (">>> FINALIZOU QUERY <<<")
-                                }
-                            }
-                        }
-                        database.add(operation)
                     }
-
                 }
             }.background(Color.yellow)
                 .tabItem {

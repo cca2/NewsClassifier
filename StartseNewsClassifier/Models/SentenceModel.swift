@@ -13,6 +13,7 @@ class SentenceModel: Identifiable, Decodable {
     var text:String
     
     var classification:Classification = .none
+    var classifications:[Classification] = []
     
     enum Classification:String, Decodable {
         case none = "#None"
