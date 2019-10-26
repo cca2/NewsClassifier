@@ -10,19 +10,13 @@ import SwiftUI
 import CloudKit
 
 struct NewsView: View {
-    @State var selectedView = 0
-    
-    @State private var offset:CGSize = .zero
-    
+
     @State private var classifier:NewsClassifierViewModel?
-    
-    @State private var currentNewsIndex = 0
-    
-    @State private var isLoading = false
-    
-    @State private var articles:[NewsViewModel] = []
-    
     @ObservedObject private var newsList = NewsListViewModel()
+
+    @State var selectedView = 0
+    @State private var offset:CGSize = .zero
+    @State private var currentNewsIndex = 0
 
     var body: some View {
         let drag = DragGesture()
