@@ -26,11 +26,6 @@ struct ClassificationView: View {
         self.classifier = ClassifiedNewsViewModel(news: news)
     }
     
-//    init(actOnClassification: ActOnClassification, classifier: ClassifiedNewsViewModel) {
-//        self.actOnClassification = actOnClassification
-//        self.classifier = classifier
-//    }
-    
     var body: some View {
         let drag = DragGesture()
             .onChanged {

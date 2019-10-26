@@ -16,7 +16,6 @@ protocol ActOnClassification {
 struct ClassifyOrFinishView: View, ActOnClassification {
     @State var hasFinishedClassification = false
 
-//    private let classifier:ClassifiedNewsViewModel
     private let news:NewsModel
     
     var body: some View {
@@ -31,12 +30,7 @@ struct ClassifyOrFinishView: View, ActOnClassification {
     
     init (news:NewsModel) {
         self.news = news
-//        self.classifier = ClassifiedNewsViewModel(news: news)
     }
-    
-//    init(classifier:ClassifiedNewsViewModel) {
-//        self.classifier = classifier
-//    }
     
     func finishedClassification() {
         hasFinishedClassification = true

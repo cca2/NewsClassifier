@@ -11,7 +11,6 @@ import SwiftUI
 struct FinishedClassificationView: View {
     private let actOnClassification:ActOnClassification
     private let classifier:ClassifiedNewsViewModel
-//    private let news:NewsModel
     
     var body: some View {
         VStack {
