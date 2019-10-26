@@ -21,6 +21,7 @@
 		DA8912EB2362B9C6007C8D1D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8912EA2362B9C6007C8D1D /* CloudKit.framework */; };
 		DA8912EF23645DF7007C8D1D /* SentenceClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8912EE23645DF7007C8D1D /* SentenceClassifier.swift */; };
 		DA8912F223645ED3007C8D1D /* StartseNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8912F123645ED3007C8D1D /* StartseNewsService.swift */; };
+		DA8912F423646D9F007C8D1D /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8912F323646D9F007C8D1D /* NewsListViewModel.swift */; };
 		DACA7792235384D8000EE9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACA7791235384D8000EE9A7 /* AppDelegate.swift */; };
 		DACA7794235384D8000EE9A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACA7793235384D8000EE9A7 /* SceneDelegate.swift */; };
 		DACA7797235384D8000EE9A7 /* StartseNewsClassifier.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DACA7795235384D8000EE9A7 /* StartseNewsClassifier.xcdatamodeld */; };
@@ -68,6 +69,7 @@
 		DA8912EA2362B9C6007C8D1D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DA8912EE23645DF7007C8D1D /* SentenceClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceClassifier.swift; sourceTree = "<group>"; };
 		DA8912F123645ED3007C8D1D /* StartseNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartseNewsService.swift; sourceTree = "<group>"; };
+		DA8912F323646D9F007C8D1D /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
 		DACA778E235384D8000EE9A7 /* StartseNewsClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StartseNewsClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACA7791235384D8000EE9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DACA7793235384D8000EE9A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				DA61AE6C2359EFB5000F1E46 /* NewsClassifierViewModel.swift */,
+				DA8912F323646D9F007C8D1D /* NewsListViewModel.swift */,
 				DACA77CA2353EF61000EE9A7 /* NewsViewModel.swift */,
 				DA8912E623622E25007C8D1D /* SentenceViewModel.swift */,
 			);
@@ -386,6 +389,7 @@
 				DACA7797235384D8000EE9A7 /* StartseNewsClassifier.xcdatamodeld in Sources */,
 				DACA7799235384D8000EE9A7 /* ClassificationView.swift in Sources */,
 				DACA77CB2353EF61000EE9A7 /* NewsViewModel.swift in Sources */,
+				DA8912F423646D9F007C8D1D /* NewsListViewModel.swift in Sources */,
 				DACA77C6235385C7000EE9A7 /* SentenceView.swift in Sources */,
 				DA61AE75235BD45F000F1E46 /* ClassifyOrFinishView.swift in Sources */,
 				DA8912E723622E25007C8D1D /* SentenceViewModel.swift in Sources */,

@@ -18,10 +18,12 @@ struct NewsView: View {
     
     @State private var currentNewsIndex = 0
     
-    @State private var isLoading = true
+    @State private var isLoading = false
     
     @State private var articles:[NewsViewModel] = []
     
+    @ObservedObject private var newsList = NewsListViewModel()
+
     var body: some View {
         let drag = DragGesture()
             .onChanged {
@@ -45,19 +47,21 @@ struct NewsView: View {
         return TabView(selection: $selectedView) {
             NavigationView {
                 VStack (alignment: .leading) {
-                    if !self.isLoading {
+                    if !(self.newsList.articles.count == 0) {
                         Group {
-                            Text(articles[currentNewsIndex].title).font(.headline).bold()
-                            Text(articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5)
+                            Text(newsList.articles[currentNewsIndex].title).font(.headline).bold()
+                            Text(newsList.articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5)
                         }
                         .offset(x: offset.width, y: 0)
                         .gesture(drag)
                         
                         Spacer()
                         
-                        NavigationLink(destination: ClassifyOrFinishView(classifier: self.classifier!)) {
-                            VStack(alignment: .trailing) {
-                                Text("classificar")
+                        if (self.classifier != nil) {
+                            NavigationLink(destination: ClassifyOrFinishView(classifier: self.classifier!)) {
+                                VStack(alignment: .trailing) {
+                                    Text("classificar")
+                                }
                             }
                         }
                     }else {
@@ -65,19 +69,6 @@ struct NewsView: View {
                     }
                 }.padding(50)
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
-                .onAppear() {
-                    if self.isLoading {
-                        StartseNewsService().loadLatestNews() {
-                            articles in
-                            for news in articles {
-                                let newsViewModel = NewsViewModel(news: news)
-                                self.articles.append(newsViewModel)
-                            }
-                            self.classifier = NewsClassifierViewModel(news: self.articles[self.currentNewsIndex].news!)
-                            self.isLoading = false
-                        }
-                    }
-                }
             }.background(Color.yellow)
                 .tabItem {
                     Image(systemName: "1.circle")
