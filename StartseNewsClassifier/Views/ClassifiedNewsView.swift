@@ -70,6 +70,10 @@ struct ClassifiedNewsView: View {
         }
     }
     
+    init (news:NewsModel) {
+        self.classifier = NewsClassifierViewModel(news: news)
+    }
+    
     init(newsClassifierViewModel:NewsClassifierViewModel) {
         self.classifier = newsClassifierViewModel
     }
@@ -82,8 +86,8 @@ struct ClassifiedNewsView: View {
     }
 }
 
-//struct ClassifiedNewsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ClassifiedNewsView(NewsClassifierViewModel: NewsClassifierViewModel())
-//    }
-//}
+struct ClassifiedNewsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ClassifiedNewsView(news: NewsModel(news_id: "001", title: "Isto é um título", subtitle: "Agora vai mesmo porque é assim", link: "http://cin.ufpe.br", text: "Isto é um texto muito grande", links: [], links_text: []))
+    }
+}

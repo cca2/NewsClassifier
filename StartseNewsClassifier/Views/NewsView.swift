@@ -70,8 +70,8 @@ struct NewsView: View {
             }
             .tag(0)
             
-            if classifier != nil {
-                ClassifiedNewsView(newsClassifierViewModel: classifier!)
+            if (newsList.articles.count > 0) {
+                ClassifiedNewsView(news: newsList.articles[currentNewsIndex].news!)
                     .tabItem {
                         Image(systemName: "2.circle")
                         Text("classificação")
