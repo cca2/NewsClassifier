@@ -51,13 +51,11 @@ struct NewsView: View {
                         
                         Spacer()
                         
-                        if (self.classifiedNews != nil) {
                         NavigationLink(destination: ClassifyOrFinishView(news: newsList.articles[currentNewsIndex].news!)) {
                                 VStack(alignment: .trailing) {
                                     Text("classificar")
                                 }
                             }
-                        }
                     }else {
                         Text("Carregando as notícias")
                     }
