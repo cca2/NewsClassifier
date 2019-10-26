@@ -11,6 +11,7 @@ import SwiftUI
 struct FinishedClassificationView: View {
     private let actOnClassification:ActOnClassification
     private let classifier:ClassifiedNewsViewModel
+//    private let news:NewsModel
     
     var body: some View {
         VStack {
@@ -20,9 +21,9 @@ struct FinishedClassificationView: View {
         }.frame(width: 100, height: 100, alignment: .center)
     }
     
-    init (actOnFinishedClassification:ActOnClassification, classifier:ClassifiedNewsViewModel) {
+    init (actOnFinishedClassification:ActOnClassification, news:NewsModel) {
         self.actOnClassification = actOnFinishedClassification
-        self.classifier = classifier
+        self.classifier = ClassifiedNewsViewModel(news: news)
     }
     
     func restartClassification() {

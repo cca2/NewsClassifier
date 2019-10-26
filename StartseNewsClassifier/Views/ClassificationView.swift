@@ -13,6 +13,7 @@ import NaturalLanguage
 struct ClassificationView: View {
     @State private var offset: CGSize = .zero
     @State var currentSentenceIndex:Int = 0
+    
     private let sentencesOffset:Int = 0
     private let actOnClassification:ActOnClassification
     
@@ -20,10 +21,15 @@ struct ClassificationView: View {
     private let classificationHeight:CGFloat = 30
     private let classificationFont:Font = .footnote
     
-    init(actOnClassification: ActOnClassification, classifier: ClassifiedNewsViewModel) {
+    init(actOnClassification:ActOnClassification, news:NewsModel) {
         self.actOnClassification = actOnClassification
-        self.classifier = classifier
+        self.classifier = ClassifiedNewsViewModel(news: news)
     }
+    
+//    init(actOnClassification: ActOnClassification, classifier: ClassifiedNewsViewModel) {
+//        self.actOnClassification = actOnClassification
+//        self.classifier = classifier
+//    }
     
     var body: some View {
         let drag = DragGesture()
@@ -119,6 +125,7 @@ struct ClassificationView: View {
     
     func nextSentence() {
         let numSentencesInNews = self.classifier.sentenceList.count
+        
         if (currentSentenceIndex == (numSentencesInNews - 1)) {
             actOnClassification.finishedClassification()
             return

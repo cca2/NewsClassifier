@@ -11,7 +11,7 @@ import CloudKit
 
 struct NewsView: View {
 
-    @State private var classifier:ClassifiedNewsViewModel?
+    @State private var classifiedNews:ClassifiedNewsViewModel?
     @ObservedObject private var newsList = NewsListViewModel()
 
     @State var selectedView = 0
@@ -51,8 +51,8 @@ struct NewsView: View {
                         
                         Spacer()
                         
-                        if (self.classifier != nil) {
-                            NavigationLink(destination: ClassifyOrFinishView(classifier: self.classifier!)) {
+                        if (self.classifiedNews != nil) {
+                        NavigationLink(destination: ClassifyOrFinishView(news: newsList.articles[currentNewsIndex].news!)) {
                                 VStack(alignment: .trailing) {
                                     Text("classificar")
                                 }
@@ -86,7 +86,7 @@ struct NewsView: View {
         }
 
         currentNewsIndex = currentNewsIndex + 1
-        self.classifier = ClassifiedNewsViewModel(news: newsList.articles[currentNewsIndex].news!)
+        self.classifiedNews = ClassifiedNewsViewModel(news: newsList.articles[currentNewsIndex].news!)
     }
     
     func previousNews() {
@@ -94,7 +94,7 @@ struct NewsView: View {
             return
         }else {
             currentNewsIndex = currentNewsIndex - 1
-            self.classifier = ClassifiedNewsViewModel(news: newsList.articles[currentNewsIndex].news!)
+            self.classifiedNews = ClassifiedNewsViewModel(news: newsList.articles[currentNewsIndex].news!)
         }
     }
 }

@@ -16,21 +16,27 @@ protocol ActOnClassification {
 struct ClassifyOrFinishView: View, ActOnClassification {
     @State var hasFinishedClassification = false
 
-    private let classifier:ClassifiedNewsViewModel
+//    private let classifier:ClassifiedNewsViewModel
+    private let news:NewsModel
     
     var body: some View {
         Group {
             if (hasFinishedClassification) {
-                FinishedClassificationView(actOnFinishedClassification: self, classifier: self.classifier)
+                FinishedClassificationView(actOnFinishedClassification: self, news: self.news)
             }else {
-                ClassificationView(actOnClassification: self, classifier: self.classifier)
+                ClassificationView(actOnClassification: self, news: self.news)
             }
         }
     }
     
-    init(classifier:ClassifiedNewsViewModel) {
-        self.classifier = classifier
+    init (news:NewsModel) {
+        self.news = news
+//        self.classifier = ClassifiedNewsViewModel(news: news)
     }
+    
+//    init(classifier:ClassifiedNewsViewModel) {
+//        self.classifier = classifier
+//    }
     
     func finishedClassification() {
         hasFinishedClassification = true
@@ -41,8 +47,8 @@ struct ClassifyOrFinishView: View, ActOnClassification {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ClassifyOrFinishView(sentences: ClassifiedNewsViewModel(news: NewsModel())
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ClassifyOrFinishView(news: NewsModel(news_id: "001", title: "Isto é um título", subtitle: "Agora vai mesmo porque é assim", link: "http://cin.ufpe.br", text: "Isto é um texto muito grande", links: [], links_text: []))
+    }
+}
