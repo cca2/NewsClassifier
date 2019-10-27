@@ -11,6 +11,8 @@ import CoreML
 import NaturalLanguage
 
 struct ClassificationView: View {
+    @EnvironmentObject var newsList:NewsListViewModel
+    
     @State private var offset: CGSize = .zero
     @State var currentSentenceIndex:Int = 0
     @State var hasFinishedClassification = false
@@ -21,10 +23,12 @@ struct ClassificationView: View {
     @State var containsUVP = false
     @State var containsInvestment = false
     @State var containsPartnership = false
+    
+    private let news:NewsModel
 
     private let sentencesOffset:Int = 0
     
-    private let classifier:ClassifiedNewsViewModel
+//    private let classifier:ClassifiedNewsViewModel
     private let classificationHeight:CGFloat = 60
     private let classificationWidth:CGFloat = 110
     private let classificationFont:Font = .footnote
@@ -33,8 +37,9 @@ struct ClassificationView: View {
     private let classifyButtonFontSize = Font.system(size:12)
     
     init(news:NewsModel) {
-        self.classifier = ClassifiedNewsViewModel(news: news)
+//        self.classifier = ClassifiedNewsViewModel(news: news)
         
+        self.news = news
         var categories:[SentenceModel.Classification] = []
         for category in SentenceModel.Classification.allCases {
             categories.append(category)
@@ -76,8 +81,7 @@ struct ClassificationView: View {
                     Button(action: saveClassification, label: {Text("Salvar")})
                 }.frame(width: 100, height: 100, alignment: .center)
             }else {
-
-                SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.classifier.sentenceList[self.currentSentenceIndex + self.sentencesOffset]), classifier: self.classifier)
+                SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.newsList.classifiedNews[news.news_id]!.sentenceList[self.currentSentenceIndex + self.sentencesOffset]), classifier: self.newsList.classifiedNews[news.news_id]!)
                 .offset(x: offset.width, y: offset.height)
                 .gesture(drag)
                 .animation(.spring()).padding()
@@ -160,11 +164,12 @@ struct ClassificationView: View {
             .padding(.bottom)
         .offset(CGSize(width: 0, height: -20))
         .onAppear() {
-            self.containsSegment = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
-            self.containsProblem = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
-            self.containsFeature = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
-            self.containsUVP = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
-            self.containsInvestment = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
+            guard let classifier = self.newsList.classifiedNews[self.news.news_id] else {return}
+            self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
+            self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
+            self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
+            self.containsUVP = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
+            self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
         }
     }
     
@@ -177,11 +182,13 @@ struct ClassificationView: View {
     }
     
     func saveClassification() {
-        classifier.saveClassifiedSentences()
+        let classifier = self.newsList.classifiedNews[news.news_id]
+        classifier?.saveClassifiedSentences()
     }
 
     func nextSentence() {
-        let numSentencesInNews = self.classifier.sentenceList.count
+        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+        let numSentencesInNews = classifier.sentenceList.count
         
         if (currentSentenceIndex == (numSentencesInNews - 1)) {
             finishedClassification()
@@ -189,53 +196,67 @@ struct ClassificationView: View {
         }
         currentSentenceIndex = currentSentenceIndex + 1
         
-        self.containsSegment = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
-        self.containsProblem = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
-        self.containsFeature = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
-        self.containsUVP = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.uvp)
-        self.containsInvestment = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
+        self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
+        self.containsProblem = classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
+        self.containsFeature = classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
+        self.containsUVP = classifier.sentenceList[currentSentenceIndex].classifications.contains(.uvp)
+        self.containsInvestment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
     }
     
     func previousSentence() {
+        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
         if currentSentenceIndex == 0 {
             return
         }
         currentSentenceIndex = currentSentenceIndex - 1
-        self.containsSegment = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
-        self.containsProblem = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
-        self.containsFeature = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
-        self.containsUVP = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.uvp)
-        self.containsInvestment = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
+        self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
+        self.containsProblem = classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
+        self.containsFeature = classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
+        self.containsUVP = classifier.sentenceList[currentSentenceIndex].classifications.contains(.uvp)
+        self.containsInvestment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
     }
     
     func classifyAsCustomerSegment() {
-        self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .segment)
+        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+
+        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .segment)
         self.containsSegment = !self.containsSegment
+        self.newsList.classifiedSentenceListModified = true
     }
     
     func classifyAsProblem() {
-        self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .problem)
+        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+
+        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .problem)
         
         self.containsProblem = !self.containsProblem
     }
     
     func classifyAsSolution() {
-        self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .solution)
+        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+
+        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .solution)
         self.containsFeature = !self.containsFeature
     }
     
     func classifyAsUVP() {
-        self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .uvp)
+        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+
+        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .uvp)
         self.containsUVP = !self.containsUVP
     }
     
     func classifyAsPartnership () {
-        self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .partnership)
+        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+
+        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .partnership)
         self.containsPartnership = !self.containsPartnership
     }
     
     func classifyAsInvestment() {
-        self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .investment)
+        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+
+        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .investment)
         self.containsInvestment = !self.containsInvestment
     }
 }

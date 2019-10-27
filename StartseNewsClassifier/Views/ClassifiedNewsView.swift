@@ -9,74 +9,78 @@
 import SwiftUI
 
 struct ClassifiedNewsView: View {
-    @ObservedObject private var classifier:ClassifiedNewsViewModel
+    @EnvironmentObject var newsList:NewsListViewModel
+    private var news:NewsModel
     
     var body: some View {
         VStack {
             Text("Notícia").font(.title)
             List {
-                if (classifier.sentenceListOfType(classification: .segment).count > 0) {
+                if (newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .segment).count > 0) {
                     Section(header: Text(SentenceModel.Classification.segment.rawValue)) {
-                        ForEach((0...(classifier.sentenceListOfType(classification: .segment).count - 1)), id: \.self) {
-                            Text("\(self.classifier.sentenceListOfType(classification: .segment)[$0].text)")
+                        ForEach((0...(newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .segment).count - 1)), id: \.self) {
+                            Text("\(self.newsList.classifiedNews[self.news.news_id]!.sentenceListOfType(classification: .segment)[$0].text)")
                         }.onDelete(perform: removeSentenceFromSegmentClassification)
                     }
                 }
                 
-                if (classifier.sentenceListOfType(classification: .problem).count > 0) {
-                    Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
-                        ForEach((0...(classifier.sentenceListOfType(classification: .problem).count - 1)), id: \.self) {
-                            Text("\(self.classifier.sentenceListOfType(classification: .problem)[$0].text)")
-                        }.onDelete(perform: delete)
-                    }
-                }
-                
-                if (classifier.sentenceListOfType(classification: .uvp).count > 0) {
-                    Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
-                        ForEach((0...(classifier.sentenceListOfType(classification: .uvp).count - 1)), id: \.self) {
-                            Text("\(self.classifier.sentenceListOfType(classification: .uvp)[$0].text)")
-                        }.onDelete(perform: delete)
-                    }
-                }
-                
-
-                if (classifier.sentenceListOfType(classification: .solution).count > 0) {
-                    Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-                        ForEach((0...(classifier.sentenceListOfType(classification: .solution).count - 1)), id: \.self) {
-                            Text("\(self.classifier.sentenceListOfType(classification: .solution)[$0].text)")
-                        }.onDelete(perform: delete)
-                    }
-                }
-                
-
-                if (classifier.sentenceListOfType(classification: .investment).count > 0) {
-                    Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
-                        ForEach((0...(classifier.sentenceListOfType(classification: .investment).count - 1)), id: \.self) {
-                            Text("\(self.classifier.sentenceListOfType(classification: .investment)[$0].text)")
-                        }.onDelete(perform: delete)
-                    }
-                }
-                
-                if (classifier.sentenceListOfType(classification: .partnership).count > 0) {
-                    Section(header: Text(SentenceModel.Classification.partnership.rawValue)) {
-                        ForEach((0...(classifier.sentenceListOfType(classification: .partnership).count - 1)), id: \.self) {
-                            Text("\(self.classifier.sentenceListOfType(classification: .partnership)[$0].text)")
-                        }.onDelete(perform: delete)
-                    }
-                }
+//                if (classifier.sentenceListOfType(classification: .problem).count > 0) {
+//                    Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
+//                        ForEach((0...(classifier.sentenceListOfType(classification: .problem).count - 1)), id: \.self) {
+//                            Text("\(self.classifier.sentenceListOfType(classification: .problem)[$0].text)")
+//                        }.onDelete(perform: delete)
+//                    }
+//                }
+//
+//                if (classifier.sentenceListOfType(classification: .uvp).count > 0) {
+//                    Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
+//                        ForEach((0...(classifier.sentenceListOfType(classification: .uvp).count - 1)), id: \.self) {
+//                            Text("\(self.classifier.sentenceListOfType(classification: .uvp)[$0].text)")
+//                        }.onDelete(perform: delete)
+//                    }
+//                }
+//
+//
+//                if (classifier.sentenceListOfType(classification: .solution).count > 0) {
+//                    Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
+//                        ForEach((0...(classifier.sentenceListOfType(classification: .solution).count - 1)), id: \.self) {
+//                            Text("\(self.classifier.sentenceListOfType(classification: .solution)[$0].text)")
+//                        }.onDelete(perform: delete)
+//                    }
+//                }
+//
+//
+//                if (classifier.sentenceListOfType(classification: .investment).count > 0) {
+//                    Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
+//                        ForEach((0...(classifier.sentenceListOfType(classification: .investment).count - 1)), id: \.self) {
+//                            Text("\(self.classifier.sentenceListOfType(classification: .investment)[$0].text)")
+//                        }.onDelete(perform: delete)
+//                    }
+//                }
+//
+//                if (classifier.sentenceListOfType(classification: .partnership).count > 0) {
+//                    Section(header: Text(SentenceModel.Classification.partnership.rawValue)) {
+//                        ForEach((0...(classifier.sentenceListOfType(classification: .partnership).count - 1)), id: \.self) {
+//                            Text("\(self.classifier.sentenceListOfType(classification: .partnership)[$0].text)")
+//                        }.onDelete(perform: delete)
+//                    }
+//                }
             }.onAppear() {
                 print("Hello")
+                self.newsList.classifiedSentenceListModified = false
             }
         }
     }
     
     init (news:NewsModel) {
-        self.classifier = ClassifiedNewsViewModel(news: news)
+//        self.classifier = ClassifiedNewsViewModel(news: news)
+        self.news = news
+//        self.classifier = newsList.classifiedNews[news.news_id]!
     }
     
-    init(newsClassifierViewModel:ClassifiedNewsViewModel) {
-        self.classifier = newsClassifierViewModel
-    }
+//    init(newsClassifierViewModel:ClassifiedNewsViewModel) {
+//        self.classifier = newsClassifierViewModel
+//    }
     
     func delete(at offsets: IndexSet) {
         print("delete:\(offsets)")

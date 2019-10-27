@@ -70,8 +70,8 @@
             filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "ClassifiedNewsView_Previews"
             landmarkType = "14">
          </BreakpointContent>
@@ -86,8 +86,8 @@
             filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -326,9 +326,9 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "nextSentence()"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "classifyAsCustomerSegment()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -358,9 +358,9 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "classifyAsCustomerSegment()"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "classifyAsPartnership()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -374,9 +374,9 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "classifyAsProblem()"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "classifyAsPartnership()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -384,7 +384,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B3C40F93-7045-4C70-B746-799C3CB73274"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StartseNewsClassifier/ViewModels/ClassifiedNewsViewModel.swift"
@@ -438,10 +438,10 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "init(news:)"
-            landmarkType = "7">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "ClassificationView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -464,7 +464,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A310A3B9-AC85-4A7A-9479-525CDA1CB5A8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StartseNewsClassifier/ViewModels/ClassifiedNewsViewModel.swift"
@@ -477,7 +477,7 @@
             <Locations>
                <Location
                   uuid = "A310A3B9-AC85-4A7A-9479-525CDA1CB5A8 - e035f244d149012b"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "StartseNewsClassifier.ClassifiedNewsViewModel.sentenceListOfType(classification: StartseNewsClassifier.SentenceModel.Classification) -&gt; Swift.Array&lt;StartseNewsClassifier.SentenceModel&gt;"
@@ -492,7 +492,7 @@
                </Location>
                <Location
                   uuid = "A310A3B9-AC85-4A7A-9479-525CDA1CB5A8 - 529f6086e2025106"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (StartseNewsClassifier.SentenceModel, StartseNewsClassifier.SentenceModel) -&gt; Swift.Bool in StartseNewsClassifier.ClassifiedNewsViewModel.sentenceListOfType(classification: StartseNewsClassifier.SentenceModel.Classification) -&gt; Swift.Array&lt;StartseNewsClassifier.SentenceModel&gt;"
@@ -512,7 +512,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "93B65CE5-7198-4E7E-A976-2B276C4635BC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StartseNewsClassifier/ViewModels/ClassifiedNewsViewModel.swift"
@@ -528,16 +528,157 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F67564BB-BF7A-4294-B4EF-289CFAB8CE89"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67840214-87F2-4328-8676-941E33EDFEC4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartseNewsClassifier/Views/NewsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "nextNews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0131639C-AFBA-4E47-9DA9-6F735CBC8E38"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartseNewsClassifier/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "SceneDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "0131639C-AFBA-4E47-9DA9-6F735CBC8E38 - 8d98b937b7dc13fb"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StartseNewsClassifier.SceneDelegate.classifyingNews.getter : StartseNewsClassifier.ClassifyingNews"
+                  moduleName = "StartseNewsClassifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "0131639C-AFBA-4E47-9DA9-6F735CBC8E38 - 86d56b005813a3b7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StartseNewsClassifier.SceneDelegate.classifyingNews.setter : StartseNewsClassifier.ClassifyingNews"
+                  moduleName = "StartseNewsClassifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "0131639C-AFBA-4E47-9DA9-6F735CBC8E38 - 264842cc5857df08"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StartseNewsClassifier.SceneDelegate.classifyingNews.modify : StartseNewsClassifier.ClassifyingNews"
+                  moduleName = "StartseNewsClassifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "0131639C-AFBA-4E47-9DA9-6F735CBC8E38 - 37e1806d3399d358"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StartseNewsClassifier.SceneDelegate.classifyingNews.modify : StartseNewsClassifier.ClassifyingNews with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "StartseNewsClassifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "0131639C-AFBA-4E47-9DA9-6F735CBC8E38 - a5e405a5c25eb2df"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StartseNewsClassifier.SceneDelegate.init() -&gt; StartseNewsClassifier.SceneDelegate"
+                  moduleName = "StartseNewsClassifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "123">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F912E076-9F56-4D39-AE75-6018C9E04D5F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "55D797F1-3361-491A-A08D-AA1048C2FCD8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartseNewsClassifier/Views/NewsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "nextNews()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
