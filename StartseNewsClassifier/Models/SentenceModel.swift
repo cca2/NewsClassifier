@@ -12,7 +12,6 @@ class SentenceModel: Identifiable, Decodable {
     let id:UUID
     var text:String
     
-//    var classification:Classification = .none
     var classifications:[Classification]
     
     enum Classification:String, Decodable, Encodable, CaseIterable {
@@ -42,7 +41,6 @@ class SentenceModel: Identifiable, Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case text
-//        case classification
         case classifications
     }
     
@@ -65,7 +63,6 @@ extension SentenceModel: Encodable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id.uuidString, forKey: .id)
         try container.encode(text, forKey: .text)
-//        try container.encode(classification.rawValue, forKey: .classification)
         try container.encode(classifications, forKey: .classifications)
     }
 }

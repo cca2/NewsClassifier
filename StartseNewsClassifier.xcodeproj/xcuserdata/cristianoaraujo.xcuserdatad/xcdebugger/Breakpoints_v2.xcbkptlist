@@ -400,7 +400,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B3C40F93-7045-4C70-B746-799C3CB73274"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StartseNewsClassifier/ViewModels/ClassifiedNewsViewModel.swift"
@@ -474,6 +474,86 @@
             endingLineNumber = "72"
             landmarkName = "saveClassifiedSentences()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A310A3B9-AC85-4A7A-9479-525CDA1CB5A8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartseNewsClassifier/ViewModels/ClassifiedNewsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "sentenceListOfType(classification:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A310A3B9-AC85-4A7A-9479-525CDA1CB5A8 - e035f244d149012b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StartseNewsClassifier.ClassifiedNewsViewModel.sentenceListOfType(classification: StartseNewsClassifier.SentenceModel.Classification) -&gt; Swift.Array&lt;StartseNewsClassifier.SentenceModel&gt;"
+                  moduleName = "StartseNewsClassifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/ViewModels/ClassifiedNewsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "41">
+               </Location>
+               <Location
+                  uuid = "A310A3B9-AC85-4A7A-9479-525CDA1CB5A8 - 529f6086e2025106"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (StartseNewsClassifier.SentenceModel, StartseNewsClassifier.SentenceModel) -&gt; Swift.Bool in StartseNewsClassifier.ClassifiedNewsViewModel.sentenceListOfType(classification: StartseNewsClassifier.SentenceModel.Classification) -&gt; Swift.Array&lt;StartseNewsClassifier.SentenceModel&gt;"
+                  moduleName = "StartseNewsClassifier"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/ViewModels/ClassifiedNewsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93B65CE5-7198-4E7E-A976-2B276C4635BC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartseNewsClassifier/ViewModels/ClassifiedNewsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "classifySentenceAs(sentence:newClassification:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F67564BB-BF7A-4294-B4EF-289CFAB8CE89"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
