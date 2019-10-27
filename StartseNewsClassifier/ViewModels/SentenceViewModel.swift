@@ -17,6 +17,13 @@ class SentenceViewModel: ObservableObject {
     }
     
     func classifySentenceAs(tag:SentenceModel.Classification) {
-        sentence.classification = tag
+//        sentence.classification = tag
+        if sentence.classifications.contains(tag) {
+            sentence.classifications.removeAll() {
+                classification in
+                print (classification)
+                return true
+            }
+        }
     }
 }

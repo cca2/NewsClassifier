@@ -14,15 +14,33 @@ struct ClassificationView: View {
     @State private var offset: CGSize = .zero
     @State var currentSentenceIndex:Int = 0
     @State var hasFinishedClassification = false
+    
+    @State var containsSegment = false
+    @State var containsProblem = false
+    @State var containsFeature = false
+    @State var containsUVP = false
+    @State var containsInvestment = false
+    @State var containsPartnership = false
 
     private let sentencesOffset:Int = 0
     
     private let classifier:ClassifiedNewsViewModel
-    private let classificationHeight:CGFloat = 30
+    private let classificationHeight:CGFloat = 60
+    private let classificationWidth:CGFloat = 110
     private let classificationFont:Font = .footnote
+    
+    private let categories:[SentenceModel.Classification]
+    private let classifyButtonFontSize = Font.system(size:12)
     
     init(news:NewsModel) {
         self.classifier = ClassifiedNewsViewModel(news: news)
+        
+        var categories:[SentenceModel.Classification] = []
+        for category in SentenceModel.Classification.allCases {
+            categories.append(category)
+            print (category)
+        }
+        self.categories = categories
     }
     
     var body: some View {
@@ -43,7 +61,7 @@ struct ClassificationView: View {
                         self.offset = .zero
                     }
                 }else if ($0.translation.height > 50 || $0.translation.height < -50) || ($0.translation.width < -50 || $0.translation.height > 50) {
-                    self.classifySentence(offset: $0.translation)
+//                    self.classifySentence(offset: $0.translation)
                     self.offset = .init(width: 0, height: 0)
                 }else {
                     self.offset = .zero
@@ -58,50 +76,109 @@ struct ClassificationView: View {
                     Button(action: saveClassification, label: {Text("Salvar")})
                 }.frame(width: 100, height: 100, alignment: .center)
             }else {
-                HStack {
-                    ZStack {
-                        Group {
-                            Text("#Segmento").bold().font(self.classificationFont)
-                        }
-                    }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.red)
-                        .overlay(Rectangle().stroke(Color.red, lineWidth: 1))
-                    
-                    VStack {
-                        Text("#Problema").bold().font(self.classificationFont)
-                    }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.green)
-                    .overlay(Rectangle().stroke(Color.green, lineWidth: 1))
-                    
-                    VStack {
-                        Text("#Features").bold().font(self.classificationFont)
-                    }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.orange)
-                    .overlay(Rectangle().stroke(Color.orange, lineWidth: 1))
-                }
 
                 SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.classifier.sentenceList[self.currentSentenceIndex + self.sentencesOffset]), classifier: self.classifier)
                 .offset(x: offset.width, y: offset.height)
                 .gesture(drag)
                 .animation(.spring()).padding()
 
-                HStack {
-                    VStack {
-                        Text("#UVP").bold().font(self.classificationFont)
-                    }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.pink)
-                    .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
-                    
-                    VStack {
-                        Text("#Investimento").bold().font(self.classificationFont)
-                    }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.purple)
-                    .overlay(Rectangle().stroke(Color.purple, lineWidth: 1))
-                    
-                    VStack {
-                        Text("#Parceria").bold().font(self.classificationFont)
-                    }.frame(width: 120, height:classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false).background(Color.white).foregroundColor(.black)
-                        .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
+                Group {                    
+                    VStack(spacing:5) {
+                        HStack (spacing: 5) {
+                            if (containsSegment) {
+                                Button(action: classifyAsCustomerSegment) {
+                                    Text("#Segmento").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.pink).foregroundColor(.white)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }else {
+                                Button(action: classifyAsCustomerSegment) {
+                                    Text("#Segmento").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.white).foregroundColor(.pink)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }
+                            if (containsProblem) {
+                                Button(action: classifyAsProblem) {
+                                    Text("#Problema").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.pink).foregroundColor(.white)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }else {
+                                Button(action: classifyAsProblem) {
+                                    Text("#Problema").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.white).foregroundColor(.pink)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }
+                            if (containsFeature) {
+                                Button(action: classifyAsSolution) {
+                                    Text("#Features").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.pink).foregroundColor(.white)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }else {
+                                Button(action: classifyAsSolution) {
+                                    Text("#Features").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.white).foregroundColor(.pink)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }
+                        }
+                        HStack (spacing: 5) {
+                            if (containsUVP) {
+                                Button(action: classifyAsUVP) {
+                                    Text("#UVP").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.pink).foregroundColor(.white)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }else {
+                                Button(action: classifyAsUVP) {
+                                    Text("#UVP").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.white).foregroundColor(.pink)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }
+                            if (containsInvestment) {
+                                Button(action: classifyAsInvestment) {
+                                    Text("#Investimento").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.pink).foregroundColor(.white)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }else {
+                                Button(action: classifyAsInvestment) {
+                                    Text("#Investimento").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.white).foregroundColor(.pink)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }
+//                            if (containsPartnership) {
+//                                Button(action: classifyAsPartnership) {
+//                                    Text("#Parceria").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+//                                        .background(Color.pink).foregroundColor(.white)
+//                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+//                                }
+//                            }else {
+//                                Button(action: classifyAsPartnership) {
+//                                    Text("#Parceria").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+//                                        .background(Color.white).foregroundColor(.pink)
+//                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+//                                }
+//                            }
+                        }
+                    }
                 }
             }
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             .padding(.bottom)
         .offset(CGSize(width: 0, height: -20))
+        .onAppear() {
+            self.containsSegment = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
+            self.containsProblem = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
+            self.containsFeature = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
+            self.containsUVP = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
+            self.containsInvestment = self.classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
+        }
     }
     
     func finishedClassification() {
@@ -116,37 +193,42 @@ struct ClassificationView: View {
         classifier.saveClassifiedSentences()
     }
 
-    func classifySentence(offset:CGSize) {
-        if offset.height < -50  && offset.width < -50 {
-            classifyAsCustomerSegment()
-        }else if offset.height > 50  && offset.width < -50 {
-            classifyAsUVP()
-        }else if offset.height < -50  && offset.width > 50 {
-            classifyAsSolution()
-        }else if offset.height > 50  && offset.width > 50 {
-            classifyAsPartnership()
-        }else if offset.height > 50 {
-            classifyAsInvestment()
-        }else {
-            classifyAsProblem()
-        }
-        if (currentSentenceIndex == classifier.sentenceList.count - 1)  {
-//            actOnClassification.finishedClassification()
-            finishedClassification()
-            return
-        }
-        currentSentenceIndex = currentSentenceIndex + 1
-    }
+//    func classifySentence(offset:CGSize) {
+//        if offset.height < -50  && offset.width < -50 {
+//            classifyAsCustomerSegment()
+//        }else if offset.height > 50  && offset.width < -50 {
+//            classifyAsUVP()
+//        }else if offset.height < -50  && offset.width > 50 {
+//            classifyAsSolution()
+//        }else if offset.height > 50  && offset.width > 50 {
+//            classifyAsPartnership()
+//        }else if offset.height > 50 {
+//            classifyAsInvestment()
+//        }else {
+//            classifyAsProblem()
+//        }
+//
+//        if (currentSentenceIndex == classifier.sentenceList.count - 1)  {
+//            finishedClassification()
+//            return
+//        }
+//        currentSentenceIndex = currentSentenceIndex + 1
+//    }
     
     func nextSentence() {
         let numSentencesInNews = self.classifier.sentenceList.count
         
         if (currentSentenceIndex == (numSentencesInNews - 1)) {
-//            actOnClassification.finishedClassification()
             finishedClassification()
             return
         }
         currentSentenceIndex = currentSentenceIndex + 1
+        
+        self.containsSegment = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
+        self.containsProblem = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
+        self.containsFeature = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
+        self.containsUVP = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.uvp)
+        self.containsInvestment = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
     }
     
     func previousSentence() {
@@ -154,30 +236,42 @@ struct ClassificationView: View {
             return
         }
         currentSentenceIndex = currentSentenceIndex - 1
+        self.containsSegment = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
+        self.containsProblem = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
+        self.containsFeature = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
+        self.containsUVP = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.uvp)
+        self.containsInvestment = self.classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
     }
     
     func classifyAsCustomerSegment() {
         self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .segment)
+        self.containsSegment = !self.containsSegment
     }
     
     func classifyAsProblem() {
         self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .problem)
+        
+        self.containsProblem = !self.containsProblem
     }
     
     func classifyAsSolution() {
         self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .solution)
+        self.containsFeature = !self.containsFeature
     }
     
     func classifyAsUVP() {
         self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .uvp)
+        self.containsUVP = !self.containsUVP
     }
     
     func classifyAsPartnership () {
         self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .partnership)
+        self.containsPartnership = !self.containsPartnership
     }
     
     func classifyAsInvestment() {
         self.classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .investment)
+        self.containsInvestment = !self.containsInvestment
     }
 }
 

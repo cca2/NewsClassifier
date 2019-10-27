@@ -36,12 +36,20 @@ class ClassifiedNewsViewModel: ObservableObject {
     
     func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {
         
-        let currentClassification = sentence.classification
-        sentence.classification = newClassification
+//        let currentClassification = sentence.classification
+//        sentence.classification = newClassification
+        
+        if sentence.classifications.contains(newClassification) {
+            sentence.classifications.removeAll(where: {
+                $0 == newClassification
+            })
+            classifiedSentencesDictionary[newClassification]!.removeValue(forKey: sentence.id)
+        }else {
+            sentence.classifications.append(newClassification)
+        }
 
-        if currentClassification != newClassification {
+        if sentence.classifications.contains(newClassification) {
             classifiedSentencesDictionary[newClassification]![sentence.id] = sentence
-            classifiedSentencesDictionary[currentClassification]!.removeValue(forKey: sentence.id)
         }
     }
     
@@ -78,7 +86,7 @@ class ClassifiedNewsViewModel: ObservableObject {
         let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace]
         tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .sentence, scheme: .lexicalClass, options: options) { tag, tokenRange in
             let sentence = "\(text[tokenRange].trimmingCharacters(in: .whitespacesAndNewlines))"
-            let sentenceJSON = SentenceModel(id:UUID(), text: sentence, classification: .none)
+            let sentenceJSON = SentenceModel(id:UUID(), text: sentence, classifications: [])
             self.classifiedNews.classifiedSentences.append(sentenceJSON)
             return true
         }
@@ -106,12 +114,21 @@ class ClassifiedNewsViewModel: ObservableObject {
                     for sentence in classifiedSentences {
                         let id = sentence["id"] as! String
                         let text = sentence["text"] as! String
-                        let classification = SentenceModel.Classification(rawValue: sentence["classification"] as! String)!
+//                        let classifications = SentenceModel.Classification(rawValue: sentence["classifications"] as! String)!
+                        let classificationsAsStrings = sentence["classifications"] as! [String]
+                        var classifications:[SentenceModel.Classification] = []
                         
-                        let sentenceModel = SentenceModel(id: UUID(uuidString: id)!, text: text, classification: classification)
+                        for classificationAsString in classificationsAsStrings {
+                            let classification = SentenceModel.Classification(rawValue: classificationAsString)!
+                            classifications.append(classification)
+                        }
+                        let sentenceModel = SentenceModel(id: UUID(uuidString: id)!, text: text, classifications: classifications)
                         self.classifiedNews.classifiedSentences.append(sentenceModel)
                         
-                        self.classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
+                        for classificationAsString in classificationsAsStrings {
+                            let classification = SentenceModel.Classification(rawValue: classificationAsString)!
+                            self.classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
+                        }
                     }
                 }
             }                
