@@ -65,23 +65,14 @@ struct ClassifiedNewsView: View {
                         }.onDelete(perform: delete)
                     }
                 }
-            }.onAppear() {
-                print("Hello")
-                self.newsList.classifiedSentenceListModified = false
             }
         }
     }
     
     init (news:NewsModel) {
-//        self.classifier = ClassifiedNewsViewModel(news: news)
         self.news = news
-//        self.classifier = newsList.classifiedNews[news.news_id]!
     }
-    
-//    init(newsClassifierViewModel:ClassifiedNewsViewModel) {
-//        self.classifier = newsClassifierViewModel
-//    }
-    
+        
     func delete(at offsets: IndexSet) {
         print("delete:\(offsets)")
     }

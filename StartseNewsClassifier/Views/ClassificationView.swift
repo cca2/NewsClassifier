@@ -221,7 +221,6 @@ struct ClassificationView: View {
 
         classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .segment)
         self.containsSegment = !self.containsSegment
-        self.newsList.classifiedSentenceListModified = true
     }
     
     func classifyAsProblem() {

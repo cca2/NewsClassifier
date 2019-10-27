@@ -12,9 +12,7 @@ class NewsListViewModel: ObservableObject {
 
     @Published var articles:[NewsViewModel] = []
     @Published var classifiedNews:[String:ClassifiedNewsViewModel] = [:]
-    
-    @Published var classifiedSentenceListModified = false
-    
+        
     func loadLatestNews() {
         StartseNewsService().loadLatestNews() {
             articles in

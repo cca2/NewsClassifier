@@ -14,7 +14,6 @@ struct NewsView: View {
     @EnvironmentObject var newsList:NewsListViewModel
     
     @State private var classifiedNews:ClassifiedNewsViewModel?
-//    @ObservedObject private var newsList = NewsListViewModel()
 
     @State var selectedView = 0
     @State private var offset:CGSize = .zero
@@ -86,7 +85,6 @@ struct NewsView: View {
         }
 
         currentNewsIndex = currentNewsIndex + 1
-//        self.classifiedNews = ClassifiedNewsViewModel(news: newsList.articles[currentNewsIndex].news!)
         self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news!.news_id]
     }
     
@@ -95,7 +93,6 @@ struct NewsView: View {
             return
         }else {
             currentNewsIndex = currentNewsIndex - 1
-//            self.classifiedNews = ClassifiedNewsViewModel(news: newsList.articles[currentNewsIndex].news!)
             self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news!.news_id]
         }
     }
