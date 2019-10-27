@@ -152,19 +152,6 @@ struct ClassificationView: View {
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }
-//                            if (containsPartnership) {
-//                                Button(action: classifyAsPartnership) {
-//                                    Text("#Parceria").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
-//                                        .background(Color.pink).foregroundColor(.white)
-//                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
-//                                }
-//                            }else {
-//                                Button(action: classifyAsPartnership) {
-//                                    Text("#Parceria").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
-//                                        .background(Color.white).foregroundColor(.pink)
-//                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
-//                                }
-//                            }
                         }
                     }
                 }
@@ -193,28 +180,6 @@ struct ClassificationView: View {
         classifier.saveClassifiedSentences()
     }
 
-//    func classifySentence(offset:CGSize) {
-//        if offset.height < -50  && offset.width < -50 {
-//            classifyAsCustomerSegment()
-//        }else if offset.height > 50  && offset.width < -50 {
-//            classifyAsUVP()
-//        }else if offset.height < -50  && offset.width > 50 {
-//            classifyAsSolution()
-//        }else if offset.height > 50  && offset.width > 50 {
-//            classifyAsPartnership()
-//        }else if offset.height > 50 {
-//            classifyAsInvestment()
-//        }else {
-//            classifyAsProblem()
-//        }
-//
-//        if (currentSentenceIndex == classifier.sentenceList.count - 1)  {
-//            finishedClassification()
-//            return
-//        }
-//        currentSentenceIndex = currentSentenceIndex + 1
-//    }
-    
     func nextSentence() {
         let numSentencesInNews = self.classifier.sentenceList.count
         
