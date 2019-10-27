@@ -24,47 +24,47 @@ struct ClassifiedNewsView: View {
                     }
                 }
                 
-//                if (classifier.sentenceListOfType(classification: .problem).count > 0) {
-//                    Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
-//                        ForEach((0...(classifier.sentenceListOfType(classification: .problem).count - 1)), id: \.self) {
-//                            Text("\(self.classifier.sentenceListOfType(classification: .problem)[$0].text)")
-//                        }.onDelete(perform: delete)
-//                    }
-//                }
-//
-//                if (classifier.sentenceListOfType(classification: .uvp).count > 0) {
-//                    Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
-//                        ForEach((0...(classifier.sentenceListOfType(classification: .uvp).count - 1)), id: \.self) {
-//                            Text("\(self.classifier.sentenceListOfType(classification: .uvp)[$0].text)")
-//                        }.onDelete(perform: delete)
-//                    }
-//                }
-//
-//
-//                if (classifier.sentenceListOfType(classification: .solution).count > 0) {
-//                    Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-//                        ForEach((0...(classifier.sentenceListOfType(classification: .solution).count - 1)), id: \.self) {
-//                            Text("\(self.classifier.sentenceListOfType(classification: .solution)[$0].text)")
-//                        }.onDelete(perform: delete)
-//                    }
-//                }
-//
-//
-//                if (classifier.sentenceListOfType(classification: .investment).count > 0) {
-//                    Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
-//                        ForEach((0...(classifier.sentenceListOfType(classification: .investment).count - 1)), id: \.self) {
-//                            Text("\(self.classifier.sentenceListOfType(classification: .investment)[$0].text)")
-//                        }.onDelete(perform: delete)
-//                    }
-//                }
-//
-//                if (classifier.sentenceListOfType(classification: .partnership).count > 0) {
-//                    Section(header: Text(SentenceModel.Classification.partnership.rawValue)) {
-//                        ForEach((0...(classifier.sentenceListOfType(classification: .partnership).count - 1)), id: \.self) {
-//                            Text("\(self.classifier.sentenceListOfType(classification: .partnership)[$0].text)")
-//                        }.onDelete(perform: delete)
-//                    }
-//                }
+                if (newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .problem).count > 0) {
+                    Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
+                        ForEach((0...(newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .problem).count - 1)), id: \.self) {
+                            Text("\(self.newsList.classifiedNews[self.news.news_id]!.sentenceListOfType(classification: .problem)[$0].text)")
+                        }.onDelete(perform: delete)
+                    }
+                }
+
+                if (newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .uvp).count > 0) {
+                    Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
+                        ForEach((0...(newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .uvp).count - 1)), id: \.self) {
+                            Text("\(self.newsList.classifiedNews[self.news.news_id]!.sentenceListOfType(classification: .uvp)[$0].text)")
+                        }.onDelete(perform: delete)
+                    }
+                }
+
+
+                if (newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .solution).count > 0) {
+                    Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
+                        ForEach((0...(newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .solution).count - 1)), id: \.self) {
+                            Text("\(self.newsList.classifiedNews[self.news.news_id]!.sentenceListOfType(classification: .solution)[$0].text)")
+                        }.onDelete(perform: delete)
+                    }
+                }
+
+
+                if (newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .investment).count > 0) {
+                    Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
+                        ForEach((0...(newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .investment).count - 1)), id: \.self) {
+                            Text("\(self.newsList.classifiedNews[self.news.news_id]!.sentenceListOfType(classification: .investment)[$0].text)")
+                        }.onDelete(perform: delete)
+                    }
+                }
+
+                if (newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .partnership).count > 0) {
+                    Section(header: Text(SentenceModel.Classification.partnership.rawValue)) {
+                        ForEach((0...(newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .partnership).count - 1)), id: \.self) {
+                            Text("\(self.newsList.classifiedNews[self.news.news_id]!.sentenceListOfType(classification: .partnership)[$0].text)")
+                        }.onDelete(perform: delete)
+                    }
+                }
             }.onAppear() {
                 print("Hello")
                 self.newsList.classifiedSentenceListModified = false
