@@ -14,7 +14,8 @@ struct ClassifiedNewsView: View {
     
     var body: some View {
         VStack {
-            Text("Notícia").font(.title)
+            Text("Classificação").font(.headline)
+            
             List {
                 if (newsList.classifiedNews[news.news_id]!.sentenceListOfType(classification: .segment).count > 0) {
                     Section(header: Text(SentenceModel.Classification.segment.rawValue)) {

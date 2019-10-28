@@ -34,11 +34,7 @@ class ClassifiedNewsViewModel: ObservableObject {
         fetchListOfNews()
     }
     
-    func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {
-        
-//        let currentClassification = sentence.classification
-//        sentence.classification = newClassification
-        
+    func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {                
         if sentence.classifications.contains(newClassification) {
             sentence.classifications.removeAll(where: {
                 $0 == newClassification
