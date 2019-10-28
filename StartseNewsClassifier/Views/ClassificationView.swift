@@ -29,12 +29,12 @@ struct ClassificationView: View {
     private let sentencesOffset:Int = 0
     
 //    private let classifier:ClassifiedNewsViewModel
-    private let classificationHeight:CGFloat = 60
-    private let classificationWidth:CGFloat = 110
+    private let classificationHeight:CGFloat = 85
+    private let classificationWidth:CGFloat = 85
     private let classificationFont:Font = .footnote
     
     private let categories:[SentenceModel.Classification]
-    private let classifyButtonFontSize = Font.system(size:12)
+    private let classifyButtonFontSize = Font.system(size:11)
     
     init(news:NewsModel) {
 //        self.classifier = ClassifiedNewsViewModel(news: news)
@@ -82,13 +82,13 @@ struct ClassificationView: View {
                 .animation(.spring()).padding()
 
                 Group {                    
-                    VStack(spacing:5) {
-                        HStack (spacing: 5) {
+                    VStack(spacing:0) {
+                        HStack (spacing: 0) {
                             if (containsSegment) {
                                 Button(action: classifyAsCustomerSegment) {
-                                    Text("#Segmento").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                                        .background(Color.pink).foregroundColor(.white)
-                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                    Text("#Segmento").font(self.classifyButtonFontSize).font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    .background(Color.white).foregroundColor(.black)
+                                    .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }else {
                                 Button(action: classifyAsCustomerSegment) {
@@ -99,22 +99,22 @@ struct ClassificationView: View {
                             }
                             if (containsProblem) {
                                 Button(action: classifyAsProblem) {
-                                    Text("#Problema").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                                        .background(Color.pink).foregroundColor(.white)
-                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                    Text("#Desejo").font(self.classifyButtonFontSize).font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    .background(Color.white).foregroundColor(.black)
+                                    .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }else {
                                 Button(action: classifyAsProblem) {
-                                    Text("#Problema").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    Text("#Desejo").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
                                         .background(Color.white).foregroundColor(.pink)
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }
                             if (containsFeature) {
                                 Button(action: classifyAsSolution) {
-                                    Text("#Features").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                                        .background(Color.pink).foregroundColor(.white)
-                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                    Text("#Features").font(self.classifyButtonFontSize).font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    .background(Color.white).foregroundColor(.black)
+                                    .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }else {
                                 Button(action: classifyAsSolution) {
@@ -123,26 +123,27 @@ struct ClassificationView: View {
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }
-                        }
-                        HStack (spacing: 5) {
+                        }.frame(minWidth: 0, maxWidth: .infinity, minHeight:90, maxHeight: .infinity, alignment: .center).background(Color(UIColor.systemPink.withAlphaComponent(0.8))).foregroundColor(.white)
+                        
+                        HStack (spacing: 0) {
                             if (containsUVP) {
                                 Button(action: classifyAsUVP) {
-                                    Text("#UVP").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                                        .background(Color.pink).foregroundColor(.white)
+                                    Text("#Tecnologia").font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.white).foregroundColor(.black)
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }else {
                                 Button(action: classifyAsUVP) {
-                                    Text("#UVP").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    Text("#Tecnologia").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
                                         .background(Color.white).foregroundColor(.pink)
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }
                             if (containsInvestment) {
                                 Button(action: classifyAsInvestment) {
-                                    Text("#Investimento").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
-                                        .background(Color.pink).foregroundColor(.white)
-                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                    Text("#Investimento").font(self.classifyButtonFontSize).font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    .background(Color.white).foregroundColor(.black)
+                                    .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }else {
                                 Button(action: classifyAsInvestment) {
@@ -151,12 +152,14 @@ struct ClassificationView: View {
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }
-                        }
+                        }.frame(minWidth: 0, maxWidth: .infinity, minHeight:90, maxHeight: .infinity, alignment: .center).background(Color(UIColor.systemPink.withAlphaComponent(0.8))).foregroundColor(.white)
                     }
+                    Spacer()
                 }
             }
-        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-            .padding(.bottom)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .padding(.bottom)
         .offset(CGSize(width: 0, height: -20))
         .onAppear() {
             guard let classifier = self.newsList.classifiedNews[self.news.news_id] else {return}

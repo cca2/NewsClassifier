@@ -66,14 +66,15 @@ struct NewsView: View {
                     }else {
                         Text("Carregando as notícias")
                     }
-                }
+                }.transition(.slide)
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
             }.background(Color.yellow)
-                .tabItem {
-                    Image(systemName: "1.circle")
-                    Text("notícia")
+            .tabItem {
+                Image(systemName: "1.circle")
+                Text("notícia")
             }
             .tag(0)
+            .transition(.slide)
             
             Group {
                 if (newsList.articles.count > 0) {

@@ -324,8 +324,8 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "classifyAsCustomerSegment()"
             landmarkType = "7">
          </BreakpointContent>
@@ -340,8 +340,8 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "classifyAsPartnership()"
             landmarkType = "7">
          </BreakpointContent>
@@ -356,8 +356,8 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "classifyAsPartnership()"
             landmarkType = "7">
          </BreakpointContent>
@@ -609,8 +609,8 @@
             filePath = "StartseNewsClassifier/Views/NewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "nextNews()"
             landmarkType = "7">
          </BreakpointContent>
