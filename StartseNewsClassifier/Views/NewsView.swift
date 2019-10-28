@@ -41,26 +41,28 @@ struct NewsView: View {
 
         return TabView(selection: $selectedView) {
             NavigationView {
-                VStack (alignment: .leading) {
+                VStack {
                     if !(self.newsList.articles.count == 0) {
-                        Group {
+                        Spacer()
+                        VStack (alignment: .leading){
                             Text(newsList.articles[currentNewsIndex].title).font(.headline).bold()
                             Text(newsList.articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5)
                         }
                         .offset(x: offset.width, y: 0)
                         .gesture(drag)
+                        .padding(50)
                         
                         Spacer()
                         
-                        NavigationLink(destination: ClassificationView(news: newsList.articles[currentNewsIndex].news!)) {
-                                VStack(alignment: .trailing) {
-                                    Text("classificar")
-                                }
+                        VStack (alignment: .trailing) {
+                            NavigationLink(destination: ClassificationView(news: newsList.articles[currentNewsIndex].news!)) {
+                                Text("classificar").frame(minWidth: 0, maxWidth: .infinity, minHeight:40, alignment: .center).background(Color.pink).foregroundColor(.white)
                             }
+                        }
                     }else {
                         Text("Carregando as notícias")
                     }
-                }.padding(50)
+                }
                 .navigationBarTitle(Text("Notícia").font(.subheadline))
             }.background(Color.yellow)
                 .tabItem {
