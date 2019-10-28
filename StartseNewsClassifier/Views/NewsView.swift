@@ -69,13 +69,16 @@ struct NewsView: View {
             }
             .tag(0)
             
-            if (newsList.articles.count > 0) {
-                ClassifiedNewsView(news: newsList.articles[currentNewsIndex].news!)
-                    .tabItem {
-                        Image(systemName: "2.circle")
-                        Text("classificação")
-                    }.tag(1)
-            }
+            Group {
+                if (newsList.articles.count > 0) {
+                    ClassifiedNewsView(news: newsList.articles[currentNewsIndex].news!)
+                }else {
+                    Text("Ainda não temos notícias")
+                }
+            }.tabItem {
+                Image(systemName: "2.circle")
+                Text("classificação")
+            }.tag(1)
         }
     }
     
