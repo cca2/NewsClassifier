@@ -28,7 +28,6 @@ struct ClassificationView: View {
 
     private let sentencesOffset:Int = 0
     
-//    private let classifier:ClassifiedNewsViewModel
     private let classificationHeight:CGFloat = 85
     private let classificationWidth:CGFloat = 85
     private let classificationFont:Font = .footnote
@@ -37,8 +36,6 @@ struct ClassificationView: View {
     private let classifyButtonFontSize = Font.system(size:11)
     
     init(news:NewsModel) {
-//        self.classifier = ClassifiedNewsViewModel(news: news)
-        
         self.news = news
         var categories:[SentenceModel.Classification] = []
         for category in SentenceModel.Classification.allCases {

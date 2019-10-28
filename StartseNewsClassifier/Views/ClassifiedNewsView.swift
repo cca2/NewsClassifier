@@ -75,10 +75,11 @@ struct ClassifiedNewsView: View {
     }
         
     func delete(at offsets: IndexSet) {
-        print("delete:\(offsets)")
+        print("delete:\(offsets.filter{_ in true}[0])")
     }
     
     func removeSentenceFromSegmentClassification(at offsets: IndexSet) {
+        print(offsets)
     }
 }
 
