@@ -44,9 +44,10 @@ struct NewsView: View {
                 VStack {
                     if !(self.newsList.articles.count == 0) {
                         Spacer()
+                        
                         VStack (alignment: .leading){
                             Text(newsList.articles[currentNewsIndex].title).font(.headline).bold()
-                            Text(newsList.articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5)
+                            Text(newsList.articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5).foregroundColor(.gray)
                         }
                         .offset(x: offset.width, y: 0)
                         .gesture(drag)

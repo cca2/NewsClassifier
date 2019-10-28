@@ -65,13 +65,8 @@ struct ClassificationView: View {
                     }else {
                         self.offset = .zero
                     }
-                }else if ($0.translation.height > 50 || $0.translation.height < -50) || ($0.translation.width < -50 || $0.translation.height > 50) {
-//                    self.classifySentence(offset: $0.translation)
-                    self.offset = .init(width: 0, height: 0)
-                }else {
-                    self.offset = .zero
-                }                
-        }
+                }
+            }
         
         return VStack {
             if (hasFinishedClassification) {
@@ -82,7 +77,7 @@ struct ClassificationView: View {
                 }.frame(width: 100, height: 100, alignment: .center)
             }else {
                 SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.newsList.classifiedNews[news.news_id]!.sentenceList[self.currentSentenceIndex + self.sentencesOffset]), classifier: self.newsList.classifiedNews[news.news_id]!)
-                .offset(x: offset.width, y: offset.height)
+                .offset(x: offset.width, y: 0)
                 .gesture(drag)
                 .animation(.spring()).padding()
 
