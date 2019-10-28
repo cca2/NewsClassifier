@@ -59,7 +59,7 @@ struct NewsView: View {
                             NavigationLink(destination: ClassificationView(news: newsList.articles[currentNewsIndex].news!)) {
                                 HStack {
                                     Text("classificar").frame(minWidth: 0, maxWidth: .infinity, minHeight: 40).background(Color.red)
-                                    Image(systemName: "arrow.right").padding([Edge.Set.trailing], 10)
+                                    Image(systemName: "chevron.right").padding([Edge.Set.trailing], 10)
                                 }.frame(minWidth: 0, maxWidth: .infinity, minHeight:40, alignment: .center).background(Color.pink).foregroundColor(.white)
                             }
                         }
