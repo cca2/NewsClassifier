@@ -38,24 +38,7 @@ struct SentenceView: View {
     
     init(sentenceViewModel:SentenceViewModel, classifier:ClassifiedNewsViewModel) {
         self.sentenceViewModel = sentenceViewModel
-        self.classifier = classifier
-        
-//        let classification = self.sentenceViewModel.sentence.classification
-//        if classification == .segment {
-//            self.sentenceColor = .red
-//        }else if classification == .problem {
-//            self.sentenceColor = .green
-//        }else if classification == .solution {
-//            self.sentenceColor = .orange
-//        }else if classification == .uvp {
-//            self.sentenceColor = .pink
-//        }else if classification == .investment {
-//            self.sentenceColor = .purple
-//        }else if classification == .partnership {
-//            self.sentenceColor = .black
-//        }else {
-//            self.sentenceColor = .gray
-//        }
+        self.classifier = classifier        
     }
     
     func sentenceCommit() {

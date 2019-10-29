@@ -56,7 +56,7 @@ struct NewsView: View {
                         Spacer()
                         
                         VStack (alignment: .trailing) {
-                            NavigationLink(destination: ClassificationView(news: newsList.articles[currentNewsIndex].news!)) {
+                            NavigationLink(destination: ClassificationView(news: newsList.articles[currentNewsIndex].news)) {
                                 HStack {
                                     Text("classificar").frame(minWidth: 0, maxWidth: .infinity, minHeight: 40).background(Color.red)
                                     Image(systemName: "chevron.right").padding([Edge.Set.trailing], 10)
@@ -78,7 +78,7 @@ struct NewsView: View {
             
             Group {
                 if (newsList.articles.count > 0) {
-                    ClassifiedNewsView(news: newsList.articles[currentNewsIndex].news!)
+                    ClassifiedNewsView(news: newsList.articles[currentNewsIndex].news)
                 }else {
                     Text("Ainda não temos notícias")
                 }
@@ -95,7 +95,7 @@ struct NewsView: View {
         }
 
         currentNewsIndex = currentNewsIndex + 1
-        self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news!.news_id]
+        self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news.news_id]
     }
     
     func previousNews() {
@@ -103,7 +103,7 @@ struct NewsView: View {
             return
         }else {
             currentNewsIndex = currentNewsIndex - 1
-            self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news!.news_id]
+            self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news.news_id]
         }
     }
 }
