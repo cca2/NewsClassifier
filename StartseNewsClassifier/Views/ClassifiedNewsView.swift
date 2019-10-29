@@ -28,30 +28,23 @@ struct ClassifiedNewsView: View {
                     }.onDelete(perform: removeSentenceFromProblemClassification)
                 }
 
-                //                Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
-//                    ForEach(0..<newsList.newsProblemSentences.count, id: \.self) {
-//                        Text("\(self.newsList.classifiedNews[self.news.id.uuidString]!.sentenceListOfType(classification: .problem)[$0].text)")
-//                    }.onDelete(perform: delete)
-//                }
-//
-//                Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-//                    ForEach(0..<self.newsList.newsSolutionSentences.count, id: \.self) {
-//                        Text("\(self.newsList.classifiedNews[self.news.id.uuidString]!.sentenceListOfType(classification: .solution)[$0].text)")
-//                    }.onDelete(perform: delete)
-//                }
-//
-//
-//                Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
-//                    ForEach(0..<self.newsList.newsTechnologySentences.count, id: \.self) {
-//                        Text("\(self.newsList.classifiedNews[self.news.id.uuidString]!.sentenceListOfType(classification: .investment)[$0].text)")
-//                    }.onDelete(perform: delete)
-//                }
-//
-//                Section(header: Text(SentenceModel.Classification.partnership.rawValue)) {
-//                    ForEach(0..<self.newsList.newsInvestmentSentences.count, id: \.self) {
-//                        Text("\(self.newsList.classifiedNews[self.news.id.uuidString]!.sentenceListOfType(classification: .partnership)[$0].text)")
-//                    }.onDelete(perform: delete)
-//                }
+                Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
+                    ForEach(0..<newsList.newsSolutionSentences.count) {
+                        Text("\(self.newsList.newsSolutionSentences[$0].sentence.text)")
+                    }.onDelete(perform: removeSentenceFromSolutionClassification)
+                }
+
+                Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
+                    ForEach(0..<newsList.newsTechnologySentences.count) {
+                        Text("\(self.newsList.newsTechnologySentences[$0].sentence.text)")
+                    }.onDelete(perform: removeSentenceFromTechnologyClassification)
+                }
+
+                Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
+                    ForEach(0..<newsList.newsInvestmentSentences.count) {
+                        Text("\(self.newsList.newsInvestmentSentences[$0].sentence.text)")
+                    }.onDelete(perform: removeSentenceFromInvestmentClassification)
+                }
             }
         }
     }
@@ -65,6 +58,18 @@ struct ClassifiedNewsView: View {
     }
     
     func removeSentenceFromProblemClassification(at offset: IndexSet) {
+        
+    }
+    
+    func removeSentenceFromSolutionClassification(at offset: IndexSet) {
+        
+    }
+    
+    func removeSentenceFromTechnologyClassification(at offset: IndexSet) {
+        
+    }
+    
+    func removeSentenceFromInvestmentClassification(at offset: IndexSet) {
         
     }
 }
