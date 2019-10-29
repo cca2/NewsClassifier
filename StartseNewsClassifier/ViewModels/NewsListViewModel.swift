@@ -22,15 +22,47 @@ class NewsListViewModel: ObservableObject {
     var news:NewsViewModel? {
         didSet {
             guard let currentNews = news else { return }
-            print(">>> Valendo: \(currentNews.id.uuidString) <<<")
             guard let s = self.classifiedNews[currentNews.id.uuidString.lowercased()] else { return }
-            let sentences = s.sentenceListOfType(classification: .segment)
+
+            let segmentSentences = s.sentenceListOfType(classification: .segment)
             var sentencesViewModels:[SentenceViewModel] = []
-            for sentence in sentences {
+            for sentence in segmentSentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
                 sentencesViewModels.append(sentenceViewModel)
             }
             newsSegmentSentences = sentencesViewModels
+            
+            let problemSentences = s.sentenceListOfType(classification: .problem)
+            sentencesViewModels = []
+            for sentence in problemSentences {
+                let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
+                sentencesViewModels.append(sentenceViewModel)
+            }
+            self.newsProblemSentences = sentencesViewModels
+            
+            let solutionSentences = s.sentenceListOfType(classification: .solution)
+            sentencesViewModels = []
+            for sentence in solutionSentences {
+                let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
+                sentencesViewModels.append(sentenceViewModel)
+            }
+            self.newsSolutionSentences = sentencesViewModels
+            
+            let technologySentences = s.sentenceListOfType(classification: .uvp)
+            sentencesViewModels = []
+            for sentence in technologySentences {
+                let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
+                sentencesViewModels.append(sentenceViewModel)
+            }
+            self.newsTechnologySentences = sentencesViewModels
+            
+            let investmentSentences = s.sentenceListOfType(classification: .segment)
+            sentencesViewModels = []
+            for sentence in investmentSentences {
+                let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
+                sentencesViewModels.append(sentenceViewModel)
+            }
+            self.newsInvestmentSentences = sentencesViewModels
         }
     }
     
@@ -39,6 +71,26 @@ class NewsListViewModel: ObservableObject {
         guard let classifier = classifiedNews[currentNews.id.uuidString.lowercased()] else { return }
         let sentence = classifier.sentenceList[index]
         classifier.classifySentenceAs(sentence: sentence, newClassification: newClassification)
+        
+        //Atualizando as listas de sentenças classificadas para se mostrar na View
+        let sentences = classifier.sentenceListOfType(classification: newClassification)
+        var sentencesViewModels:[SentenceViewModel] = []
+        for sentence in sentences {
+            let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
+            sentencesViewModels.append(sentenceViewModel)
+        }
+        
+        if newClassification == .segment {
+            newsSegmentSentences = sentencesViewModels
+        }else if newClassification == .problem {
+            newsProblemSentences = sentencesViewModels
+        }else if newClassification == .solution {
+            newsSolutionSentences = sentencesViewModels
+        }else if newClassification == .uvp {
+            newsTechnologySentences = sentencesViewModels
+        }else if newClassification == .investment {
+            newsInvestmentSentences = sentencesViewModels
+        }
     }
     
     func loadLatestNews() {

@@ -22,7 +22,13 @@ struct ClassifiedNewsView: View {
                     }.onDelete(perform: removeSentenceFromSegmentClassification)
                 }
 
-//                Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
+                Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
+                    ForEach(0..<newsList.newsProblemSentences.count) {
+                        Text("\(self.newsList.newsProblemSentences[$0].sentence.text)")
+                    }.onDelete(perform: removeSentenceFromProblemClassification)
+                }
+
+                //                Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
 //                    ForEach(0..<newsList.newsProblemSentences.count, id: \.self) {
 //                        Text("\(self.newsList.classifiedNews[self.news.id.uuidString]!.sentenceListOfType(classification: .problem)[$0].text)")
 //                    }.onDelete(perform: delete)
@@ -56,6 +62,10 @@ struct ClassifiedNewsView: View {
     
     func removeSentenceFromSegmentClassification(at offsets: IndexSet) {
         print(offsets)
+    }
+    
+    func removeSentenceFromProblemClassification(at offset: IndexSet) {
+        
     }
 }
 
