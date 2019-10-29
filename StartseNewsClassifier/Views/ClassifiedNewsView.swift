@@ -21,6 +21,7 @@ struct ClassifiedNewsView: View {
                         Text("\(self.newsList.newsSegmentSentences[$0].sentence.text)")
                     }.onDelete(perform: removeSentenceFromSegmentClassification)
                 }
+
 //                Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
 //                    ForEach(0..<newsList.newsProblemSentences.count, id: \.self) {
 //                        Text("\(self.newsList.classifiedNews[self.news.id.uuidString]!.sentenceListOfType(classification: .problem)[$0].text)")

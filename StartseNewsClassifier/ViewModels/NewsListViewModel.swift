@@ -34,6 +34,13 @@ class NewsListViewModel: ObservableObject {
         }
     }
     
+    func classifySentenceAtIndexAs(at index:Int, newClassification: SentenceModel.Classification) {
+        guard let currentNews = news else { return }
+        guard let classifier = classifiedNews[currentNews.id.uuidString.lowercased()] else { return }
+        let sentence = classifier.sentenceList[index]
+        classifier.classifySentenceAs(sentence: sentence, newClassification: newClassification)
+    }
+    
     func loadLatestNews() {
         StartseNewsService().loadLatestNews() {
             articles in

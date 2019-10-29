@@ -41,7 +41,7 @@ class ClassifiedNewsViewModel: ObservableObject {
             })
             classifiedSentencesDictionary[newClassification]!.removeValue(forKey: sentence.id)
         }else {
-            sentence.classifications.append(newClassification)
+            sentence.classifications.append(newClassification)            
         }
 
         if sentence.classifications.contains(newClassification) {

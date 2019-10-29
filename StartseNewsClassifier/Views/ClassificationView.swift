@@ -212,45 +212,32 @@ struct ClassificationView: View {
     }
     
     func classifyAsCustomerSegment() {
-        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
-
-        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .segment)
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .segment)
         self.containsSegment = !self.containsSegment
     }
     
     func classifyAsProblem() {
-        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
-
-        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .problem)
-        
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .problem)
         self.containsProblem = !self.containsProblem
     }
     
     func classifyAsSolution() {
-        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
-
-        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .solution)
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .solution)
         self.containsFeature = !self.containsFeature
     }
     
     func classifyAsUVP() {
-        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
-
-        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .uvp)
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .uvp)
         self.containsUVP = !self.containsUVP
     }
     
     func classifyAsPartnership () {
-        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
-
-        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .partnership)
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .partnership)
         self.containsPartnership = !self.containsPartnership
     }
     
     func classifyAsInvestment() {
-        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
-
-        classifier.classifySentenceAs(sentence: classifier.sentenceList[currentSentenceIndex + sentencesOffset], newClassification: .investment)
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .investment)
         self.containsInvestment = !self.containsInvestment
     }
 }
