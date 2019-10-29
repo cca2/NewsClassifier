@@ -66,6 +66,10 @@ class NewsListViewModel: ObservableObject {
         }
     }
     
+    func removeClassificationAtIndex(at index:Int, classification: SentenceModel.Classification) {
+      classifySentenceAtIndexAs(at: index, newClassification: classification)
+    }
+    
     func classifySentenceAtIndexAs(at index:Int, newClassification: SentenceModel.Classification) {
         guard let currentNews = news else { return }
         guard let classifier = classifiedNews[currentNews.id.uuidString.lowercased()] else { return }

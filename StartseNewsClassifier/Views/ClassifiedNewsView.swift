@@ -19,31 +19,31 @@ struct ClassifiedNewsView: View {
                 Section(header: Text(SentenceModel.Classification.segment.rawValue)) {
                     ForEach(0..<newsList.newsSegmentSentences.count) {
                         Text("\(self.newsList.newsSegmentSentences[$0].sentence.text)")
-                    }.onDelete(perform: removeSentenceFromSegmentClassification)
+                    }//.onDelete(perform: removeSentenceFromSegmentClassification)
                 }
 
                 Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
                     ForEach(0..<newsList.newsProblemSentences.count) {
                         Text("\(self.newsList.newsProblemSentences[$0].sentence.text)")
-                    }.onDelete(perform: removeSentenceFromProblemClassification)
+                    }//.onDelete(perform: removeSentenceFromProblemClassification)
                 }
 
                 Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
                     ForEach(0..<newsList.newsSolutionSentences.count) {
                         Text("\(self.newsList.newsSolutionSentences[$0].sentence.text)")
-                    }.onDelete(perform: removeSentenceFromSolutionClassification)
+                    }//.onDelete(perform: removeSentenceFromSolutionClassification)
                 }
 
                 Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
                     ForEach(0..<newsList.newsTechnologySentences.count) {
                         Text("\(self.newsList.newsTechnologySentences[$0].sentence.text)")
-                    }.onDelete(perform: removeSentenceFromTechnologyClassification)
+                    }//.onDelete(perform: removeSentenceFromTechnologyClassification)
                 }
 
                 Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
                     ForEach(0..<newsList.newsInvestmentSentences.count) {
                         Text("\(self.newsList.newsInvestmentSentences[$0].sentence.text)")
-                    }.onDelete(perform: removeSentenceFromInvestmentClassification)
+                    }//.onDelete(perform: removeSentenceFromInvestmentClassification)
                 }
             }
         }
@@ -54,7 +54,8 @@ struct ClassifiedNewsView: View {
     }
     
     func removeSentenceFromSegmentClassification(at offsets: IndexSet) {
-        print(offsets)
+        let index = offsets.filter{_ in true}[0]
+        self.newsList.removeClassificationAtIndex(at: index, classification: .segment)
     }
     
     func removeSentenceFromProblemClassification(at offset: IndexSet) {
