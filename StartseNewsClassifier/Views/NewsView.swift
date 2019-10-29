@@ -78,7 +78,7 @@ struct NewsView: View {
             
             Group {
                 if (newsList.articles.count > 0) {
-                    ClassifiedNewsView(news: newsList.articles[currentNewsIndex].news)
+                    ClassifiedNewsView()
                 }else {
                     Text("Ainda não temos notícias")
                 }
@@ -88,13 +88,14 @@ struct NewsView: View {
             }.tag(1)
         }
     }
-    
+        
     func nextNews() {
         if currentNewsIndex == self.newsList.articles.count - 1 {
             return
         }
 
         currentNewsIndex = currentNewsIndex + 1
+        self.newsList.news = newsList.articles[currentNewsIndex]
         self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news.news_id]
     }
     
@@ -103,6 +104,7 @@ struct NewsView: View {
             return
         }else {
             currentNewsIndex = currentNewsIndex - 1
+            self.newsList.news = newsList.articles[currentNewsIndex]
             self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news.news_id]
         }
     }
