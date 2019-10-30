@@ -13,8 +13,6 @@ struct NewsView: View {
 
     @EnvironmentObject var newsList:NewsListViewModel
     
-    @State private var classifiedNews:ClassifiedNewsViewModel?
-
     @State var selectedView = 0
     @State private var offset:CGSize = .zero
     @State private var currentNewsIndex = 0
@@ -96,7 +94,6 @@ struct NewsView: View {
 
         currentNewsIndex = currentNewsIndex + 1
         self.newsList.news = newsList.articles[currentNewsIndex]
-        self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news.news_id]
     }
     
     func previousNews() {
@@ -105,7 +102,6 @@ struct NewsView: View {
         }else {
             currentNewsIndex = currentNewsIndex - 1
             self.newsList.news = newsList.articles[currentNewsIndex]
-            self.classifiedNews = newsList.classifiedNews[newsList.articles[currentNewsIndex].news.news_id]
         }
     }
 }
