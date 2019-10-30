@@ -2,27 +2,28 @@
 //  NewsView.swift
 //  StartseNewsClassifier
 //
-//  Created by Cristiano Araújo on 20/10/19.
+//  Created by Cristiano Araújo on 30/10/19.
 //  Copyright © 2019 Cristiano Araújo. All rights reserved.
 //
 
 import SwiftUI
-import CloudKit
 
 struct NewsView: View {
-
-    @EnvironmentObject var newsList:NewsListViewModel
+    @State var title:String = "Startup recebe investimento"
+    @State var subtitle:String = "Recebeu R$ 30 milhões do fundo de invstimento Softbank."
+    var date:String = "Quarta-feira 30 de outubro de 2019"
+    var numNews = 1
+    var newsList:NewsListViewModel?
     
-    @State var selectedView = 0
     @State private var offset:CGSize = .zero
-    @State private var currentNewsIndex = 0
+    @State var currentNewsIndex = 0
 
     var body: some View {
         let drag = DragGesture()
             .onChanged {
                 self.offset = $0.translation
             }
-            
+
             .onEnded {
                 if ($0.translation.height < 50 && $0.translation.height > -50) {
                     if $0.translation.width < -50 {
@@ -37,63 +38,56 @@ struct NewsView: View {
                 }
         }
 
-        return TabView(selection: $selectedView) {
-            NavigationView {
-                VStack {
-                    if !(self.newsList.articles.count == 0) {
-                        Spacer()
-                        
-                        VStack (alignment: .leading){
-                            Text(newsList.articles[currentNewsIndex].title).font(.headline).bold()
-                            Text(newsList.articles[currentNewsIndex].subtitle).font(.body).padding([.top], 5).foregroundColor(.gray)
-                        }
-                        .offset(x: offset.width, y: 0)
-                        .gesture(drag)
-                        .padding(50)
-                        
-                        Spacer()
-                        
-                        VStack (alignment: .trailing) {
-                            NavigationLink(destination: ClassificationView(news: newsList.articles[currentNewsIndex].news)) {
-                                HStack {
-                                    Text("classificar").frame(minWidth: 0, maxWidth: .infinity, minHeight: 40).background(Color.red)
-                                    Image(systemName: "chevron.right").padding([Edge.Set.trailing], 10)
-                                }.frame(minWidth: 0, maxWidth: .infinity, minHeight:40, alignment: .center).background(Color.pink).foregroundColor(.white)
-                            }
-                        }
-                    }else {
-                        Text("Carregando as notícias")
-                    }
-                }.transition(.slide)
-                .navigationBarTitle(Text("Notícia").font(.subheadline))
-            }.background(Color.yellow)
-            .tabItem {
-                Image(systemName: "1.circle")
-                Text("notícia")
+        return VStack (alignment: .leading) {
+
+            VStack (alignment: .leading) {
+                Text(date).font(.caption).foregroundColor(.gray)
+                Text("Notícia").font(.title).bold()
+            }.padding(50)
+
+            VStack (alignment: .leading){
+                Spacer()
+                
+                Text(title).font(.headline).bold()
+                Text(subtitle).font(.body).padding([.top], 5).foregroundColor(.gray)
+                Spacer()
             }
-            .tag(0)
-            .transition(.slide)
+            .offset(x: offset.width, y: 0)
+            .gesture(drag)
+            .padding(50)
             
-            Group {
-                if (newsList.articles.count > 0) {
-                    ClassifiedNewsView()
-                }else {
-                    Text("Ainda não temos notícias")
-                }
-            }.tabItem {
-                Image(systemName: "2.circle")
-                Text("classificação")
-            }.tag(1)
+            Spacer()
+            
+            VStack (alignment: .trailing) {
+//                NavigationLink(destination: ClassificationView(news: (newsList!.articles[currentNewsIndex].news))) {
+                    HStack {
+                        Text("classificar").frame(minWidth: 0, maxWidth: .infinity, minHeight: 40).background(Color.red)
+                        Image(systemName: "chevron.right").padding([Edge.Set.trailing], 10)
+                    }.frame(minWidth: 0, maxWidth: .infinity, minHeight:40, alignment: .center).background(Color.pink).foregroundColor(.white)
+//                }
+            }
         }
+        .transition(.slide)
+        .navigationBarTitle(Text("Notícia").font(.subheadline))
     }
-        
+    
+    init(title:String, subtitle:String, numNews:Int, date:String, newsList:NewsListViewModel?) {
+        self.title = title
+        self.subtitle = subtitle
+        self.numNews = numNews
+        self.date = date
+        self.newsList = newsList
+    }
+    
     func nextNews() {
-        if currentNewsIndex == self.newsList.articles.count - 1 {
+        if currentNewsIndex == numNews - 1 {
             return
         }
 
         currentNewsIndex = currentNewsIndex + 1
-        self.newsList.news = newsList.articles[currentNewsIndex]
+        self.title = (newsList?.articles[currentNewsIndex].title)!
+        self.subtitle = (newsList?.articles[currentNewsIndex].subtitle)!
+        self.newsList?.news = newsList?.articles[currentNewsIndex]
     }
     
     func previousNews() {
@@ -101,13 +95,17 @@ struct NewsView: View {
             return
         }else {
             currentNewsIndex = currentNewsIndex - 1
-            self.newsList.news = newsList.articles[currentNewsIndex]
+            self.newsList?.news = newsList?.articles[currentNewsIndex]
         }
+        self.title = (newsList?.articles[currentNewsIndex].title)!
+        self.subtitle = (newsList?.articles[currentNewsIndex].subtitle)!
+        self.newsList?.news = newsList?.articles[currentNewsIndex]
     }
+
 }
 
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsView()
+        NewsView(title: "Startup recebe investimento", subtitle: "Recebeu R$ 40 milhões do fundo do Itaú", numNews: 1, date: "Quarta-feira 30 de outubro de 2019", newsList: nil)
     }
 }
