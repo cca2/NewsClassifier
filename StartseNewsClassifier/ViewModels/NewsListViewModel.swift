@@ -19,6 +19,8 @@ class NewsListViewModel: ObservableObject {
     @Published var newsTechnologySentences:[SentenceViewModel] = []
     @Published var newsInvestmentSentences:[SentenceViewModel] = []
     
+    @Published var classifiedSentences:[SentenceViewModel] = []
+
     var news:NewsViewModel? {
         didSet {
             guard let currentNews = news else { return }
@@ -29,6 +31,7 @@ class NewsListViewModel: ObservableObject {
             for sentence in segmentSentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
                 sentencesViewModels.append(sentenceViewModel)
+                self.classifiedSentences.append(sentenceViewModel)
             }
             newsSegmentSentences = sentencesViewModels
             
@@ -37,6 +40,7 @@ class NewsListViewModel: ObservableObject {
             for sentence in problemSentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
                 sentencesViewModels.append(sentenceViewModel)
+                self.classifiedSentences.append(sentenceViewModel)
             }
             self.newsProblemSentences = sentencesViewModels
             
@@ -45,6 +49,7 @@ class NewsListViewModel: ObservableObject {
             for sentence in solutionSentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
                 sentencesViewModels.append(sentenceViewModel)
+                self.classifiedSentences.append(sentenceViewModel)
             }
             self.newsSolutionSentences = sentencesViewModels
             
@@ -53,6 +58,7 @@ class NewsListViewModel: ObservableObject {
             for sentence in technologySentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
                 sentencesViewModels.append(sentenceViewModel)
+                self.classifiedSentences.append(sentenceViewModel)
             }
             self.newsTechnologySentences = sentencesViewModels
             
@@ -61,6 +67,7 @@ class NewsListViewModel: ObservableObject {
             for sentence in investmentSentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
                 sentencesViewModels.append(sentenceViewModel)
+                self.classifiedSentences.append(sentenceViewModel)
             }
             self.newsInvestmentSentences = sentencesViewModels
         }

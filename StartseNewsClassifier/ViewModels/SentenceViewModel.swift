@@ -8,9 +8,16 @@
 
 import Foundation
 
-class SentenceViewModel: ObservableObject {
+class SentenceViewModel: ObservableObject, Identifiable {
     @Published var sentence:SentenceModel
     
+    var text: String {
+        return sentence.text
+    }
+    
+    var id: UUID {
+        return sentence.id
+    }
     
     init(sentenceModel:SentenceModel) {
         self.sentence = sentenceModel

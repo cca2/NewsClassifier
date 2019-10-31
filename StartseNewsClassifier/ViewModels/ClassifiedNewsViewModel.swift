@@ -15,6 +15,8 @@ class ClassifiedNewsViewModel: ObservableObject {
         return classifiedNews.classifiedSentences
     }
     
+    
+    
     let news:NewsModel
     var classifiedNews:ClassifiedNewsModel
     
@@ -23,6 +25,7 @@ class ClassifiedNewsViewModel: ObservableObject {
     init(news:NewsModel) {
         self.news = news
         self.classifiedNews = ClassifiedNewsModel(newsModel: news, classifiedSentences: [])
+
         classifiedSentencesDictionary[.none] = [:]
         classifiedSentencesDictionary[.segment] = [:]
         classifiedSentencesDictionary[.problem] = [:]
@@ -30,6 +33,7 @@ class ClassifiedNewsViewModel: ObservableObject {
         classifiedSentencesDictionary[.technology] = [:]
         classifiedSentencesDictionary[.investment] = [:]
         classifiedSentencesDictionary[.partnership] = [:]
+        
         
         fetchListOfNews()
     }
