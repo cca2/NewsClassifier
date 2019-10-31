@@ -28,7 +28,7 @@ struct ContentView: View {
                         Text("Carregando as notícias")
                     }
                 }.transition(.slide)
-            }.background(Color.yellow)
+            }
             .tabItem {
                 Image(systemName: "1.circle")
                 Text("notícia")

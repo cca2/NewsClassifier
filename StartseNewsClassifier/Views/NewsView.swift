@@ -39,7 +39,23 @@ struct NewsView: View {
         }
 
         return VStack (alignment: .leading) {
-
+            VStack (alignment: .leading) {
+                ZStack {
+                    VStack {
+                        Circle()
+                        .size(width: 40, height: 40)
+                        .fill(Color.pink)
+                    }.frame(width: 40, height: 40)
+                    
+                    HStack {
+                        Text("\(numNews)")
+                        .font(.body)
+                        .foregroundColor(.white)
+                    }.frame(width: 40, height: 40)
+                }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
+                .padding([.trailing], 20)
+            }
+            
             VStack (alignment: .leading) {
                 Text(date).font(.body).foregroundColor(.gray)
                 Text("Notícia").font(.title).bold()
