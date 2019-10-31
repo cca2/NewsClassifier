@@ -27,8 +27,6 @@ struct ClassificationView: View {
     
     @State var text = "Está é a sentença que está sendo avaliada."
     
-//    @State private var news:NewsViewModel?
-
     private let sentencesOffset:Int = 0
     private let classificationHeight:CGFloat = 85
     private let classificationWidth:CGFloat = 85
@@ -66,7 +64,6 @@ struct ClassificationView: View {
                 VStack(alignment: .trailing) {
                     Text("1/10").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                         .font(.title)
-                        .bold()
                 }.padding([.top, .trailing], 30)
 
                 SentenceView(text: text)
