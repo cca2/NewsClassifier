@@ -9,18 +9,13 @@
 import SwiftUI
 
 struct SentenceView: View {
-//    @ObservedObject private var sentenceViewModel:SentenceViewModel
-
     private let text:String
     
     private var sentenceColor:Color = .gray
-//    private var classifier:ClassifiedNewsViewModel
-
     private let circleRadius:CGFloat = 20
     
     var body: some View {
             VStack () {
-//                Text(sentenceViewModel.sentence.text)
                 Text(self.text)
                 .foregroundColor(sentenceColor)
                 .padding()
@@ -28,10 +23,6 @@ struct SentenceView: View {
                     Button(action: copyToClipboard) {
                         Text("copiar")
                     }
-
-//                    Button(action: classifyAsNone) {
-//                        Text("invalidar")
-//                    }
                 }
             }
             .fixedSize(horizontal: false, vertical: true)
@@ -40,8 +31,6 @@ struct SentenceView: View {
     
     init(text:String) {
         self.text = text
-//        self.sentenceViewModel = sentenceViewModel
-//        self.classifier = classifier
     }
     
     func sentenceCommit() {
@@ -54,11 +43,7 @@ struct SentenceView: View {
     func copyToClipboard() {
         let pasteboard = UIPasteboard.general
         pasteboard.string = text
-    }
-    
-//    func classifyAsNone() {
-//        self.classifier.classifySentenceAs(sentence: self.sentenceViewModel.sentence, newClassification: .none)
-//    }
+    }    
 }
 
 struct SentenceView_Previews: PreviewProvider {
