@@ -15,7 +15,7 @@ struct ClassificationView: View {
     
     @State private var offset: CGSize = .zero
     @State var currentSentenceIndex:Int = 0
-    @State var numSentences:Int = 10
+    @State var numSentences:Int = 15
     @State var hasFinishedClassification = false
     
     @State var containsSegment = false
@@ -62,7 +62,7 @@ struct ClassificationView: View {
                 }.frame(width: 100, height: 100, alignment: .center)
             }else {
                 VStack(alignment: .trailing) {
-                    Text("1/10").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                    Text("\(self.currentSentenceIndex + 1)/" + "\(self.numSentences)").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                         .font(.title)
                 }.padding([.top, .trailing], 30)
 
@@ -151,16 +151,16 @@ struct ClassificationView: View {
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .padding(.bottom)
         .offset(CGSize(width: 0, height: -20))
-//        .onAppear() {
+        .onAppear() {
 //            guard let news = self.newsList.news else { return }
-//            guard let classifier = self.newsList.classifiedNews[(self.news.id.uuidString.lowercased())!] else {return}
+//            guard let classifier = self.newsList.classifiedNews[(news.id.uuidString.lowercased())] else {return}
 //            self.text = classifier.sentenceList[0].text
 //            self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
 //            self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
 //            self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
 //            self.containsUVP = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
 //            self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
-//        }
+        }
     }
     
     func finishedClassification() {
