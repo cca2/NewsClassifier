@@ -110,7 +110,6 @@ class ClassifiedNewsViewModel: ObservableObject {
                     for sentence in classifiedSentences {
                         let id = sentence["id"] as! String
                         let text = sentence["text"] as! String
-//                        let classifications = SentenceModel.Classification(rawValue: sentence["classifications"] as! String)!
                         let classificationsAsStrings = sentence["classifications"] as! [String]
                         var classifications:[SentenceModel.Classification] = []
                         
