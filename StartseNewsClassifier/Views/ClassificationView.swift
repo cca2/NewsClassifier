@@ -15,6 +15,7 @@ struct ClassificationView: View {
     
     @State private var offset: CGSize = .zero
     @State var currentSentenceIndex:Int = 0
+    @State var numSentences:Int = 10
     @State var hasFinishedClassification = false
     
     @State var containsSegment = false
@@ -24,27 +25,16 @@ struct ClassificationView: View {
     @State var containsInvestment = false
     @State var containsPartnership = false
     
-    private let news:NewsModel
+    @State var text = "Está é a sentença que está sendo avaliada."
+    
+//    @State private var news:NewsViewModel?
 
     private let sentencesOffset:Int = 0
-    
     private let classificationHeight:CGFloat = 85
     private let classificationWidth:CGFloat = 85
     private let classificationFont:Font = .footnote
-    
-    private let categories:[SentenceModel.Classification]
     private let classifyButtonFontSize = Font.system(size:11)
-    
-    init(news:NewsModel) {
-        self.news = news
-        var categories:[SentenceModel.Classification] = []
-        for category in SentenceModel.Classification.allCases {
-            categories.append(category)
-            print (category)
-        }
-        self.categories = categories
-    }
-    
+        
     var body: some View {
         let drag = DragGesture()
             .onChanged {
@@ -73,7 +63,13 @@ struct ClassificationView: View {
                     Button(action: saveClassification, label: {Text("Salvar")})
                 }.frame(width: 100, height: 100, alignment: .center)
             }else {
-                SentenceView(sentenceViewModel: SentenceViewModel(sentenceModel: self.newsList.classifiedNews[news.news_id]!.sentenceList[self.currentSentenceIndex + self.sentencesOffset]), classifier: self.newsList.classifiedNews[news.news_id]!)
+                VStack(alignment: .trailing) {
+                    Text("1/10").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                        .font(.title)
+                        .bold()
+                }.padding([.top, .trailing], 30)
+
+                SentenceView(text: text)
                 .offset(x: offset.width, y: 0)
                 .gesture(drag)
                 .animation(.spring()).padding()
@@ -158,14 +154,16 @@ struct ClassificationView: View {
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .padding(.bottom)
         .offset(CGSize(width: 0, height: -20))
-        .onAppear() {
-            guard let classifier = self.newsList.classifiedNews[self.news.news_id] else {return}
-            self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
-            self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
-            self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
-            self.containsUVP = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
-            self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
-        }
+//        .onAppear() {
+//            guard let news = self.newsList.news else { return }
+//            guard let classifier = self.newsList.classifiedNews[(self.news.id.uuidString.lowercased())!] else {return}
+//            self.text = classifier.sentenceList[0].text
+//            self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
+//            self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
+//            self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
+//            self.containsUVP = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
+//            self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
+//        }
     }
     
     func finishedClassification() {
@@ -177,12 +175,12 @@ struct ClassificationView: View {
     }
     
     func saveClassification() {
-        let classifier = self.newsList.classifiedNews[news.news_id]
+        let classifier = self.newsList.classifiedNews[(self.newsList.news?.id.uuidString.lowercased())!]
         classifier?.saveClassifiedSentences()
     }
 
     func nextSentence() {
-        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+        guard let classifier = self.newsList.classifiedNews[(self.newsList.news?.id.uuidString.lowercased())!] else {return}
         let numSentencesInNews = classifier.sentenceList.count
         
         if (currentSentenceIndex == (numSentencesInNews - 1)) {
@@ -199,7 +197,7 @@ struct ClassificationView: View {
     }
     
     func previousSentence() {
-        guard let classifier = self.newsList.classifiedNews[news.news_id] else {return}
+        guard let classifier = self.newsList.classifiedNews[(self.newsList.news?.id.uuidString.lowercased())!] else {return}
         if currentSentenceIndex == 0 {
             return
         }
@@ -244,6 +242,7 @@ struct ClassificationView: View {
 
 struct ClassificationView_Previews: PreviewProvider {
     static var previews: some View {
-        ClassificationView(news: NewsModel(news_id: "001", title: "Isto é um título", subtitle: "Agora vai mesmo porque é assim", link: "http://cin.ufpe.br", text: "Isto é um texto muito grande", links: [], links_text: []))
+//        ClassificationView(news: NewsModel(news_id: "001", title: "Isto é um título", subtitle: "Agora vai mesmo porque é assim", link: "http://cin.ufpe.br", text: "Isto é um texto muito grande", links: [], links_text: []))
+        ClassificationView()
     }
 }

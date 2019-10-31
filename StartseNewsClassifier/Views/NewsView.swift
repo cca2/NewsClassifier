@@ -59,12 +59,12 @@ struct NewsView: View {
             Spacer()
             
             VStack (alignment: .trailing) {
-//                NavigationLink(destination: ClassificationView(news: (newsList!.articles[currentNewsIndex].news))) {
+                NavigationLink(destination: ClassificationView()) {
                     HStack {
                         Text("classificar").frame(minWidth: 0, maxWidth: .infinity, minHeight: 40).background(Color.red)
                         Image(systemName: "chevron.right").padding([Edge.Set.trailing], 10)
                     }.frame(minWidth: 0, maxWidth: .infinity, minHeight:40, alignment: .center).background(Color.pink).foregroundColor(.white)
-//                }
+                }
             }
         }
         .transition(.slide)
