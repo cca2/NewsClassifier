@@ -11,7 +11,7 @@ import SwiftUI
 struct SentenceView: View {
 //    @ObservedObject private var sentenceViewModel:SentenceViewModel
 
-    @State private var text:String = "Está é uma sentença que não foi INICIALIZADA corretamente"
+    private let text:String
     
     private var sentenceColor:Color = .gray
 //    private var classifier:ClassifiedNewsViewModel
@@ -21,7 +21,7 @@ struct SentenceView: View {
     var body: some View {
             VStack () {
 //                Text(sentenceViewModel.sentence.text)
-                Text(text)
+                Text(self.text)
                 .foregroundColor(sentenceColor)
                 .padding()
                 .contextMenu() {

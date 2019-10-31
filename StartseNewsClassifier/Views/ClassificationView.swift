@@ -145,12 +145,12 @@ struct ClassificationView: View {
                         }.frame(minWidth: 0, maxWidth: .infinity, minHeight:90, maxHeight: .infinity, alignment: .center).background(Color(UIColor.systemPink.withAlphaComponent(0.8))).foregroundColor(.white)
                     }
                     Spacer()
-                }
+                }.offset(CGSize(width: 0, height: -55))
+
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .padding(.bottom)
-        .offset(CGSize(width: 0, height: -20))
         .onAppear() {
 //            guard let news = self.newsList.news else { return }
 //            guard let classifier = self.newsList.classifiedNews[(news.id.uuidString.lowercased())] else {return}
