@@ -15,13 +15,15 @@ struct ContentView: View {
     
     @State var selectedView = 0
     @State private var currentNewsIndex = 0
+    
+    private let dateFormater = DateFormatter()
 
     var body: some View {
         return TabView(selection: $selectedView) {
             NavigationView {
                 VStack {
                     if !(self.newsList.articles.count == 0) {
-                        NewsView(title: newsList.articles[currentNewsIndex].title, subtitle: newsList.articles[currentNewsIndex].subtitle, numNews: newsList.articles.count, date: Date().description, newsList: newsList)
+                        NewsView(title: newsList.articles[currentNewsIndex].title, subtitle: newsList.articles[currentNewsIndex].subtitle, numNews: newsList.articles.count, date: dateFormater.string(from: Date()), newsList: newsList)
                     }else {
                         Text("Carregando as notícias")
                     }
@@ -45,7 +47,11 @@ struct ContentView: View {
                 Text("classificação")
             }.tag(1)
         }
-    }        
+    }
+    
+    init() {
+        self.dateFormater.dateFormat = "EEEE, MMM d, yyyy"
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

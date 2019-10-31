@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct NewsView: View {
-    @State var title:String = "Startup recebe investimento"
-    @State var subtitle:String = "Recebeu R$ 30 milhões do fundo de invstimento Softbank."
-    var date:String = "Quarta-feira 30 de outubro de 2019"
-    var numNews = 1
-    var newsList:NewsListViewModel?
-    
+    @State private var title:String
+    @State private var subtitle:String
     @State private var offset:CGSize = .zero
-    @State var currentNewsIndex = 0
+    @State private var currentNewsIndex = 0
+    @State private var numNews:Int
+
+    var date:String = "Quarta-feira 30 de outubro de 2019"
+    var newsList:NewsListViewModel?
 
     var body: some View {
         let drag = DragGesture()
@@ -41,20 +41,18 @@ struct NewsView: View {
         return VStack (alignment: .leading) {
 
             VStack (alignment: .leading) {
-                Text(date).font(.caption).foregroundColor(.gray)
+                Text(date).font(.body).foregroundColor(.gray)
                 Text("Notícia").font(.title).bold()
             }.padding(50)
 
             VStack (alignment: .leading){
-                Spacer()
-                
-                Text(title).font(.headline).bold()
-                Text(subtitle).font(.body).padding([.top], 5).foregroundColor(.gray)
-                Spacer()
-            }
+                Text(title).font(.headline).foregroundColor(.white).bold().padding([.top, .leading, .trailing], 20)
+                Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
+            }.background(Color.pink)
+            .cornerRadius(20)
             .offset(x: offset.width, y: 0)
             .gesture(drag)
-            .padding(50)
+            .padding([.leading, .trailing], 30)
             
             Spacer()
             
@@ -68,13 +66,12 @@ struct NewsView: View {
             }
         }
         .transition(.slide)
-        .navigationBarTitle(Text("Notícia").font(.subheadline))
     }
     
     init(title:String, subtitle:String, numNews:Int, date:String, newsList:NewsListViewModel?) {
-        self.title = title
-        self.subtitle = subtitle
-        self.numNews = numNews
+        self._title = State(initialValue: title)
+        self._subtitle = State(initialValue: subtitle)
+        self._numNews = State(initialValue: numNews)
         self.date = date
         self.newsList = newsList
     }
