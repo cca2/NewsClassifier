@@ -185,7 +185,7 @@ struct ClassificationView: View {
             return
         }
         currentSentenceIndex = currentSentenceIndex + 1
-        
+        self.text = classifier.sentenceList[currentSentenceIndex].text
         self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
         self.containsProblem = classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
         self.containsFeature = classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
@@ -199,6 +199,7 @@ struct ClassificationView: View {
             return
         }
         currentSentenceIndex = currentSentenceIndex - 1
+        self.text = classifier.sentenceList[currentSentenceIndex].text
         self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
         self.containsProblem = classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
         self.containsFeature = classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)

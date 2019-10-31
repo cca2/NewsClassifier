@@ -316,8 +316,8 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "ClassificationView"
             landmarkType = "14">
          </BreakpointContent>
@@ -775,8 +775,8 @@
             filePath = "StartseNewsClassifier/Views/ClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "previousSentence()"
             landmarkType = "7">
          </BreakpointContent>
