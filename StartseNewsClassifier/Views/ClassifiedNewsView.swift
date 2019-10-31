@@ -34,7 +34,7 @@ struct ClassifiedNewsView: View {
                     }//.onDelete(perform: removeSentenceFromSolutionClassification)
                 }
 
-                Section(header: Text(SentenceModel.Classification.uvp.rawValue)) {
+                Section(header: Text(SentenceModel.Classification.technology.rawValue)) {
                     ForEach(0..<newsList.newsTechnologySentences.count) {
                         Text("\(self.newsList.newsTechnologySentences[$0].sentence.text)")
                     }//.onDelete(perform: removeSentenceFromTechnologyClassification)

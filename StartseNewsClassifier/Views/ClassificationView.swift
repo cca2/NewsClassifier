@@ -21,7 +21,7 @@ struct ClassificationView: View {
     @State var containsSegment = false
     @State var containsProblem = false
     @State var containsFeature = false
-    @State var containsUVP = false
+    @State var conatainsTechnology = false
     @State var containsInvestment = false
     @State var containsPartnership = false
     
@@ -116,14 +116,14 @@ struct ClassificationView: View {
                         }.frame(minWidth: 0, maxWidth: .infinity, minHeight:90, maxHeight: .infinity, alignment: .center).background(Color(UIColor.systemPink.withAlphaComponent(0.8))).foregroundColor(.white)
                         
                         HStack (spacing: 0) {
-                            if (containsUVP) {
-                                Button(action: classifyAsUVP) {
+                            if (conatainsTechnology) {
+                                Button(action: classifyAsTechnology) {
                                     Text("#Tecnologia").font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
                                         .background(Color.white).foregroundColor(.black)
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }else {
-                                Button(action: classifyAsUVP) {
+                                Button(action: classifyAsTechnology) {
                                     Text("#Tecnologia").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
                                         .background(Color.white).foregroundColor(.pink)
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
@@ -158,7 +158,7 @@ struct ClassificationView: View {
             self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
             self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
             self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
-            self.containsUVP = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
+            self.conatainsTechnology = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.technology)
             self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
         }
     }
@@ -189,7 +189,7 @@ struct ClassificationView: View {
         self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
         self.containsProblem = classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
         self.containsFeature = classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
-        self.containsUVP = classifier.sentenceList[currentSentenceIndex].classifications.contains(.uvp)
+        self.conatainsTechnology = classifier.sentenceList[currentSentenceIndex].classifications.contains(.technology)
         self.containsInvestment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
     }
     
@@ -203,7 +203,7 @@ struct ClassificationView: View {
         self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
         self.containsProblem = classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
         self.containsFeature = classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
-        self.containsUVP = classifier.sentenceList[currentSentenceIndex].classifications.contains(.uvp)
+        self.conatainsTechnology = classifier.sentenceList[currentSentenceIndex].classifications.contains(.technology)
         self.containsInvestment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
     }
     
@@ -222,9 +222,9 @@ struct ClassificationView: View {
         self.containsFeature = !self.containsFeature
     }
     
-    func classifyAsUVP() {
-        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .uvp)
-        self.containsUVP = !self.containsUVP
+    func classifyAsTechnology() {
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .technology)
+        self.conatainsTechnology = !self.conatainsTechnology
     }
     
     func classifyAsPartnership () {

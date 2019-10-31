@@ -27,7 +27,7 @@ class ClassifiedNewsViewModel: ObservableObject {
         classifiedSentencesDictionary[.segment] = [:]
         classifiedSentencesDictionary[.problem] = [:]
         classifiedSentencesDictionary[.solution] = [:]
-        classifiedSentencesDictionary[.uvp] = [:]
+        classifiedSentencesDictionary[.technology] = [:]
         classifiedSentencesDictionary[.investment] = [:]
         classifiedSentencesDictionary[.partnership] = [:]
         

@@ -713,7 +713,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "205"
             endingLineNumber = "205"
-            landmarkName = "classifyAsCustomerSegment()"
+            landmarkName = "previousSentence()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

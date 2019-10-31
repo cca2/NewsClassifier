@@ -21,7 +21,7 @@ struct ContentView: View {
     var body: some View {
         return TabView(selection: $selectedView) {
             NavigationView {
-                VStack {
+                HStack {
                     if !(self.newsList.articles.count == 0) {
                         NewsView(title: newsList.articles[currentNewsIndex].title, subtitle: newsList.articles[currentNewsIndex].subtitle, numNews: newsList.articles.count, date: dateFormater.string(from: Date()), newsList: newsList)
                     }else {

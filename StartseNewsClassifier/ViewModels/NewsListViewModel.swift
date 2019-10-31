@@ -48,7 +48,7 @@ class NewsListViewModel: ObservableObject {
             }
             self.newsSolutionSentences = sentencesViewModels
             
-            let technologySentences = s.sentenceListOfType(classification: .uvp)
+            let technologySentences = s.sentenceListOfType(classification: .technology)
             sentencesViewModels = []
             for sentence in technologySentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
@@ -90,7 +90,7 @@ class NewsListViewModel: ObservableObject {
             newsProblemSentences = sentencesViewModels
         }else if newClassification == .solution {
             newsSolutionSentences = sentencesViewModels
-        }else if newClassification == .uvp {
+        }else if newClassification == .technology {
             newsTechnologySentences = sentencesViewModels
         }else if newClassification == .investment {
             newsInvestmentSentences = sentencesViewModels

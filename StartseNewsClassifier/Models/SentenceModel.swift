@@ -19,7 +19,7 @@ class SentenceModel: Identifiable, Decodable {
         case segment = "#Segment"
         case problem = "#Problem"
         case solution = "#Features"
-        case uvp = "#UVP"
+        case technology = "#Technology"
         case investment = "#Investment"
         case partnership = "#Partnership"
         
@@ -28,7 +28,7 @@ class SentenceModel: Identifiable, Decodable {
             case 1: self = .segment
             case 2: self = .problem
             case 3: self = .solution
-            case 4: self = .uvp
+            case 4: self = .technology
             case 5: self = .investment
             case 6: self = .partnership
             default:
