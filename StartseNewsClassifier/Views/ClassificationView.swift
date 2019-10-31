@@ -152,14 +152,14 @@ struct ClassificationView: View {
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .padding(.bottom)
         .onAppear() {
-//            guard let news = self.newsList.news else { return }
-//            guard let classifier = self.newsList.classifiedNews[(news.id.uuidString.lowercased())] else {return}
-//            self.text = classifier.sentenceList[0].text
-//            self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
-//            self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
-//            self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
-//            self.containsUVP = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
-//            self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
+            guard let news = self.newsList.news else { return }
+            guard let classifier = self.newsList.classifiedNews[(news.id.uuidString.lowercased())] else {return}
+            self.text = classifier.sentenceList[0].text
+            self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
+            self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
+            self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
+            self.containsUVP = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.uvp)
+            self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
         }
     }
     
