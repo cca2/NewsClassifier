@@ -19,6 +19,26 @@ class SentenceViewModel: ObservableObject, Identifiable {
         return sentence.id
     }
     
+    var containsSegment: Bool {
+        return sentence.classifications.contains(.segment)
+    }
+    
+    var containsProblem: Bool {
+        return sentence.classifications.contains(.problem)
+    }
+    
+    var containsSolution: Bool {
+        return sentence.classifications.contains(.solution)
+    }
+    
+    var containsTechnology: Bool {
+        return sentence.classifications.contains(.technology)
+    }
+    
+    var containsInvestment: Bool {
+        return sentence.classifications.contains(.investment)
+    }
+    
     init(sentenceModel:SentenceModel) {
         self.sentence = sentenceModel
     }

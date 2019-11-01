@@ -22,27 +22,37 @@ struct ClassifiedNewsView: View {
                     ForEach(newsList.newsSegmentSentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .segment, to: .problem)
-                            }) {
-                                Text("Dor & Desejo")
+                            if !sentence.containsSegment {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .segment)
+                                }) {
+                                    Text("Segmento de Consumidores")
+                                }
+                            }
+                            if !sentence.containsProblem {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .problem)
+                                }) {
+                                    Text("Dor & Desejo")
+                                }
                             }
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(from: .segment, to: .solution)
+                                self.classifySentence(as: .solution)
                             }) {
                                 Text("Solução & Features")
                             }
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(from: .segment, to: .technology)
+                                self.classifySentence(as: .technology)
                             }) {
                                 Text("Tecnologia")
                             }
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(from: .segment, to: .investment)
+                                self.classifySentence(as: .investment)
                             }) {
                                 Text("Investimento")
                             }
@@ -54,27 +64,37 @@ struct ClassifiedNewsView: View {
                     ForEach(newsList.newsProblemSentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .problem, to: .segment)
-                            }) {
-                                Text("Segmento de Consumidores")
+                            if !sentence.containsSegment {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .segment)
+                                }) {
+                                    Text("Segmento de Consumidores")
+                                }
+                            }
+                            if !sentence.containsProblem {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .problem)
+                                }) {
+                                    Text("Dor & Desejo")
+                                }
                             }
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(from: .problem, to: .solution)
+                                self.classifySentence(as: .solution)
                             }) {
                                 Text("Solução & Features")
                             }
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(from: .problem, to: .technology)
+                                self.classifySentence(as: .technology)
                             }) {
                                 Text("Tecnologia")
                             }
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(from: .problem, to: .investment)
+                                self.classifySentence(as: .investment)
                             }) {
                                 Text("Investimento")
                             }
@@ -82,101 +102,101 @@ struct ClassifiedNewsView: View {
                     }
                 }
 
-                Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-                    ForEach(newsList.newsSolutionSentences) { sentence in
-                        Text("\(sentence.text)")
-                        .contextMenu() {
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .solution, to: .segment)
-                            }) {
-                                Text("Segmento de Consumidores")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .solution, to: .problem)
-                            }) {
-                                Text("Dor & Desejo")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .solution, to: .technology)
-                            }) {
-                                Text("Tecnologia")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .solution, to: .investment)
-                            }) {
-                                Text("Investimento")
-                            }
-                        }
-                    }
-                }
-
-                Section(header: Text(SentenceModel.Classification.technology.rawValue)) {
-                    ForEach(newsList.newsTechnologySentences) { sentence in
-                        Text("\(sentence.text)")
-                        .contextMenu() {
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .technology, to: .segment)
-                            }) {
-                                Text("Segmento de Consumidores")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .technology, to: .problem)
-                            }) {
-                                Text("Dor & Desejo")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .technology, to: .solution)
-                            }) {
-                                Text("Solução & Features")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .technology, to: .investment)
-                            }) {
-                                Text("Investimento")
-                            }
-                        }
-                    }
-                }
-
-                Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
-                    ForEach(newsList.newsInvestmentSentences) { sentence in
-                        Text("\(sentence.text)")
-                        .contextMenu() {
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .investment, to: .segment)
-                            }) {
-                                Text("Segmento de Consumidores")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .investment, to: .problem)
-                            }) {
-                                Text("Dor & Desejo")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .investment, to: .solution)
-                            }) {
-                                Text("Solução & Features")
-                            }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.reclassifySentence(from: .investment, to: .technology)
-                            }) {
-                                Text("Tecnologia")
-                            }
-                        }
-                    }
-                }
+//                Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
+//                    ForEach(newsList.newsSolutionSentences) { sentence in
+//                        Text("\(sentence.text)")
+//                        .contextMenu() {
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .solution, to: .segment)
+//                            }) {
+//                                Text("Segmento de Consumidores")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .solution, to: .problem)
+//                            }) {
+//                                Text("Dor & Desejo")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .solution, to: .technology)
+//                            }) {
+//                                Text("Tecnologia")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .solution, to: .investment)
+//                            }) {
+//                                Text("Investimento")
+//                            }
+//                        }
+//                    }
+//                }
+//
+//                Section(header: Text(SentenceModel.Classification.technology.rawValue)) {
+//                    ForEach(newsList.newsTechnologySentences) { sentence in
+//                        Text("\(sentence.text)")
+//                        .contextMenu() {
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .technology, to: .segment)
+//                            }) {
+//                                Text("Segmento de Consumidores")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .technology, to: .problem)
+//                            }) {
+//                                Text("Dor & Desejo")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .technology, to: .solution)
+//                            }) {
+//                                Text("Solução & Features")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .technology, to: .investment)
+//                            }) {
+//                                Text("Investimento")
+//                            }
+//                        }
+//                    }
+//                }
+//
+//                Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
+//                    ForEach(newsList.newsInvestmentSentences) { sentence in
+//                        Text("\(sentence.text)")
+//                        .contextMenu() {
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .investment, to: .segment)
+//                            }) {
+//                                Text("Segmento de Consumidores")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .investment, to: .problem)
+//                            }) {
+//                                Text("Dor & Desejo")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .investment, to: .solution)
+//                            }) {
+//                                Text("Solução & Features")
+//                            }
+//                            Button(action: {
+//                                self.selectedSentence = sentence
+//                                self.reclassifySentence(from: .investment, to: .technology)
+//                            }) {
+//                                Text("Tecnologia")
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
     }
@@ -185,9 +205,9 @@ struct ClassifiedNewsView: View {
         print("delete:\(offsets.filter{_ in true}[0])")
     }
     
-    func reclassifySentence(from currentClassification:SentenceModel.Classification, to newClassification:SentenceModel.Classification) {
+    func classifySentence(as newClassification:SentenceModel.Classification) {
         guard let sentence = selectedSentence else { return }
-        self.newsList.reclassifySentence(sentence: sentence, from: currentClassification, to: newClassification)
+        self.newsList.classifySentence(sentence: sentence, as: newClassification)
     }
     
     func removeSentenceFromSegmentClassification(at offsets: IndexSet) {

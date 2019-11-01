@@ -77,7 +77,7 @@ class NewsListViewModel: ObservableObject {
       classifySentenceAtIndexAs(at: index, newClassification: classification)
     }
     
-    func reclassifySentence(sentence: SentenceViewModel, from currentClassification:SentenceModel.Classification, to newClassification:SentenceModel.Classification) {
+    func classifySentence(sentence: SentenceViewModel, as newClassification:SentenceModel.Classification) {
         guard let currentNews = news else { return }
         guard let classifier = classifiedNews[currentNews.id.uuidString.lowercased()] else { return }
 
@@ -85,8 +85,9 @@ class NewsListViewModel: ObservableObject {
             $0.id.uuidString == sentence.id.uuidString
         }) else { return }
         
-        classifySentenceAtIndexAs(at: index, newClassification: currentClassification)
-        classifySentenceAtIndexAs(at: index, newClassification: newClassification)
+        if !sentence.sentence.classifications.contains(newClassification) {
+            classifySentenceAtIndexAs(at: index, newClassification: newClassification)
+        }
     }
 
     
