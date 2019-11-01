@@ -25,7 +25,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSegment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .segment)
+                                    self.reclassifySentence(as: .segment)
                                 }) {
                                     Text("Segmento de Consumidores")
                                 }
@@ -33,7 +33,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsProblem {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .problem)
+                                    self.reclassifySentence(as: .problem)
                                 }) {
                                     Text("Dor & Desejo")
                                 }
@@ -41,7 +41,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSolution {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .solution)
+                                    self.reclassifySentence(as: .solution)
                                 }) {
                                     Text("Solução & Features")
                                 }
@@ -49,7 +49,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsTechnology {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .technology)
+                                    self.reclassifySentence(as: .technology)
                                 }) {
                                     Text("Tecnologia")
                                 }
@@ -57,7 +57,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsInvestment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .investment)
+                                    self.reclassifySentence(as: .investment)
                                 }) {
                                     Text("Investimento")
                                 }
@@ -74,7 +74,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSegment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .segment)
+                                    self.reclassifySentence(as: .segment)
                                 }) {
                                     Text("Segmento de Consumidores")
                                 }
@@ -82,7 +82,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsProblem {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .problem)
+                                    self.reclassifySentence(as: .problem)
                                 }) {
                                     Text("Dor & Desejo")
                                 }
@@ -90,7 +90,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSolution {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .solution)
+                                    self.reclassifySentence(as: .solution)
                                 }) {
                                     Text("Solução & Features")
                                 }
@@ -98,7 +98,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsTechnology {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .technology)
+                                    self.reclassifySentence(as: .technology)
                                 }) {
                                     Text("Tecnologia")
                                 }
@@ -106,7 +106,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsInvestment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .investment)
+                                    self.reclassifySentence(as: .investment)
                                 }) {
                                     Text("Investimento")
                                 }
@@ -123,7 +123,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSegment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .segment)
+                                    self.reclassifySentence(as: .segment)
                                 }) {
                                     Text("Segmento de Consumidores")
                                 }
@@ -131,7 +131,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsProblem {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .problem)
+                                    self.reclassifySentence(as: .problem)
                                 }) {
                                     Text("Dor & Desejo")
                                 }
@@ -139,7 +139,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSolution {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .solution)
+                                    self.reclassifySentence(as: .solution)
                                 }) {
                                     Text("Solução & Features")
                                 }
@@ -147,7 +147,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsTechnology {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .technology)
+                                    self.reclassifySentence(as: .technology)
                                 }) {
                                     Text("Tecnologia")
                                 }
@@ -155,7 +155,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsInvestment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .investment)
+                                    self.reclassifySentence(as: .investment)
                                 }) {
                                     Text("Investimento")
                                 }
@@ -172,7 +172,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSegment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .segment)
+                                    self.reclassifySentence(as: .segment)
                                 }) {
                                     Text("Segmento de Consumidores")
                                 }
@@ -180,7 +180,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsProblem {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .problem)
+                                    self.reclassifySentence(as: .problem)
                                 }) {
                                     Text("Dor & Desejo")
                                 }
@@ -188,7 +188,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSolution {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .solution)
+                                    self.reclassifySentence(as: .solution)
                                 }) {
                                     Text("Solução & Features")
                                 }
@@ -196,7 +196,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsTechnology {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .technology)
+                                    self.reclassifySentence(as: .technology)
                                 }) {
                                     Text("Tecnologia")
                                 }
@@ -204,7 +204,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsInvestment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .investment)
+                                    self.reclassifySentence(as: .investment)
                                 }) {
                                     Text("Investimento")
                                 }
@@ -221,7 +221,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSegment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .segment)
+                                    self.reclassifySentence(as: .segment)
                                 }) {
                                     Text("Segmento de Consumidores")
                                 }
@@ -229,7 +229,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsProblem {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .problem)
+                                    self.reclassifySentence(as: .problem)
                                 }) {
                                     Text("Dor & Desejo")
                                 }
@@ -237,7 +237,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsSolution {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .solution)
+                                    self.reclassifySentence(as: .solution)
                                 }) {
                                     Text("Solução & Features")
                                 }
@@ -245,7 +245,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsTechnology {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .technology)
+                                    self.reclassifySentence(as: .technology)
                                 }) {
                                     Text("Tecnologia")
                                 }
@@ -253,7 +253,7 @@ struct ClassifiedNewsView: View {
                             if !sentence.containsInvestment {
                                 Button(action: {
                                     self.selectedSentence = sentence
-                                    self.classifySentence(as: .investment)
+                                    self.reclassifySentence(as: .investment)
                                 }) {
                                     Text("Investimento")
                                 }
@@ -270,23 +270,23 @@ struct ClassifiedNewsView: View {
         print("delete:\(offsets.filter{_ in true}[0])")
     }
     
-    func classifySentence(as newClassification:SentenceModel.Classification) {
+    func reclassifySentence(as newClassification:SentenceModel.Classification) {
         guard let sentence = selectedSentence else { return }
         if newClassification == .segment && !sentence.containsSegment {
-            self.newsList.classifySentence(sentence: sentence, as: .segment)
+            self.newsList.reclassifySentence(sentence: sentence, as: .segment)
             self.newsList.newsSegmentSentences.append(sentence)
         }else if newClassification == .problem && !sentence.containsProblem {
-            self.newsList.classifySentence(sentence: sentence, as: .problem)
+            self.newsList.reclassifySentence(sentence: sentence, as: .problem)
             self.newsList.newsProblemSentences.append(sentence)
         }else if newClassification == .solution && !sentence.containsSolution {
-            self.newsList.classifySentence(sentence: sentence, as: .solution)
+            self.newsList.reclassifySentence(sentence: sentence, as: .solution)
             self.newsList.newsSolutionSentences.append(sentence)
         }else if newClassification == .technology && !sentence.containsTechnology {
-            self.newsList.classifySentence(sentence: sentence, as: .technology)
+            self.newsList.reclassifySentence(sentence: sentence, as: .technology)
             self.newsList.newsTechnologySentences.append(sentence)
         }else if newClassification == .investment && !sentence.containsInvestment {
-            self.newsList.classifySentence(sentence: sentence, as: .investment)
-            self.newsList.newsInvestmentSentences.append(sentence)
+            self.newsList.reclassifySentence(sentence: sentence, as: .problem)
+            self.newsList.newsProblemSentences.append(sentence)
         }
     }
     

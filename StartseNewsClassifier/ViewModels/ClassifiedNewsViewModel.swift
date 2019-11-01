@@ -53,6 +53,13 @@ class ClassifiedNewsViewModel: ObservableObject {
         }
     }
     
+    func removeClassification(from sentence:SentenceModel, oldClassification:SentenceModel.Classification) {
+        if sentence.classifications.contains(oldClassification) {
+            classifiedSentencesDictionary[oldClassification]![sentence.id] = nil
+        }        
+        saveClassifiedSentences()
+    }
+    
     func sentenceListOfType(classification: SentenceModel.Classification) -> [SentenceModel] {
         return classifiedSentencesDictionary[classification]!.values.sorted(by: {$0.id < $1.id})
     }

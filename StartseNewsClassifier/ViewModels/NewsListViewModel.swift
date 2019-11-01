@@ -74,14 +74,17 @@ class NewsListViewModel: ObservableObject {
     }
     
     func removeClassificationAtIndex(at index:Int, classification: SentenceModel.Classification) {
-      classifySentenceAtIndexAs(at: index, newClassification: classification)
+        classifySentenceAtIndexAs(at: index, newClassification: classification)
     }
 
     func removeSentenceClassification(sentence:SentenceViewModel, classification: SentenceModel.Classification) {
         sentence.removeClassification(classification: classification)
+        guard let currentNews = news else { return }
+        guard let classifier = classifiedNews[currentNews.id.uuidString.lowercased()] else { return }
+        classifier.removeClassification(from: sentence.sentence, oldClassification: classification)
     }
     
-    func classifySentence(sentence: SentenceViewModel, as newClassification:SentenceModel.Classification) {
+    func reclassifySentence(sentence: SentenceViewModel, as newClassification:SentenceModel.Classification) {
         if !sentence.sentence.classifications.contains(newClassification) {
             sentence.sentence.classifications.append(newClassification)
         }
