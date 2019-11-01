@@ -85,9 +85,10 @@ class NewsListViewModel: ObservableObject {
     }
     
     func reclassifySentence(sentence: SentenceViewModel, as newClassification:SentenceModel.Classification) {
-        if !sentence.sentence.classifications.contains(newClassification) {
-            sentence.sentence.classifications.append(newClassification)
-        }
+        guard let currentNews = news else { return }
+        guard let classifier = classifiedNews[currentNews.id.uuidString.lowercased()] else { return }
+        
+        classifier.reclassifySentence(sentence: sentence.sentence, as: newClassification)
     }
 
     

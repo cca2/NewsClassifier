@@ -60,6 +60,15 @@ class ClassifiedNewsViewModel: ObservableObject {
         saveClassifiedSentences()
     }
     
+    func reclassifySentence(sentence:SentenceModel, as newClassification:SentenceModel.Classification) {
+        if !sentence.classifications.contains(newClassification) {
+            sentence.classifications.append(newClassification)
+            classifiedSentencesDictionary[newClassification]![sentence.id] = sentence
+        }
+        
+        saveClassifiedSentences()
+    }
+    
     func sentenceListOfType(classification: SentenceModel.Classification) -> [SentenceModel] {
         return classifiedSentencesDictionary[classification]!.values.sorted(by: {$0.id < $1.id})
     }
