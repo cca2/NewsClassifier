@@ -22,15 +22,22 @@ class SentenceViewModel: ObservableObject, Identifiable {
     init(sentenceModel:SentenceModel) {
         self.sentence = sentenceModel
     }
+
+    func removeClassification(classification: SentenceModel.Classification) {
+        guard let index = sentence.classifications.firstIndex(of: classification) else { return }
+        sentence.classifications.remove(at: index)
+    }
     
     func classifySentenceAs(tag:SentenceModel.Classification) {
-//        sentence.classification = tag
         if sentence.classifications.contains(tag) {
+            //aqui: parece não fazer sentido remover todas as classificações
             sentence.classifications.removeAll() {
                 classification in
                 print (classification)
                 return true
             }
+        }else {
+            sentence.classifications.append(tag)
         }
     }
 }

@@ -62,7 +62,7 @@ class NewsListViewModel: ObservableObject {
             }
             self.newsTechnologySentences = sentencesViewModels
             
-            let investmentSentences = s.sentenceListOfType(classification: .segment)
+            let investmentSentences = s.sentenceListOfType(classification: .investment)
             sentencesViewModels = []
             for sentence in investmentSentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
@@ -76,6 +76,19 @@ class NewsListViewModel: ObservableObject {
     func removeClassificationAtIndex(at index:Int, classification: SentenceModel.Classification) {
       classifySentenceAtIndexAs(at: index, newClassification: classification)
     }
+    
+    func reclassifySentence(sentence: SentenceViewModel, from currentClassification:SentenceModel.Classification, to newClassification:SentenceModel.Classification) {
+        guard let currentNews = news else { return }
+        guard let classifier = classifiedNews[currentNews.id.uuidString.lowercased()] else { return }
+
+        guard let index = classifier.sentenceList.firstIndex(where: {
+            $0.id.uuidString == sentence.id.uuidString
+        }) else { return }
+        
+        classifySentenceAtIndexAs(at: index, newClassification: currentClassification)
+        classifySentenceAtIndexAs(at: index, newClassification: newClassification)
+    }
+
     
     func classifySentenceAtIndexAs(at index:Int, newClassification: SentenceModel.Classification) {
         guard let currentNews = news else { return }

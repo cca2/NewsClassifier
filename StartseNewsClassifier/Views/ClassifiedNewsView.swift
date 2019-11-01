@@ -11,7 +11,7 @@ import SwiftUI
 struct ClassifiedNewsView: View {
     @EnvironmentObject var newsList:NewsListViewModel
     
-    @State private var selectedItem:SentenceViewModel?
+    @State private var selectedSentence:SentenceViewModel?
     
     var body: some View {
         VStack {
@@ -23,25 +23,25 @@ struct ClassifiedNewsView: View {
                         Text("\(sentence.text)")
                         .contextMenu() {
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .segment, to: .problem)
                             }) {
                                 Text("Dor & Desejo")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .segment, to: .solution)
                             }) {
                                 Text("Solução & Features")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .segment, to: .technology)
                             }) {
                                 Text("Tecnologia")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .segment, to: .investment)
                             }) {
                                 Text("Investimento")
@@ -55,25 +55,25 @@ struct ClassifiedNewsView: View {
                         Text("\(sentence.text)")
                         .contextMenu() {
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .problem, to: .segment)
                             }) {
                                 Text("Segmento de Consumidores")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .problem, to: .solution)
                             }) {
                                 Text("Solução & Features")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .problem, to: .technology)
                             }) {
                                 Text("Tecnologia")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .problem, to: .investment)
                             }) {
                                 Text("Investimento")
@@ -83,29 +83,29 @@ struct ClassifiedNewsView: View {
                 }
 
                 Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-                    ForEach(newsList.newsProblemSentences) { sentence in
+                    ForEach(newsList.newsSolutionSentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .solution, to: .segment)
                             }) {
                                 Text("Segmento de Consumidores")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .solution, to: .problem)
                             }) {
                                 Text("Dor & Desejo")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .solution, to: .technology)
                             }) {
                                 Text("Tecnologia")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .solution, to: .investment)
                             }) {
                                 Text("Investimento")
@@ -115,29 +115,29 @@ struct ClassifiedNewsView: View {
                 }
 
                 Section(header: Text(SentenceModel.Classification.technology.rawValue)) {
-                    ForEach(newsList.newsProblemSentences) { sentence in
+                    ForEach(newsList.newsTechnologySentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .technology, to: .segment)
                             }) {
                                 Text("Segmento de Consumidores")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .technology, to: .problem)
                             }) {
                                 Text("Dor & Desejo")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .technology, to: .solution)
                             }) {
                                 Text("Solução & Features")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .technology, to: .investment)
                             }) {
                                 Text("Investimento")
@@ -147,29 +147,29 @@ struct ClassifiedNewsView: View {
                 }
 
                 Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
-                    ForEach(newsList.newsProblemSentences) { sentence in
+                    ForEach(newsList.newsInvestmentSentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .investment, to: .segment)
                             }) {
                                 Text("Segmento de Consumidores")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .investment, to: .problem)
                             }) {
                                 Text("Dor & Desejo")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .investment, to: .solution)
                             }) {
                                 Text("Solução & Features")
                             }
                             Button(action: {
-                                self.selectedItem = sentence
+                                self.selectedSentence = sentence
                                 self.reclassifySentence(from: .investment, to: .technology)
                             }) {
                                 Text("Tecnologia")
@@ -186,7 +186,8 @@ struct ClassifiedNewsView: View {
     }
     
     func reclassifySentence(from currentClassification:SentenceModel.Classification, to newClassification:SentenceModel.Classification) {
-        print("Hello")
+        guard let sentence = selectedSentence else { return }
+        self.newsList.reclassifySentence(sentence: sentence, from: currentClassification, to: newClassification)
     }
     
     func removeSentenceFromSegmentClassification(at offsets: IndexSet) {
