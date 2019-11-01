@@ -113,6 +113,8 @@ class NewsListViewModel: ObservableObject {
         }else if newClassification == .investment {
             newsInvestmentSentences = sentencesViewModels
         }
+        
+        classifier.saveClassifiedSentences()
     }
     
     func loadLatestNews() {

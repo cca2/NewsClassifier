@@ -54,13 +54,13 @@ struct ClassificationView: View {
             }
         
         return VStack {
-            if (hasFinishedClassification) {
-                VStack {
-                    Button(action: restartClassification, label: {Text("Reclassificar")})
-                    Spacer()
-                    Button(action: saveClassification, label: {Text("Salvar")})
-                }.frame(width: 100, height: 100, alignment: .center)
-            }else {
+//            if (hasFinishedClassification) {
+//                VStack {
+//                    Button(action: restartClassification, label: {Text("Reclassificar")})
+//                    Spacer()
+//                    Button(action: saveClassification, label: {Text("Salvar")})
+//                }.frame(width: 100, height: 100, alignment: .center)
+//            }else {
                 VStack(alignment: .trailing) {
                     Text("\(self.currentSentenceIndex + 1)/" + "\(self.numSentences)").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                         .font(.title)
@@ -147,7 +147,7 @@ struct ClassificationView: View {
                     Spacer()
                 }.offset(CGSize(width: 0, height: -55))
 
-            }
+//            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .padding(.bottom)
@@ -166,11 +166,11 @@ struct ClassificationView: View {
     func finishedClassification() {
         hasFinishedClassification = true
     }
-    
-    func restartClassification() {
-        hasFinishedClassification = false
-    }
-    
+
+//    func restartClassification() {
+//        hasFinishedClassification = false
+//    }
+//
     func saveClassification() {
         let classifier = self.newsList.classifiedNews[(self.newsList.news?.id.uuidString.lowercased())!]
         classifier?.saveClassifiedSentences()
@@ -184,6 +184,7 @@ struct ClassificationView: View {
             finishedClassification()
             return
         }
+
         currentSentenceIndex = currentSentenceIndex + 1
         self.text = classifier.sentenceList[currentSentenceIndex].text
         self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
