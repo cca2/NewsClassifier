@@ -285,8 +285,8 @@ struct ClassifiedNewsView: View {
             self.newsList.reclassifySentence(sentence: sentence, as: .technology)
             self.newsList.newsTechnologySentences.append(sentence)
         }else if newClassification == .investment && !sentence.containsInvestment {
-            self.newsList.reclassifySentence(sentence: sentence, as: .problem)
-            self.newsList.newsProblemSentences.append(sentence)
+            self.newsList.reclassifySentence(sentence: sentence, as: .investment)
+            self.newsList.newsInvestmentSentences.append(sentence)
         }
     }
     
