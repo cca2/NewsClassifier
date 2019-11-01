@@ -38,26 +38,33 @@ struct ClassifiedNewsView: View {
                                     Text("Dor & Desejo")
                                 }
                             }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.classifySentence(as: .solution)
-                            }) {
-                                Text("Solução & Features")
+                            if !sentence.containsSolution {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .solution)
+                                }) {
+                                    Text("Solução & Features")
+                                }
                             }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.classifySentence(as: .technology)
-                            }) {
-                                Text("Tecnologia")
+                            if !sentence.containsTechnology {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .technology)
+                                }) {
+                                    Text("Tecnologia")
+                                }
                             }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.classifySentence(as: .investment)
-                            }) {
-                                Text("Investimento")
+                            if !sentence.containsInvestment {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .investment)
+                                }) {
+                                    Text("Investimento")
+                                }
+
                             }
                         }
-                    }//.onDelete(perform: removeSentenceFromSegmentClassification)
+                    }.onDelete(perform: removeSentenceFromSegmentClassification)
                 }
 
                 Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
@@ -80,26 +87,33 @@ struct ClassifiedNewsView: View {
                                     Text("Dor & Desejo")
                                 }
                             }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.classifySentence(as: .solution)
-                            }) {
-                                Text("Solução & Features")
+                            if !sentence.containsSolution {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .solution)
+                                }) {
+                                    Text("Solução & Features")
+                                }
                             }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.classifySentence(as: .technology)
-                            }) {
-                                Text("Tecnologia")
+                            if !sentence.containsTechnology {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .technology)
+                                }) {
+                                    Text("Tecnologia")
+                                }
                             }
-                            Button(action: {
-                                self.selectedSentence = sentence
-                                self.classifySentence(as: .investment)
-                            }) {
-                                Text("Investimento")
+                            if !sentence.containsInvestment {
+                                Button(action: {
+                                    self.selectedSentence = sentence
+                                    self.classifySentence(as: .investment)
+                                }) {
+                                    Text("Investimento")
+                                }
+
                             }
                         }
-                    }
+                    }.onDelete(perform: removeSentenceFromProblemClassification)
                 }
 
 //                Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
@@ -207,27 +221,35 @@ struct ClassifiedNewsView: View {
     
     func classifySentence(as newClassification:SentenceModel.Classification) {
         guard let sentence = selectedSentence else { return }
-        self.newsList.classifySentence(sentence: sentence, as: newClassification)
+        if newClassification == .segment && !sentence.containsSegment {
+            self.newsList.classifySentence(sentence: sentence, as: .segment)
+            self.newsList.newsSegmentSentences.append(sentence)
+        }else if newClassification == .problem && !sentence.containsProblem {
+            self.newsList.classifySentence(sentence: sentence, as: .problem)
+            self.newsList.newsProblemSentences.append(sentence)
+        }
     }
     
     func removeSentenceFromSegmentClassification(at offsets: IndexSet) {
         let index = offsets.filter{_ in true}[0]
-        self.newsList.removeClassificationAtIndex(at: index, classification: .segment)
+        let sentence = self.newsList.newsSegmentSentences[index]
+        self.newsList.removeSentenceClassification(sentence: sentence, classification: .segment)
+        self.newsList.newsSegmentSentences.remove(atOffsets: offsets)
     }
     
-    func removeSentenceFromProblemClassification(at offset: IndexSet) {
+    func removeSentenceFromProblemClassification(at offsets: IndexSet) {
+        self.newsList.newsProblemSentences.remove(atOffsets: offsets)
+    }
+    
+    func removeSentenceFromSolutionClassification(at offsets: IndexSet) {
         
     }
     
-    func removeSentenceFromSolutionClassification(at offset: IndexSet) {
+    func removeSentenceFromTechnologyClassification(at offsets: IndexSet) {
         
     }
     
-    func removeSentenceFromTechnologyClassification(at offset: IndexSet) {
-        
-    }
-    
-    func removeSentenceFromInvestmentClassification(at offset: IndexSet) {
+    func removeSentenceFromInvestmentClassification(at offsets: IndexSet) {
         
     }
 }

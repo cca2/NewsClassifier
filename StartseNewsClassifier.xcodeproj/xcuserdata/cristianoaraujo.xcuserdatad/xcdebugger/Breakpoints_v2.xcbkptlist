@@ -14,8 +14,8 @@
             filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240">
+            startingLineNumber = "262"
+            endingLineNumber = "262">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -489,8 +489,8 @@
             filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "removeSentenceFromInvestmentClassification(at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -505,8 +505,8 @@
             filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "ClassifiedNewsView"
             landmarkType = "14">
             <Locations>
@@ -1022,8 +1022,8 @@
             filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "removeSentenceFromInvestmentClassification(at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1038,8 +1038,8 @@
             filePath = "StartseNewsClassifier/ViewModels/NewsListViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "classifySentence(sentence:as:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1102,8 +1102,8 @@
             filePath = "StartseNewsClassifier/ViewModels/NewsListViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "classifySentenceAtIndexAs(at:newClassification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1118,8 +1118,8 @@
             filePath = "StartseNewsClassifier/ViewModels/NewsListViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "classifySentenceAtIndexAs(at:newClassification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1134,10 +1134,26 @@
             filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F2A7EEC-0BC6-40F4-88E0-CBC615DBFBA7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartseNewsClassifier/Views/ClassifiedNewsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "classifySentence(as:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
