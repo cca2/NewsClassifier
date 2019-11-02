@@ -14,6 +14,7 @@ struct NewsView: View {
     @State private var offset:CGSize = .zero
     @State private var currentNewsIndex = 0
     @State private var numNews:Int
+    @State private var numClassifiedNews:Int = 0
     @State private var isClassified:Bool = false
 
     var date:String = "Quarta-feira 30 de outubro de 2019"
@@ -46,18 +47,33 @@ struct NewsView: View {
             VStack {
                 ZStack {
                     ZStack {
+                        
                         VStack {
                             Circle()
                             .size(width: 40, height: 40)
                             .fill(Color.pink)
                         }.frame(width: 40, height: 40)
-                        
+
+                        VStack {
+                            Circle()
+                            .size(width: 50, height: 50)
+                            .fill(Color.pink)
+                        }.frame(width: 50, height: 50)
+                            .offset(x: -25, y: -25)
+
                         VStack {
                             Text("\(numNews)")
                             .font(.body)
                             .bold()
                             .foregroundColor(.white)
                         }.frame(width: 40, height: 40)
+                        VStack {
+                            Text("\(numClassifiedNews)")
+                            .font(.body)
+                            .bold()
+                            .foregroundColor(.white)
+                        }.frame(width: 50, height: 50)
+                        .offset(x: -25, y: -25)
                     }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
                         .padding([.trailing], 40)
 
@@ -109,6 +125,7 @@ struct NewsView: View {
         self._title = State(initialValue: title)
         self._subtitle = State(initialValue: subtitle)
         self._numNews = State(initialValue: numNews)
+        self._numClassifiedNews = State(initialValue: numNews)
         self.date = date
         self.newsList = newsList
     }
@@ -143,6 +160,12 @@ struct NewsView: View {
         //Comentado apenas para ver o preview
         self.newsList?.updateNewsClassificationStatus(isClassified: isClassified, context: self.managedObjectContext)
         self.isClassified.toggle()
+        
+        if isClassified {
+            self.numClassifiedNews = self.numClassifiedNews - 1
+        }else {
+            self.numClassifiedNews = self.numClassifiedNews + 1
+        }
     }
 }
 
