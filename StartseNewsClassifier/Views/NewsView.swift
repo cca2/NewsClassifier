@@ -19,7 +19,7 @@ struct NewsView: View {
     var newsList:NewsListViewModel?
     
     //Comentado apenas para ver o preview
-//    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
         let drag = DragGesture()
@@ -76,11 +76,11 @@ struct NewsView: View {
                 VStack {
                     Button(action: markAsClassified) {
                         //Comentado apenas para ver o preview
-//                        if (self.newsList?.news!.isClassified)! {
+                        if (self.newsList?.news!.isClassified)! {
                             Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
-//                        }else {
-//                            Image(systemName: "checkmark.circle").foregroundColor(.white)
-//                        }
+                        }else {
+                            Image(systemName: "checkmark.circle").foregroundColor(.white)
+                        }
                     }
                 }.padding([.trailing, .bottom])
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
@@ -137,7 +137,7 @@ struct NewsView: View {
 
     func markAsClassified() {
         //Comentado apenas para ver o preview
-//        self.newsList?.updateNewsClassificationStatus(isClassified: true, context: self.managedObjectContext)
+        self.newsList?.updateNewsClassificationStatus(isClassified: true, context: self.managedObjectContext)
     }
 }
 
