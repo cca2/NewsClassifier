@@ -68,7 +68,11 @@ struct NewsView: View {
                 Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
                 VStack {
                     Button(action: markAsClassified) {
-                        Image(systemName: "checkmark.circle").foregroundColor(.white)
+                        if (self.newsList?.news!.isClassified)! {
+                            Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
+                        }else {
+                            Image(systemName: "checkmark.circle").foregroundColor(.white)
+                        }
                     }
                 }.padding([.trailing, .bottom])
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)

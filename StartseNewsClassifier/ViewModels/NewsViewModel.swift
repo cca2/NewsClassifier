@@ -16,22 +16,9 @@ import NaturalLanguage
 class NewsViewModel: Identifiable {
     let news:NewsModel
     
-//    init(news:NewsModel) {
-//        self.news = news
-//    }
-    
-//    init(newsFile:URL) throws{
-//        let decoder = JSONDecoder()
-//        do {
-//            let json = try Data(contentsOf: newsFile)
-//            news = try decoder.decode(NewsModel.self, from: json)
-//        }catch {
-//            throw error
-//        }
-//    }
-    
     init (data:NewsData) {
         recordName = data.value(forKey: "recordName") as? String
+        isClassified = data.value(forKey: "isClassified") as! Bool
         let id = (data.value(forKey: "id") as! UUID).uuidString.lowercased()
         let title = data.value(forKey: "title") as! String
         let subtitle = data.value(forKey: "subtitle") as! String
@@ -56,6 +43,8 @@ class NewsViewModel: Identifiable {
     }
     
     var recordName: String?
+    
+    var isClassified: Bool = false
     
     var id: UUID {
         return UUID(uuidString: news.news_id)!
