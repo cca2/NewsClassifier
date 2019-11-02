@@ -124,14 +124,15 @@ class NewsListViewModel: ObservableObject {
     func loadLatestNews(context: NSManagedObjectContext) {
         var articles:[NewsViewModel] = []
         
+        
         do {
             let result = try context.fetch(self.fetchAllNews())
             for data in result {
                 let news = NewsViewModel(data: data)
                 articles.append(news)
-                self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news)
+//                self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news)
 //                context.delete(data)
-//                try context.save()
+                try context.save()
             }
         }catch {
             print("Error:\(error)")
@@ -162,11 +163,15 @@ class NewsListViewModel: ObservableObject {
                     print("Error: \(error)")
                 }
             }
-            
-            self.articles = articles
+
+            articles.removeAll(where: {
+                $0.isClassified == true
+            })
+
             if articles.count > 0 {
                 self.news = articles[0]
             }
+            self.articles = articles
         }
     }
 }
@@ -180,12 +185,14 @@ extension NewsListViewModel {
     
     func updateNewsClassificationStatus(isClassified:Bool, context:NSManagedObjectContext) {
         let request = NSFetchRequest<NewsData>(entityName: "NewsData")
-        request.predicate = NSPredicate(format: "recordName = %@", self.news!.recordName!)
+        let predicate = NSPredicate(format: "recordName = %@", self.news!.recordName!)
+        request.predicate = predicate
         
         do {
             let newsData = try context.fetch(request)
             let newsToUpdate = newsData[0]
             newsToUpdate.setValue(isClassified, forKey: "isClassified")
+            self.news?.isClassified = isClassified
             
             try context.save()
         }catch {

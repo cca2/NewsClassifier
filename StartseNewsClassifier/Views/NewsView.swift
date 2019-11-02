@@ -14,6 +14,7 @@ struct NewsView: View {
     @State private var offset:CGSize = .zero
     @State private var currentNewsIndex = 0
     @State private var numNews:Int
+    @State private var isClassified:Bool = false
 
     var date:String = "Quarta-feira 30 de outubro de 2019"
     var newsList:NewsListViewModel?
@@ -76,7 +77,7 @@ struct NewsView: View {
                 VStack {
                     Button(action: markAsClassified) {
                         //Comentado apenas para ver o preview
-                        if (self.newsList?.news!.isClassified)! {
+                        if (self.isClassified) {
                             Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
                         }else {
                             Image(systemName: "checkmark.circle").foregroundColor(.white)
@@ -121,6 +122,7 @@ struct NewsView: View {
         self.title = (newsList?.articles[currentNewsIndex].title)!
         self.subtitle = (newsList?.articles[currentNewsIndex].subtitle)!
         self.newsList?.news = newsList?.articles[currentNewsIndex]
+        self.isClassified = (self.newsList?.news!.isClassified)!
     }
     
     func previousNews() {
@@ -133,11 +135,14 @@ struct NewsView: View {
         self.title = (newsList?.articles[currentNewsIndex].title)!
         self.subtitle = (newsList?.articles[currentNewsIndex].subtitle)!
         self.newsList?.news = newsList?.articles[currentNewsIndex]
+        self.isClassified = (self.newsList?.news!.isClassified)!
     }
 
     func markAsClassified() {
+        let isClassified = !self.isClassified
         //Comentado apenas para ver o preview
-        self.newsList?.updateNewsClassificationStatus(isClassified: true, context: self.managedObjectContext)
+        self.newsList?.updateNewsClassificationStatus(isClassified: isClassified, context: self.managedObjectContext)
+        self.isClassified.toggle()
     }
 }
 
