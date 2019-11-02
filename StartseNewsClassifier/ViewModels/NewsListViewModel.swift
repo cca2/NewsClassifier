@@ -130,7 +130,7 @@ class NewsListViewModel: ObservableObject {
             for data in result {
                 let news = NewsViewModel(data: data)
                 articles.append(news)
-//                self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news)
+                self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news)
 //                context.delete(data)
                 try context.save()
             }
