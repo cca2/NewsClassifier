@@ -16,19 +16,46 @@ import NaturalLanguage
 class NewsViewModel: Identifiable {
     let news:NewsModel
     
-    init(news:NewsModel) {
+//    init(news:NewsModel) {
+//        self.news = news
+//    }
+    
+//    init(newsFile:URL) throws{
+//        let decoder = JSONDecoder()
+//        do {
+//            let json = try Data(contentsOf: newsFile)
+//            news = try decoder.decode(NewsModel.self, from: json)
+//        }catch {
+//            throw error
+//        }
+//    }
+    
+    init (data:NewsData) {
+        recordName = data.value(forKey: "recordName") as? String
+        let id = (data.value(forKey: "id") as! UUID).uuidString.lowercased()
+        let title = data.value(forKey: "title") as! String
+        let subtitle = data.value(forKey: "subtitle") as! String
+        let link = data.value(forKey: "link") as! String
+        let text = data.value(forKey: "text") as! String
+        
+        let news = NewsModel(news_id: id, title: title, subtitle: subtitle, link: link, text: text, links: [], links_text: [])
         self.news = news
     }
     
-    init(newsFile:URL) throws{
-        let decoder = JSONDecoder()
+    init(record:CKRecord) throws {
+        recordName = record.recordID.recordName
         do {
-            let json = try Data(contentsOf: newsFile)
-            news = try decoder.decode(NewsModel.self, from: json)
+            let newsFile = record["newsFile"] as! CKAsset
+            let decoder = JSONDecoder()
+            let json = try Data(contentsOf: newsFile.fileURL!)
+            let news = try decoder.decode(NewsModel.self, from: json)
+            self.news = news
         }catch {
             throw error
         }
     }
+    
+    var recordName: String?
     
     var id: UUID {
         return UUID(uuidString: news.news_id)!

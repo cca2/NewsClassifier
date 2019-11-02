@@ -13,10 +13,14 @@ struct ContentView: View {
 
     @EnvironmentObject var newsList:NewsListViewModel
     
+    
     @State var selectedView = 0
     @State private var currentNewsIndex = 0
     
     private let dateFormater = DateFormatter()
+    
+    //Acessando o contexto para CoreData
+    @Environment(\.managedObjectContext) var managedObjectContext
 
     var body: some View {
         return TabView(selection: $selectedView) {
@@ -26,6 +30,7 @@ struct ContentView: View {
                         NewsView(title: newsList.articles[currentNewsIndex].title, subtitle: newsList.articles[currentNewsIndex].subtitle, numNews: newsList.articles.count, date: dateFormater.string(from: Date()), newsList: newsList)
                     }else {
                         Text("Carregando as notícias")
+                        
                     }
                 }.transition(.slide)
             }
@@ -46,11 +51,15 @@ struct ContentView: View {
                 Image(systemName: "2.circle")
                 Text("classificação")
             }.tag(1)
-        }
+        }.onAppear(perform: fetch)
     }
     
     init() {
         self.dateFormater.dateFormat = "EEEE, MMM d, yyyy"
+    }
+    
+    func fetch() {
+        self.newsList.loadLatestNews(context: self.managedObjectContext)
     }
 }
 

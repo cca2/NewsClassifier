@@ -18,6 +18,8 @@ struct NewsView: View {
     var date:String = "Quarta-feira 30 de outubro de 2019"
     var newsList:NewsListViewModel?
 
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     var body: some View {
         let drag = DragGesture()
             .onChanged {
@@ -64,6 +66,12 @@ struct NewsView: View {
             VStack (alignment: .leading){
                 Text(title).font(.headline).foregroundColor(.white).bold().padding([.top, .leading, .trailing], 20)
                 Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
+                VStack {
+                    Button(action: markAsClassified) {
+                        Image(systemName: "checkmark.circle").foregroundColor(.white)
+                    }
+                }.padding([.trailing, .bottom])
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }.background(Color.pink)
             .cornerRadius(20)
             .offset(x: offset.width, y: 0)
@@ -115,6 +123,13 @@ struct NewsView: View {
         self.newsList?.news = newsList?.articles[currentNewsIndex]
     }
 
+    func markAsClassified() {
+        do {
+            try self.newsList?.updateNewsClassificationStatus(isClassified: true, context: self.managedObjectContext)
+        }catch {
+            print("Error:\(error)")
+        }
+    }
 }
 
 struct NewsView_Previews: PreviewProvider {

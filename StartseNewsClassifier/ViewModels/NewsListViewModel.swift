@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import CoreData
 
 class NewsListViewModel: ObservableObject {
-    
     @Published var articles:[NewsViewModel] = []
     @Published var classifiedNews:[String:ClassifiedNewsViewModel] = [:]
         
@@ -121,20 +121,75 @@ class NewsListViewModel: ObservableObject {
         classifier.saveClassifiedSentences()
     }
     
-    func loadLatestNews() {
-        StartseNewsService().loadLatestNews() {
-            articles in
-            for news in articles {
-                self.articles.append(NewsViewModel(news: news))
-                self.classifiedNews[news.news_id] = ClassifiedNewsViewModel(news: news)
+    func loadLatestNews(context: NSManagedObjectContext) {
+        var articles:[NewsViewModel] = []
+        
+        do {
+            let result = try context.fetch(self.fetchAllNews())
+            for data in result {
+                let news = NewsViewModel(data: data)
+                articles.append(news)
+                self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news)
+//                context.delete(data)
+//                try context.save()
             }
+        }catch {
+            print("Error:\(error)")
+        }
+
+        StartseNewsService().loadLatestNews() {
+            records in
+            records.forEach {
+                record in
+                do {
+                    let newsModel = try NewsViewModel(record: record)
+                    if !articles.contains(where: {
+                        $0.recordName == newsModel.recordName
+                    }) {
+                        articles.append(newsModel)
+                        self.classifiedNews[newsModel.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: newsModel.news)
+                        let news = NewsData(context: context)
+                        news.recordName = record.recordID.recordName
+                        news.id = newsModel.id
+                        news.isClassified = false
+                        news.title = newsModel.title
+                        news.subtitle = newsModel.subtitle
+                        news.link = newsModel.link
+                        news.text = newsModel.text
+                        try context.save()
+                    }
+                }catch {
+                    print("Error: \(error)")
+                }
+            }
+            
+            self.articles = articles
             if articles.count > 0 {
-                self.news = NewsViewModel(news: articles[0])
+                self.news = articles[0]
             }
         }
     }
+}
+
+extension NewsListViewModel {
+    func fetchAllNews() -> NSFetchRequest<NewsData> {
+        let request = NSFetchRequest<NewsData>(entityName: "NewsData")
+        request.sortDescriptors = [NSSortDescriptor(key: "recordName", ascending: true)]
+        return request
+    }
     
-    init() {
-        loadLatestNews()
+    func updateNewsClassificationStatus(isClassified:Bool, context:NSManagedObjectContext) {
+        let request = NSFetchRequest<NewsData>(entityName: "NewsData")
+        request.predicate = NSPredicate(format: "recordName = %@", self.news!.recordName!)
+        
+        do {
+            let newsData = try context.fetch(request)
+            let newsToUpdate = newsData[0]
+            newsToUpdate.setValue(isClassified, forKey: "isClassified")
+            
+            try context.save()
+        }catch {
+            print("Error:\(error)")
+        }
     }
 }
