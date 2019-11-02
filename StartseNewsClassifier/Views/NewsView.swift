@@ -45,17 +45,13 @@ struct NewsView: View {
             VStack {
                 ZStack {
                     ZStack {
-                            Circle()
-                            .size(width: 40, height: 40)
-                            .fill(Color.pink)
-                            .frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
-                            .background(Color.green)
+                        Circle()
+                        .size(width: 40, height: 40)
+                        .fill(Color.pink)
 
                         Text("\(numNews)")
                         .font(.body)
                         .foregroundColor(.black)
-                        .frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
-                        .offset(x: -40, y: 0)
                     }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
                     .background(Color.yellow)
 
