@@ -17,8 +17,9 @@ struct NewsView: View {
 
     var date:String = "Quarta-feira 30 de outubro de 2019"
     var newsList:NewsListViewModel?
-
-    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    //Comentado apenas para ver o preview
+//    @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
         let drag = DragGesture()
@@ -41,38 +42,44 @@ struct NewsView: View {
         }
 
         return VStack (alignment: .leading) {
-            VStack (alignment: .leading) {
+            VStack {
                 ZStack {
-                    VStack {
-                        Circle()
-                        .size(width: 40, height: 40)
-                        .fill(Color.pink)
-                    }.frame(width: 40, height: 40)
-                    
-                    HStack {
+                    ZStack {
+                            Circle()
+                            .size(width: 40, height: 40)
+                            .fill(Color.pink)
+                            .frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
+                            .background(Color.green)
+
                         Text("\(numNews)")
                         .font(.body)
-                        .foregroundColor(.white)
-                    }.frame(width: 40, height: 40)
-                }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
-                .padding([.trailing], 20)
-            }
-            
-            VStack (alignment: .leading) {
-                Text(date).font(.body).foregroundColor(.gray)
-                Text("Notícia").font(.title).bold()
-            }.padding(50)
+                        .foregroundColor(.black)
+                        .frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
+                        .offset(x: -40, y: 0)
+                    }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
+                    .background(Color.yellow)
 
+                    VStack (alignment: .leading) {
+                        Text(date).font(.body).foregroundColor(.gray)
+                        Text("Notícia").font(.title).bold()
+                    }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .leading)
+                    .padding(40)
+                }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
+                    .padding([.top], 40)
+                
+            }.padding([.bottom], 50)
+                        
             VStack (alignment: .leading){
                 Text(title).font(.headline).foregroundColor(.white).bold().padding([.top, .leading, .trailing], 20)
                 Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
                 VStack {
                     Button(action: markAsClassified) {
-                        if (self.newsList?.news!.isClassified)! {
+                        //Comentado apenas para ver o preview
+//                        if (self.newsList?.news!.isClassified)! {
                             Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
-                        }else {
-                            Image(systemName: "checkmark.circle").foregroundColor(.white)
-                        }
+//                        }else {
+//                            Image(systemName: "checkmark.circle").foregroundColor(.white)
+//                        }
                     }
                 }.padding([.trailing, .bottom])
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
@@ -128,11 +135,8 @@ struct NewsView: View {
     }
 
     func markAsClassified() {
-        do {
-            try self.newsList?.updateNewsClassificationStatus(isClassified: true, context: self.managedObjectContext)
-        }catch {
-            print("Error:\(error)")
-        }
+        //Comentado apenas para ver o preview
+//        self.newsList?.updateNewsClassificationStatus(isClassified: true, context: self.managedObjectContext)
     }
 }
 
