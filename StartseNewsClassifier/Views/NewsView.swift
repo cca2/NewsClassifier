@@ -119,6 +119,10 @@ struct NewsView: View {
             }
         }
         .transition(.slide)
+        .onAppear() {
+            self.isClassified = (self.newsList?.news!.isClassified)!
+            self.numClassifiedNews = self.newsList?.numMarkAsClassifiedNews() ?? 0
+        }
     }
     
     init(title:String, subtitle:String, numNews:Int, date:String, newsList:NewsListViewModel?) {
@@ -128,6 +132,7 @@ struct NewsView: View {
         self._numClassifiedNews = State(initialValue: numNews)
         self.date = date
         self.newsList = newsList
+        self.newsList?.newsView = self
     }
     
     func nextNews() {

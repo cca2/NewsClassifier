@@ -21,6 +21,8 @@ class NewsListViewModel: ObservableObject {
     
     @Published var classifiedSentences:[SentenceViewModel] = []
 
+    var newsView:NewsView?
+    
     var news:NewsViewModel? {
         didSet {
             guard let currentNews = news else { return }
@@ -121,6 +123,14 @@ class NewsListViewModel: ObservableObject {
         classifier.saveClassifiedSentences()
     }
     
+    func  numMarkAsClassifiedNews() -> Int {
+        let markAsClassifiedNews = articles.filter{
+            $0.isClassified == true
+        }
+        
+        return markAsClassifiedNews.count
+    }
+    
     func loadLatestNews(context: NSManagedObjectContext) {
         var articles:[NewsViewModel] = []
         
@@ -198,5 +208,5 @@ extension NewsListViewModel {
         }catch {
             print("Error:\(error)")
         }
-    }
+    }    
 }

@@ -10,7 +10,10 @@ import SwiftUI
 
 struct ClassifiedNewsView: View {
     @EnvironmentObject var newsList:NewsListViewModel
-    
+
+    //Comentado apenas para ver o preview
+    @Environment(\.managedObjectContext) var context
+
     @State private var selectedSentence:SentenceViewModel?
 
 //    @State private var segmentSentences:[SentenceViewModel] = []
@@ -18,6 +21,8 @@ struct ClassifiedNewsView: View {
 //    @State private var solutionSentences:[SentenceViewModel] = []
 //    @State private var technologySentences:[SentenceViewModel] = []
 //    @State private var investmentSentences:[SentenceViewModel] = []
+    
+    @State private var hasFinishedClassification = false
 
     var body: some View {
         List {
@@ -266,7 +271,7 @@ struct ClassifiedNewsView: View {
                 }.onDelete(perform: removeSentenceFromInvestmentClassification)
             }
         }.navigationBarTitle("Frases")
-            .navigationBarItems(trailing: Button(action: finalizeClassification) {Text("finalizar")} )
+        .navigationBarItems(trailing: Button(action: finalizeClassification) {Text("finalizar")} )
     }
     
     func delete(at offsets: IndexSet) {
@@ -275,6 +280,7 @@ struct ClassifiedNewsView: View {
     
     func finalizeClassification() {
         print(">>> Finalizando a Classificação")
+        self.newsList.updateNewsClassificationStatus(isClassified: true, context: context)
     }
     
     func reclassifySentence(as newClassification:SentenceModel.Classification) {
@@ -331,7 +337,6 @@ struct ClassifiedNewsView: View {
         let sentence = self.newsList.newsInvestmentSentences[index]
         self.newsList.removeSentenceClassification(sentence: sentence, classification: .investment)
         self.newsList.newsInvestmentSentences.remove(atOffsets: offsets)
-
     }
 }
 
