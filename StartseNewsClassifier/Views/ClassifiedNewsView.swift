@@ -266,11 +266,15 @@ struct ClassifiedNewsView: View {
                 }.onDelete(perform: removeSentenceFromInvestmentClassification)
             }
         }.navigationBarTitle("Frases")
-            .navigationBarItems(trailing: Button("finalizar") {})
+            .navigationBarItems(trailing: Button(action: finalizeClassification) {Text("finalizar")} )
     }
     
     func delete(at offsets: IndexSet) {
         print("delete:\(offsets.filter{_ in true}[0])")
+    }
+    
+    func finalizeClassification() {
+        print(">>> Finalizando a Classificação")
     }
     
     func reclassifySentence(as newClassification:SentenceModel.Classification) {
