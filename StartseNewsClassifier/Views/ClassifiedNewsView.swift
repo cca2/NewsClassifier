@@ -12,14 +12,20 @@ struct ClassifiedNewsView: View {
     @EnvironmentObject var newsList:NewsListViewModel
     
     @State private var selectedSentence:SentenceViewModel?
-    
+
+    @State private var segmentSentences:[SentenceViewModel] = []
+    @State private var problemSentences:[SentenceViewModel] = []
+    @State private var solutionSentences:[SentenceViewModel] = []
+    @State private var technologySentences:[SentenceViewModel] = []
+    @State private var investmentSentences:[SentenceViewModel] = []
+
     var body: some View {
         VStack {
             Text("Classificação").font(.headline)
             
             List {
                 Section(header: Text(SentenceModel.Classification.segment.rawValue)) {
-                    ForEach(newsList.newsSegmentSentences) { sentence in
+                    ForEach(segmentSentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
                             if !sentence.containsSegment {
@@ -68,7 +74,7 @@ struct ClassifiedNewsView: View {
                 }
 
                 Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
-                    ForEach(newsList.newsProblemSentences) { sentence in
+                    ForEach(problemSentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
                             if !sentence.containsSegment {
@@ -117,7 +123,7 @@ struct ClassifiedNewsView: View {
                 }
 
                 Section(header: Text(SentenceModel.Classification.solution.rawValue)) {
-                    ForEach(newsList.newsSolutionSentences) { sentence in
+                    ForEach(solutionSentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
                             if !sentence.containsSegment {
@@ -166,7 +172,7 @@ struct ClassifiedNewsView: View {
                 }
 
                 Section(header: Text(SentenceModel.Classification.technology.rawValue)) {
-                    ForEach(newsList.newsTechnologySentences) { sentence in
+                    ForEach(technologySentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
                             if !sentence.containsSegment {
@@ -215,7 +221,7 @@ struct ClassifiedNewsView: View {
                 }
 
                 Section(header: Text(SentenceModel.Classification.investment.rawValue)) {
-                    ForEach(newsList.newsInvestmentSentences) { sentence in
+                    ForEach(investmentSentences) { sentence in
                         Text("\(sentence.text)")
                         .contextMenu() {
                             if !sentence.containsSegment {
@@ -262,6 +268,8 @@ struct ClassifiedNewsView: View {
                         }
                     }.onDelete(perform: removeSentenceFromInvestmentClassification)
                 }
+            }.onAppear() {
+                //self.segmentSentences = self.newsList.newsSegmentSentences
             }
         }
     }

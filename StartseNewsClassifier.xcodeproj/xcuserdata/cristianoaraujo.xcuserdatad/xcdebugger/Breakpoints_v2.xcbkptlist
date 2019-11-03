@@ -15,7 +15,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "336"
-            endingLineNumber = "336">
+            endingLineNumber = "336"
+            landmarkName = "removeSentenceFromInvestmentClassification(at:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -491,7 +493,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "328"
             endingLineNumber = "328"
-            landmarkName = "removeSentenceFromInvestmentClassification(at:)"
+            landmarkName = "removeSentenceFromTechnologyClassification(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -507,8 +509,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "313"
             endingLineNumber = "313"
-            landmarkName = "ClassifiedNewsView"
-            landmarkType = "14">
+            landmarkName = "removeSentenceFromProblemClassification(at:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "2BE88CDD-4357-4214-9FC6-574AA70EF203 - eb620c1c4c38c0bd"
@@ -1008,7 +1010,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "322"
             endingLineNumber = "322"
-            landmarkName = "removeSentenceFromInvestmentClassification(at:)"
+            landmarkName = "removeSentenceFromTechnologyClassification(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1040,8 +1042,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "ClassifiedNewsView"
+            landmarkType = "14">
             <Locations>
                <Location
                   uuid = "73AC7CDA-E0A6-4E01-B7A5-F3AF5EA5E9B2 - 34bc61ded1eaee86"
@@ -1120,8 +1122,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "274"
             endingLineNumber = "274"
-            landmarkName = "reclassifySentence(as:)"
-            landmarkType = "7">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
