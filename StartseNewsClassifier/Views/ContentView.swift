@@ -23,7 +23,8 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     var body: some View {
-        return TabView(selection: $selectedView) {
+        return
+//        TabView(selection: $selectedView) {
             NavigationView {
                 HStack {
                     if !(self.newsList.articles.count == 0) {
@@ -33,25 +34,25 @@ struct ContentView: View {
                         
                     }
                 }.transition(.slide)
-            }
-            .tabItem {
-                Image(systemName: "1.circle")
-                Text("notícia")
-            }
-            .tag(0)
-            .transition(.slide)
-            
-            Group {
-                if (newsList.articles.count > 0) {
-                    ClassifiedNewsView()
-                }else {
-                    Text("Ainda não temos notícias")
-                }
-            }.tabItem {
-                Image(systemName: "2.circle")
-                Text("classificação")
-            }.tag(1)
         }.onAppear(perform: fetch)
+//            .tabItem {
+//                Image(systemName: "1.circle")
+//                Text("notícia")
+//            }
+//            .tag(0)
+//            .transition(.slide)
+//
+//            Group {
+//                if (newsList.articles.count > 0) {
+//                    ClassifiedNewsView()
+//                }else {
+//                    Text("Ainda não temos notícias")
+//                }
+//            }.tabItem {
+//                Image(systemName: "2.circle")
+//                Text("classificação")
+//            }.tag(1)
+//        }.onAppear(perform: fetch)
     }
     
     init() {

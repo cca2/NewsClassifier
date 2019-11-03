@@ -54,19 +54,9 @@ struct ClassificationView: View {
             }
         
         return VStack {
-//            if (hasFinishedClassification) {
-//                VStack {
-//                    Button(action: restartClassification, label: {Text("Reclassificar")})
-//                    Spacer()
-//                    Button(action: saveClassification, label: {Text("Salvar")})
-//                }.frame(width: 100, height: 100, alignment: .center)
-//            }else {
-
-//                VStack(alignment: .trailing) {
-//                    Text("\(self.currentSentenceIndex + 1)/" + "\(self.numSentences)").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-//                        .font(.title)
-//                }.padding([.top, .trailing], 30)
-
+            if (hasFinishedClassification) {
+                ClassifiedNewsView().animation(.easeIn)
+            }else {
                 ZStack {
                     VStack {
                         Circle()
@@ -78,6 +68,7 @@ struct ClassificationView: View {
                         Circle()
                         .size(width: 50, height: 50)
                         .fill(Color.pink)
+                            
                     }.frame(width: 50, height: 50)
                         .offset(x: -25, y: -25)
 
@@ -177,8 +168,7 @@ struct ClassificationView: View {
                     }
                     Spacer()
                 }.offset(CGSize(width: 0, height: -55))
-
-//            }
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .padding(.bottom)
