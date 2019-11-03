@@ -61,10 +61,41 @@ struct ClassificationView: View {
 //                    Button(action: saveClassification, label: {Text("Salvar")})
 //                }.frame(width: 100, height: 100, alignment: .center)
 //            }else {
-                VStack(alignment: .trailing) {
-                    Text("\(self.currentSentenceIndex + 1)/" + "\(self.numSentences)").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                        .font(.title)
-                }.padding([.top, .trailing], 30)
+
+//                VStack(alignment: .trailing) {
+//                    Text("\(self.currentSentenceIndex + 1)/" + "\(self.numSentences)").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+//                        .font(.title)
+//                }.padding([.top, .trailing], 30)
+
+                ZStack {
+                    VStack {
+                        Circle()
+                        .size(width: 40, height: 40)
+                        .fill(Color.pink)
+                    }.frame(width: 40, height: 40)
+
+                    VStack {
+                        Circle()
+                        .size(width: 50, height: 50)
+                        .fill(Color.pink)
+                    }.frame(width: 50, height: 50)
+                        .offset(x: -25, y: -25)
+
+                    VStack {
+                        Text("\(self.numSentences)")
+                        .font(.body)
+                        .bold()
+                        .foregroundColor(.white)
+                    }.frame(width: 40, height: 40)
+                    VStack {
+                        Text("\(self.currentSentenceIndex + 1)")
+                        .font(.body)
+                        .bold()
+                        .foregroundColor(.white)
+                    }.frame(width: 50, height: 50)
+                    .offset(x: -25, y: -25)
+                }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
+                    .padding([.top], 40)
 
                 SentenceView(text: text)
                 .offset(x: offset.width, y: 0)
@@ -152,8 +183,10 @@ struct ClassificationView: View {
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .padding(.bottom)
         .onAppear() {
+            //Comentado apenas para o Preview
             guard let news = self.newsList.news else { return }
             guard let classifier = self.newsList.classifiedNews[(news.id.uuidString.lowercased())] else {return}
+            self.numSentences = classifier.sentenceList.count
             self.text = classifier.sentenceList[0].text
             self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
             self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
@@ -167,10 +200,6 @@ struct ClassificationView: View {
         hasFinishedClassification = true
     }
 
-//    func restartClassification() {
-//        hasFinishedClassification = false
-//    }
-//
     func saveClassification() {
         let classifier = self.newsList.classifiedNews[(self.newsList.news?.id.uuidString.lowercased())!]
         classifier?.saveClassifiedSentences()
@@ -241,7 +270,6 @@ struct ClassificationView: View {
 
 struct ClassificationView_Previews: PreviewProvider {
     static var previews: some View {
-//        ClassificationView(news: NewsModel(news_id: "001", title: "Isto é um título", subtitle: "Agora vai mesmo porque é assim", link: "http://cin.ufpe.br", text: "Isto é um texto muito grande", links: [], links_text: []))
         ClassificationView()
     }
 }
