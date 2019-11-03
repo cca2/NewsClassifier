@@ -95,7 +95,7 @@ struct ClassificationView: View {
                     }.frame(width: 50, height: 50)
                     .offset(x: -25, y: -25)
                 }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
-                    .padding([.trailing], 40)
+                    .padding([.top], 40)
 
                 SentenceView(text: text)
                 .offset(x: offset.width, y: 0)
@@ -186,6 +186,7 @@ struct ClassificationView: View {
             //Comentado apenas para o Preview
             guard let news = self.newsList.news else { return }
             guard let classifier = self.newsList.classifiedNews[(news.id.uuidString.lowercased())] else {return}
+            self.numSentences = classifier.sentenceList.count
             self.text = classifier.sentenceList[0].text
             self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
             self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
