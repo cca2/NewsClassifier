@@ -91,13 +91,11 @@ struct NewsView: View {
                 Text(title).font(.headline).foregroundColor(.white).bold().padding([.top, .leading, .trailing], 20)
                 Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
                 VStack {
-                    Button(action: markAsClassified) {
-                        //Comentado apenas para ver o preview
-                        if (self.isClassified) {
-                            Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
-                        }else {
-                            Image(systemName: "checkmark.circle").foregroundColor(.white)
-                        }
+                    //Comentado apenas para ver o preview
+                    if (self.isClassified) {
+                        Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
+                    }else {
+                        Image(systemName: "checkmark.circle").foregroundColor(.white)
                     }
                 }.padding([.trailing, .bottom])
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
@@ -158,19 +156,6 @@ struct NewsView: View {
         self.subtitle = (newsList?.articles[currentNewsIndex].subtitle)!
         self.newsList?.news = newsList?.articles[currentNewsIndex]
         self.isClassified = (self.newsList?.news!.isClassified)!
-    }
-
-    func markAsClassified() {
-        let isClassified = !self.isClassified
-        //Comentado apenas para ver o preview
-        self.newsList?.updateNewsClassificationStatus(isClassified: isClassified, context: self.managedObjectContext)
-        self.isClassified.toggle()
-        
-        if isClassified {
-            self.numClassifiedNews = self.numClassifiedNews - 1
-        }else {
-            self.numClassifiedNews = self.numClassifiedNews + 1
-        }
     }
 }
 

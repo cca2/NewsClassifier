@@ -142,7 +142,7 @@ class NewsListViewModel: ObservableObject {
                 articles.append(news)
                 self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news)
 //                context.delete(data)
-                try context.save()
+//                try context.save()
             }
         }catch {
             print("Error:\(error)")
