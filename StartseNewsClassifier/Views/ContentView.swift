@@ -14,8 +14,6 @@ struct ContentView: View {
     @EnvironmentObject var newsList:NewsListViewModel
     
     
-    @State var selectedView = 0
-    @State private var currentNewsIndex = 0
     
     private let dateFormater = DateFormatter()
     
@@ -26,15 +24,13 @@ struct ContentView: View {
         return
             NavigationView {
                 HStack {
-                    if !(self.newsList.articles.count == 0) {
-                        NewsView(title: newsList.articles[currentNewsIndex].title, subtitle: newsList.articles[currentNewsIndex].subtitle, numNews: newsList.articles.count, date: dateFormater.string(from: Date()), newsList: newsList)
+                    if !(self.newsList.articles.count == self.newsList.numMarkAsClassifiedNews()) {
+                        NewsView(title: newsList.articles.first!.title, subtitle: newsList.articles.first!.subtitle, numNews: newsList.articles.count, date: dateFormater.string(from: Date()), newsList: newsList)
                     }else {
                         FetchNewsView()
-                        
                     }
                 }.transition(.slide)
         }
-//        .onAppear(perform: fetch)
     }
     
     init() {

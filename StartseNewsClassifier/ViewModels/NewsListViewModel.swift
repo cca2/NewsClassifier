@@ -22,6 +22,8 @@ class NewsListViewModel: ObservableObject {
     @Published var classifiedSentences:[SentenceViewModel] = []
     
     @Published var isLoading:Bool = false
+    
+    @Published var classificationCompleted:Bool = false
 
     var newsView:NewsView?
     
@@ -213,8 +215,14 @@ extension NewsListViewModel {
             let newsToUpdate = newsData[0]
             newsToUpdate.setValue(isClassified, forKey: "isClassified")
             self.news?.isClassified = isClassified
-            
+    
             try context.save()
+            
+            if articles.count == self.numMarkAsClassifiedNews() {
+                self.classificationCompleted = true
+            }else {
+                self.classificationCompleted = false
+            }
         }catch {
             print("Error:\(error)")
         }
