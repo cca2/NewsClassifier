@@ -179,9 +179,16 @@ class NewsListViewModel: ObservableObject {
             })
 
             if articles.count > 0 {
+                //Separa as primeiras 3 notícias não classificadas para classificação
+                var firstThreeNews:[NewsViewModel] = []
+                if articles.count >= 3 {
+                    firstThreeNews = Array(articles[0...2])
+                }else {
+                    firstThreeNews = Array(articles[0..<articles.count])
+                }
+                self.articles = firstThreeNews
                 self.news = articles[0]
             }
-            self.articles = articles
         }
     }
 }
