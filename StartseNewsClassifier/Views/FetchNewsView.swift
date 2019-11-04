@@ -8,8 +8,27 @@
 
 import SwiftUI
 
+struct ActivityIndicator: UIViewRepresentable {
+
+    @Binding var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+
+    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+        return UIActivityIndicatorView(style: style)
+    }
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    }
+}
+
 struct FetchNewsView: View {
     @State private var offset:CGSize = .zero
+    @State private var isLoading:Bool = false
+    
+    @EnvironmentObject var newsList:NewsListViewModel
+    //Acessando o contexto para CoreData
+    @Environment(\.managedObjectContext) var context
 
     var body: some View {
         let drag = DragGesture()
@@ -30,6 +49,10 @@ struct FetchNewsView: View {
         }
 
         return VStack {
+            if (self.newsList.isLoading) {
+                ActivityIndicator(isAnimating: .constant(true), style: .large)
+            }
+            
             Text("300").bold().font(.title)
             Text("Notícias classificadas")
             Text("Que tal classificar mais")
@@ -48,8 +71,11 @@ struct FetchNewsView: View {
         .gesture(drag)
         
     }
-    
-    func fetchNextNewsToClassify() {}
+        
+    func fetchNextNewsToClassify() {
+        self.isLoading = true
+        self.newsList.loadLatestNews(context: self.context)
+    }
 }
 
 struct FetchNewsView_Previews: PreviewProvider {

@@ -24,35 +24,17 @@ struct ContentView: View {
 
     var body: some View {
         return
-//        TabView(selection: $selectedView) {
             NavigationView {
                 HStack {
                     if !(self.newsList.articles.count == 0) {
                         NewsView(title: newsList.articles[currentNewsIndex].title, subtitle: newsList.articles[currentNewsIndex].subtitle, numNews: newsList.articles.count, date: dateFormater.string(from: Date()), newsList: newsList)
                     }else {
-                        Text("Carregando as notícias")
+                        FetchNewsView()
                         
                     }
                 }.transition(.slide)
-        }.onAppear(perform: fetch)
-//            .tabItem {
-//                Image(systemName: "1.circle")
-//                Text("notícia")
-//            }
-//            .tag(0)
-//            .transition(.slide)
-//
-//            Group {
-//                if (newsList.articles.count > 0) {
-//                    ClassifiedNewsView()
-//                }else {
-//                    Text("Ainda não temos notícias")
-//                }
-//            }.tabItem {
-//                Image(systemName: "2.circle")
-//                Text("classificação")
-//            }.tag(1)
-//        }.onAppear(perform: fetch)
+        }
+//        .onAppear(perform: fetch)
     }
     
     init() {

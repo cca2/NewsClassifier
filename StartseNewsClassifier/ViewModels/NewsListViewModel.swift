@@ -20,6 +20,8 @@ class NewsListViewModel: ObservableObject {
     @Published var newsInvestmentSentences:[SentenceViewModel] = []
     
     @Published var classifiedSentences:[SentenceViewModel] = []
+    
+    @Published var isLoading:Bool = false
 
     var newsView:NewsView?
     
@@ -134,7 +136,7 @@ class NewsListViewModel: ObservableObject {
     func loadLatestNews(context: NSManagedObjectContext) {
         var articles:[NewsViewModel] = []
         
-        
+        self.isLoading = true
         do {
             let result = try context.fetch(self.fetchAllNews())
             for data in result {
@@ -189,6 +191,7 @@ class NewsListViewModel: ObservableObject {
                 self.articles = firstThreeNews
                 self.news = articles[0]
             }
+            self.isLoading = false
         }
     }
 }

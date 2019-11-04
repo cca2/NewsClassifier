@@ -152,7 +152,6 @@
 			children = (
 				DA8912EE23645DF7007C8D1D /* SentenceClassifier.swift */,
 				DA8912F123645ED3007C8D1D /* StartseNewsService.swift */,
-				DA919510236FA44E009AFBD2 /* FetchNewsView.swift */,
 				DA61AE74235BD45F000F1E46 /* ActOnClassification.swift */,
 			);
 			path = "Support Classes";
@@ -228,6 +227,7 @@
 		DACA77C4235385A4000EE9A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA919510236FA44E009AFBD2 /* FetchNewsView.swift */,
 				DA61AE6A2359E7A9000F1E46 /* ClassifiedNewsView.swift */,
 				DACA77C5235385C7000EE9A7 /* SentenceView.swift */,
 				DA61AE78235C075D000F1E46 /* ContentView.swift */,
