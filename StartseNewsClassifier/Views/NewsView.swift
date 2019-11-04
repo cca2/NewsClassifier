@@ -25,22 +25,22 @@ struct NewsView: View {
     
     var body: some View {
         let drag = DragGesture()
-            .onChanged {
-                self.offset = $0.translation
-            }
+        .onChanged {
+            self.offset = $0.translation
+        }
 
-            .onEnded {
-                if ($0.translation.height < 50 && $0.translation.height > -50) {
-                    if $0.translation.width < -50 {
-                        self.nextNews()
-                        self.offset = .init(width: 0, height: 0)
-                    }else if $0.translation.width > 50 {
-                        self.previousNews()
-                        self.offset = .init(width: 0, height: 0)
-                    }else {
-                        self.offset = .zero
-                    }
+        .onEnded {
+            if ($0.translation.height < 50 && $0.translation.height > -50) {
+                if $0.translation.width < -50 {
+                    self.nextNews()
+                    self.offset = .init(width: 0, height: 0)
+                }else if $0.translation.width > 50 {
+                    self.previousNews()
+                    self.offset = .init(width: 0, height: 0)
+                }else {
+                    self.offset = .zero
                 }
+            }
         }
 
         return VStack (alignment: .leading) {
