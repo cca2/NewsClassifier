@@ -53,7 +53,7 @@ struct FetchNewsView: View {
                 ActivityIndicator(isAnimating: .constant(true), style: .large)
             }
             
-            Text("300").bold().font(.title)
+            Text("\(self.newsList.totalClassifiedNews)").bold().font(.title)
             Text("Notícias classificadas")
             Text("Que tal classificar mais")
             Text("3").bold().font(.title)

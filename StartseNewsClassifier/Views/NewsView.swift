@@ -93,8 +93,10 @@ struct NewsView: View {
         .transition(.slide)
         .onAppear() {
             if ((self.newsList?.news!.isClassified)!) {
-                self.newsList!.currentNewsIndex = self.newsList!.currentNewsIndex + 1
-                self.newsList!.news = self.newsList!.articles[self.newsList!.currentNewsIndex]
+                if self.newsList!.currentNewsIndex < self.newsList!.articles.count - 1 {
+                    self.newsList!.currentNewsIndex = self.newsList!.currentNewsIndex + 1
+                    self.newsList!.news = self.newsList!.articles[self.newsList!.currentNewsIndex]
+                }
             }
             self.numClassifiedNews = self.newsList?.numMarkAsClassifiedNews() ?? 0
         }

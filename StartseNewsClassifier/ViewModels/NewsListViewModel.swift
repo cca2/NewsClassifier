@@ -24,10 +24,16 @@ class NewsListViewModel: ObservableObject {
     @Published var isLoading:Bool = false
     
     @Published var classificationCompleted:Bool = false
-
+    
     var newsView:NewsView?
     
     var currentNewsIndex = 0
+    
+    var totalClassifiedNews:Int {
+        let defaults = UserDefaults.standard
+        let val = defaults.integer(forKey: "totalClassifiedNews")
+        return val
+    }
     
     var news:NewsViewModel? {
         didSet {
@@ -139,6 +145,7 @@ class NewsListViewModel: ObservableObject {
     
     func loadLatestNews(context: NSManagedObjectContext) {
         var articles:[NewsViewModel] = []
+        self.currentNewsIndex = 0
         
         self.isLoading = true
         do {
@@ -147,6 +154,7 @@ class NewsListViewModel: ObservableObject {
                 let news = NewsViewModel(data: data)
                 articles.append(news)
                 self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news)
+//                UserDefaults.standard.set(0, forKey: "totalClassifiedNews")
 //                context.delete(data)
 //                try context.save()
             }
@@ -208,6 +216,9 @@ extension NewsListViewModel {
     }
     
     func updateNewsClassificationStatus(isClassified:Bool, context:NSManagedObjectContext) {
+        let defaults = UserDefaults.standard
+        let totalClassifiedNews = defaults.integer(forKey: "totalClassifiedNews")
+        
         let request = NSFetchRequest<NewsData>(entityName: "NewsData")
         let predicate = NSPredicate(format: "recordName = %@", self.news!.recordName!)
         request.predicate = predicate
@@ -220,6 +231,7 @@ extension NewsListViewModel {
     
             try context.save()
             
+            defaults.set(totalClassifiedNews + 1, forKey: "totalClassifiedNews")
             if articles.count == self.numMarkAsClassifiedNews() {
                 self.classificationCompleted = true
             }else {
