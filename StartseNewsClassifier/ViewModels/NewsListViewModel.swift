@@ -27,6 +27,8 @@ class NewsListViewModel: ObservableObject {
 
     var newsView:NewsView?
     
+    var currentNewsIndex = 0
+    
     var news:NewsViewModel? {
         didSet {
             guard let currentNews = news else { return }

@@ -20,29 +20,7 @@ struct NewsView: View {
     var date:String = "Quarta-feira 30 de outubro de 2019"
     var newsList:NewsListViewModel?
     
-    //Comentado apenas para ver o preview
-    @Environment(\.managedObjectContext) var managedObjectContext
-    
     var body: some View {
-        let drag = DragGesture()
-        .onChanged {
-            self.offset = $0.translation
-        }
-
-        .onEnded {
-            if ($0.translation.height < 50 && $0.translation.height > -50) {
-                if $0.translation.width < -50 {
-                    self.nextNews()
-                    self.offset = .init(width: 0, height: 0)
-                }else if $0.translation.width > 50 {
-                    self.previousNews()
-                    self.offset = .init(width: 0, height: 0)
-                }else {
-                    self.offset = .zero
-                }
-            }
-        }
-
         return VStack (alignment: .leading) {
             VStack {
                 ZStack {
@@ -86,39 +64,38 @@ struct NewsView: View {
                     .padding([.top], 40)
                 
             }.padding([.bottom], 50)
-                        
-            VStack (alignment: .leading){
-                Text(title).font(.headline).foregroundColor(.white).bold().padding([.top, .leading, .trailing], 20)
-                Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
-                VStack {
-                    //Comentado apenas para ver o preview
-                    if (self.isClassified) {
-                        Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
-                    }else {
-                        Image(systemName: "checkmark.circle").foregroundColor(.white)
-                    }
-                }.padding([.trailing, .bottom])
-                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-            }.background(Color.pink)
-            .cornerRadius(20)
-            .offset(x: offset.width, y: 0)
-            .gesture(drag)
-            .padding([.leading, .trailing], 30)
+            NavigationLink(destination: ClassificationView()) {
+                VStack (alignment: .leading){
+                    Text(title).font(.headline).foregroundColor(.white).bold().padding([.top, .leading, .trailing], 20)
+                    Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
+                    VStack {
+                        //Comentado apenas para ver o preview
+                        if (self.isClassified) {
+                            Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
+                        }else {
+                            Image(systemName: "checkmark.circle").foregroundColor(.white)
+                        }
+                    }.padding([.trailing, .bottom])
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                }.onAppear() {
+                    self.title = (self.newsList?.news!.title)!
+                    self.subtitle = (self.newsList?.news!.subtitle)!
+                    self.isClassified = (self.newsList?.news!.isClassified)!
+                }
+                .background(Color.pink)
+                .cornerRadius(20)
+                .offset(x: offset.width, y: 0)
+                .padding([.leading, .trailing], 30)
+            }
             
             Spacer()
-            
-            VStack (alignment: .trailing) {
-                NavigationLink(destination: ClassificationView()) {
-                    HStack {
-                        Text("classificar").frame(minWidth: 0, maxWidth: .infinity, minHeight: 40).background(Color.red)
-                        Image(systemName: "chevron.right").padding([Edge.Set.trailing], 10)
-                    }.frame(minWidth: 0, maxWidth: .infinity, minHeight:40, alignment: .center).background(Color.pink).foregroundColor(.white)
-                }
-            }
         }
         .transition(.slide)
         .onAppear() {
-            self.isClassified = (self.newsList?.news!.isClassified)!
+            if ((self.newsList?.news!.isClassified)!) {
+                self.newsList!.currentNewsIndex = self.newsList!.currentNewsIndex + 1
+                self.newsList!.news = self.newsList!.articles[self.newsList!.currentNewsIndex]
+            }
             self.numClassifiedNews = self.newsList?.numMarkAsClassifiedNews() ?? 0
         }
     }

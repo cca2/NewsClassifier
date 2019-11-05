@@ -15,12 +15,6 @@ struct ClassifiedNewsView: View {
     @Environment(\.managedObjectContext) var context
 
     @State private var selectedSentence:SentenceViewModel?
-
-//    @State private var segmentSentences:[SentenceViewModel] = []
-//    @State private var problemSentences:[SentenceViewModel] = []
-//    @State private var solutionSentences:[SentenceViewModel] = []
-//    @State private var technologySentences:[SentenceViewModel] = []
-//    @State private var investmentSentences:[SentenceViewModel] = []
     
     @State private var hasFinishedClassification = false
 
@@ -280,7 +274,7 @@ struct ClassifiedNewsView: View {
     
     func finalizeClassification() {
         print(">>> Finalizando a Classificação")
-        self.newsList.updateNewsClassificationStatus(isClassified: true, context: context)
+        self.newsList.updateNewsClassificationStatus(isClassified: true, context: context)        
     }
     
     func reclassifySentence(as newClassification:SentenceModel.Classification) {
