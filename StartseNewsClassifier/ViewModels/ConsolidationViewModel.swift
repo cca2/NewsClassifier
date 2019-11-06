@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class ConsolidationViewModel {
+class ConsolidationViewModel: ObservableObject {
     private var context:NSManagedObjectContext
     
     var segmentSentences:[SentenceViewModel] {
@@ -23,7 +23,8 @@ class ConsolidationViewModel {
     private func fetchSentences() -> [SentenceViewModel]{
         var result:[SentenceViewModel] = []
         let request = NSFetchRequest<SentenceData>(entityName: "SentenceData")
-        let predicate = NSPredicate(format: "containsSegment = %@", true)
+//        let predicate = NSPredicate(format: "containsSegment == %@", true)
+        let predicate = NSPredicate(format: "containsSegment == true")
         request.predicate = predicate
         
         do {
@@ -31,7 +32,8 @@ class ConsolidationViewModel {
             let sentences = sentenceData
             
             sentences.forEach{sentence in
-                print (sentence.text!)
+                let sentenceViewModel = SentenceViewModel(sentenceModel: SentenceModel(id: UUID(uuidString: sentence.id!)!, text: sentence.text!, classifications: []))
+                result.append(sentenceViewModel)
             }
         }catch {
             print("Error: \(error)")

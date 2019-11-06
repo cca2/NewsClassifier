@@ -37,6 +37,7 @@ struct ConsolidationView: View {
             }
         }.onAppear() {
             self.consolidationViewModel = ConsolidationViewModel(context: self.context)
+            self.sentences = self.consolidationViewModel!.segmentSentences
         }
     }
 }
