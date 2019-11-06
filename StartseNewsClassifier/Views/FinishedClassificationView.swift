@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FinishedClassificationView: View {
     private let actOnClassification:ActOnClassification
-    private let classifier:ClassifiedNewsViewModel
+//    private let classifier:ClassifiedNewsViewModel
     
     var body: some View {
         VStack {
@@ -22,7 +22,7 @@ struct FinishedClassificationView: View {
     
     init (actOnFinishedClassification:ActOnClassification, news:NewsModel) {
         self.actOnClassification = actOnFinishedClassification
-        self.classifier = ClassifiedNewsViewModel(news: news)
+//        self.classifier = ClassifiedNewsViewModel(news: news)
     }
     
     func restartClassification() {
@@ -30,7 +30,7 @@ struct FinishedClassificationView: View {
     }
     
     func saveClassification() {
-        classifier.saveClassifiedSentences()
+//        classifier.saveClassifiedSentences()
     }
 }
 

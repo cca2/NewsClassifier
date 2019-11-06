@@ -21,7 +21,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     var body: some View {
-        return
+        TabView() {
             NavigationView {
                 HStack {
                     if !(self.newsList.articles.count == self.newsList.numMarkAsClassifiedNews()) {
@@ -30,6 +30,14 @@ struct ContentView: View {
                         FetchNewsView()
                     }
                 }.transition(.slide)
+            }.tabItem({
+                Text("Classificação")
+            })
+            
+            ConsolidationView()
+            .tabItem({
+                Text("Consolidação")
+            })
         }
     }
     

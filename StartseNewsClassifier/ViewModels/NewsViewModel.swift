@@ -16,10 +16,10 @@ import NaturalLanguage
 class NewsViewModel: Identifiable {
     let news:NewsModel
     
-    init (data:NewsData) {
+    init (data:ClassifiedNewsData) {
         recordName = data.value(forKey: "recordName") as? String
         isClassified = data.value(forKey: "isClassified") as! Bool
-        let id = (data.value(forKey: "id") as! UUID).uuidString.lowercased()
+        let id = (data.value(forKey: "id") as! String)
         let title = data.value(forKey: "title") as! String
         let subtitle = data.value(forKey: "subtitle") as! String
         let link = data.value(forKey: "link") as! String

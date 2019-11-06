@@ -8,6 +8,7 @@
 
 import Foundation
 import NaturalLanguage
+import CoreData
 
 class ClassifiedNewsViewModel: ObservableObject {
         
@@ -19,12 +20,14 @@ class ClassifiedNewsViewModel: ObservableObject {
     
     let news:NewsModel
     var classifiedNews:ClassifiedNewsModel
+    var context: NSManagedObjectContext
     
     @Published var classifiedSentencesDictionary:[SentenceModel.Classification:[UUID:SentenceModel]] = [:]
     
-    init(news:NewsModel) {
+    init(news:NewsModel, context: NSManagedObjectContext) {
         self.news = news
         self.classifiedNews = ClassifiedNewsModel(newsModel: news, classifiedSentences: [])
+        self.context = context
 
         classifiedSentencesDictionary[.none] = [:]
         classifiedSentencesDictionary[.segment] = [:]
@@ -35,7 +38,54 @@ class ClassifiedNewsViewModel: ObservableObject {
         classifiedSentencesDictionary[.partnership] = [:]
         
         
-        fetchListOfNews()
+//        fetchListOfNews()
+        fetchListOfSentences()
+    }
+    
+    private func fetchListOfSentences() {
+        let request = NSFetchRequest<SentenceData>(entityName: "SentenceData")
+        let predicate = NSPredicate(format: "ofNews.id == %@", news.news_id)
+        request.predicate = predicate
+        
+        do {
+            let sentenceData = try context.fetch(request)
+            let sentences = sentenceData
+            sentences.forEach{sentence in
+                var classifications:[SentenceModel.Classification] = []
+                let id = sentence.id
+                let text = sentence.text
+                
+                if sentence.containsSegment {
+                    classifications.append(.segment)
+                }
+                
+                if sentence.containsProblem {
+                    classifications.append(.problem)
+                }
+                
+                if sentence.containsSolution {
+                    classifications.append(.solution)
+                }
+                
+                if sentence.containsTechnology {
+                    classifications.append(.technology)
+                }
+                
+                if sentence.containsInvestment {
+                    classifications.append(.investment)
+                }
+                
+                let sentenceModel = SentenceModel(id: UUID(uuidString: sentence.id!)!, text: text!, classifications: classifications)
+                self.classifiedNews.classifiedSentences.append(sentenceModel)
+                
+                for classification in classifications {
+                    self.classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
+                }
+            }
+        }catch {
+            print("Error: \(error)")
+        }
+
     }
     
     func classifySentenceAs(sentence:SentenceModel, newClassification:SentenceModel.Classification) {                
@@ -87,68 +137,11 @@ class ClassifiedNewsViewModel: ObservableObject {
             let encoder = JSONEncoder()
             let data = try encoder.encode(classifiedNews)
             try data.write(to: classifiedNewsPath)
+            
+            //AQUI:Salva sentenças em CoreData
+            
         }catch {
             print("Error:\(error)")
         }
-    }
-    
-    private func breakIntoSentences() {
-        let tagger = NLTagger(tagSchemes: [.lexicalClass])
-        var text = self.news.text
-        text = text.replacingOccurrences(of: ".", with: ". ").trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        tagger.string = text
-        
-        let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace]
-        tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .sentence, scheme: .lexicalClass, options: options) { tag, tokenRange in
-            let sentence = "\(text[tokenRange].trimmingCharacters(in: .whitespacesAndNewlines))"
-            let sentenceJSON = SentenceModel(id:UUID(), text: sentence, classifications: [])
-            self.classifiedNews.classifiedSentences.append(sentenceJSON)
-            return true
-        }
-    }
-        
-    private func fetchListOfNews() {
-        //Verify is a jsonFile e local exists
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-
-        do {
-            let classifiedNewsPath = documentsURL.appendingPathComponent("classifiedNews-\(self.news.news_id).json")
-            if !fileManager.fileExists(atPath: classifiedNewsPath.path) {
-                self.breakIntoSentences()
-            }else {
-                var json: Any?
-                // Getting data from JSON file using the file URL
-                let data = try Data(contentsOf: classifiedNewsPath, options: .mappedIfSafe)
-                json = try? JSONSerialization.jsonObject(with: data)
-                
-                if let dictionary = json as? [String:Any] {
-                    let item = dictionary
-                    let classifiedSentences = item["classifiedSentences"] as! [[String:Any]]
-                    
-                    for sentence in classifiedSentences {
-                        let id = sentence["id"] as! String
-                        let text = sentence["text"] as! String
-                        let classificationsAsStrings = sentence["classifications"] as! [String]
-                        var classifications:[SentenceModel.Classification] = []
-                        
-                        for classificationAsString in classificationsAsStrings {
-                            let classification = SentenceModel.Classification(rawValue: classificationAsString)!
-                            classifications.append(classification)
-                        }
-                        let sentenceModel = SentenceModel(id: UUID(uuidString: id)!, text: text, classifications: classifications)
-                        self.classifiedNews.classifiedSentences.append(sentenceModel)
-                        
-                        for classificationAsString in classificationsAsStrings {
-                            let classification = SentenceModel.Classification(rawValue: classificationAsString)!
-                            self.classifiedSentencesDictionary[classification]![sentenceModel.id] = sentenceModel
-                        }
-                    }
-                }
-            }                
-        } catch {
-            print("error: \(error)")
-        }
-    }
+    }            
 }

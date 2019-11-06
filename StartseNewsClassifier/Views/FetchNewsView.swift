@@ -48,7 +48,7 @@ struct FetchNewsView: View {
             }
         }
 
-        return VStack {
+        return VStack {                        
             if (self.newsList.isLoading) {
                 ActivityIndicator(isAnimating: .constant(true), style: .large)
             }
@@ -69,7 +69,6 @@ struct FetchNewsView: View {
         .padding(20)
         .offset(x: 0, y: offset.height)
         .gesture(drag)
-        
     }
         
     func fetchNextNewsToClassify() {
