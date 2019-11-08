@@ -40,6 +40,12 @@ struct ConsolidationView: View {
                         self.title = "Segmento de Clientes"
                     }else if self.selection == 1 {
                         self.title = "Dor ou Desejo"
+                    }else if self.selection == 2 {
+                        self.title = "Solução & Features"
+                    }else if self.selection == 3 {
+                        self.title = "Tecnologias"
+                    }else {
+                        self.title = "Investimento"
                     }
                 }
             }
