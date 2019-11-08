@@ -41,6 +41,12 @@ class ConsolidationViewModel: ObservableObject {
             predicate = NSPredicate(format: "containsSegment == true")
         }else if filterSelection == 1 {
             predicate = NSPredicate(format: "containsProblem == true")
+        }else if filterSelection == 2 {
+            predicate = NSPredicate(format: "containsSolution == true")
+        }else if filterSelection == 3 {
+            predicate = NSPredicate(format: "containsTechnology == true")
+        }else if filterSelection == 4 {
+            predicate = NSPredicate(format: "containsInvestment == true")
         }
         request.predicate = predicate
         

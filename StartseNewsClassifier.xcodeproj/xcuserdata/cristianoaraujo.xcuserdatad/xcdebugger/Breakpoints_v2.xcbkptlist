@@ -1644,7 +1644,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DC9DCD0C-2422-4F9F-AA00-81705B05AFBF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StartseNewsClassifier/ViewModels/ConsolidationViewModel.swift"

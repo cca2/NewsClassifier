@@ -47,6 +47,8 @@ struct ConsolidationView: View {
                     }else {
                         self.title = "Investimento"
                     }
+                    self.consolidationViewModel.filterSelection = self.selection
+                    self.sentences = self.consolidationViewModel.filteredSentences
                 }
             }
         }
@@ -55,6 +57,6 @@ struct ConsolidationView: View {
 
 //struct ConsolidationView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ConsolidationView()
+//        ConsolidationView(
 //    }
 //}
