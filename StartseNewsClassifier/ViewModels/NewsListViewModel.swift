@@ -172,6 +172,7 @@ class NewsListViewModel: ObservableObject {
         self.currentNewsIndex = 0
         
         self.isLoading = true
+        
         do {
             let result = try context.fetch(self.fetchAllNews())
             for data in result {
@@ -179,10 +180,10 @@ class NewsListViewModel: ObservableObject {
                 articles.append(news)
                 self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news, context: context)
 
-//                UserDefaults.standard.set(0, forKey: "totalClassifiedNews")
-//                context.delete(data)
-//                deleteAllSentences(context: context)
-//                try context.save()
+                UserDefaults.standard.set(0, forKey: "totalClassifiedNews")
+                context.delete(data)
+                deleteAllSentences(context: context)
+                try context.save()
             }
         }catch {
             print("Error:\(error)")
@@ -199,7 +200,7 @@ class NewsListViewModel: ObservableObject {
                     }) {
                         //Salva em CoreData as novas notícias vindas do CloudKit
                         articles.append(newsModel)
-                        self.classifiedNews[newsModel.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: newsModel.news, context: context)
+
                         let news = ClassifiedNewsData(context: context)
                         news.recordName = record.recordID.recordName
                         news.id = newsModel.id.uuidString
@@ -225,7 +226,7 @@ class NewsListViewModel: ObservableObject {
                             sentenceData.ofNews = news
                             try context.save()
                         }
-                        
+                        self.classifiedNews[newsModel.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: newsModel.news, context: context)                        
                     }
                 }catch {
                     print("Error: \(error)")

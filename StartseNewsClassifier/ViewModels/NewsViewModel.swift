@@ -47,7 +47,7 @@ class NewsViewModel: Identifiable {
     var isClassified: Bool = false
     
     var id: UUID {
-        return UUID(uuidString: news.news_id)!
+        return UUID(uuidString: news.news_id.uppercased())!
     }
     
     var title: String {

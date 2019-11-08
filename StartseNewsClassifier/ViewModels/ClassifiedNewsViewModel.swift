@@ -36,15 +36,13 @@ class ClassifiedNewsViewModel: ObservableObject {
         classifiedSentencesDictionary[.technology] = [:]
         classifiedSentencesDictionary[.investment] = [:]
         classifiedSentencesDictionary[.partnership] = [:]
-        
-        
-//        fetchListOfNews()
+                
         fetchListOfSentences()
     }
     
     private func fetchListOfSentences() {
         let request = NSFetchRequest<SentenceData>(entityName: "SentenceData")
-        let predicate = NSPredicate(format: "ofNews.id == %@", news.news_id)
+        let predicate = NSPredicate(format: "ofNews.id == %@", news.news_id.uppercased())
         request.predicate = predicate
         
         do {
@@ -52,7 +50,6 @@ class ClassifiedNewsViewModel: ObservableObject {
             let sentences = sentenceData
             sentences.forEach{sentence in
                 var classifications:[SentenceModel.Classification] = []
-                let id = sentence.id
                 let text = sentence.text
                 
                 if sentence.containsSegment {
