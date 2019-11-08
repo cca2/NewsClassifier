@@ -12,15 +12,16 @@ struct ConsolidationView: View {
     //Comentado apenas para ver o preview
     @Environment(\.managedObjectContext) var context
     
-    @State var consolidationViewModel:ConsolidationViewModel?
-
+    let consolidationViewModel:ConsolidationViewModel
+    @State var title:String = ""
     @State var sentences:[SentenceViewModel] = []
+
+    @State var selection:Int = 0
     
-    @State private var selectionTitle:String = "Dor ou Desejo"
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: ClassificationFilterView()){
+                NavigationLink(destination: ClassificationFilterView(selection: $selection)){
                     HStack {
                         Text("Filtrar todas as classificações")
                         Image(systemName: "slider.horizontal.3")
@@ -28,22 +29,26 @@ struct ConsolidationView: View {
                         .padding([.trailing])
                         .background(Color.black)
                         .foregroundColor(.white)
-                }
+                }.padding([.top])
 
                 Spacer()
-                List (sentences) { sentence in
-                    Text(sentence.text)
-                }.navigationBarTitle(selectionTitle).font(.headline)
+                List (self.sentences) { sentence in
+                    Text(sentence.text).font(.body)
+                }.navigationBarTitle(title).font(.headline)
+                .onAppear() {
+                    if self.selection == 0 {
+                        self.title = "Segmento de Clientes"
+                    }else if self.selection == 1 {
+                        self.title = "Dor ou Desejo"
+                    }
+                }
             }
-        }.onAppear() {
-            self.consolidationViewModel = ConsolidationViewModel(context: self.context)
-            self.sentences = self.consolidationViewModel!.segmentSentences
         }
     }
 }
 
-struct ConsolidationView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConsolidationView()
-    }
-}
+//struct ConsolidationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ConsolidationView()
+//    }
+//}

@@ -12,8 +12,21 @@ import CoreData
 class ConsolidationViewModel: ObservableObject {
     private var context:NSManagedObjectContext
     
-    var segmentSentences:[SentenceViewModel] {
+    @Published var filterSelection:Int = 0
+    
+    var filteredSentences:[SentenceViewModel] {
         return fetchSentences()
+    }
+    
+    var title:String {
+        var title = ""
+        if self.filterSelection == 0 {
+            title = "Segmento de Clientes"
+        }else if self.filterSelection == 1 {
+            title = "Dor ou Desejo"
+        }
+        
+        return title
     }
     
     init(context: NSManagedObjectContext) {
@@ -23,8 +36,12 @@ class ConsolidationViewModel: ObservableObject {
     private func fetchSentences() -> [SentenceViewModel]{
         var result:[SentenceViewModel] = []
         let request = NSFetchRequest<SentenceData>(entityName: "SentenceData")
-//        let predicate = NSPredicate(format: "containsSegment == %@", true)
-        let predicate = NSPredicate(format: "containsSegment == true")
+        var predicate:NSPredicate!
+        if filterSelection == 0 {
+            predicate = NSPredicate(format: "containsSegment == true")
+        }else if filterSelection == 1 {
+            predicate = NSPredicate(format: "containsProblem == true")
+        }
         request.predicate = predicate
         
         do {

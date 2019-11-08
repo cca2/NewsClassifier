@@ -34,7 +34,7 @@ struct ContentView: View {
                 Text("Classificação")
             })
             
-            ConsolidationView()
+            ConsolidationView(consolidationViewModel: ConsolidationViewModel(context: managedObjectContext))
             .tabItem({
                 Text("Consolidação")
             })
