@@ -38,6 +38,7 @@ class StartseNewsService {
                     completion(self.records)
                 }else {
                     print (">>> FINALIZOU QUERY <<<")
+                    print("Error:\(String(describing: error))")
                 }
             }
         }

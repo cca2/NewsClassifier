@@ -21,7 +21,7 @@
         <relationship name="ofNews" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClassifiedNewsData" inverseName="sentences" inverseEntity="ClassifiedNewsData"/>
     </entity>
     <elements>
+        <element name="ClassifiedNewsData" positionX="-36" positionY="117" width="128" height="28"/>
         <element name="SentenceData" positionX="-54" positionY="90" width="128" height="163"/>
-        <element name="ClassifiedNewsData" positionX="-36" positionY="117" width="128" height="163"/>
     </elements>
 </model>
