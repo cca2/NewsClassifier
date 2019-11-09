@@ -24,37 +24,6 @@ struct NewsView: View {
         return VStack (alignment: .leading) {
             VStack {
                 ZStack {
-                    ZStack {
-                        
-                        VStack {
-                            Circle()
-                            .size(width: 40, height: 40)
-                            .fill(Color.pink)
-                        }.frame(width: 40, height: 40)
-
-                        VStack {
-                            Circle()
-                            .size(width: 50, height: 50)
-                            .fill(Color.pink)
-                        }.frame(width: 50, height: 50)
-                            .offset(x: -25, y: -25)
-
-                        VStack {
-                            Text("\(numNews)")
-                            .font(.body)
-                            .bold()
-                            .foregroundColor(.white)
-                        }.frame(width: 40, height: 40)
-                        VStack {
-                            Text("\(numClassifiedNews)")
-                            .font(.body)
-                            .bold()
-                            .foregroundColor(.white)
-                        }.frame(width: 50, height: 50)
-                        .offset(x: -25, y: -25)
-                    }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
-                        .padding([.trailing], 40)
-
                     VStack (alignment: .leading) {
                         Text(date).font(.body).foregroundColor(.gray)
                         Text("Notícia").font(.title).bold()
