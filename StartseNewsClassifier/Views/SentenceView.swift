@@ -11,22 +11,34 @@ import SwiftUI
 struct SentenceView: View {
     private let text:String
     
-    private var sentenceColor:Color = .gray
+    private var sentenceColor:Color = .white
     private let circleRadius:CGFloat = 20
     
     var body: some View {
-            VStack () {
-                Text(self.text)
-                .foregroundColor(sentenceColor)
-                .padding()
-                .contextMenu() {
-                    Button(action: copyToClipboard) {
-                        Text("copiar")
+        VStack {
+            HStack (alignment: .top) {
+                    ScrollView {
+                        Text(self.text)
+                        .foregroundColor(sentenceColor)
+                        .padding()
+//                        .contextMenu() {
+//                            Button(action: copyToClipboard) {
+//                                Text("copiar")
+//                            }
+//                        }
+                    }.contextMenu() {
+                        Button(action: copyToClipboard) {
+                            Text("copiar")
+                        }
                     }
                 }
-            }
+                .frame(minWidth: 220, idealWidth: 220, maxWidth: 220, minHeight: 0, maxHeight: 280)
+                .padding()
+            }.frame(height: 280, alignment: .leading)
             .fixedSize(horizontal: false, vertical: true)
-            .frame(width:280, height: 350, alignment: .leading)
+        .background(Color.pink)
+        .foregroundColor(sentenceColor)
+        .cornerRadius(20)
     }
     
     init(text:String) {

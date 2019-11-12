@@ -87,9 +87,12 @@ struct ClassificationView: View {
                     .offset(x: -25, y: -25)
                 }.frame(minWidth: 0, maxWidth: .infinity,  minHeight: 40, maxHeight: 40, alignment: .trailing)
                     .padding([.top], 40)
-
+                    .offset(x: 0, y: -30)
+                
+                Spacer()
+                
                 SentenceView(text: text)
-                .offset(x: offset.width, y: 0)
+                .offset(x: offset.width, y: -50)
                 .gesture(drag)
                 .animation(.spring()).padding()
 

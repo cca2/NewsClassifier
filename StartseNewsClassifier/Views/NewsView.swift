@@ -37,15 +37,6 @@ struct NewsView: View {
                 VStack (alignment: .leading){
                     Text(title).font(.headline).foregroundColor(.white).bold().padding([.top, .leading, .trailing], 20)
                     Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
-//                    VStack {
-//                        //Comentado apenas para ver o preview
-//                        if (self.isClassified) {
-//                            Image(systemName: "checkmark.circle.fill").foregroundColor(.white)
-//                        }else {
-//                            Image(systemName: "checkmark.circle").foregroundColor(.white)
-//                        }
-//                    }.padding([.trailing, .bottom])
-//                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                 }.onAppear() {
                     self.title = (self.newsList?.news!.title)!
                     self.subtitle = (self.newsList?.news!.subtitle)!
