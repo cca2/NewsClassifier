@@ -17,18 +17,7 @@ class ConsolidationViewModel: ObservableObject {
     var filteredSentences:[SentenceViewModel] {
         return fetchSentences()
     }
-    
-    var title:String {
-        var title = ""
-        if self.filterSelection == 0 {
-            title = "Segmento de Clientes"
-        }else if self.filterSelection == 1 {
-            title = "Dor ou Desejo"
-        }
         
-        return title
-    }
-    
     init(context: NSManagedObjectContext) {
         self.context = context
     }

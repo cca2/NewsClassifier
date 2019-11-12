@@ -14,11 +14,12 @@ struct ClassificationFilterView: View {
         
         return VStack {
             Picker("", selection: $selection) {
-                Text("Segmentos de Consumidores").tag(0)
-                Text("Dores & Desejos").tag(1)
-                Text("Solução & Features").tag(2)
-                Text("Tecnologias").tag(3)
-                Text("Investimento").tag(4)
+                Text("Consumidores").tag(0)
+                Text("Jobs").tag(1)
+                Text("Outcomes").tag(2)
+                Text("Solução & Features").tag(3)
+                Text("Tecnologias").tag(4)
+                Text("Investimento").tag(5)
             }.navigationBarTitle("Seleção")
             Spacer()
         }

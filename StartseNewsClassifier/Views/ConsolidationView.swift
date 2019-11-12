@@ -37,12 +37,14 @@ struct ConsolidationView: View {
                 }.navigationBarTitle(title).font(.headline)
                 .onAppear() {
                     if self.selection == 0 {
-                        self.title = "Segmento de Clientes"
+                        self.title = "Consumidores"
                     }else if self.selection == 1 {
-                        self.title = "Dor ou Desejo"
+                        self.title = "Jobs"
                     }else if self.selection == 2 {
-                        self.title = "Solução & Features"
+                        self.title = "Outcomes"
                     }else if self.selection == 3 {
+                        self.title = "Solução & Features"
+                    }else if self.selection == 4 {
                         self.title = "Tecnologias"
                     }else {
                         self.title = "Investimento"
