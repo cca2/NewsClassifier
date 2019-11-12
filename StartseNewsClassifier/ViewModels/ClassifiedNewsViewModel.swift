@@ -31,11 +31,11 @@ class ClassifiedNewsViewModel: ObservableObject {
 
         classifiedSentencesDictionary[.none] = [:]
         classifiedSentencesDictionary[.segment] = [:]
-        classifiedSentencesDictionary[.problem] = [:]
+        classifiedSentencesDictionary[.job] = [:]
         classifiedSentencesDictionary[.solution] = [:]
         classifiedSentencesDictionary[.technology] = [:]
         classifiedSentencesDictionary[.investment] = [:]
-        classifiedSentencesDictionary[.partnership] = [:]
+        classifiedSentencesDictionary[.outcome] = [:]
                 
         fetchListOfSentences()
     }
@@ -56,8 +56,8 @@ class ClassifiedNewsViewModel: ObservableObject {
                     classifications.append(.segment)
                 }
                 
-                if sentence.containsProblem {
-                    classifications.append(.problem)
+                if sentence.containsJob {
+                    classifications.append(.job)
                 }
                 
                 if sentence.containsSolution {

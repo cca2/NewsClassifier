@@ -23,8 +23,8 @@ class SentenceViewModel: ObservableObject, Identifiable {
         return sentence.classifications.contains(.segment)
     }
     
-    var containsProblem: Bool {
-        return sentence.classifications.contains(.problem)
+    var containsJob: Bool {
+        return sentence.classifications.contains(.job)
     }
     
     var containsSolution: Bool {
@@ -37,6 +37,10 @@ class SentenceViewModel: ObservableObject, Identifiable {
     
     var containsInvestment: Bool {
         return sentence.classifications.contains(.investment)
+    }
+    
+    var containsOutcome: Bool {
+        return sentence.classifications.contains(.outcome)
     }
     
     init(sentenceModel:SentenceModel) {

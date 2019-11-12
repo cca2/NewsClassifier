@@ -12,7 +12,7 @@
     </entity>
     <entity name="SentenceData" representedClassName="SentenceData" syncable="YES" codeGenerationType="class">
         <attribute name="containsInvestment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="containsProblem" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="containsJob" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="containsSegment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="containsSolution" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="containsTechnology" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -21,7 +21,7 @@
         <relationship name="ofNews" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClassifiedNewsData" inverseName="sentences" inverseEntity="ClassifiedNewsData"/>
     </entity>
     <elements>
-        <element name="ClassifiedNewsData" positionX="-36" positionY="117" width="128" height="28"/>
-        <element name="SentenceData" positionX="-54" positionY="90" width="128" height="163"/>
+        <element name="ClassifiedNewsData" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="SentenceData" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

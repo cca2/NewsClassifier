@@ -19,11 +19,11 @@ struct ClassificationView: View {
     @State var hasFinishedClassification = false
     
     @State var containsSegment = false
-    @State var containsProblem = false
+    @State var containsJob = false
     @State var containsFeature = false
     @State var conatainsTechnology = false
     @State var containsInvestment = false
-    @State var containsPartnership = false
+    @State var containsOutcome = false
     
     @State var text = "Está é a sentença que está sendo avaliada."
     
@@ -109,19 +109,35 @@ struct ClassificationView: View {
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }
-                            if (containsProblem) {
+                            if (containsJob) {
                                 Button(action: classifyAsProblem) {
-                                    Text("#Desejo").font(self.classifyButtonFontSize).font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    Text("#Job").font(self.classifyButtonFontSize).font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
                                     .background(Color.white).foregroundColor(.black)
                                     .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }else {
                                 Button(action: classifyAsProblem) {
-                                    Text("#Desejo").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    Text("#Job").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
                                         .background(Color.white).foregroundColor(.pink)
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }
+                            if (containsOutcome) {
+                                Button(action: classifyAsOutcome) {
+                                    Text("#Outcome").font(self.classifyButtonFontSize).font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                    .background(Color.white).foregroundColor(.black)
+                                    .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }else {
+                                Button(action: classifyAsOutcome) {
+                                    Text("#Outcome").font(self.classifyButtonFontSize).frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
+                                        .background(Color.white).foregroundColor(.pink)
+                                        .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
+                                }
+                            }
+                        }.frame(minWidth: 0, maxWidth: .infinity, minHeight:90, maxHeight: .infinity, alignment: .center).background(Color(UIColor.systemPink.withAlphaComponent(0.8))).foregroundColor(.white)
+                        
+                        HStack (spacing: 0) {
                             if (containsFeature) {
                                 Button(action: classifyAsSolution) {
                                     Text("#Features").font(self.classifyButtonFontSize).font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
@@ -135,9 +151,7 @@ struct ClassificationView: View {
                                         .overlay(Rectangle().stroke(Color.pink, lineWidth: 1))
                                 }
                             }
-                        }.frame(minWidth: 0, maxWidth: .infinity, minHeight:90, maxHeight: .infinity, alignment: .center).background(Color(UIColor.systemPink.withAlphaComponent(0.8))).foregroundColor(.white)
-                        
-                        HStack (spacing: 0) {
+
                             if (conatainsTechnology) {
                                 Button(action: classifyAsTechnology) {
                                     Text("#Tecnologia").font(self.classifyButtonFontSize).bold().frame(width: classificationWidth, height:self.classificationHeight, alignment: .center).fixedSize(horizontal: false, vertical: false)
@@ -179,7 +193,7 @@ struct ClassificationView: View {
             self.numSentences = classifier.sentenceList.count
             self.text = classifier.sentenceList[0].text
             self.containsSegment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.segment)
-            self.containsProblem = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.problem)
+            self.containsJob = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.job)
             self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
             self.conatainsTechnology = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.technology)
             self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
@@ -207,7 +221,7 @@ struct ClassificationView: View {
         currentSentenceIndex = currentSentenceIndex + 1
         self.text = classifier.sentenceList[currentSentenceIndex].text
         self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
-        self.containsProblem = classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
+        self.containsJob = classifier.sentenceList[currentSentenceIndex].classifications.contains(.job)
         self.containsFeature = classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
         self.conatainsTechnology = classifier.sentenceList[currentSentenceIndex].classifications.contains(.technology)
         self.containsInvestment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
@@ -221,40 +235,41 @@ struct ClassificationView: View {
         currentSentenceIndex = currentSentenceIndex - 1
         self.text = classifier.sentenceList[currentSentenceIndex].text
         self.containsSegment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.segment)
-        self.containsProblem = classifier.sentenceList[currentSentenceIndex].classifications.contains(.problem)
+        self.containsJob = classifier.sentenceList[currentSentenceIndex].classifications.contains(.job)
         self.containsFeature = classifier.sentenceList[currentSentenceIndex].classifications.contains(.solution)
         self.conatainsTechnology = classifier.sentenceList[currentSentenceIndex].classifications.contains(.technology)
         self.containsInvestment = classifier.sentenceList[currentSentenceIndex].classifications.contains(.investment)
+        self.containsOutcome = classifier.sentenceList[currentSentenceIndex].classifications.contains(.outcome)
     }
     
     func classifyAsCustomerSegment() {
         self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .segment)
-        self.containsSegment = !self.containsSegment
+        self.containsSegment.toggle()
     }
     
     func classifyAsProblem() {
-        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .problem)
-        self.containsProblem = !self.containsProblem
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .job)
+        self.containsJob.toggle()
     }
     
     func classifyAsSolution() {
         self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .solution)
-        self.containsFeature = !self.containsFeature
+        self.containsFeature.toggle()
     }
     
     func classifyAsTechnology() {
         self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .technology)
-        self.conatainsTechnology = !self.conatainsTechnology
+        self.conatainsTechnology.toggle()
     }
     
-    func classifyAsPartnership () {
-        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .partnership)
-        self.containsPartnership = !self.containsPartnership
+    func classifyAsOutcome () {
+        self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .outcome)
+        self.containsOutcome.toggle()
     }
     
     func classifyAsInvestment() {
         self.newsList.classifySentenceAtIndexAs(at: currentSentenceIndex, newClassification: .investment)
-        self.containsInvestment = !self.containsInvestment
+        self.containsInvestment.toggle()
     }
 }
 

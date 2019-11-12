@@ -53,7 +53,7 @@ class NewsListViewModel: ObservableObject {
             }
             newsSegmentSentences = sentencesViewModels
             
-            let problemSentences = s.sentenceListOfType(classification: .problem)
+            let problemSentences = s.sentenceListOfType(classification: .job)
             sentencesViewModels = []
             for sentence in problemSentences {
                 let sentenceViewModel = SentenceViewModel(sentenceModel: sentence)
@@ -126,7 +126,7 @@ class NewsListViewModel: ObservableObject {
         
         if newClassification == .segment {
             newsSegmentSentences = sentencesViewModels
-        }else if newClassification == .problem {
+        }else if newClassification == .job {
             newsProblemSentences = sentencesViewModels
         }else if newClassification == .solution {
             newsSolutionSentences = sentencesViewModels
@@ -216,7 +216,7 @@ class NewsListViewModel: ObservableObject {
                         try sentences.forEach{ sentence in
                             let sentenceData = SentenceData(context: context)
                             sentenceData.containsSegment = false
-                            sentenceData.containsProblem = false
+                            sentenceData.containsJob = false
                             sentenceData.containsSolution = false
                             sentenceData.containsTechnology = false
                             sentenceData.containsInvestment = false
@@ -265,14 +265,14 @@ extension NewsListViewModel {
             let sentenceToUpdate = sentenceData[0]
 
             let containsSegment = sentence.classifications.contains(.segment)
-            let containsProblem = sentence.classifications.contains(.problem)
+            let containsJob = sentence.classifications.contains(.job)
             let containsSolution = sentence.classifications.contains(.solution)
             let containsTechnology = sentence.classifications.contains(.technology)
             let containsInvestment = sentence.classifications.contains(.investment)
             
             
             sentenceToUpdate.setValue(containsSegment, forKey: "containsSegment")
-            sentenceToUpdate.setValue(containsProblem, forKey: "containsProblem")
+            sentenceToUpdate.setValue(containsJob, forKey: "containsJob")
             sentenceToUpdate.setValue(containsSolution, forKey: "containsSolution")
             sentenceToUpdate.setValue(containsTechnology, forKey: "containsTechnology")
             sentenceToUpdate.setValue(containsInvestment, forKey: "containsInvestment")

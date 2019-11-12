@@ -32,10 +32,10 @@ struct ClassifiedNewsView: View {
                                 Text("Segmento de Consumidores")
                             }
                         }
-                        if !sentence.containsProblem {
+                        if !sentence.containsJob {
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(as: .problem)
+                                self.reclassifySentence(as: .job)
                             }) {
                                 Text("Dor & Desejo")
                             }
@@ -69,7 +69,7 @@ struct ClassifiedNewsView: View {
                 }.onDelete(perform: removeSentenceFromSegmentClassification)
             }
 
-            Section(header: Text(SentenceModel.Classification.problem.rawValue)) {
+            Section(header: Text(SentenceModel.Classification.job.rawValue)) {
                 ForEach(self.newsList.newsProblemSentences) { sentence in
                     Text("\(sentence.text)")
                     .contextMenu() {
@@ -81,10 +81,10 @@ struct ClassifiedNewsView: View {
                                 Text("Segmento de Consumidores")
                             }
                         }
-                        if !sentence.containsProblem {
+                        if !sentence.containsJob {
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(as: .problem)
+                                self.reclassifySentence(as: .job)
                             }) {
                                 Text("Dor & Desejo")
                             }
@@ -130,10 +130,10 @@ struct ClassifiedNewsView: View {
                                 Text("Segmento de Consumidores")
                             }
                         }
-                        if !sentence.containsProblem {
+                        if !sentence.containsJob {
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(as: .problem)
+                                self.reclassifySentence(as: .job)
                             }) {
                                 Text("Dor & Desejo")
                             }
@@ -179,10 +179,10 @@ struct ClassifiedNewsView: View {
                                 Text("Segmento de Consumidores")
                             }
                         }
-                        if !sentence.containsProblem {
+                        if !sentence.containsJob {
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(as: .problem)
+                                self.reclassifySentence(as: .job)
                             }) {
                                 Text("Dor & Desejo")
                             }
@@ -228,10 +228,10 @@ struct ClassifiedNewsView: View {
                                 Text("Segmento de Consumidores")
                             }
                         }
-                        if !sentence.containsProblem {
+                        if !sentence.containsJob {
                             Button(action: {
                                 self.selectedSentence = sentence
-                                self.reclassifySentence(as: .problem)
+                                self.reclassifySentence(as: .job)
                             }) {
                                 Text("Dor & Desejo")
                             }
@@ -282,8 +282,8 @@ struct ClassifiedNewsView: View {
         if newClassification == .segment && !sentence.containsSegment {
             self.newsList.reclassifySentence(sentence: sentence, as: .segment)
             self.newsList.newsSegmentSentences.append(sentence)
-        }else if newClassification == .problem && !sentence.containsProblem {
-            self.newsList.reclassifySentence(sentence: sentence, as: .problem)
+        }else if newClassification == .job && !sentence.containsJob {
+            self.newsList.reclassifySentence(sentence: sentence, as: .job)
             self.newsList.newsProblemSentences.append(sentence)
         }else if newClassification == .solution && !sentence.containsSolution {
             self.newsList.reclassifySentence(sentence: sentence, as: .solution)
@@ -307,7 +307,7 @@ struct ClassifiedNewsView: View {
     func removeSentenceFromProblemClassification(at offsets: IndexSet) {
         let index = offsets.filter{_ in true}[0]
         let sentence = self.newsList.newsProblemSentences[index]
-        self.newsList.removeSentenceClassification(sentence: sentence, classification: .problem)
+        self.newsList.removeSentenceClassification(sentence: sentence, classification: .job)
         self.newsList.newsProblemSentences.remove(atOffsets: offsets)
     }
     
