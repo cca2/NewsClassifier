@@ -37,7 +37,15 @@ struct ClassifiedNewsView: View {
                                 self.selectedSentence = sentence
                                 self.reclassifySentence(as: .job)
                             }) {
-                                Text("Dor & Desejo")
+                                Text("Job to be done")
+                            }
+                        }
+                        if !sentence.containsOutcome {
+                            Button(action: {
+                                self.selectedSentence = sentence
+                                self.reclassifySentence(as: .outcome)
+                            }) {
+                                Text("Resultado Desejado")
                             }
                         }
                         if !sentence.containsSolution {
@@ -86,7 +94,7 @@ struct ClassifiedNewsView: View {
                                 self.selectedSentence = sentence
                                 self.reclassifySentence(as: .job)
                             }) {
-                                Text("Dor & Desejo")
+                                Text("Job to be done")
                             }
                         }
                         if !sentence.containsSolution {
@@ -135,7 +143,7 @@ struct ClassifiedNewsView: View {
                                 self.selectedSentence = sentence
                                 self.reclassifySentence(as: .job)
                             }) {
-                                Text("Dor & Desejo")
+                                Text("Job to be done")
                             }
                         }
                         if !sentence.containsSolution {
@@ -184,7 +192,7 @@ struct ClassifiedNewsView: View {
                                 self.selectedSentence = sentence
                                 self.reclassifySentence(as: .job)
                             }) {
-                                Text("Dor & Desejo")
+                                Text("Job to be done")
                             }
                         }
                         if !sentence.containsSolution {
@@ -233,7 +241,7 @@ struct ClassifiedNewsView: View {
                                 self.selectedSentence = sentence
                                 self.reclassifySentence(as: .job)
                             }) {
-                                Text("Dor & Desejo")
+                                Text("Job to be done")
                             }
                         }
                         if !sentence.containsSolution {

@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "332"
             endingLineNumber = "332"
-            landmarkName = "removeSentenceFromInvestmentClassification(at:)"
+            landmarkName = "removeSentenceFromTechnologyClassification(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -381,7 +381,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "325"
             endingLineNumber = "325"
-            landmarkName = "removeSentenceFromTechnologyClassification(at:)"
+            landmarkName = "removeSentenceFromSolutionClassification(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -397,7 +397,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "310"
             endingLineNumber = "310"
-            landmarkName = "removeSentenceFromProblemClassification(at:)"
+            landmarkName = "removeSentenceFromSegmentClassification(at:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -818,7 +818,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "319"
             endingLineNumber = "319"
-            landmarkName = "removeSentenceFromSolutionClassification(at:)"
+            landmarkName = "removeSentenceFromProblemClassification(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
