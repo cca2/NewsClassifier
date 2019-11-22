@@ -31,10 +31,12 @@ class ConsolidationViewModel: ObservableObject {
         }else if filterSelection == 1 {
             predicate = NSPredicate(format: "containsJob == true")
         }else if filterSelection == 2 {
-            predicate = NSPredicate(format: "containsSolution == true")
+            predicate = NSPredicate(format: "containsOutcome == true")
         }else if filterSelection == 3 {
-            predicate = NSPredicate(format: "containsTechnology == true")
+            predicate = NSPredicate(format: "containsSolution == true")
         }else if filterSelection == 4 {
+            predicate = NSPredicate(format: "containsTechnology == true")
+        }else if filterSelection == 5 {
             predicate = NSPredicate(format: "containsInvestment == true")
         }
         request.predicate = predicate
