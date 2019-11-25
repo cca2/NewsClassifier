@@ -8,7 +8,7 @@
         <attribute name="subtitle" optional="YES" attributeType="String"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="sentences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SentenceData" inverseName="ofNews" inverseEntity="SentenceData"/>
+        <relationship name="sentences" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SentenceData" inverseName="ofNews" inverseEntity="SentenceData"/>
     </entity>
     <entity name="SentenceData" representedClassName="SentenceData" syncable="YES" codeGenerationType="class">
         <attribute name="containsInvestment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
