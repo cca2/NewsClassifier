@@ -102,8 +102,46 @@ class StartseNewsService {
 
 extension StartseNewsService {
     func updateNewsAsClassified(classifiedNews:ClassifiedNewsModel, completion: @escaping () -> ()) {
+        var recordToUpdateAsClassified:CKRecord?
+        
         let newsId = classifiedNews.newsModel.news_id
-        print (newsId)
+        let container = CKContainer.init(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier")
+        let database = container.privateCloudDatabase
+        let predicate1 = NSPredicate(format: "id == %@", newsId)
+        let query = CKQuery(recordType: "News", predicate: predicate1)
+
+        let operation = CKQueryOperation(query: query)
+        operation.resultsLimit = 1
+        
+        operation.recordFetchedBlock = {
+            record in
+            recordToUpdateAsClassified = record
+            self.records.append(record)
+        }
+        
+        operation.queryCompletionBlock = {
+            cursor, error in
+            
+            DispatchQueue.main.async {
+                if (error == nil) {
+                    print(">>> Finalizou com Sucesso <<<")
+                    
+                    recordToUpdateAsClassified!["isClassified"] = true
+                    
+                    let updateOperation = CKModifyRecordsOperation(recordsToSave: self.records)
+                    database.add(updateOperation)
+                    
+                    updateOperation.completionBlock = {
+                        completion()
+                    }
+                }else {
+                    print (">>> FINALIZOU QUERY <<<")
+                    print("Error:\(String(describing: error))")
+                }
+            }
+        }
+        database.add(operation)
+
         
         let sentences = classifiedNews.classifiedSentences
         print(sentences)
