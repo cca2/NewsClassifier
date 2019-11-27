@@ -1620,15 +1620,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "374"
             endingLineNumber = "374"
-            landmarkName = "updateNewsClassificationStatus(isClassified:context:)"
+            landmarkName = "updateNewsClassificationStatus(isClassified:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "FE9572B6-6FEB-40BE-BF69-8223B32257BD - e26d8b81c8c7d32e"
+                  uuid = "FE9572B6-6FEB-40BE-BF69-8223B32257BD - 859ddd53679e1cd8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "StartseNewsClassifier.NewsListViewModel.updateNewsClassificationStatus(isClassified: Swift.Bool, context: __C.NSManagedObjectContext) -&gt; ()"
+                  symbolName = "StartseNewsClassifier.NewsListViewModel.updateNewsClassificationStatus(isClassified: Swift.Bool) -&gt; ()"
                   moduleName = "StartseNewsClassifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/ViewModels/NewsListViewModel.swift"
@@ -1636,14 +1636,14 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "374"
                   endingLineNumber = "374"
-                  offsetFromSymbolStart = "4074">
+                  offsetFromSymbolStart = "4096">
                </Location>
                <Location
-                  uuid = "FE9572B6-6FEB-40BE-BF69-8223B32257BD - 6f800adc52794ae6"
+                  uuid = "FE9572B6-6FEB-40BE-BF69-8223B32257BD - e225088c3a617c04"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in StartseNewsClassifier.NewsListViewModel.updateNewsClassificationStatus(isClassified: Swift.Bool, context: __C.NSManagedObjectContext) -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in StartseNewsClassifier.NewsListViewModel.updateNewsClassificationStatus(isClassified: Swift.Bool) -&gt; ()"
                   moduleName = "StartseNewsClassifier"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cristianoaraujo/Documents/StartseNewsClassifier/StartseNewsClassifier/ViewModels/NewsListViewModel.swift"

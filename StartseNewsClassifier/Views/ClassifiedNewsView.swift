@@ -282,7 +282,7 @@ struct ClassifiedNewsView: View {
     
     func finalizeClassification() {
         print(">>> Finalizando a Classificação")
-        self.newsList.updateNewsClassificationStatus(isClassified: true, context: context)        
+        self.newsList.updateNewsClassificationStatus(isClassified: true)        
     }
     
     func reclassifySentence(as newClassification:SentenceModel.Classification) {

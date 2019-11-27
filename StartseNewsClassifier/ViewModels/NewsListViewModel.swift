@@ -349,7 +349,7 @@ extension NewsListViewModel {
         return request
     }
         
-    func updateNewsClassificationStatus(isClassified:Bool, context:NSManagedObjectContext) {
+    func updateNewsClassificationStatus(isClassified:Bool) {
         let defaults = UserDefaults.standard
         let totalClassifiedNews = defaults.integer(forKey: "totalClassifiedNews")
         
