@@ -132,7 +132,32 @@ extension StartseNewsService {
                     database.add(updateOperation)
                     
                     updateOperation.completionBlock = {
-                        completion()
+                        //Aqui precisa salvar as sentenças para classificação
+                        let sentences = classifiedNews.classifiedSentences
+                        self.records = []
+                        
+                        sentences.forEach {
+                            sentence in
+                            let sentenceRecord = CKRecord(recordType: "ClassifiedSentence")
+                            sentenceRecord["id"] = sentence.id.uuidString.uppercased()
+                            sentenceRecord["containsInvestment"] = sentence.classifications.contains(.investment)
+                            sentenceRecord["containsSegment"] = sentence.classifications.contains(.segment)
+                            sentenceRecord["containsJob"] = sentence.classifications.contains(.job)
+                            sentenceRecord["containsOutcome"] = sentence.classifications.contains(.outcome)
+                            sentenceRecord["containsSolution"] = sentence.classifications.contains(.solution)
+                            sentenceRecord["containsTechnology"] = sentence.classifications.contains(.technology)
+                            sentenceRecord["text"] = sentence.text
+                            sentenceRecord["news"] = CKRecord.Reference(record: recordToUpdateAsClassified!, action: .deleteSelf)
+                            
+                            self.records.append(sentenceRecord)
+                        }
+                        let saveSentencesOperation = CKModifyRecordsOperation(recordsToSave: self.records)
+                        container.privateCloudDatabase.add(saveSentencesOperation)
+
+                        saveSentencesOperation.completionBlock = {
+                            completion()
+                        }
+//                        completion()
                     }
                 }else {
                     print (">>> FINALIZOU QUERY <<<")
@@ -141,9 +166,5 @@ extension StartseNewsService {
             }
         }
         database.add(operation)
-
-        
-        let sentences = classifiedNews.classifiedSentences
-        print(sentences)
     }
 }
