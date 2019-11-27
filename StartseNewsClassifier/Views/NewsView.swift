@@ -18,7 +18,8 @@ struct NewsView: View {
     @State private var isClassified:Bool = false
 
     var date:String = "Quarta-feira 30 de outubro de 2019"
-    var newsList:NewsListViewModel?
+//    var newsList:NewsListViewModel?
+    @EnvironmentObject var newsList:NewsListViewModel
     
     var body: some View {
         return VStack (alignment: .leading) {
@@ -38,9 +39,9 @@ struct NewsView: View {
                     Text(title).font(.headline).foregroundColor(.white).bold().padding([.top, .leading, .trailing], 20)
                     Text(subtitle).font(.body).padding([.top], 5).padding([.bottom], 20).padding([.leading, .trailing], 20).foregroundColor(.white)
                 }.onAppear() {
-                    self.title = (self.newsList?.news!.title)!
-                    self.subtitle = (self.newsList?.news!.subtitle)!
-                    self.isClassified = (self.newsList?.news!.isClassified)!
+                    self.title = (self.newsList.news!.title)
+                    self.subtitle = (self.newsList.news!.subtitle)
+                    self.isClassified = (self.newsList.news!.isClassified)
                 }
                 .background(Color.pink)
                 .cornerRadius(20)
@@ -52,24 +53,30 @@ struct NewsView: View {
         }
         .transition(.slide)
         .onAppear() {
-            if ((self.newsList?.news!.isClassified)!) {
-                if self.newsList!.currentNewsIndex < self.newsList!.articles.count - 1 {
-                    self.newsList!.currentNewsIndex = self.newsList!.currentNewsIndex + 1
-                    self.newsList!.news = self.newsList!.articles[self.newsList!.currentNewsIndex]
+            self.newsList.newsView = self
+            if ((self.newsList.news!.isClassified)) {
+                if self.newsList.currentNewsIndex < self.newsList.articles.count - 1 {
+                    self.newsList.currentNewsIndex = self.newsList.currentNewsIndex + 1
+                    self.newsList.news = self.newsList.articles[self.newsList.currentNewsIndex]
                 }
             }
-            self.numClassifiedNews = self.newsList?.numMarkAsClassifiedNews() ?? 0
+            self.numClassifiedNews = self.newsList.numMarkAsClassifiedNews() ?? 0
         }
     }
     
-    init(title:String, subtitle:String, numNews:Int, date:String, newsList:NewsListViewModel?) {
+    init(title:String, subtitle:String, numNews:Int) {
         self._title = State(initialValue: title)
         self._subtitle = State(initialValue: subtitle)
         self._numNews = State(initialValue: numNews)
         self._numClassifiedNews = State(initialValue: numNews)
-        self.date = date
-        self.newsList = newsList
-        self.newsList?.newsView = self
+        
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "EEEE, MMM d, yyyy"
+        
+        self.date = dateFormater.string(from: Date())
+        
+//        self.newsList = newsList
+//        self.newsList.newsView = self
     }
     
     func nextNews() {
@@ -78,10 +85,10 @@ struct NewsView: View {
         }
 
         currentNewsIndex = currentNewsIndex + 1
-        self.title = (newsList?.articles[currentNewsIndex].title)!
-        self.subtitle = (newsList?.articles[currentNewsIndex].subtitle)!
-        self.newsList?.news = newsList?.articles[currentNewsIndex]
-        self.isClassified = (self.newsList?.news!.isClassified)!
+        self.title = (newsList.articles[currentNewsIndex].title)
+        self.subtitle = (newsList.articles[currentNewsIndex].subtitle)
+        self.newsList.news = newsList.articles[currentNewsIndex]
+        self.isClassified = (self.newsList.news!.isClassified)
     }
     
     func previousNews() {
@@ -89,17 +96,17 @@ struct NewsView: View {
             return
         }else {
             currentNewsIndex = currentNewsIndex - 1
-            self.newsList?.news = newsList?.articles[currentNewsIndex]
+            self.newsList.news = newsList.articles[currentNewsIndex]
         }
-        self.title = (newsList?.articles[currentNewsIndex].title)!
-        self.subtitle = (newsList?.articles[currentNewsIndex].subtitle)!
-        self.newsList?.news = newsList?.articles[currentNewsIndex]
-        self.isClassified = (self.newsList?.news!.isClassified)!
+        self.title = (newsList.articles[currentNewsIndex].title)
+        self.subtitle = (newsList.articles[currentNewsIndex].subtitle)
+        self.newsList.news = newsList.articles[currentNewsIndex]
+        self.isClassified = (self.newsList.news!.isClassified)
     }
 }
 
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsView(title: "Startup recebe investimento", subtitle: "Recebeu R$ 40 milhões do fundo do Itaú", numNews: 1, date: "Quarta-feira 30 de outubro de 2019", newsList: nil)
+        NewsView(title: "Startup recebe investimento", subtitle: "Recebeu R$ 40 milhões do fundo do Itaú", numNews: 1)
     }
 }

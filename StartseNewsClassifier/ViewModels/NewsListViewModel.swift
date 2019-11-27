@@ -31,7 +31,36 @@ class NewsListViewModel: ObservableObject {
     var currentNewsIndex = 0
     
     
-    private var context:NSManagedObjectContext?
+    private var managedContext:NSManagedObjectContext!
+    
+    var context:NSManagedObjectContext {
+        get {
+            return managedContext
+        }
+        
+        set (context) {
+            //Inicializa o app verificando se há notícias a serem classificadas em Coredata
+            self.managedContext = context
+            do {
+                let request = NSFetchRequest<ClassifiedNewsData>(entityName: "ClassifiedNewsData")
+                request.sortDescriptors = [NSSortDescriptor(key: "recordName", ascending: true)]
+                let newsToClassify = try context.fetch(request)
+                
+                for data in newsToClassify {
+                    let news = NewsViewModel(data: data)
+                    self.classifiedNews[news.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: news.news, context: context)
+                    self.articles.append(news)
+                }
+                
+                if self.articles.count > 0 {
+                    self.news = self.articles[0]
+                }
+            }catch {
+                print("Error:\(error)")
+            }
+        }
+    }
+
     
     var totalClassifiedNews:Int {
         let defaults = UserDefaults.standard
@@ -138,7 +167,7 @@ class NewsListViewModel: ObservableObject {
         
         classifier.saveClassifiedSentences()
         
-        saveSentence(sentence: sentence, context: self.context!)
+        saveSentence(sentence: sentence, context: self.context)
     }
     
     func  numMarkAsClassifiedNews() -> Int {
@@ -165,7 +194,7 @@ class NewsListViewModel: ObservableObject {
             print ("error:\(error)")
         }
     }
-
+    
     func loadLatestNews(context: NSManagedObjectContext) {
         self.context = context
         var articles:[NewsViewModel] = []
@@ -185,70 +214,80 @@ class NewsListViewModel: ObservableObject {
 //                deleteAllSentences(context: context)
 //                try context.save()
             }
+//            StartseNewsService().markAllNewsAsNotClassified() {
+//                print(">>> Marcou todas as notícias como não classificadas")
+//            }
+            
+//            StartseNewsService().giveAllNewsUniqueID() {
+//                print(">>> Notícias com id único")
+//            }
         }catch {
             print("Error:\(error)")
         }
+        
+        if articles.count == 0 {
+            //Carrega mais notícias apenas se todas as notícias que já estão no dispositivo já foram classificadas
+            StartseNewsService().loadLatestNews() {
+                records in
+                records.forEach {
+                    record in
+                    do {
+                        let newsModel = try NewsViewModel(record: record)
+                        if !articles.contains(where: {
+                            $0.recordName == newsModel.recordName
+                        }) {
+                            //Salva em CoreData as novas notícias vindas do CloudKit
+                            articles.append(newsModel)
 
-        StartseNewsService().loadLatestNews() {
-            records in
-            records.forEach {
-                record in
-                do {
-                    let newsModel = try NewsViewModel(record: record)
-                    if !articles.contains(where: {
-                        $0.recordName == newsModel.recordName
-                    }) {
-                        //Salva em CoreData as novas notícias vindas do CloudKit
-                        articles.append(newsModel)
-
-                        let news = ClassifiedNewsData(context: context)
-                        news.recordName = record.recordID.recordName
-                        news.id = newsModel.id.uuidString
-                        news.isClassified = false
-                        news.title = newsModel.title
-                        news.subtitle = newsModel.subtitle
-                        news.link = newsModel.link
-                        news.text = newsModel.text
-                        try context.save()
-                        //Quebra a notícia em sentença e salva em CoreData
-                        let sentences = self.breakIntoSentences(news: newsModel.news)
-
-                        try sentences.forEach{ sentence in
-                            let sentenceData = SentenceData(context: context)
-                            sentenceData.containsSegment = false
-                            sentenceData.containsJob = false
-                            sentenceData.containsSolution = false
-                            sentenceData.containsTechnology = false
-                            sentenceData.containsInvestment = false
-
-                            sentenceData.id = sentence.id.uuidString
-                            sentenceData.text = sentence.text
-                            sentenceData.ofNews = news
+                            let news = ClassifiedNewsData(context: context)
+                            news.recordName = record.recordID.recordName
+                            news.id = newsModel.id.uuidString
+                            news.isClassified = false
+                            news.title = newsModel.title
+                            news.subtitle = newsModel.subtitle
+                            news.link = newsModel.link
+                            news.text = newsModel.text
                             try context.save()
+                            //Quebra a notícia em sentença e salva em CoreData
+                            let sentences = self.breakIntoSentences(news: newsModel.news)
+
+                            try sentences.forEach{ sentence in
+                                let sentenceData = SentenceData(context: context)
+                                sentenceData.containsSegment = false
+                                sentenceData.containsJob = false
+                                sentenceData.containsSolution = false
+                                sentenceData.containsTechnology = false
+                                sentenceData.containsInvestment = false
+
+                                sentenceData.id = sentence.id.uuidString
+                                sentenceData.text = sentence.text
+                                sentenceData.ofNews = news
+                                try context.save()
+                            }
+                            self.classifiedNews[newsModel.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: newsModel.news, context: context)
                         }
-                        self.classifiedNews[newsModel.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: newsModel.news, context: context)                        
+                    }catch {
+                        print("Error: \(error)")
                     }
-                }catch {
-                    print("Error: \(error)")
                 }
-            }
 
-            articles.removeAll(where: {
-                $0.isClassified == true
-            })
+                articles.removeAll(where: {
+                    $0.isClassified == true
+                })
 
-            if articles.count > 0 {
-                //Separa as primeiras 3 notícias não classificadas para classificação
-                var firstThreeNews:[NewsViewModel] = []
-                if articles.count >= 3 {
-                    firstThreeNews = Array(articles[0...2])
-                }else {
-                    firstThreeNews = Array(articles[0..<articles.count])
+                if articles.count > 0 {
+                    //Separa as primeiras 3 notícias não classificadas para classificação
+                    var firstThreeNews:[NewsViewModel] = []
+                    if articles.count >= 3 {
+                        firstThreeNews = Array(articles[0...2])
+                    }else {
+                        firstThreeNews = Array(articles[0..<articles.count])
+                    }
+                    self.articles = firstThreeNews
+                    self.news = articles[0]
                 }
-                self.articles = firstThreeNews
-                self.news = articles[0]
+                self.isLoading = false
             }
-            self.isLoading = false
         }
     }
 }
@@ -321,16 +360,30 @@ extension NewsListViewModel {
         do {
             let newsData = try context.fetch(request)
             let newsToUpdate = newsData[0]
-            newsToUpdate.setValue(isClassified, forKey: "isClassified")
-            self.news?.isClassified = isClassified
-    
-            try context.save()
             
             defaults.set(totalClassifiedNews + 1, forKey: "totalClassifiedNews")
             if articles.count == self.numMarkAsClassifiedNews() {
                 self.classificationCompleted = true
             }else {
                 self.classificationCompleted = false
+            }
+            
+            //Aqui: Precisa salvar a notícia classificada com suas sentenças no Cloudkit
+            guard let currentNews = news else { return }
+            guard let classifiedNews = self.classifiedNews[currentNews.id.uuidString.lowercased()]?.classifiedNews else { return }
+            StartseNewsService().updateNewsAsClassified(classifiedNews: classifiedNews) {
+                //Aqui está faltando o completion
+            }
+            //Aqui: precisa apagar a notícia do Coredata e localmente
+            self.articles.removeAll{
+                $0.id.uuidString.lowercased() == self.news?.id.uuidString.lowercased()
+            }
+            self.classifiedNews[(self.news?.id.uuidString.lowercased())!] = nil
+            
+            context.delete(newsToUpdate)
+            
+            if context.hasChanges {
+                try context.save()
             }
         }catch {
             print("Error:\(error)")

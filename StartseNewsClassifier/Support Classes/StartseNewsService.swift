@@ -12,16 +12,70 @@ import CoreData
 
 class StartseNewsService {
     var records:[CKRecord] = []
+    func giveAllNewsUniqueID(completion: @escaping () -> ()) {
+        loadLatestNews() {
+            records in
+            do {
+                let container = CKContainer(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier")
+                try records.forEach {
+                    record in
+                    let newsModel = try NewsViewModel(record: record)
+                    record["id"] = newsModel.id.uuidString.uppercased()
+                }
+                
+                let operation = CKModifyRecordsOperation(recordsToSave: records)
+                container.privateCloudDatabase.add(operation)
+                
+                operation.completionBlock = {
+                    completion()
+                }
+            }catch {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    func markAllNewsAsNotClassified(completion: @escaping () -> ()) {
+        loadLatestNews() {
+            records in
+
+            let container = CKContainer(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier")
+
+            records.forEach {
+                record in
+                record["isClassified"] = false
+//                container.privateCloudDatabase.save(record) {
+//                    record, error in
+//
+//                    DispatchQueue.main.async {
+//                        if (error != nil) {
+//                            print ("Error: \(String(describing: error))")
+//                        }else {
+//                            completion()
+//                        }
+//                    }
+//                }
+            }
+            let operation = CKModifyRecordsOperation(recordsToSave: records)
+            container.privateCloudDatabase.add(operation)
+            
+            operation.completionBlock = {
+                completion()
+            }
+        }
+    }
     
     func loadLatestNews(completion: @escaping ([CKRecord]) -> ()) {
         //Verifica se há novas notícias a serem baixadas do cloudkit
         let database = CKContainer.init(identifier: "iCloud.br.ufpe.cin.StartseNewsClassifier").privateCloudDatabase
-        let predicate = NSPredicate(value: true)
+        let predicate1 = NSPredicate(format: "isClassified == false")
         
-        let query = CKQuery(recordType: "News", predicate: predicate)
+        
+        let query = CKQuery(recordType: "News", predicate: predicate1)
         query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
         let operation = CKQueryOperation(query: query)
+        operation.resultsLimit = 3
         
         operation.recordFetchedBlock = {
             record in
@@ -43,5 +97,15 @@ class StartseNewsService {
             }
         }
         database.add(operation)
+    }
+}
+
+extension StartseNewsService {
+    func updateNewsAsClassified(classifiedNews:ClassifiedNewsModel, completion: @escaping () -> ()) {
+        let newsId = classifiedNews.newsModel.news_id
+        print (newsId)
+        
+        let sentences = classifiedNews.classifiedSentences
+        print(sentences)
     }
 }

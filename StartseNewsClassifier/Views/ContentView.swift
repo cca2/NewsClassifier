@@ -12,10 +12,11 @@ import CloudKit
 struct ContentView: View {
 
     @EnvironmentObject var newsList:NewsListViewModel
+    @State var numNewsToClassify:Int = 0
+    @State var title:String = ""
+    @State var subtitle:String = ""
+    @State var numNews:Int = 0
     
-    
-    
-    private let dateFormater = DateFormatter()
     
     //Acessando o contexto para CoreData
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -24,12 +25,16 @@ struct ContentView: View {
         TabView() {
             NavigationView {
                 HStack {
-                    if !(self.newsList.articles.count == self.newsList.numMarkAsClassifiedNews()) {
-                        NewsView(title: newsList.articles.first!.title, subtitle: newsList.articles.first!.subtitle, numNews: newsList.articles.count, date: dateFormater.string(from: Date()), newsList: newsList)
-                    }else {
+                    if numNewsToClassify == 0 {
                         FetchNewsView()
+                    }else {
+                        NewsView(title: title, subtitle: subtitle, numNews: numNews)
                     }
-                }.transition(.slide)
+                }.onAppear() {
+                    self.newsList.context = self.managedObjectContext
+                    self.numNewsToClassify = self.newsList.articles.count
+                }
+                .transition(.slide)
             }.tabItem({
                 Text("Classificação")
             })
@@ -41,9 +46,9 @@ struct ContentView: View {
         }
     }
     
-    init() {
-        self.dateFormater.dateFormat = "EEEE, MMM d, yyyy"
-    }
+//    init() {
+//        self.dateFormater.dateFormat = "EEEE, MMM d, yyyy"
+//    }
     
     func fetch() {
         self.newsList.loadLatestNews(context: self.managedObjectContext)
