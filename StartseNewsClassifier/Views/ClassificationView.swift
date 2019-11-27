@@ -200,6 +200,7 @@ struct ClassificationView: View {
             self.containsFeature = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.solution)
             self.conatainsTechnology = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.technology)
             self.containsInvestment = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.investment)
+            self.containsOutcome = classifier.sentenceList[self.currentSentenceIndex].classifications.contains(.outcome)
         }
     }
     

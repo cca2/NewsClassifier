@@ -195,8 +195,7 @@ class NewsListViewModel: ObservableObject {
         }
     }
     
-    func loadLatestNews(context: NSManagedObjectContext) {
-        self.context = context
+    func loadLatestNews(completion: @escaping () -> ()) {
         var articles:[NewsViewModel] = []
         self.currentNewsIndex = 0
         
@@ -239,7 +238,7 @@ class NewsListViewModel: ObservableObject {
                             //Salva em CoreData as novas notícias vindas do CloudKit
                             articles.append(newsModel)
 
-                            let news = ClassifiedNewsData(context: context)
+                            let news = ClassifiedNewsData(context: self.context)
                             news.recordName = record.recordID.recordName
                             news.id = newsModel.id.uuidString
                             news.isClassified = false
@@ -247,12 +246,12 @@ class NewsListViewModel: ObservableObject {
                             news.subtitle = newsModel.subtitle
                             news.link = newsModel.link
                             news.text = newsModel.text
-                            try context.save()
+                            try self.context.save()
                             //Quebra a notícia em sentença e salva em CoreData
                             let sentences = self.breakIntoSentences(news: newsModel.news)
 
                             try sentences.forEach{ sentence in
-                                let sentenceData = SentenceData(context: context)
+                                let sentenceData = SentenceData(context: self.context)
                                 sentenceData.containsSegment = false
                                 sentenceData.containsJob = false
                                 sentenceData.containsSolution = false
@@ -262,9 +261,9 @@ class NewsListViewModel: ObservableObject {
                                 sentenceData.id = sentence.id.uuidString
                                 sentenceData.text = sentence.text
                                 sentenceData.ofNews = news
-                                try context.save()
+                                try self.context.save()
                             }
-                            self.classifiedNews[newsModel.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: newsModel.news, context: context)
+                            self.classifiedNews[newsModel.id.uuidString.lowercased()] = ClassifiedNewsViewModel(news: newsModel.news, context: self.context)
                         }
                     }catch {
                         print("Error: \(error)")
@@ -287,7 +286,11 @@ class NewsListViewModel: ObservableObject {
                     self.news = articles[0]
                 }
                 self.isLoading = false
+                
+                completion()
             }
+        }else {
+            completion()
         }
     }
 }

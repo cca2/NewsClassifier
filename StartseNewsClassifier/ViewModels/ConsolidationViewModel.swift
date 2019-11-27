@@ -23,6 +23,7 @@ class ConsolidationViewModel: ObservableObject {
     }
     
     private func fetchSentences() -> [SentenceViewModel]{
+        //Aqui: parece estar havendo uma diferença entre o indice de Outcome: 2 ou 3
         var result:[SentenceViewModel] = []
         let request = NSFetchRequest<SentenceData>(entityName: "SentenceData")
         var predicate:NSPredicate!

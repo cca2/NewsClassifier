@@ -26,7 +26,7 @@ struct ContentView: View {
             NavigationView {
                 HStack {
                     if numNewsToClassify == 0 {
-                        FetchNewsView()
+                        FetchNewsView(numNewsToClassify: $numNewsToClassify)
                     }else {
                         NewsView(title: title, subtitle: subtitle, numNews: numNews)
                     }
@@ -46,12 +46,8 @@ struct ContentView: View {
         }
     }
     
-//    init() {
-//        self.dateFormater.dateFormat = "EEEE, MMM d, yyyy"
-//    }
-    
     func fetch() {
-        self.newsList.loadLatestNews(context: self.managedObjectContext)
+        self.newsList.loadLatestNews(){}
     }
 }
 

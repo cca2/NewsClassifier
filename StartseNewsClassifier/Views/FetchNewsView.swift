@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ActivityIndicator: UIViewRepresentable {
-
     @Binding var isAnimating: Bool
     let style: UIActivityIndicatorView.Style
 
@@ -23,6 +22,7 @@ struct ActivityIndicator: UIViewRepresentable {
 }
 
 struct FetchNewsView: View {
+    @Binding var numNewsToClassify:Int
     @State private var offset:CGSize = .zero
     @State private var isLoading:Bool = false
     
@@ -73,12 +73,15 @@ struct FetchNewsView: View {
         
     func fetchNextNewsToClassify() {
         self.isLoading = true
-        self.newsList.loadLatestNews(context: self.context)
+        self.newsList.loadLatestNews() {
+            self.numNewsToClassify = self.newsList.articles.count
+        }
     }
 }
 
 struct FetchNewsView_Previews: PreviewProvider {
+    @State static var numNewsToClassify = 0
     static var previews: some View {
-        FetchNewsView()
+        FetchNewsView(numNewsToClassify: $numNewsToClassify)
     }
 }
